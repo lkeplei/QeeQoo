@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>desc</key>
+	<string>movie_4</string>
+	<key>swf</key>
+	<array>
+		<string>movie_4_1.swf</string>
+		<string>movie_4_2.swf</string>
+		<string>movie_4_3.swf</string>
+	</array>
+</dict>
+</plist>

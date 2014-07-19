@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>114</key>
+	<dict>
+		<key>effect</key>
+		<string>RooDa.mp3</string>
+		<key>id</key>
+		<string>114</string>
+	</dict>
+	<key>146</key>
+	<dict>
+		<key>effect</key>
+		<string>QeeMoo.mp3</string>
+		<key>id</key>
+		<string>146</string>
+	</dict>
+	<key>18</key>
+	<dict>
+		<key>effect</key>
+		<string>BeeBoo-D.mp3</string>
+		<key>id</key>
+		<string>18</string>
+	</dict>
+	<key>50</key>
+	<dict>
+		<key>effect</key>
+		<string>QaQa.mp3</string>
+		<key>id</key>
+		<string>50</string>
+	</dict>
+	<key>82</key>
+	<dict>
+		<key>effect</key>
+		<string>QeeGa-D.mp3</string>
+		<key>id</key>
+		<string>82</string>
+	</dict>
+</dict>
+</plist>

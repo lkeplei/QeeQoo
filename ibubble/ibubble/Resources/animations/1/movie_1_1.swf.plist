@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1</key>
+	<dict>
+		<key>id</key>
+		<string>1</string>
+		<key>music</key>
+		<string>battle_mv_backgroud_002.mp3</string>
+	</dict>
+	<key>47</key>
+	<dict>
+		<key>effect</key>
+		<string>QeeQoo.mp3</string>
+		<key>id</key>
+		<string>104</string>
+	</dict>
+	<key>81</key>
+	<dict>
+		<key>effect</key>
+		<string>QeeQoo.mp3</string>
+		<key>id</key>
+		<string>81</string>
+	</dict>
+	<key>113</key>
+	<dict>
+		<key>effect</key>
+		<string>MeeMoo.mp3</string>
+		<key>id</key>
+		<string>113</string>
+	</dict>
+	<key>317</key>
+	<dict>
+		<key>effect</key>
+		<string>MeeDa.mp3</string>
+		<key>id</key>
+		<string>317</string>
+	</dict>
+	<key>333</key>
+	<dict>
+		<key>effect</key>
+		<string>TeeCi.mp3</string>
+		<key>id</key>
+		<string>333</string>
+	</dict>
+</dict>
+</plist>

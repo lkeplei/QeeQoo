@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EEF7114D-2EB1-4247-9132-9EEECFBAA10F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ibubble</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AB518515-7023-41EE-B7BA-31C4716412A7</key>
+		<string>https://bitbucket.org/kaisne/isnowball_ibubble.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ibubble/ibubble.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AB518515-7023-41EE-B7BA-31C4716412A7</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/kaisne/isnowball_ibubble.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AB518515-7023-41EE-B7BA-31C4716412A7</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AB518515-7023-41EE-B7BA-31C4716412A7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>isnowball_ibubble</string>
+		</dict>
+	</array>
+</dict>
+</plist>

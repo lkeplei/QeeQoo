@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>218</key>
+	<dict>
+		<key>effect</key>
+		<string>RooCi.mp3</string>
+		<key>id</key>
+		<string>218</string>
+	</dict>
+	<key>252</key>
+	<dict>
+		<key>effect</key>
+		<string>ViTee.mp3</string>
+		<key>id</key>
+		<string>252</string>
+	</dict>
+</dict>
+</plist>
