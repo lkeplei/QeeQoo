@@ -74,7 +74,8 @@ void AchievementScene::press_next(CCObject *pSender, CCControlEvent pCCControlEv
 				CCString * zoneID = (CCString * )dict->objectForKey(KStrZoneId);
 				if (levelID && zoneID) {
 					GameModle::sharedInstance()->setCurrentBigLevelId(zoneID->intValue());
-					GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE,CCInteger::create(levelID->intValue()));
+					GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE,CCInteger::create(levelID->intValue()),
+                                                                  CCInteger::create(zoneID->intValue()));
 				}
 				else{
 					GameController::sharedInstance()->switchSence(GameController::K_SCENE_VIEW_ACHIEVEMENT,dict);
