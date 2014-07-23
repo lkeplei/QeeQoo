@@ -2607,6 +2607,32 @@
 					</dict>
 					<key>defalut_forcer</key>
 					<string>0.02</string>
+					<key>npcs</key>
+					<array>
+						<dict>
+							<key>count</key>
+							<string>20</string>
+							<key>npcs</key>
+							<array>
+								<dict>
+									<key>id</key>
+									<string>100201</string>
+								</dict>
+								<dict>
+									<key>id</key>
+									<string>100202</string>
+								</dict>
+								<dict>
+									<key>id</key>
+									<string>100203</string>
+								</dict>
+								<dict>
+									<key>id</key>
+									<string>100204</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 					<key>id</key>
 					<integer>900101</integer>
 					<key>idle_time</key>
@@ -2661,32 +2687,6 @@
 					</dict>
 					<key>next_level</key>
 					<string>900102</string>
-					<key>npcs</key>
-					<array>
-						<dict>
-							<key>count</key>
-							<string>20</string>
-							<key>npcs</key>
-							<array>
-								<dict>
-									<key>id</key>
-									<string>100201</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<string>100202</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<string>100203</string>
-								</dict>
-								<dict>
-									<key>id</key>
-									<string>100204</string>
-								</dict>
-							</array>
-						</dict>
-					</array>
 					<key>pass_count</key>
 					<string>12</string>
 					<key>pass_time</key>

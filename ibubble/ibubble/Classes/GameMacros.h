@@ -17,7 +17,8 @@
 #define NS_KAI_END                       }}
 #define USING_NS_KAI                 using namespace kai::game
 
-#define KBattleTestModle
+//#define KBattleTestModle
+#define KOpenAllLevels              //开启所有关卡
 
 
 #define KBattleNodeTageBgLayer 		  99000

@@ -285,7 +285,11 @@ void SubLevelsSelectionScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::C
 					}	
 				}
 			}
-			else if(tmpLevelId <= lastachievement._currentLevelId + 1){
+#ifdef KOpenAllLevels
+            else if(1){
+#else
+            else if(tmpLevelId <= lastachievement._currentLevelId + 1){
+#endif
 				
 				item->setEnabled(true);
 				switch (lastachievement._currentBigLevelId) {
