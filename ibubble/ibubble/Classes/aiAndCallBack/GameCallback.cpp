@@ -174,10 +174,25 @@ void CallbackRocketExplosionEffect::handleExplode(GameObject * tmp,
 												  float atk,
 												  GameObject * atkObject){
 	
-	if (!(tmp->getState() & GameObject::K_STATE_FALL) && tmp->getTypeId() == KNPCTypeId) {
-		GameModle * _sharedInstance = GameModle::sharedInstance();
-		_sharedInstance->bubbleExplosion(tmp,KBubbleToExplosionDelay);
-	}
+//	if (!(tmp->getState() & GameObject::K_STATE_FALL) && tmp->getTypeId() == KNPCTypeId) {
+//		GameModle * _sharedInstance = GameModle::sharedInstance();
+//		_sharedInstance->bubbleExplosion(tmp,KBubbleToExplosionDelay);
+//	}
+    
+    if (!(tmp->getState() & GameObject::K_STATE_FALL) &&
+        tmp->getTypeId() == KNPCTypeId ) {
+        
+        GameModle * _sharedInstance = GameModle::sharedInstance();
+        int32_t checkValue = (int32_t)atkObject;
+        if (!tmp->checkExistInExtraMap(KStrATK_SOURCE,checkValue)) {
+            tmp->addValueInExtraMap(KStrATK_SOURCE, checkValue);
+            GameObject::reduceHP(tmp,atk,atkObject);
+            if (tmp->getHP() <= 0) {
+                _sharedInstance->bubbleExplosion(tmp,KBubbleToExplosionDelay);
+            }
+        }
+        
+    }
 }
 
 void CallbackRocketExplosionEffect::handleExplodeEnd(GameObject * tmp,CCDictionary * dic,float dt){
