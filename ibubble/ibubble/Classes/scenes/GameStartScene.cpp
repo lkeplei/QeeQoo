@@ -67,7 +67,8 @@ void GameStartScene::press_play_next()
 {
 	if (!GameController::sharedInstance()->popSence()) {
 		GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE,
-                                                      CCInteger::create(_nextLevelId));
+                                                      CCInteger::create(_nextLevelId),
+                                                      CCInteger::create(GameModle::sharedInstance()->currentBigLevelId()));
 	}
 	else{
 		GameController::sharedInstance()->resumeBattle();
