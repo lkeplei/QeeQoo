@@ -124,6 +124,7 @@ void GameController::switchSence(const ESceneId sceneId,
             _sharedGameModleInstance->resetBattleInfo();
             _sharedGameModleInstance->setBattleMode(K_HARD_PVE_BATTLE);
             _sharedGameModleInstance->setCurrentLevelId(levelid->getValue());
+            _sharedGameModleInstance->setCurrentBigLevelId(4);
 			_pushSenceFromBattle = _pushSence;
 			pScene = BattleScene::scene();
 		}

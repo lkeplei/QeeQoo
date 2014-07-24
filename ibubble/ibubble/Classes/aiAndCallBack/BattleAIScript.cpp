@@ -21,9 +21,7 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
 	PlayerAchievement & achievement = gModleInstance->playerAchievement();
 	
 	if (achievement._idleTime >= achievement._idleMaxTime ) {
-		
-		
-		if (gModleInstance->currentBigLevelId() >= kStoryZoneMaxId) {
+		if (gModleInstance->currentBigLevelId() >= kStoryZoneMaxId && gModleInstance->getBattleMode() == K_NORMAL_PVE_BATTLE) {
 			if (achievement._killNpcCount > 0) {
 				controller->pauseBattle();
 				controller->switchSence(GameController::K_SCENE_ACHIEVEMENT);
