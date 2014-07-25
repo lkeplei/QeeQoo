@@ -10,6 +10,9 @@
 #include "GameModle.h"
 #include "GameConstant.h"
 #include "UiTool.h"
+
+#include "GameUtilities.h"
+
 NS_KAI_BEGIN
 ChallengeHelpInLevelScene::ChallengeHelpInLevelScene():CCLayer()
 {
@@ -50,7 +53,9 @@ CCScene* ChallengeHelpInLevelScene::scene()
 
 void ChallengeHelpInLevelScene::press_next(){
     //冲第一关卡开始
-	GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,CCInteger::create(0));
+    GameModle::sharedInstance()->setCurrentHardLevelId(0);
+	GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,
+                                                  CCInteger::create(GameUtilities::getRandLevel()));
 }
 
 #pragma mark-

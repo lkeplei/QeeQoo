@@ -29,6 +29,12 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
 		}
 		else{
 			if (achievement._killNpcCount >= achievement._pass_count) {
+                
+                if (gModleInstance->getBattleMode() == K_HARD_PVE_BATTLE) {
+                    //挑战模式下过关，加关卡
+                    achievement._currentHardLevelId++;
+                }
+                
 				controller->pauseBattle();
 				achievement._failed = false;
 				achievement._star_count = (achievement._killNpcCount >= achievement._pass_star_count) ? 1 : 0;

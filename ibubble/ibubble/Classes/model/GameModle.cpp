@@ -859,8 +859,16 @@ void  GameModle::setCurrentBigLevelId(const uint32_t value){
     _playerAchievement._currentBigLevelId = value;
 }
 
+void GameModle::setCurrentHardLevelId(const uint32_t value){
+    _playerAchievement._currentHardLevelId = value;
+}
+
 int32_t GameModle::currentLevelId()const{
     return _playerAchievement._currentLevelId;
+}
+
+int32_t GameModle::currentHardLevelId()const{
+    return _playerAchievement._currentHardLevelId;
 }
 
 int32_t GameModle::currentBigLevelId()const{

@@ -31,6 +31,8 @@
 #include "ChallengeHelpInLevelScene.h"
 #include "ChallengeGameOverScene.h"
 
+#include "GameUtilities.h"
+
 NS_KAI_BEGIN
 static GameController * _sharedInstance=NULL;
 

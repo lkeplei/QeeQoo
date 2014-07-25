@@ -12,6 +12,8 @@
 #include "UiTool.h"
 #include "GameConfig.h"
 
+#include "GameUtilities.h"
+
 NS_KAI_BEGIN
 ChallengeGameStartScene::ChallengeGameStartScene():CCLayer()
 ,_passCount(NULL)
@@ -56,16 +58,17 @@ CCScene* ChallengeGameStartScene::scene(const int type)
 	return scene;
 }
 
-void ChallengeGameStartScene::press_next(){
+void ChallengeGameStartScene::play_next(){
     //冲第一关卡开始
-	GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,
-                                                  CCInteger::create(0));
+    GameModle::sharedInstance()->setCurrentHardLevelId(GameUtilities::getLevelId());
+    GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,
+                                                  CCInteger::create(GameUtilities::getRandLevel()));
 }
 
 #pragma mark-
 #pragma mark CCBSelectorResolver
 SEL_MenuHandler ChallengeGameStartScene::onResolveCCBCCMenuItemSelector(CCObject * pTarget, CCString * pSelectorName){
-    CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(this, "press_next",ChallengeGameStartScene::press_next);
+    CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(this, "play_next",ChallengeGameStartScene::play_next);
 	return NULL;
 }
 

@@ -17,6 +17,10 @@ public:
 	static void writeDateToFile(const char * aBuffer,const int aBufferLength,const std::string &filepath);
 	static std::string getFilePathInDocumentDir(const std::string &filepath);
 	static bool fileExistsAtPath(const std::string &filepath);
+    
+    static int getRandLevel();
+    static void saveLevelId(int levelId);
+    static int getLevelId();
 };
 
 #endif

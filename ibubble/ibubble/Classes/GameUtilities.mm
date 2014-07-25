@@ -41,3 +41,42 @@ bool GameUtilities_fileExistsAtPath(const char *pFileName){
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	return ([fileManager fileExistsAtPath:filepath] == YES);
 }
+
+#pragma mark - data
+void GameUtilities_saveLevelId(int levelId){
+	NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:levelId] forKey:@"default_levelId"];
+}
+
+int GameUtilities_getLevelId(){
+	NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    return [[defaults objectForKey:@"default_levelId"] intValue];
+}
+
+int GameUtilities_getRandId(int32_t levelId){
+    //获取一个随机整数，范围在[from,to]，包括from，包括to
+    int from = 0;
+    int to = 14;
+    
+    if (levelId >= 0 && levelId <= 4) {
+        from = 0;
+        to = 14;
+    } else if (levelId >= 5 && levelId <= 9) {
+        from = 15;
+        to = 29;
+    } else if (levelId >= 10 && levelId <= 14) {
+        from = 30;
+        to = 44;
+    } else if (levelId >= 15 && levelId <= 19) {
+        from = 45;
+        to = 59;
+    } else if (levelId >= 20 && levelId <= 24) {
+        from = 60;
+        to = 74;
+    } else if (levelId >= 25 && levelId <= 29) {
+        from = 75;
+        to = 89;
+    }
+    
+    return (int)(from + (arc4random() % (to - from + 1)));
+}

@@ -92,8 +92,11 @@ public:
 	b2World * box2dWorld();
 	void  setCurrentLevelId(const uint32_t value);
 	void  setCurrentBigLevelId(const uint32_t value);
+    void  setCurrentHardLevelId(const uint32_t value);
+
 	int32_t currentLevelId()const;
 	int32_t currentBigLevelId()const;
+    int32_t currentHardLevelId()const;
 	PlayerAchievement & playerAchievement();
 	CCDictionary * gameObjectsDict();
 	CCLayer * battleGameObjectlayer();

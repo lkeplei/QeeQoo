@@ -10,6 +10,9 @@
 #include "GameModle.h"
 #include "GameConstant.h"
 #include "UiTool.h"
+
+#include "GameUtilities.h"
+
 NS_KAI_BEGIN
 ChallengeGameOverScene::ChallengeGameOverScene():CCLayer()
 ,_passTitle(NULL)
@@ -101,12 +104,8 @@ void ChallengeGameOverScene::press_replay()
 
 void ChallengeGameOverScene::press_play_next()
 {
-    GameModle * _sharedInstance=GameModle::sharedInstance();
-	int _currentLevelId=_sharedInstance->currentLevelId();
-    _currentLevelId += 3;
-    _sharedInstance->setCurrentLevelId(_currentLevelId);
-	
-    GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,CCInteger::create(_currentLevelId));
+    GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,
+                                                  CCInteger::create(GameUtilities::getRandLevel()));
 }
 
 #pragma mark-

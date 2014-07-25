@@ -30,7 +30,7 @@ public:
     ChallengeGameStartScene();
     static cocos2d::CCScene* scene(const int type);
 	static ChallengeGameStartScene* createWithCCB();
-    void press_next();
+    void play_next();
 public:
 #pragma mark-
 #pragma mark CCBSelectorResolver
