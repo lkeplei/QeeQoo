@@ -133,6 +133,7 @@ private:
 	uint32_t  _game_state;
 	std::list<GameObject *>  _activefallList;
 	CCDictionary * _collideObjects;
+    vector<int> levelList;
 private:
 	SkillInfo _skillInfo;
 	int		  _battleTouchTimes;
@@ -148,6 +149,9 @@ public:
 	
 	const int  getBattleTouchMaxTimes();
 	void  setBattleTouchMaxTimes(const int times);
+    
+    vector<int> getLevelList();
+    void pushLevelId(int levelId);
 public:
     void resetBattleInfo();
 };

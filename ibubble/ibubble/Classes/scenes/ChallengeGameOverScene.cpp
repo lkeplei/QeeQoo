@@ -87,7 +87,18 @@ CCScene* ChallengeGameOverScene::scene()
 	ChallengeGameOverScene * node =(ChallengeGameOverScene*)createWithCCB();
 	if(node != NULL){
 		scene->addChild(node);
-        node->show(1);
+        
+        GameModle* gModleInstance = GameModle::sharedInstance();
+        PlayerAchievement& achievement = gModleInstance->playerAchievement();
+        
+        if (achievement._killNpcCount >= achievement._pass_count){
+            node->show(1);
+        } else if (achievement._killNpcCount >= achievement._pass_star_count){
+            node->show(2);
+        } else {
+            node->show(3);
+        }
+        
 	}
 	return scene;
 }
@@ -235,6 +246,7 @@ void ChallengeGameOverScene::show(int type){
             _normal_stars_node->setVisible(true);
             _normalMenuBtn->setVisible(true);
             _normalNextBtn->setVisible(true);
+            _normalNextBtn->setEnabled(false);
             //todo: 分数 _normal_records_node,_normal_stars_node
             createNodeValText(_normal_records_node,"123456",UiTool::kFontMidlle);
             createNodeValText(_normal_stars_node,"123456",UiTool::kFontMidlle);

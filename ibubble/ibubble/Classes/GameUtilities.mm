@@ -7,6 +7,9 @@
 //
 #import <Foundation/Foundation.h>
 #include "cocos2d.h"
+
+#include "GameModle.h"
+
 bool GameUtilities_writeDateToFile(const char * aBuffer,const int aBufferLength,const char *pFileName){
 	
 	NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory
@@ -77,6 +80,21 @@ int GameUtilities_getRandId(int32_t levelId){
         from = 75;
         to = 89;
     }
+
+    kai::game::GameModle* instance = kai::game::GameModle::sharedInstance();
+    std::vector<int> levelList = instance->getLevelList();
+
+    int level = (int)(from + (arc4random() % (to - from + 1)));
     
-    return (int)(from + (arc4random() % (to - from + 1)));
+    std::vector<int>::const_iterator iter = levelList.begin();
+    for (; iter != levelList.end(); iter++) {
+        if (level == *iter) {
+            level = GameUtilities_getRandId(levelId);
+            break;
+        }
+    }
+
+    instance->pushLevelId(level);
+    
+    return level;
 }

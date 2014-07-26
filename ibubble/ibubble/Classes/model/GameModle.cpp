@@ -38,6 +38,12 @@ GameModle::GameModle():CCObject()
 {
 	_playerAchievement._currentLevelId = 0;
 	_playerAchievement._currentBigLevelId = 0;
+    
+    levelList.push_back(-1);
+    levelList.push_back(-1);
+    levelList.push_back(-1);
+    levelList.push_back(-1);
+    levelList.push_back(-1);
 }
 
 GameModle::~GameModle(){
@@ -917,6 +923,15 @@ const int  GameModle::getBattleTouchMaxTimes(){
 void  GameModle::setBattleTouchMaxTimes(const int times){
     _battleTouchMaxTimes = times;
 }
+
+vector<int> GameModle::getLevelList(){
+    return levelList;
+}
+
+void GameModle::pushLevelId(int levelId){
+    levelList[_playerAchievement._currentHardLevelId % 5] = levelId;
+}
+
 void  GameModle::resetBattleInfo(){
     _playerAchievement.reset();
 }

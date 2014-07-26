@@ -103,9 +103,9 @@ void createValText(CCNode * container,const std::string & text ,UiTool::EFontSiz
 #pragma mark CCBNodeLoaderListener
 void ChallengeGameStartScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader){
     //TODO:读取数据
-    createValText(_titleNode,"25",UiTool::kFontBig);
-    createValText(_passCount,"25/100",UiTool::kFontMidlle);
-    createValText(_starCount,"25/100",UiTool::kFontMidlle);
+    createValText(_titleNode, "25", UiTool::kFontBig);
+    createValText(_passCount, "25/100", UiTool::kFontMidlle);
+    createValText(_starCount, "25/100", UiTool::kFontMidlle);
 }
 NS_KAI_END
 
