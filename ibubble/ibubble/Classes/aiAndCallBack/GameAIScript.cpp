@@ -15,7 +15,6 @@ NS_KAI_BEGIN
 
 bool BubbleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float dt) {
 	if (aGameObject) {
-		
 		GameModle * _modlesharedInstance=GameModle::sharedInstance();
 		
 		b2Body* physicsBody = aGameObject->getPhysicsBody();
@@ -145,7 +144,6 @@ bool BubbleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
 				}
 			}
 		}
-		
 		
 		//检查到碰撞(只是处理泡泡和泡泡直接的碰撞,当前为攻击方)
 		if (state & GameObject::K_STATE_COLLIDE){

@@ -43,6 +43,7 @@ public:
 #pragma mark CCBNodeLoaderListener
 	virtual void onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader);
 private:
+    int currentLevel;
 	int _type;
     CCNode * _passCount;
     CCNode * _starCount;

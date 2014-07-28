@@ -62,7 +62,7 @@ void ChallengeGameStartScene::play_next(){
     //冲第一关卡开始
     GameModle::sharedInstance()->setCurrentHardLevelId(GameUtilities::getLevelId());
     GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,
-                                                  CCInteger::create(GameUtilities::getRandLevel()));
+                                                  CCInteger::create(currentLevel));
 }
 
 #pragma mark-
@@ -102,10 +102,37 @@ void createValText(CCNode * container,const std::string & text ,UiTool::EFontSiz
 #pragma mark-
 #pragma mark CCBNodeLoaderListener
 void ChallengeGameStartScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader){
-    //TODO:读取数据
-    createValText(_titleNode, "25", UiTool::kFontBig);
-    createValText(_passCount, "25/100", UiTool::kFontMidlle);
-    createValText(_starCount, "25/100", UiTool::kFontMidlle);
+    currentLevel = GameUtilities::getRandLevel();
+    
+    
+    CCDictionary * dict = (CCDictionary *)GameConfig::sharedInstance()->getLevelsValue("4");
+    CCArray * sublevels = (CCArray *)dict->objectForKey(KStrSubLevels);
+    CCDictionary * currentLevelDict = (CCDictionary *)sublevels->objectAtIndex(currentLevel);
+    CCArray * npcs = (CCArray *)currentLevelDict->objectForKey(KStrNPCs);//npcs
+    
+    CCObject * npcitem = NULL;
+    int pass_count = ((CCString *)currentLevelDict->objectForKey(KStrPassCount))->intValue();
+    int star_count = ((CCString *)currentLevelDict->objectForKey(KStrStarCount))->intValue();
+    int count = 0;
+    CCARRAY_FOREACH(npcs, npcitem){
+        CCDictionary * dict = (CCDictionary *)npcitem;
+        count += ((CCString *)dict->objectForKey(KStrCount))->intValue();
+    }
+    
+    
+    GameModle* model = GameModle::sharedInstance();
+    
+    stringstream levelStr;
+    levelStr << model->currentHardLevelId();
+    createValText(_titleNode, levelStr.str(), UiTool::kFontBig);
+    
+    stringstream passCount;
+    passCount << pass_count << "/" << count;
+    createValText(_passCount, passCount.str(), UiTool::kFontMidlle);
+    
+    stringstream starCount;
+    starCount << star_count << "/" << count;
+    createValText(_starCount, starCount.str(), UiTool::kFontMidlle);
 }
 NS_KAI_END
 
