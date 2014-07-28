@@ -154,6 +154,7 @@ public:
     void pushLevelId(int levelId);
 public:
     void resetBattleInfo();
+    void resetSkillInfo();
 };
 
 NS_KAI_END

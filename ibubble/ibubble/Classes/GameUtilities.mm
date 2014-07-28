@@ -9,6 +9,7 @@
 #include "cocos2d.h"
 
 #include "GameModle.h"
+#include "GameData.h"
 
 bool GameUtilities_writeDateToFile(const char * aBuffer,const int aBufferLength,const char *pFileName){
 	
@@ -46,14 +47,39 @@ bool GameUtilities_fileExistsAtPath(const char *pFileName){
 }
 
 #pragma mark - data
-void GameUtilities_saveLevelId(int levelId){
+void GameUtilities_saveLevelInfo(int levelId, kai::game::PlayerData plaerData){
 	NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:[NSNumber numberWithInt:levelId] forKey:@"default_levelId"];
+    
+    NSMutableDictionary* infoDic = [[NSMutableDictionary alloc] init];
+    [infoDic setObject:[NSNumber numberWithInt:levelId] forKey:@"info_levelId"];
+
+    [infoDic setObject:[NSNumber numberWithInt:plaerData.skillInfo.skillLife] forKey:@"info_skill_life"];
+    [infoDic setObject:[NSNumber numberWithInt:plaerData.skillInfo.skill_multi_touch] forKey:@"info_skill_multi_touch"];
+    [infoDic setObject:[NSNumber numberWithInt:plaerData.skillInfo.skill_skip] forKey:@"info_skill_skip"];
+    [infoDic setObject:[NSNumber numberWithInt:plaerData.skillInfo.skill_weak] forKey:@"info_skill_weak"];
+    [infoDic setObject:[NSNumber numberWithInt:plaerData.skillInfo.skill_s_touch] forKey:@"info_skill_s_touch"];
+    [infoDic setObject:[NSNumber numberWithInt:plaerData.skillInfo.skill_large_touch] forKey:@"info_skill_large_touch"];
+    
+    [defaults setObject:infoDic forKey:@"default_levelInfo"];
 }
 
-int GameUtilities_getLevelId(){
+int GameUtilities_getLevelInfo(){
 	NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    return [[defaults objectForKey:@"default_levelId"] intValue];
+    NSDictionary* infoDic = [defaults objectForKey:@"default_levelInfo"];
+    
+    kai::game::PlayerData plaerData = kai::game::GameData::Instance().playerData;
+    plaerData.skillInfo.skillLife = [[infoDic valueForKey:@"info_skill_life"] intValue];
+    plaerData.skillInfo.skill_multi_touch = [[infoDic valueForKey:@"info_skill_multi_touch"] intValue];
+    plaerData.skillInfo.skill_skip = [[infoDic valueForKey:@"info_skill_skip"] intValue];
+    plaerData.skillInfo.skill_weak = [[infoDic valueForKey:@"info_skill_weak"] intValue];
+    plaerData.skillInfo.skill_s_touch = [[infoDic valueForKey:@"info_skill_s_touch"] intValue];
+    plaerData.skillInfo.skill_large_touch = [[infoDic valueForKey:@"info_skill_large_touch"] intValue];
+    
+    return [[infoDic valueForKey:@"info_levelId"] intValue];
+}
+
+int GameUtilities_getRand(int32_t from, int32_t to){
+    return (int)(from + (arc4random() % (to - from + 1)));
 }
 
 int GameUtilities_getRandId(int32_t levelId){
@@ -84,7 +110,7 @@ int GameUtilities_getRandId(int32_t levelId){
     kai::game::GameModle* instance = kai::game::GameModle::sharedInstance();
     std::vector<int> levelList = instance->getLevelList();
 
-    int level = (int)(from + (arc4random() % (to - from + 1)));
+    int level = GameUtilities_getRand(from, to);
     
     std::vector<int>::const_iterator iter = levelList.begin();
     for (; iter != levelList.end(); iter++) {

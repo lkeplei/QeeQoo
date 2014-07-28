@@ -936,4 +936,8 @@ void  GameModle::resetBattleInfo(){
     _playerAchievement.reset();
 }
 
+void GameModle::resetSkillInfo(){
+    GameData::Instance().playerData.reset();
+}
+
 NS_KAI_END

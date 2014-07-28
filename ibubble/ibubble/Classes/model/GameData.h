@@ -106,14 +106,18 @@ public:
     SkillInfo skillInfo;
     int32_t	_uid;
 public:
-	PlayerData()
-	:_unlockedStoryLevel(0)
-	,_unlockedHardLevel(0)
-	,_hardLevelStarCount(0)
-	,_hardLevelKillCount(0)
-    ,_uid(-1)
-    {
-        skillInfo.skillLife = 10 ;
+	PlayerData(){
+        reset();
+    }
+    
+    void reset(){
+        _unlockedStoryLevel = 0;
+        _unlockedHardLevel = 0;
+        _hardLevelStarCount = 0;
+        _hardLevelKillCount = 0;
+        _uid = -1;
+        
+        skillInfo.skillLife = 3;
         skillInfo.skill_multi_touch = 1;
         skillInfo.skill_skip = 1;
         skillInfo.skill_weak = 1;

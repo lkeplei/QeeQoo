@@ -12,6 +12,8 @@
 #include "cocos-ext.h"
 #include <string>
 
+#include "GameData.h"
+
 class GameUtilities {
 public:
 	static void writeDateToFile(const char * aBuffer,const int aBufferLength,const std::string &filepath);
@@ -19,8 +21,9 @@ public:
 	static bool fileExistsAtPath(const std::string &filepath);
     
     static int getRandLevel();
-    static void saveLevelId(int levelId);
+    static void saveLevelId(int levelId, kai::game::PlayerData plaerData);
     static int getLevelId();
+    static int getRand(uint32_t from, uint32_t to);
 };
 
 #endif

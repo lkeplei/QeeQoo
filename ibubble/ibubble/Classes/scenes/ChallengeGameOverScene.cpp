@@ -205,8 +205,52 @@ void createNodeValText(CCNode * container,
     }
 }
 
+void setSkill(const int id){
+    SkillInfo& info = GameModle::sharedInstance()->getSkillInfo();
+
+    switch (id) {
+        case 1:
+            info.skillLife++;
+            break;
+        case 2:
+            info.skill_skip++;
+            break;
+        case 3:
+            info.skill_weak++;
+            break;
+        case 4:
+            info.skill_s_touch++;
+            break;
+        case 5:
+            info.skill_large_touch++;
+            break;
+        case 6:
+            info.skill_multi_touch++;
+            break;
+        default:
+            break;
+    }
+}
+
+void ChallengeGameOverScene::getSkill(const int type){
+    switch (type) {
+        case 1:{
+            setSkill(GameUtilities::getRand(1, 6));
+        }
+            break;
+        case 2:{
+            GameModle::sharedInstance()->getSkillInfo().skillLife++;
+            setSkill(GameUtilities::getRand(2, 6));
+        }
+            break;
+        default:
+            break;
+    }
+}
 
 void ChallengeGameOverScene::show(int type){
+    getSkill(type);
+    
     switch (type) {
         case 1://游戏结束界面1（过关）
             _passTitle->setVisible(true);

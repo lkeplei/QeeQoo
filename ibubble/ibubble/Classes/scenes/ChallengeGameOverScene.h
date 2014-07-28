@@ -46,6 +46,10 @@ public:
 #pragma mark CCBNodeLoaderListener
 	virtual void onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader);
     void show(int type);
+    
+private:
+    void getSkill(const int type);
+    
 private:
     CCSprite * _passTitle;
     CCSprite * _failTitle;
