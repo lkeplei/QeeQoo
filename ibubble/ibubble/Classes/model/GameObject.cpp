@@ -789,6 +789,7 @@ void GameObject::setHP(const float value){
 }
 
 const int32_t GameObject::getRecord(){
+    CCLOG("=================== recorde = %d");
 	return _record;
 }
 

@@ -19,6 +19,7 @@ public:
 	int32_t _totalNpcCount;
 	int32_t _killNpcCount;
     int32_t _records;
+    int32_t _totalRecords;
 	float   _playingTime;
 	float   _idleTime;
 	float   _idleMaxTime;
@@ -48,6 +49,7 @@ public:
     ,_pass_star_count(0)
     ,_battleMode(0)
     ,_records(0)
+    ,_totalRecords(0)
     {
 
 	}
@@ -85,6 +87,7 @@ public:
 		_currentBigLevelId = 0;
 		_pass_star_count = 0;
         _battleMode = 0;
+        _records = 0;
     }
 };
 

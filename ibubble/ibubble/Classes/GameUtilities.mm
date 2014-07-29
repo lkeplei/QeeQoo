@@ -60,6 +60,9 @@ void GameUtilities_saveLevelInfo(int levelId, kai::game::PlayerData plaerData){
     [infoDic setObject:[NSNumber numberWithInt:plaerData.skillInfo.skill_s_touch] forKey:@"info_skill_s_touch"];
     [infoDic setObject:[NSNumber numberWithInt:plaerData.skillInfo.skill_large_touch] forKey:@"info_skill_large_touch"];
     
+    [infoDic setObject:[NSNumber numberWithInt:kai::game::GameModle::sharedInstance()->playerAchievement()._totalRecords]
+                forKey:@"info_total_record"];
+    
     [defaults setObject:infoDic forKey:@"default_levelInfo"];
 }
 
@@ -74,6 +77,8 @@ int GameUtilities_getLevelInfo(){
     plaerData.skillInfo.skill_weak = [[infoDic valueForKey:@"info_skill_weak"] intValue];
     plaerData.skillInfo.skill_s_touch = [[infoDic valueForKey:@"info_skill_s_touch"] intValue];
     plaerData.skillInfo.skill_large_touch = [[infoDic valueForKey:@"info_skill_large_touch"] intValue];
+    
+    kai::game::GameModle::sharedInstance()->playerAchievement()._totalRecords = [[infoDic objectForKey:@"info_skill_large_touch"] intValue];
     
     return [[infoDic valueForKey:@"info_levelId"] intValue];
 }

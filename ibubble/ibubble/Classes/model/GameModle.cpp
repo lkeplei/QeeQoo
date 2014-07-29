@@ -716,22 +716,8 @@ void GameModle::updateRecords(GameObject * obj){
     //高击破率奖励得分合计。超过50%击破率，每个泡泡增加20分；超过70%击破率，每个泡泡增加50分；
     //超过90%击破率，每个泡泡增加100分。当泡泡全击破时，本关总得分加倍。
     _playerAchievement._killNpcCount++;
-    int percent = (int)((_playerAchievement._killNpcCount * 100) / _playerAchievement._totalNpcCount);
-    if(percent > 50) {
-        _playerAchievement._records = ((_playerAchievement._records + obj->getRecord() + 20));
-    }
-    else if (percent > 70) {
-        _playerAchievement._records = ((_playerAchievement._records + obj->getRecord() + 50));
-    }
-    else if (percent > 90) {
-        _playerAchievement._records = ((_playerAchievement._records + obj->getRecord() + 100));
-    }
-    else if (percent >= 100) {
-        _playerAchievement._records = ((_playerAchievement._records + obj->getRecord()) * 2);
-    }
+    _playerAchievement._records += obj->getRecord();
 }
-
-
 
 bool GameModle::bubbleOpenSkill(GameObject * obj,CCDictionary * param){
 	return obj->doCallback(KStrOpenSkill,param);
@@ -879,6 +865,10 @@ int32_t GameModle::currentHardLevelId()const{
 
 int32_t GameModle::currentBigLevelId()const{
     return _playerAchievement._currentBigLevelId;
+}
+
+int32_t GameModle::currendRecord()const{
+    return _playerAchievement._totalRecords;
 }
 
 PlayerAchievement & GameModle::playerAchievement(){

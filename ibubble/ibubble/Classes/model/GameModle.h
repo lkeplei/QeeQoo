@@ -97,6 +97,7 @@ public:
 	int32_t currentLevelId()const;
 	int32_t currentBigLevelId()const;
     int32_t currentHardLevelId()const;
+    int32_t currendRecord()const;
 	PlayerAchievement & playerAchievement();
 	CCDictionary * gameObjectsDict();
 	CCLayer * battleGameObjectlayer();

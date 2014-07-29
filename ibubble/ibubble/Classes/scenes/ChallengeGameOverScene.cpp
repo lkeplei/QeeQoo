@@ -205,42 +205,75 @@ void createNodeValText(CCNode * container,
     }
 }
 
-void setSkill(const int id){
+void createNodeReward(CCNode * container, const CCPoint& pos, CCSpriteFrame* spriteFrame, bool clear){
+    if (container && spriteFrame) {
+        if (clear) {
+            container->removeAllChildrenWithCleanup(true);
+        }
+        
+        CCSprite* sprite = CCSprite::createWithSpriteFrame(spriteFrame);
+        sprite->setPosition(pos);
+
+        container->addChild(sprite);
+    }
+}
+
+CCSpriteFrame* setSkill(const int id){
     SkillInfo& info = GameModle::sharedInstance()->getSkillInfo();
 
+    CCSpriteFrameCache * gShareCache = CCSpriteFrameCache::sharedSpriteFrameCache();
+    CCSpriteFrame* spriteFrame = NULL;
+    
     switch (id) {
-        case 1:
+        case 1:{
             info.skillLife++;
+            spriteFrame = gShareCache->spriteFrameByName("skill_life_btn.png");
+        }
             break;
-        case 2:
+        case 2:{
             info.skill_skip++;
+            spriteFrame = gShareCache->spriteFrameByName("skill_skip_btn.png");
+        }
             break;
-        case 3:
+        case 3:{
             info.skill_weak++;
+            spriteFrame = gShareCache->spriteFrameByName("skill_weake_btn.png");
+        }
             break;
-        case 4:
+        case 4:{
             info.skill_s_touch++;
+            spriteFrame = gShareCache->spriteFrameByName("skill_type_s_touch_btn.png");
+        }
             break;
-        case 5:
+        case 5:{
             info.skill_large_touch++;
+            spriteFrame = gShareCache->spriteFrameByName("skill_type_large_touch_btn.png");
+        }
             break;
-        case 6:
+        case 6:{
             info.skill_multi_touch++;
+            spriteFrame = gShareCache->spriteFrameByName("skill_multi_touch_btn.png");
+        }
             break;
         default:
             break;
     }
+    
+    return spriteFrame;
 }
 
 void ChallengeGameOverScene::getSkill(const int type){
+    //todo: 添加奖励 _reward_node
+    
+    CCSize size = _reward_node->getContentSize();
     switch (type) {
         case 1:{
-            setSkill(GameUtilities::getRand(1, 6));
+            createNodeReward(_reward_node, CCPointMake(size.width / 2, size.height / 2), setSkill(GameUtilities::getRand(1, 6)), true);
         }
             break;
         case 2:{
-            GameModle::sharedInstance()->getSkillInfo().skillLife++;
-            setSkill(GameUtilities::getRand(2, 6));
+            createNodeReward(_reward_node, CCPointMake(size.width * 0.25, size.height / 2), setSkill(1), true);
+            createNodeReward(_reward_node, CCPointMake(size.width * 0.75, size.height / 2), setSkill(GameUtilities::getRand(2, 6)), false);
         }
             break;
         default:
@@ -251,8 +284,22 @@ void ChallengeGameOverScene::getSkill(const int type){
 void ChallengeGameOverScene::show(int type){
     getSkill(type);
     
+    PlayerAchievement& playerAchieve = GameModle::sharedInstance()->playerAchievement();
+    int percent = (int)((playerAchieve._killNpcCount * 100) / playerAchieve._totalNpcCount);
+    if (percent > 80) {
+        playerAchieve._records += ((percent - 80) * 50000 + 30 * 20000 + 50 * 10000) / 100;
+    } else if (percent > 50) {
+        playerAchieve._records += ((percent - 50) * 20000 + 50 * 10000) / 100;
+    } else {
+        playerAchieve._records +=  percent * 10000 / 100;
+    }
+    
+    playerAchieve._records = percent == 100 ? playerAchieve._records * 2 : playerAchieve._records;
+    
+    playerAchieve._totalRecords += playerAchieve._records;
+    
     switch (type) {
-        case 1://游戏结束界面1（过关）
+        case 1:{//游戏结束界面1（过关）
             _passTitle->setVisible(true);
             _reward_node->setVisible(true);
             _normal_flowers->setVisible(true);
@@ -261,13 +308,9 @@ void ChallengeGameOverScene::show(int type){
             _normal_stars_node->setVisible(true);
             _normalMenuBtn->setVisible(true);
             _normalNextBtn->setVisible(true);
-            //todo: 添加奖励 _reward_node
-            //todo: 分数 _normal_records_node,_normal_stars_node
-            createNodeValText(_reward_node,"123456",UiTool::kFontMidlle);
-            createNodeValText(_normal_records_node,"123456",UiTool::kFontMidlle);
-            createNodeValText(_normal_stars_node,"123456",UiTool::kFontMidlle);
+        }
             break;
-        case 2://游戏结束界面2（得星
+        case 2:{//游戏结束界面2（得星
             _starTitle->setVisible(true);
             _reward_node->setVisible(true);
             _normal_flowers->setVisible(true);
@@ -276,13 +319,9 @@ void ChallengeGameOverScene::show(int type){
             _normal_stars_node->setVisible(true);
             _normalMenuBtn->setVisible(true);
             _normalNextBtn->setVisible(true);
-            //todo: 添加奖励 _reward_node
-            //todo: 分数 _normal_records_node,_normal_stars_node
-            createNodeValText(_reward_node,"123456",UiTool::kFontMidlle);
-            createNodeValText(_normal_records_node,"123456",UiTool::kFontMidlle);
-            createNodeValText(_normal_stars_node,"123456",UiTool::kFontMidlle);
+        }
             break;
-        case 3://游戏结束界面3（失败）
+        case 3:{//游戏结束界面3（失败）
             _failTitle->setVisible(true);
             _normal_flowers->setVisible(true);
             _normal_good->setVisible(true);
@@ -291,9 +330,7 @@ void ChallengeGameOverScene::show(int type){
             _normalMenuBtn->setVisible(true);
             _normalNextBtn->setVisible(true);
             _normalNextBtn->setEnabled(false);
-            //todo: 分数 _normal_records_node,_normal_stars_node
-            createNodeValText(_normal_records_node,"123456",UiTool::kFontMidlle);
-            createNodeValText(_normal_stars_node,"123456",UiTool::kFontMidlle);
+        }
             break;
             
         case 4://游戏结束界面4（过关、得星）
@@ -387,6 +424,17 @@ void ChallengeGameOverScene::show(int type){
             break;
         default:
             break;
+    }
+    
+    if (type >= 1 && type <= 3) {
+        //todo: 分数 _normal_records_node,_normal_stars_node
+        stringstream npc;
+        npc << playerAchieve._killNpcCount << "/" << playerAchieve._totalNpcCount;
+        createNodeValText(_normal_records_node, npc.str(), UiTool::kFontMidlle);
+        
+        stringstream record;
+        record << playerAchieve._totalRecords;
+        createNodeValText(_normal_stars_node, record.str(),UiTool::kFontMidlle);
     }
 }
 NS_KAI_END
