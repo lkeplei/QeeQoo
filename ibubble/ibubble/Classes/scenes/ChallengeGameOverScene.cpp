@@ -276,6 +276,10 @@ void ChallengeGameOverScene::getSkill(const int type){
             createNodeReward(_reward_node, CCPointMake(size.width * 0.75, size.height / 2), setSkill(GameUtilities::getRand(2, 6)), false);
         }
             break;
+        case 3:{
+            GameModle::sharedInstance()->getSkillInfo().skillLife--;
+        }
+            break;
         default:
             break;
     }
