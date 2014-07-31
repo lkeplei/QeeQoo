@@ -101,6 +101,7 @@ public:
 public:
 	//触摸事件
 	virtual bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent);
+    void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
 	void ccTouchEnded(CCTouch *touch, CCEvent* event);
 private:
 	CCNode   * _levelsTableViewRoot;
@@ -114,6 +115,9 @@ private:
 	 unsigned int _currentCell;
 	int _currentCellIndex;
 	CCTableViewCell4Level2 * _newCell;
+    
+    float movePreX;
+    float originalX;
 };
 
 

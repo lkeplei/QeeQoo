@@ -511,9 +511,12 @@ unsigned int LevelsSelectionScene::numberOfCellsInTableView(CCTableView *table)
 
 //触摸事件
 bool LevelsSelectionScene::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent){
-	
 	if (_newCell) {
 		CCPoint touchLocation = pTouch->getLocation(); // Get the touch position
+        
+        movePreX = touchLocation.x;
+        originalX = touchLocation.x;
+        
 		touchLocation = _levelsTableViewRoot->getParent()->convertToNodeSpace(touchLocation);
 		CCRect bBox = _levelsTableViewRoot->boundingBox();
 		const CCSize & size = bBox.size;
@@ -536,20 +539,56 @@ bool LevelsSelectionScene::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent){
 			return true;
 		}
 	}
-	return false;
+	return true;
+}
+
+void LevelsSelectionScene::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent){
+    if (_newCell) {
+        CCPoint touchLocation = pTouch->getLocation();
+        
+        float offX = touchLocation.x - movePreX;
+        _newCell->setPosition(CCPointMake(_newCell->getPosition().x + offX, _newCell->getPosition().y));
+        
+        movePreX = touchLocation.x;
+	}
 }
 
 void LevelsSelectionScene::ccTouchEnded(CCTouch *pTouch, CCEvent* event){
 	if (_newCell) {
-		CCPoint touchLocation = pTouch->getLocation(); // Get the touch position
-		touchLocation = _levelsTableViewRoot->getParent()->convertToNodeSpace(touchLocation);
-		CCRect bBox = _levelsTableViewRoot->boundingBox();
-		if (bBox.containsPoint(touchLocation)) {
-			//处理点击事件
-			CCDictionary * dict=(CCDictionary *)_newCell->getCellData();
-			CCString * idString=(CCString *)dict->objectForKey("id");
-			press_enter_battle(idString->intValue());
-		}
+        if (abs(movePreX - originalX) > 10) {
+            bool moveto = false;
+            if (movePreX < originalX) {
+                if (_currentCellIndex < 2) {
+                    press_right();
+                } else {
+                    moveto = true;
+                }
+            } else {
+                if (_currentCellIndex > 0) {
+                    press_left();
+                } else {
+                    moveto = true;
+                }
+            }
+            
+            if (moveto) {
+                CCMoveTo *mt = CCMoveTo::create(0.2,
+                                                CCPointMake(_newCell->getPosition().x + (originalX - movePreX), _newCell->getPosition().y));
+                _newCell->runAction(mt);
+            }
+            
+            _newCell->Unselected();
+        } else {
+            CCPoint touchLocation = pTouch->getLocation(); // Get the touch position
+            touchLocation = _levelsTableViewRoot->getParent()->convertToNodeSpace(touchLocation);
+            CCRect bBox = _levelsTableViewRoot->boundingBox();
+            if (bBox.containsPoint(touchLocation)) {
+                //处理点击事件
+                CCDictionary * dict=(CCDictionary *)_newCell->getCellData();
+                CCString * idString=(CCString *)dict->objectForKey("id");
+                press_enter_battle(idString->intValue());
+            }
+        }
 	}
 }
 NS_KAI_END
