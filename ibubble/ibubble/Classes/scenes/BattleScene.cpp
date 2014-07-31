@@ -246,7 +246,6 @@ void BattleControllerLayer::press_setting(){
 }
 
 void BattleControllerLayer::press_help(){
-	
 	GameController::sharedInstance()->pauseBattle();
 	int zone = GameModle::sharedInstance()->currentBigLevelId();
 	int level = GameModle::sharedInstance()->currentLevelId();
@@ -257,18 +256,17 @@ void BattleControllerLayer::press_help(){
 }
 
 void BattleControllerLayer::press_skill1(){
-    SkillInfo & skillInfo = GameModle::sharedInstance()->getSkillInfo();
-    skillInfo.skillLife -- ;
-    GameModle::sharedInstance()->saveSkillInfo();
-    skillUpdated(NULL);
+//    SkillInfo & skillInfo = GameModle::sharedInstance()->getSkillInfo();
+//    skillInfo.skillLife-- ;
+//    GameModle::sharedInstance()->saveSkillInfo();
+//    skillUpdated(NULL);
 }
 
 void BattleControllerLayer::press_skill2(){
 	PlayerAchievement & achievement = GameModle::sharedInstance()->playerAchievement();
 	if (achievement._killNpcCount == 0) {
-        
         SkillInfo & skillInfo = GameModle::sharedInstance()->getSkillInfo();
-        skillInfo.skill_skip -- ;
+        skillInfo.skill_skip-- ;
         GameModle::sharedInstance()->saveSkillInfo();
         skillUpdated(NULL);
         
@@ -285,9 +283,8 @@ void BattleControllerLayer::press_skill2(){
 void BattleControllerLayer::press_skill3(){
 	PlayerAchievement & achievement = GameModle::sharedInstance()->playerAchievement();
 	if (achievement._killNpcCount == 0) {
-        
         SkillInfo & skillInfo = GameModle::sharedInstance()->getSkillInfo();
-        skillInfo.skill_weak -- ;
+        skillInfo.skill_weak-- ;
         GameModle::sharedInstance()->saveSkillInfo();
         skillUpdated(NULL);
         
@@ -298,11 +295,10 @@ void BattleControllerLayer::press_skill3(){
 }
 
 void BattleControllerLayer::press_skill4(){
-	PlayerAchievement & achievement = GameModle::sharedInstance()->playerAchievement();
-	if (achievement._killNpcCount == 0) {
-        
+	GameModle *model = GameModle::sharedInstance();
+	if (model->getBattleTouchTimes() < model->getBattleTouchMaxTimes()) {
         SkillInfo & skillInfo = GameModle::sharedInstance()->getSkillInfo();
-        skillInfo.skill_s_touch -- ;
+        skillInfo.skill_s_touch-- ;
         GameModle::sharedInstance()->saveSkillInfo();
         skillUpdated(NULL);
         
@@ -313,34 +309,30 @@ void BattleControllerLayer::press_skill4(){
 }
 
 void BattleControllerLayer::press_skill5(){
-	PlayerAchievement & achievement = GameModle::sharedInstance()->playerAchievement();
-	if (achievement._killNpcCount == 0) {
-        
-        
+    GameModle *model = GameModle::sharedInstance();
+	if (model->getBattleTouchTimes() < model->getBattleTouchMaxTimes()) {
         SkillInfo & skillInfo = GameModle::sharedInstance()->getSkillInfo();
-        skillInfo.skill_large_touch -- ;
-        GameModle::sharedInstance()->saveSkillInfo();
+        skillInfo.skill_large_touch-- ;
+        model->saveSkillInfo();
         skillUpdated(NULL);
         
 		GameController::sharedInstance()->pauseBattle();
-		GameModle::sharedInstance()->setTouchEnableTypes(KNPCTypeSuperId);
+		model->setTouchEnableTypes(KNPCTypeSuperId);
 		GameController::sharedInstance()->resumeBattle();
-    
 	}
 }
 
-void BattleControllerLayer::press_skill6(){
-    
-    
-    
-    SkillInfo & skillInfo = GameModle::sharedInstance()->getSkillInfo();
-    skillInfo.skill_multi_touch -- ;
-    GameModle::sharedInstance()->saveSkillInfo();
-    skillUpdated(NULL);
-    
-	GameController::sharedInstance()->pauseBattle();
-	GameModle::sharedInstance()->setBattleTouchMaxTimes(2);
-	GameController::sharedInstance()->resumeBattle();
+void BattleControllerLayer::press_skill6() {
+    if(GameModle::sharedInstance()->getBattleTouchMaxTimes() < 2) {
+        SkillInfo & skillInfo = GameModle::sharedInstance()->getSkillInfo();
+        skillInfo.skill_multi_touch-- ;
+        GameModle::sharedInstance()->saveSkillInfo();
+        skillUpdated(NULL);
+        
+        GameController::sharedInstance()->pauseBattle();
+        GameModle::sharedInstance()->setBattleTouchMaxTimes(2);
+        GameController::sharedInstance()->resumeBattle();
+    }
 }
 
 #pragma mark-

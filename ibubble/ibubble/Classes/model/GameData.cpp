@@ -94,6 +94,7 @@ void GameData::initCreateTables(){
 
 
 void GameData::resetData(){
+    return;
 
 	if(_sqlite.DirectStatement("delete from passrecord")){
 		
@@ -105,6 +106,8 @@ void GameData::resetData(){
 }
 
 void GameData::saveData(const PlayerAchievement & achievement){
+    return;
+    
 	int32_t levelId = PlayerAchievement::getLevelId(achievement);
 	SQLiteStatement* stmt = NULL;
 	if (findData(levelId).size() > 0) {
@@ -142,6 +145,8 @@ void GameData::saveData(const PlayerAchievement & achievement){
 }
 
 void GameData::updatePlayerData(){
+    return;
+    
 	SQLiteStatement* stmt = NULL;
 	std::stringstream selectsql;
     selectsql << "select _unlockedStoryLevel,_unlockedHardLevel,_hardLevelKillCount,_skill1Times,_skill2Times,_skill3Times,_skill4Times,_skill5Times,_skill6Times,uid from passrecord order by uid asc";
@@ -167,7 +172,8 @@ void GameData::updatePlayerData(){
 }
 
 void GameData::savePlayerData(){
-
+    return;
+    
 	SQLiteStatement* stmt = NULL;
 	if (playerData._uid >= 0) {
 		stmt = _sqlite.Statement("update playerData set _unlockedStoryLevel=?,_unlockedHardLevel=?,_hardLevelStarCount=?,_hardLevelKillCount=?,_skill1Times=?,_skill2Times=?,_skill3Times=?,_skill4Times=?,_skill5Times=? ,_skill6Times=? where uid = ?");
@@ -221,7 +227,6 @@ void GameData::savePlayerData(){
 }
 
 std::vector<PlayerAchievement> GameData::findData(int32_t levelid,int32_t biglevelid){
-
 	std::vector<PlayerAchievement>  list;
 	SQLiteStatement* stmt = NULL;
 	std::stringstream selectsql;

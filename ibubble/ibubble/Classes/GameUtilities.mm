@@ -64,6 +64,7 @@ void GameUtilities_saveLevelInfo(int levelId, kai::game::PlayerData plaerData){
                 forKey:@"info_total_record"];
     
     [defaults setObject:infoDic forKey:@"default_levelInfo"];
+    [defaults synchronize];
 }
 
 int GameUtilities_getLevelInfo(){

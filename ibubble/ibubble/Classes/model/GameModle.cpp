@@ -17,6 +17,8 @@
 #include "CCShake.h"
 #include "GameData.h"
 
+#include "GameUtilities.h"
+
 NS_KAI_BEGIN
 static GameModle * _sharedInstance=NULL;
 
@@ -74,7 +76,6 @@ GameModle::~GameModle(){
 }
 
 GameModle * GameModle::sharedInstance(void){
-	
 	if (! _sharedInstance)
     {
         _sharedInstance = new GameModle();
@@ -107,6 +108,8 @@ bool GameModle::init(void){
 	
 	_box2dWorldRect = CCRect(0,0,_director->getWinSize().width,_director->getWinSize().height);
 	
+    GameUtilities::getLevelId();
+    
 	return true;
 }
 
@@ -120,14 +123,12 @@ void GameModle::setValue(const std::string & key,CCObject * value){
 	_properties->setObject(value, key);
 }
 
-
 CCObject * GameModle::valueFromCurrentLevel(const string & key)
 {
 	if (_currentLevelDict) {
 		return _currentLevelDict->objectForKey(key);
 	}
 	return NULL;
-	
 }
 
 #pragma mark-
@@ -888,6 +889,7 @@ SkillInfo & GameModle::getSkillInfo(){
 }
 void GameModle::saveSkillInfo(){
     GameData::Instance().savePlayerData();
+    GameUtilities::saveLevelId(_playerAchievement._currentHardLevelId, GameData::Instance().playerData);
 }
 
 const int  GameModle::getBattleMode(){

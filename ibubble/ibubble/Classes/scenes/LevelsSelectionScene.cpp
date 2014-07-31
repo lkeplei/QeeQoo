@@ -255,25 +255,9 @@ void LevelsSelectionScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNo
 		_levelsList->addObject(dict);
 	}
 
-	
 	if (_levelsTableViewRoot) {
-		CCSize  contentSize = _levelsTableViewRoot->getContentSize();
-#if 0
-		_levelsTableView=CCTableView::create(this, contentSize);
-		_levelsTableView->setDelegate(this);
-		_levelsTableView->setDataSource(this);
-		_levelsTableView->setDirection(kCCScrollViewDirectionHorizontal);
-		_levelsTableView->setAnchorPoint(ccp(0, 0));
-		_levelsTableView->setPosition(ccp(0,0));
-		_levelsTableView->setVerticalFillOrder(kCCTableViewFillTopDown);
-		_levelsTableViewRoot->addChild(_levelsTableView);
-		_levelsTableView->reloadData();
-#else
 		switchCell(_currentCellIndex,false);
-#endif
 	}
-	
-	
 	
 	//显示总的分数情况
 	std::vector<PlayerAchievement> list = GameData::Instance().findData();
