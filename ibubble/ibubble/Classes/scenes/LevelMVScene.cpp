@@ -70,7 +70,14 @@ void LevelMVScene::press_next()
         CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
         GameModle::sharedInstance()->playBackground(K_BG_MUSIC_OUTSIDE_OF_BATTLE);
     }
-	GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_PRE,CCInteger::create(_levelid));
+    
+    if (GameModle::sharedInstance()->getHelpIndex(_levelid, _zoneid) == -1) {
+        GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_PRE,CCInteger::create(_levelid));
+    } else {
+        GameController::sharedInstance()->switchSence(GameController::K_SCENE_HELP_IN_LEVEL
+                                                      ,CCInteger::create(_zoneid)
+                                                      ,CCInteger::create(_levelid));
+    }
 }
 
 void LevelMVScene::updateHelper()

@@ -88,7 +88,7 @@ int GameUtilities_getRand(int32_t from, int32_t to){
     return (int)(from + (arc4random() % (to - from + 1)));
 }
 
-int GameUtilities_getRandId(int32_t levelId){
+int GameUtilities_getRandId(int32_t levelId, bool add){
     //获取一个随机整数，范围在[from,to]，包括from，包括to
     int from = 0;
     int to = 14;
@@ -121,12 +121,14 @@ int GameUtilities_getRandId(int32_t levelId){
     std::vector<int>::const_iterator iter = levelList.begin();
     for (; iter != levelList.end(); iter++) {
         if (level == *iter) {
-            level = GameUtilities_getRandId(levelId);
+            level = GameUtilities_getRandId(levelId, add);
             break;
         }
     }
 
-    instance->pushLevelId(level);
+    if (add) {
+        instance->pushLevelId(level);
+    }
     
     return level;
 }

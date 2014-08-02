@@ -920,6 +920,26 @@ vector<int> GameModle::getLevelList(){
     return levelList;
 }
 
+int GameModle::getHelpIndex(int level, int zone){
+    int index = -1;
+    
+    if (level == 0 && zone == 0) {
+        index = 0;
+    } else if (level == 9 && zone == 0) {
+        index = 1;
+    } else if (level == 0 && zone == 1) {
+        index = 3;
+    } else if (level == 5 && zone == 1) {
+        index = 4;
+    } else if (level == 0 && zone == 2) {
+        index = 2;
+    } else if (level == 3 && zone == 2) {
+        index = 5;
+    }
+    
+    return index;
+}
+
 void GameModle::pushLevelId(int levelId){
     levelList[_playerAchievement._currentHardLevelId % 5] = levelId;
 }

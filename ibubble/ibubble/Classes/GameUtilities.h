@@ -20,7 +20,7 @@ public:
 	static std::string getFilePathInDocumentDir(const std::string &filepath);
 	static bool fileExistsAtPath(const std::string &filepath);
     
-    static int getRandLevel();
+    static int getRandLevel(bool add=true);
     static void saveLevelId(int levelId, kai::game::PlayerData plaerData);
     static int getLevelId();
     static int getRand(uint32_t from, uint32_t to);

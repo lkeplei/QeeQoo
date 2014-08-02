@@ -33,7 +33,7 @@ public:
 	static HelpInLevelScene* createWithCCB();
 	void press_back();
 	void press_next();
-	void updateHelper();
+	bool updateHelper();
 	virtual void onEnter();
     virtual void onExit();
 public:

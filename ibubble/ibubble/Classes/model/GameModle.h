@@ -153,6 +153,8 @@ public:
     
     vector<int> getLevelList();
     void pushLevelId(int levelId);
+    
+    int getHelpIndex(int level, int zone);
 public:
     void resetBattleInfo();
     void resetSkillInfo();

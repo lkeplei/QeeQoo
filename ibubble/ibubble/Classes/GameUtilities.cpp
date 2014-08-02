@@ -16,7 +16,7 @@ extern bool GameUtilities_fileExistsAtPath(const char *pFileName);
 
 extern void GameUtilities_saveLevelInfo(int levelId, kai::game::PlayerData plaerData);
 extern int GameUtilities_getLevelInfo();
-extern int GameUtilities_getRandId(int32_t levelId);
+extern int GameUtilities_getRandId(int32_t levelId, bool add);
 extern int GameUtilities_getRand(int32_t from, int32_t to);
 
 void GameUtilities::writeDateToFile(const char * aBuffer,const int aBufferLength,const std::string & filepath){
@@ -33,13 +33,13 @@ bool GameUtilities::fileExistsAtPath(const std::string &filepath){
 }
 
 #pragma data
-int GameUtilities::getRandLevel(){
+int GameUtilities::getRandLevel(bool add){
     kai::game::GameModle* instance = kai::game::GameModle::sharedInstance();
 	int level = instance->currentHardLevelId();
     
     GameUtilities::saveLevelId(level, kai::game::GameData::Instance().playerData);
     
-    return GameUtilities_getRandId(level);
+    return GameUtilities_getRandId(level, add);
 }
 
 void GameUtilities::saveLevelId(int levelId, kai::game::PlayerData plaerData){

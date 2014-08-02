@@ -13,6 +13,8 @@
 #include "GameConstant.h"
 USING_NS_CC;
 
+#include "GameUtilities.h"
+
 NS_KAI_BEGIN
 BattleBgLayer::BattleBgLayer():BattleBaseLayer(),_animationManager(NULL){
 	setTouchEnabled( true );
@@ -275,7 +277,8 @@ void BattleControllerLayer::press_skill2(){
         if (GameModle::sharedInstance()->getBattleMode() != K_HARD_PVE_BATTLE) {
             GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE,CCInteger::create(currentLevelId));
         }else{
-            GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,CCInteger::create(currentLevelId));
+            GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,
+                                                          CCInteger::create(GameUtilities::getRandLevel(false)));
         }
 	}
 }

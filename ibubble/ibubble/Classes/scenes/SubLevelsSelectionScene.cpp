@@ -75,14 +75,14 @@ void SubLevelsSelectionScene::press_play(CCObject *pSender, CCControlEvent pCCCo
         }
 	}
 
-    GameController::sharedInstance()->switchSence(GameController::K_SCENE_HELP_IN_LEVEL
-                                                  ,CCInteger::create(zone)
-                                                  ,CCInteger::create(item->getTag()));
-    /*
-	GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_PRE,
-                                                  CCInteger::create(item->getTag()));*/
-
-
+    if (GameModle::sharedInstance()->getHelpIndex(item->getTag(), zone) == -1) {
+        GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_PRE,
+                                                      CCInteger::create(item->getTag()));
+    } else {
+        GameController::sharedInstance()->switchSence(GameController::K_SCENE_HELP_IN_LEVEL
+                                                      ,CCInteger::create(zone)
+                                                      ,CCInteger::create(item->getTag()));
+    }
 }
 
 #pragma mark-

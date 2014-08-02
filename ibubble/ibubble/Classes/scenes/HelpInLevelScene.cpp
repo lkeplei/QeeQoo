@@ -56,6 +56,8 @@ CCScene* HelpInLevelScene::scene(const int zoneid,const int levelid)
 		node->_levelid = levelid;
 		node->_zoneid = zoneid;
 		scene->addChild(node);
+        
+        node->updateHelper();
 	}
 	return scene;
 }
@@ -67,24 +69,18 @@ void HelpInLevelScene::press_back()
 
 void HelpInLevelScene::press_next()
 {
-	if (_index < (_list.size() - 1)) {
-		_index++;
-		updateHelper();
-	}
-	else{
-		
-		if (!GameController::sharedInstance()->popSence()) {
-			GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_PRE,CCInteger::create(_levelid));
-		}
-		else{
-			GameController::sharedInstance()->resumeBattle();
-		}
-	}
-
+    if (!GameController::sharedInstance()->popSence()) {
+        GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_PRE,CCInteger::create(_levelid));
+    }
+    else{
+        GameController::sharedInstance()->resumeBattle();
+    }
 }
 
-void HelpInLevelScene::updateHelper()
+bool HelpInLevelScene::updateHelper()
 {
+    _index = GameModle::sharedInstance()->getHelpIndex(_levelid, _zoneid);
+    
 	if (_helpSpriteRoot) {
 		_helpSpriteRoot->removeAllChildrenWithCleanup(true);
 		CCSprite * helper = CCSprite::create(_list[_index].c_str());
@@ -104,6 +100,8 @@ void HelpInLevelScene::updateHelper()
 		_nextButton->setSelectedSpriteFrame(selectedframe);
 		_nextButton->setNormalSpriteFrame(unselectedframe);
 	}
+    
+    return true;
 }
 
 #pragma mark-
@@ -132,7 +130,6 @@ bool HelpInLevelScene::onAssignCCBMemberVariable(CCObject * pTarget, CCString * 
 #pragma mark CCBNodeLoaderListener
 void HelpInLevelScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader){
 	CCLOG("HelpInLevelScene onNodeLoaded~") ;
-	updateHelper();
 }
 
 void HelpInLevelScene::onEnter(){
