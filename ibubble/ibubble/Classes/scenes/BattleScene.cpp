@@ -177,8 +177,10 @@ void BattleControllerLayer::press_back()
 
 void BattleControllerLayer::press_pause()
 {
-	//GameController::sharedInstance()->pauseBattle();
-	showMenu(true);
+    PlayerAchievement & achievement = GameModle::sharedInstance()->playerAchievement();
+	if (achievement._killNpcCount == 0) {
+        showMenu(true);
+    }
 }
 void BattleControllerLayer::showMenu(bool animation){
 	if(animation){
@@ -487,6 +489,13 @@ void BattleScene::load()
 		_layers->addObject(layer);
 		layer->load(dict);
 		layer->setTag(KBattleNodeTageBgLayer);
+        
+        stringstream fileName;
+        fileName << "background" << GameUtilities::getRand(1, 4) << ".png";
+        CCSprite* bgSprite = CCSprite::create(fileName.str().c_str());
+        bgSprite->setPosition(CCPointMake(layer->getContentSize().width / 2, layer->getContentSize().height / 2));
+        layer->addChild(bgSprite);
+        
 		this->addChild(layer, zOrder++);
 	}
 	CC_SAFE_RELEASE_NULL(ccBReader);

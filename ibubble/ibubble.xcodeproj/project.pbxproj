@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0425E8D9198E1CE6001DA340 /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0425E8D6198E1CE6001DA340 /* background1.png */; };
+		0425E8DA198E1CE6001DA340 /* background3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0425E8D7198E1CE6001DA340 /* background3.png */; };
+		0425E8DB198E1CE6001DA340 /* background4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0425E8D8198E1CE6001DA340 /* background4.png */; };
 		046CD0EC197A069A00630062 /* BattleAIScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD097197A069A00630062 /* BattleAIScript.cpp */; };
 		046CD0ED197A069A00630062 /* GameAIScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD099197A069A00630062 /* GameAIScript.cpp */; };
 		046CD0EE197A069A00630062 /* GameAIScriptFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD09B197A069A00630062 /* GameAIScriptFactory.cpp */; };
@@ -63,7 +66,7 @@
 		1815B8861695ACEF00B8D320 /* bubble_sm_7.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 1815B8801695ACEF00B8D320 /* bubble_sm_7.ccbi */; };
 		1820281E16586E6100DEEE4A /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1820281C16586E6100DEEE4A /* GLES-Render.cpp */; };
 		1820282D1658A46600DEEE4A /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1820282C1658A46600DEEE4A /* config.plist */; };
-		1831D8EE16B49C5F0052DA1B /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 1831D8CD16B49C5F0052DA1B /* background.png */; };
+		1831D8EE16B49C5F0052DA1B /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1831D8CD16B49C5F0052DA1B /* background2.png */; };
 		1831D8EF16B49C5F0052DA1B /* help_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1831D8CE16B49C5F0052DA1B /* help_1.png */; };
 		1831D8F016B49C5F0052DA1B /* help_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1831D8CF16B49C5F0052DA1B /* help_2.png */; };
 		1831D8F116B49C5F0052DA1B /* help_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1831D8D016B49C5F0052DA1B /* help_3.png */; };
@@ -414,9 +417,6 @@
 		189CAA1C16D8F95F00F97C73 /* reward_story_family.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 189CAA1216D8F95F00F97C73 /* reward_story_family.ccbi */; };
 		189CAA1D16D8F95F00F97C73 /* reward_story_meeting.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 189CAA1316D8F95F00F97C73 /* reward_story_meeting.ccbi */; };
 		189CAA1E16D8F95F00F97C73 /* reward_story_srpiter.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 189CAA1416D8F95F00F97C73 /* reward_story_srpiter.ccbi */; };
-		189CAA2716D918EC00F97C73 /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = 189CAA2416D918EC00F97C73 /* background1.png */; };
-		189CAA2816D918EC00F97C73 /* background3.png in Resources */ = {isa = PBXBuildFile; fileRef = 189CAA2516D918EC00F97C73 /* background3.png */; };
-		189CAA2916D918EC00F97C73 /* background4.png in Resources */ = {isa = PBXBuildFile; fileRef = 189CAA2616D918EC00F97C73 /* background4.png */; };
 		189E3CE71766BFBF00BBB5BE /* small_borad.png in Resources */ = {isa = PBXBuildFile; fileRef = 189E3CE61766BFBF00BBB5BE /* small_borad.png */; };
 		189E3CEA1766BFE000BBB5BE /* help_in_level_layer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 189E3CE91766BFE000BBB5BE /* help_in_level_layer.ccbi */; };
 		189E3CF21766CB8100BBB5BE /* level_mv_layer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 189E3CF11766CB8100BBB5BE /* level_mv_layer.ccbi */; };
@@ -777,6 +777,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0425E8D6198E1CE6001DA340 /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background1.png; sourceTree = "<group>"; };
+		0425E8D7198E1CE6001DA340 /* background3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background3.png; sourceTree = "<group>"; };
+		0425E8D8198E1CE6001DA340 /* background4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background4.png; sourceTree = "<group>"; };
 		046CD097197A069A00630062 /* BattleAIScript.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleAIScript.cpp; sourceTree = "<group>"; };
 		046CD098197A069A00630062 /* BattleAIScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleAIScript.h; sourceTree = "<group>"; };
 		046CD099197A069A00630062 /* GameAIScript.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameAIScript.cpp; sourceTree = "<group>"; };
@@ -880,7 +883,7 @@
 		1820281C16586E6100DEEE4A /* GLES-Render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "GLES-Render.cpp"; path = "libs/Box2D/GLES-Render.cpp"; sourceTree = "<group>"; };
 		1820281D16586E6100DEEE4A /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GLES-Render.h"; path = "libs/Box2D/GLES-Render.h"; sourceTree = "<group>"; };
 		1820282C1658A46600DEEE4A /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config.plist; path = Resources/ipad/config.plist; sourceTree = "<group>"; };
-		1831D8CD16B49C5F0052DA1B /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		1831D8CD16B49C5F0052DA1B /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
 		1831D8CE16B49C5F0052DA1B /* help_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_1.png; sourceTree = "<group>"; };
 		1831D8CF16B49C5F0052DA1B /* help_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_2.png; sourceTree = "<group>"; };
 		1831D8D016B49C5F0052DA1B /* help_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_3.png; sourceTree = "<group>"; };
@@ -1509,9 +1512,6 @@
 		189CAA1216D8F95F00F97C73 /* reward_story_family.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = reward_story_family.ccbi; sourceTree = "<group>"; };
 		189CAA1316D8F95F00F97C73 /* reward_story_meeting.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = reward_story_meeting.ccbi; sourceTree = "<group>"; };
 		189CAA1416D8F95F00F97C73 /* reward_story_srpiter.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = reward_story_srpiter.ccbi; sourceTree = "<group>"; };
-		189CAA2416D918EC00F97C73 /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background1.png; path = big_images/background1.png; sourceTree = "<group>"; };
-		189CAA2516D918EC00F97C73 /* background3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background3.png; path = big_images/background3.png; sourceTree = "<group>"; };
-		189CAA2616D918EC00F97C73 /* background4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background4.png; path = big_images/background4.png; sourceTree = "<group>"; };
 		189E3CE61766BFBF00BBB5BE /* small_borad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_borad.png; sourceTree = "<group>"; };
 		189E3CE91766BFE000BBB5BE /* help_in_level_layer.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = help_in_level_layer.ccbi; sourceTree = "<group>"; };
 		189E3CF11766CB8100BBB5BE /* level_mv_layer.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = level_mv_layer.ccbi; sourceTree = "<group>"; };
@@ -2156,12 +2156,15 @@
 		1831D8B516B49C5F0052DA1B /* big_images */ = {
 			isa = PBXGroup;
 			children = (
+				0425E8D6198E1CE6001DA340 /* background1.png */,
+				0425E8D7198E1CE6001DA340 /* background3.png */,
+				0425E8D8198E1CE6001DA340 /* background4.png */,
 				FB0115671854C27F003843F4 /* ChallengeStartBg.png */,
 				FB011540185423C6003843F4 /* kiss_default.png */,
 				FB011541185423C6003843F4 /* pink_line.png */,
 				189E3CE61766BFBF00BBB5BE /* small_borad.png */,
 				184E734D16D8BF230009C6A9 /* about_team.png */,
-				1831D8CD16B49C5F0052DA1B /* background.png */,
+				1831D8CD16B49C5F0052DA1B /* background2.png */,
 				1831D8CE16B49C5F0052DA1B /* help_1.png */,
 				1831D8CF16B49C5F0052DA1B /* help_2.png */,
 				1831D8D016B49C5F0052DA1B /* help_3.png */,
@@ -3233,9 +3236,6 @@
 				18D77A4E166207A6001DB386 /* achievement_layer.ccbi */,
 				184E734916D8BE860009C6A9 /* achievement_view_layer.ccbi */,
 				184E734A16D8BE860009C6A9 /* animation_layer_story1.ccbi */,
-				189CAA2416D918EC00F97C73 /* background1.png */,
-				189CAA2516D918EC00F97C73 /* background3.png */,
-				189CAA2616D918EC00F97C73 /* background4.png */,
 				1802285D1657926C00064166 /* battle_bg_layer.ccbi */,
 				1802285916575F8000064166 /* battle_controller_layer.ccbi */,
 				18BF83321659097E00E94D09 /* battle_layer.ccbi */,
@@ -4117,10 +4117,11 @@
 				FB6E9C8B183CFD7B007493A7 /* QaQa.mp3 in Resources */,
 				FB6E9C84183CFD7B007493A7 /* BooBee-D.mp3 in Resources */,
 				FB7E263B1843A82300797C5B /* movie_4_2.swf in Resources */,
+				0425E8D9198E1CE6001DA340 /* background1.png in Resources */,
 				FB7E263A1843A82300797C5B /* movie_4_2.swf.plist in Resources */,
 				FB6E9C88183CFD7B007493A7 /* MeeGa-D.mp3 in Resources */,
 				FB0115661854C156003843F4 /* Challenge.png in Resources */,
-				1831D8EE16B49C5F0052DA1B /* background.png in Resources */,
+				1831D8EE16B49C5F0052DA1B /* background2.png in Resources */,
 				1831D8EF16B49C5F0052DA1B /* help_1.png in Resources */,
 				1831D8F016B49C5F0052DA1B /* help_2.png in Resources */,
 				FB23D3901833C90D00483AB4 /* story01.mp3 in Resources */,
@@ -4151,6 +4152,7 @@
 				18FD622216BCA4BD007063BD /* particle_bubble_explosion_44_3_5_6.plist in Resources */,
 				FB6E9C54183CE89B007493A7 /* end_movie_3.swf in Resources */,
 				18FD622316BCA4BD007063BD /* particle_bubble_explosion_44_3_5_7.plist in Resources */,
+				0425E8DA198E1CE6001DA340 /* background3.png in Resources */,
 				18FD622416BCA4BD007063BD /* particle_bubble_explosion_60_3_2_1.plist in Resources */,
 				18FD622516BCA4BD007063BD /* particle_bubble_explosion_60_3_2_2.plist in Resources */,
 				18FD622616BCA4BD007063BD /* particle_bubble_explosion_60_3_2_3.plist in Resources */,
@@ -4285,9 +4287,6 @@
 				FB0115601854C13B003843F4 /* ChallengeGameStartScene.ccbi in Resources */,
 				189CAA1E16D8F95F00F97C73 /* reward_story_srpiter.ccbi in Resources */,
 				FB34F165181FFE2000FD0897 /* TODO in Resources */,
-				189CAA2716D918EC00F97C73 /* background1.png in Resources */,
-				189CAA2816D918EC00F97C73 /* background3.png in Resources */,
-				189CAA2916D918EC00F97C73 /* background4.png in Resources */,
 				187F31FA17579396004F4B1F /* startlevel_number.png in Resources */,
 				187F31FB17579396004F4B1F /* scene_bignumber.png in Resources */,
 				187F31FC17579396004F4B1F /* scene_littlenumber.png in Resources */,
@@ -4307,6 +4306,7 @@
 				1874DA5F17670F4C00892D63 /* setting_in_level_layer.ccbi in Resources */,
 				1874DA621767113900892D63 /* menu_borad.png in Resources */,
 				1858887B179BBBAF00AA457D /* skill_images.plist in Resources */,
+				0425E8DB198E1CE6001DA340 /* background4.png in Resources */,
 				1858887C179BBBAF00AA457D /* skill_images.png in Resources */,
 				1880DE6B17ACD70C0084B03D /* marker_felt_16_white.fnt in Resources */,
 				1880DE6C17ACD70C0084B03D /* marker_felt_16_white.png in Resources */,
