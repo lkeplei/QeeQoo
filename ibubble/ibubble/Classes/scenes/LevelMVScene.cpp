@@ -72,7 +72,11 @@ void LevelMVScene::press_next()
     }
     
     if (GameModle::sharedInstance()->getHelpIndex(_levelid, _zoneid) == -1) {
-        GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_PRE,CCInteger::create(_levelid));
+        if (_zoneid == 2 && _levelid == 14) {
+            GameController::sharedInstance()->switchSence(GameController::K_SCENE_SUCCESS);
+        } else {
+            GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_PRE,CCInteger::create(_levelid));   
+        }
     } else {
         GameController::sharedInstance()->switchSence(GameController::K_SCENE_HELP_IN_LEVEL
                                                       ,CCInteger::create(_zoneid)
@@ -114,9 +118,7 @@ void LevelMVScene::handleSwfFrameChanged(cocos2d::CCObject * obj){
 }
 
 void LevelMVScene::continueSwf(){
-    if (_swf) {
-        _swf->resumeSWFSequence();
-    }
+    press_next();
 }
 
 void LevelMVScene::handleSwfFinished(cocos2d::CCObject * obj){

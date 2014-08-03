@@ -51,7 +51,17 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
 					}
 				}
 				
-				controller->switchSence(GameController::K_SCENE_SUCCESS);
+                stringstream bigLevel;
+                bigLevel << gModleInstance->currentBigLevelId();
+                CCDictionary * dict = (CCDictionary *)GameConfig::sharedInstance()->getLevelsValue(bigLevel.str());
+                CCString* file = (CCString *)dict->objectForKey(KStrMovieEnd);
+                if (file->compare("0") == 0) {
+                    controller->switchSence(GameController::K_SCENE_SUCCESS);
+                } else {
+                    controller->switchSence(GameController::K_SCENE_LEVEL_MV,
+                                            CCInteger::create(gModleInstance->currentBigLevelId()),
+                                            CCInteger::create(gModleInstance->currentLevelId()));
+                }
 				
 				//剧情故事
 				std::pair<int, int> counts = GameData::Instance().totalCount();
