@@ -154,7 +154,7 @@ void SubLevelsSelectionScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::C
 		CCSize labelSize;
 		if (_gouNodeRoot) {
 			labelSize =  _gouNodeRoot->getContentSize();
-			cocos2d::CCLabelBMFont * label = UiTool::createLabelBMFont(gouStr.str(),UiTool::kFontBig,ccc3(255,255,255));
+            CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(gouStr.str());
 			label->setAnchorPoint(CCPoint(0, 0.5));
 			label->setPosition(CCPoint(0, (labelSize.height) * 0.5));
 			_gouNodeRoot->addChild(label);
@@ -163,7 +163,7 @@ void SubLevelsSelectionScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::C
 		
 		if (_starNodeRoot) {
 			labelSize =  _starNodeRoot->getContentSize();
-			cocos2d::CCLabelBMFont * label = UiTool::createLabelBMFont(starStr.str(),UiTool::kFontBig,ccc3(255,255,255));
+            CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(starStr.str());
 			label->setAnchorPoint(CCPoint(0, 0.5));
 			label->setPosition(CCPoint(0, (labelSize.height) * 0.5));
 			_starNodeRoot->addChild(label);
@@ -198,7 +198,7 @@ void SubLevelsSelectionScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::C
 						txtStr << achievement._killNpcCount << "/" << achievement._totalNpcCount;
 						
 						CCSize labelSize =  txtNodeRoot->getContentSize();
-						cocos2d::CCLabelBMFont * label = UiTool::createLabelBMFont(txtStr.str(),UiTool::kFontMidlle,ccc3(255,255,255));
+                        CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(txtStr.str());
 						CCSize txtSize =  label->getContentSize();
 						label->setAnchorPoint(CCPoint(0.5, 0.5));
 						label->setPosition(CCPoint(labelSize.width * 0.5,labelSize.height* 0.5));

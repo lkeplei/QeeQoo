@@ -6,8 +6,8 @@ battle_bg_layer.ccbi
 battle_controller_layer.ccbi
 battle_layer.ccbi
 about_team.png
-background.png
 background1.png
+background2.png
 background3.png
 background4.png
 ChallengeStartBg.png
@@ -24,7 +24,6 @@ pink_line.png
 scene_bak.png
 small_borad.png
 start_bak.png
-big_slash.png
 bubble_b_1.ccbi
 bubble_b_2.ccbi
 bubble_b_3.ccbi
@@ -726,7 +725,6 @@ skill_weake_btn.png
 skill_weake_btn_sel.png
 skill_images.plist
 skill_images.png
-small_slash.png
 snow.png
 b_1_s_1.png
 b_1_s_2.png

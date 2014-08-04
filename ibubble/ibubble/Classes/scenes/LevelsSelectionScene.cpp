@@ -280,15 +280,15 @@ void LevelsSelectionScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNo
 	
 	CCSize labelSize =  _gouNodeRoot->getContentSize();
 	
-	cocos2d::CCLabelBMFont * lableAtlas = NULL;
+	cocos2d::CCLabelAtlas * lableAtlas = NULL;
 
-	lableAtlas = UiTool::createLabelBMFont(gouStr.str(),UiTool::kFontBig,ccc3(255,255,255));
+    lableAtlas = UiTool::createLabelAtlasWithBigNumber(gouStr.str());
 	lableAtlas->setAnchorPoint(CCPoint(0, 0.5));
 	lableAtlas->setPosition(CCPoint(0, (labelSize.height) * 0.5));
 	_gouNodeRoot->addChild(lableAtlas);
 
 	labelSize =  _starNodeRoot->getContentSize();
-	lableAtlas = UiTool::createLabelBMFont(starStr.str(),UiTool::kFontBig,ccc3(255,255,255));
+    lableAtlas = UiTool::createLabelAtlasWithBigNumber(starStr.str());
 	lableAtlas->setAnchorPoint(CCPoint(0, 0.5));
 	lableAtlas->setPosition(CCPoint(0, (labelSize.height) * 0.5));
 	_starNodeRoot->addChild(lableAtlas);
@@ -368,13 +368,13 @@ void LevelsSelectionScene::switchCell(const int index,const bool animation,const
 	
 	const CCSize labelSize(160,80);
 	
-	CCLabelBMFont * gouLabel = UiTool::createLabelBMFont(gouStr.str(),UiTool::kFontBig,ccc3(255,255,255));
+    CCLabelAtlas *gouLabel = UiTool::createLabelAtlasWithBigNumber(gouStr.str());
 	gouLabel->setAnchorPoint(CCPoint(0.5, 0.5));
 	gouLabel->setContentSize(labelSize);
 	gouLabel->setPosition(CCPoint(-labelSize.width * 0.3, - contentSize.height * 0.15));
 	cell->addChild(gouLabel);
 	
-	cocos2d::CCLabelBMFont * starLabel = UiTool::createLabelBMFont(starStr.str(),UiTool::kFontBig,ccc3(255,255,255));
+    CCLabelAtlas *starLabel = UiTool::createLabelAtlasWithBigNumber(starStr.str());
 	starLabel->setAnchorPoint(CCPoint(0.5, 0.5));
 	starLabel->setContentSize(labelSize);
 	starLabel->setPosition(CCPoint(labelSize.width * 1.05 , - contentSize.height * 0.15));
@@ -511,9 +511,9 @@ unsigned int LevelsSelectionScene::numberOfCellsInTableView(CCTableView *table)
 
 //触摸事件
 bool LevelsSelectionScene::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent){
+    CCPoint touchLocation = pTouch->getLocation(); // Get the touch position
+    
 	if (_newCell) {
-		CCPoint touchLocation = pTouch->getLocation(); // Get the touch position
-        
         movePreX = touchLocation.x;
         originalX = touchLocation.x;
         
@@ -539,6 +539,12 @@ bool LevelsSelectionScene::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent){
 			return true;
 		}
 	}
+    
+    CCRect rect = CCRectMake(0, 0, this->getContentSize().width * 0.2, this->getContentSize().height * 0.2);
+    if (rect.containsPoint(touchLocation)) {
+        return false;
+    }
+    
 	return true;
 }
 

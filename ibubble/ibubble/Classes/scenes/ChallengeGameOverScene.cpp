@@ -11,6 +11,8 @@
 #include "GameConstant.h"
 #include "UiTool.h"
 
+#include "GameCenter.h"
+
 #include "GameUtilities.h"
 
 NS_KAI_BEGIN
@@ -195,9 +197,7 @@ void createNodeValText(CCNode * container,
     if (container) {
         container->removeAllChildrenWithCleanup(true);
         CCSize labelSize =  container->getContentSize();
-        cocos2d::CCLabelBMFont * label = UiTool::createLabelBMFont(text,
-                                                                   size,
-                                                                   ccc3(255,255,255));
+        CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(text);
         CCSize cellSize =  label->getContentSize();
         label->setAnchorPoint(CCPoint(0.5, 0.5));
         label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
@@ -301,6 +301,8 @@ void ChallengeGameOverScene::show(int type){
     playerAchieve._records = percent == 100 ? playerAchieve._records * 2 : playerAchieve._records;
     
     playerAchieve._totalRecords += playerAchieve._records;
+    
+    GameCenter::postScore(KLeaderBoardId, playerAchieve._totalRecords);
     
     switch (type) {
         case 1:{//游戏结束界面1（过关）

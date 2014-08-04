@@ -110,11 +110,12 @@ public:
     int32_t	_uid;
 public:
 	PlayerData(){
+        _unlockedStoryLevel = 0;
+        
         reset();
     }
     
     void reset(){
-        _unlockedStoryLevel = 0;
         _unlockedHardLevel = 0;
         _hardLevelStarCount = 0;
         _hardLevelKillCount = 0;

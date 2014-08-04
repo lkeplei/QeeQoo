@@ -49,6 +49,13 @@ public:
 	virtual void onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader);
 private:
 	CCNode * _displaySpriteRoot;
+    CCNode *_gouNode1;
+    CCNode *_starNode1;
+    CCNode *_rewardNode1;
+    CCNode *_gouNode2;
+    CCNode *_starNode2;
+    CCNode *_rewardNode2;
+    CCNode *_rewardGoodNode2;
 };
 
 

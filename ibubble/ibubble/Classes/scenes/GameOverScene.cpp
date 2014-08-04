@@ -147,12 +147,11 @@ void GameOverScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoade
 	std::stringstream  resultTextStr;
 	resultTextStr << playerAchievement._killNpcCount << "/" << playerAchievement._totalNpcCount;
 	CCSize labelSize =  _result_scores->getContentSize();
-	cocos2d::CCLabelBMFont * label = UiTool::createLabelBMFont(resultTextStr.str(),UiTool::kFontBig,ccc3(255,255,255));
-	CCSize cellSize =  label->getContentSize();
-	label->setAnchorPoint(CCPoint(0.5, 0.5));
-	label->setPosition(CCPoint(labelSize.width* 0.5 , labelSize.height* 0.5));
-	_result_scores->addChild(label);
-	
+    CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(resultTextStr.str());
+    CCSize cellSize =  label->getContentSize();
+    label->setAnchorPoint(CCPoint(0.5, 0.5));
+    label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
+    _result_scores->addChild(label);
 	
 	
 	CCLOG("GameOverScene onNodeLoaded~") ;

@@ -10,17 +10,17 @@
 USING_NS_CC;
 
 CCLabelAtlas * UiTool::createLabelAtlasWithBigNumber(const std::string & text){
-	CCLabelAtlas * label = CCLabelAtlas::create(text.c_str(), "scene_bignumber.png", 30, 30, '0');
+	CCLabelAtlas * label = CCLabelAtlas::create(text.c_str(), "scene_bignumber.png", 30, 30, '.');
 	return label;
 }
 
 cocos2d::CCLabelAtlas * UiTool::createLabelAtlasWithLittleNumber(const std::string & text){
-	CCLabelAtlas * label = CCLabelAtlas::create(text.c_str(), "scene_littlenumber.png", 18, 18, '0');
+	CCLabelAtlas * label = CCLabelAtlas::create(text.c_str(), "scene_littlenumber.png", 18, 18, '.');
 	return label;
 }
 
 cocos2d::CCLabelAtlas * UiTool::createLabelAtlasWithStarNumber(const std::string & text){
-	CCLabelAtlas * label = CCLabelAtlas::create(text.c_str(), "startlevel_number.png", 30, 30, '0');
+	CCLabelAtlas * label = CCLabelAtlas::create(text.c_str(), "startlevel_number.png", 30, 30, '.');
 	return label;
 }
 

@@ -150,8 +150,8 @@ void BattleControllerLayer::updateLayer(){
 		_cur_scores_node->removeAllChildrenWithCleanup(true);
 		
 		CCSize labelSize =  _cur_scores_node->getContentSize();
-		cocos2d::CCLabelBMFont * label = UiTool::createLabelBMFont(liveNpcCount.str(),UiTool::kFontBig,ccc3(255,255,255));
-		CCSize cellSize =  label->getContentSize();
+        CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(liveNpcCount.str());
+        CCSize cellSize =  label->getContentSize();
 		label->setAnchorPoint(CCPoint(0.5, 0.5));
 		label->setPosition(CCPoint(labelSize.width* 0.5 , labelSize.height* 0.5));
 		_cur_scores_node->addChild(label);
@@ -426,9 +426,7 @@ void createSkillText(CCNode * container,int32_t val){
         std::stringstream  skillNumber;
         skillNumber << val;
         CCSize labelSize =  container->getContentSize();
-        cocos2d::CCLabelBMFont * label = UiTool::createLabelBMFont(skillNumber.str(),
-                                                                   UiTool::kFontSmall,
-                                                                   ccc3(255,255,255));
+        CCLabelAtlas *label = UiTool::createLabelAtlasWithLittleNumber(skillNumber.str());
         CCSize cellSize =  label->getContentSize();
         label->setAnchorPoint(CCPoint(0.5, 0.5));
         label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));

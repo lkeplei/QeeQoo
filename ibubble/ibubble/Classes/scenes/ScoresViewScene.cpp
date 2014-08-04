@@ -13,14 +13,29 @@
 #include "UiTool.h"
 #include "GameCenter.h"
 NS_KAI_BEGIN
-ScoresViewScene::ScoresViewScene():CCLayer(),_displaySpriteRoot(NULL)
+ScoresViewScene::ScoresViewScene():CCLayer()
+, _displaySpriteRoot(NULL)
+, _gouNode1(NULL)
+, _starNode1(NULL)
+, _rewardNode1(NULL)
+, _gouNode2(NULL)
+, _starNode2(NULL)
+, _rewardNode2(NULL)
+, _rewardGoodNode2(NULL)
 {
-	
+
 }
 
 ScoresViewScene::~ScoresViewScene()
 {
 	CC_SAFE_RELEASE_NULL(_displaySpriteRoot);
+    CC_SAFE_RELEASE_NULL(_gouNode1);
+    CC_SAFE_RELEASE_NULL(_starNode1);
+    CC_SAFE_RELEASE_NULL(_rewardNode1);
+    CC_SAFE_RELEASE_NULL(_gouNode2);
+    CC_SAFE_RELEASE_NULL(_starNode2);
+    CC_SAFE_RELEASE_NULL(_rewardNode2);
+    CC_SAFE_RELEASE_NULL(_rewardGoodNode2);
 }
 
 ScoresViewScene* ScoresViewScene::createWithCCB()
@@ -81,7 +96,16 @@ cocos2d::extension::SEL_CCControlHandler ScoresViewScene::onResolveCCBCCControlS
 #pragma mark-
 #pragma mark CCBMemberVariableAssigner
 bool ScoresViewScene::onAssignCCBMemberVariable(CCObject * pTarget, CCString * pMemberVariableName, CCNode * pNode){
-	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "display_node", CCNode *,_displaySpriteRoot);
+	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "display_node", CCNode *, _displaySpriteRoot);
+
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "gou_node_1", CCNode *, _gouNode1);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "star_node_1", CCNode *, _starNode1);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "reward_node_1", CCNode *, _rewardNode1);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "gou_node_2", CCNode *, _gouNode2);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "star_node_2", CCNode *, _starNode2);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "reward_node_2", CCNode *, _rewardNode2);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "reward_good_node_2", CCNode *, _rewardGoodNode2);
+    
 	return false;
 }
 
@@ -89,6 +113,20 @@ bool ScoresViewScene::onAssignCCBMemberVariable(CCObject * pTarget, CCString * p
 #pragma mark CCBNodeLoaderListener
 void ScoresViewScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader){
 	CCLOG("ScoresViewScene onNodeLoaded~") ;
+    
+    GameModle *gModleInstance = GameModle::sharedInstance();
+	PlayerAchievement &achievement = gModleInstance->playerAchievement();
+    
+    _gouNode1->addChild(UiTool::createLabelAtlasWithBigNumber("12/45"));
+    _starNode1->addChild(UiTool::createLabelAtlasWithBigNumber("10/45"));
+    _rewardNode1->addChild(UiTool::createLabelAtlasWithBigNumber("1/5"));
+    _gouNode2->addChild(UiTool::createLabelAtlasWithBigNumber("34"));
+    _starNode2->addChild(UiTool::createLabelAtlasWithBigNumber("9"));
+    _rewardNode2->addChild(UiTool::createLabelAtlasWithBigNumber("2/5"));
+    
+    stringstream rewardGoodNode2;
+    rewardGoodNode2 << achievement._totalRecords;
+    _rewardGoodNode2->addChild(UiTool::createLabelAtlasWithBigNumber(rewardGoodNode2.str()));
 }
 
 void ScoresViewScene::onEnter(){

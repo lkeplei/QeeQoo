@@ -124,11 +124,12 @@ void GameStartScene::afterLoaded(){
 		
 		
 		CCSize labelSize =  _title_node->getContentSize();
-		cocos2d::CCLabelBMFont * label = UiTool::createLabelBMFont(starStr.str(),UiTool::kFontBig,ccc3(255,255,255));
-		CCSize cellSize =  label->getContentSize();
-		label->setAnchorPoint(CCPoint(0.5, 0.5));
-		label->setPosition(CCPoint(labelSize.width* 0.5 , labelSize.height* 0.5));
-		_title_node->addChild(label);
+        CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(starStr.str());
+        CCSize cellSize =  label->getContentSize();
+        label->setAnchorPoint(CCPoint(0.5, 0.5));
+        label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
+        _title_node->addChild(label);
+        
 	}
 
 	{
@@ -153,14 +154,12 @@ void GameStartScene::afterLoaded(){
 			starStr << pass_count << "/" << count;
 			
 			CCSize labelSize =  _title_node->getContentSize();
-			
-			cocos2d::CCLabelBMFont * label = UiTool::createLabelBMFont(starStr.str(),
-                                                                       UiTool::kFontBig,
-                                                                       ccc3(255,255,255));
-			CCSize cellSize =  label->getContentSize();
-			label->setAnchorPoint(CCPoint(0.5, 0.5));
-			label->setPosition(CCPoint(labelSize.width* 0.5 , labelSize.height* 0.5));
-			_pass_node->addChild(label);
+            CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(starStr.str());
+            CCSize cellSize =  label->getContentSize();
+            label->setAnchorPoint(CCPoint(0.5, 0.5));
+            label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
+            _pass_node->addChild(label);
+
 		}
 		
 		if (_star_node) {
@@ -169,11 +168,11 @@ void GameStartScene::afterLoaded(){
 			starStr << star_count << "/" << count;
 			
 			CCSize labelSize =  _title_node->getContentSize();
-			cocos2d::CCLabelBMFont * label = UiTool::createLabelBMFont(starStr.str(),UiTool::kFontBig,ccc3(255,255,255));
-			CCSize cellSize =  label->getContentSize();
-			label->setAnchorPoint(CCPoint(0.5, 0.5));
-			label->setPosition(CCPoint(labelSize.width* 0.5 , labelSize.height* 0.5));
-			_star_node->addChild(label);
+            CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(starStr.str());
+            CCSize cellSize =  label->getContentSize();
+            label->setAnchorPoint(CCPoint(0.5, 0.5));
+            label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
+            _star_node->addChild(label);
 		}
 	}
 }

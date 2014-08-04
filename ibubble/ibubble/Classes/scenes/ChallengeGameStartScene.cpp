@@ -89,9 +89,7 @@ void createValText(CCNode * container,const std::string & text ,UiTool::EFontSiz
     if (container) {
         container->removeAllChildrenWithCleanup(true);
         CCSize labelSize =  container->getContentSize();
-        cocos2d::CCLabelBMFont * label = UiTool::createLabelBMFont(text,
-                                                                   size,
-                                                                   ccc3(255,255,255));
+        CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(text);
         CCSize cellSize =  label->getContentSize();
         label->setAnchorPoint(CCPoint(0.5, 0.5));
         label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
