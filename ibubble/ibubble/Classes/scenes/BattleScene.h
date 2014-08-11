@@ -128,11 +128,21 @@ public:
 	virtual void onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader);
 private:
 	CCNode * _cur_scores_node;
+    CCNode * _cur_kill_node;
+    CCSprite *_cur_kill_sprite;
+    CCSprite *_cur_scores_sprite;
 	CCLayer * _cur_menu_node;
 	CCPoint		_startPos;
 	CCMenuItemImage * _pause_button;
 	CCMenuItemImage * _back_button;
 	
+    CCMenuItemImage * _menu1Button;
+	CCMenuItemImage * _menu2Button;
+	CCMenuItemImage * _menu3Button;
+	CCMenuItemImage * _menu4Button;
+	CCMenuItemImage * _menu5Button;
+	CCMenuItemImage * _menu6Button;
+    
 	CCMenuItemImage * _skill1Button;
 	CCMenuItemImage * _skill2Button;
 	CCMenuItemImage * _skill3Button;

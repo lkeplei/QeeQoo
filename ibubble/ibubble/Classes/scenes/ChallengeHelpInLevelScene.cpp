@@ -53,10 +53,7 @@ CCScene* ChallengeHelpInLevelScene::scene()
 
 void ChallengeHelpInLevelScene::press_next(){
     //冲第一关卡开始
-    GameModle::sharedInstance()->setCurrentHardLevelId(0);
-    GameModle::sharedInstance()->resetSkillInfo();
-	GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,
-                                                  CCInteger::create(GameUtilities::getRandLevel()));
+    GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeGameStart,CCInteger::create(0));
 }
 
 #pragma mark-
