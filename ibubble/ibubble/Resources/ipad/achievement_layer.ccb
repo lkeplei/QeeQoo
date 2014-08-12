@@ -2138,7 +2138,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>reward_images/reward_level_6_language.png</string>
+									<string>reward_images/reward_level_6_unlocked.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -2153,6 +2153,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>baseClass</key>
@@ -2831,8 +2833,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

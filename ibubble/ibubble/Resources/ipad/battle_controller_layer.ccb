@@ -634,6 +634,14 @@
 									</dict>
 									<dict>
 										<key>name</key>
+										<string>visible</string>
+										<key>type</key>
+										<string>Check</string>
+										<key>value</key>
+										<false/>
+									</dict>
+									<dict>
+										<key>name</key>
 										<string>block</string>
 										<key>type</key>
 										<string>Block</string>
@@ -709,7 +717,7 @@
 										<key>value</key>
 										<array>
 											<real>69</real>
-											<real>338</real>
+											<real>400</real>
 											<integer>0</integer>
 										</array>
 									</dict>
@@ -822,7 +830,7 @@
 										<key>value</key>
 										<array>
 											<real>69</real>
-											<real>248</real>
+											<real>288</real>
 											<integer>0</integer>
 										</array>
 									</dict>
@@ -935,7 +943,7 @@
 										<key>value</key>
 										<array>
 											<real>69</real>
-											<real>156</real>
+											<real>176</real>
 											<integer>0</integer>
 										</array>
 									</dict>

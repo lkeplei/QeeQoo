@@ -101,13 +101,6 @@ BattleControllerLayer::BattleControllerLayer():BattleBaseLayer(){
 	_cur_menu_node = NULL;
 	_pause_button = NULL;
 	_back_button = NULL;
-    
-    _menu1Button = NULL;
-    _menu2Button = NULL;
-    _menu3Button = NULL;
-    _menu4Button = NULL;
-    _menu5Button = NULL;
-    _menu6Button = NULL;
 	
 	_skill1Button = NULL;
 	_skill2Button = NULL;
@@ -135,13 +128,6 @@ BattleControllerLayer::~BattleControllerLayer(){
 	CC_SAFE_RELEASE_NULL(_cur_menu_node);
 	CC_SAFE_RELEASE_NULL(_pause_button);
 	CC_SAFE_RELEASE_NULL(_back_button);
-    
-    CC_SAFE_RELEASE_NULL(_menu1Button);
-	CC_SAFE_RELEASE_NULL(_menu2Button);
-	CC_SAFE_RELEASE_NULL(_menu3Button);
-	CC_SAFE_RELEASE_NULL(_menu4Button);
-	CC_SAFE_RELEASE_NULL(_menu5Button);
-	CC_SAFE_RELEASE_NULL(_menu6Button);
     
 	CC_SAFE_RELEASE_NULL(_skill1Button);
 	CC_SAFE_RELEASE_NULL(_skill2Button);
@@ -245,7 +231,11 @@ void BattleControllerLayer::press_restart()
 {
 	int32_t currentLevelId = GameModle::sharedInstance()->currentLevelId();
 	GameController::sharedInstance()->pauseBattle();
-	GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE,CCInteger::create(currentLevelId));
+    if (GameModle::sharedInstance()->currentBigLevelId() >= kStoryZoneMaxId) {
+        GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,CCInteger::create(currentLevelId));
+    } else {
+     	GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE,CCInteger::create(currentLevelId));
+    }
 }
 
 void BattleControllerLayer::press_play(){
@@ -283,13 +273,18 @@ void BattleControllerLayer::press_setting(){
 }
 
 void BattleControllerLayer::press_help(){
-	GameController::sharedInstance()->pauseBattle();
-	int zone = GameModle::sharedInstance()->currentBigLevelId();
-	int level = GameModle::sharedInstance()->currentLevelId();
-	hideMenu();
-	GameController::sharedInstance()->pushSence(GameController::K_SCENE_HELP_IN_LEVEL,
-												CCInteger::create(level),
-												CCInteger::create(zone));
+    GameController::sharedInstance()->pauseBattle();
+    
+    if (GameModle::sharedInstance()->currentBigLevelId() >= kStoryZoneMaxId) {
+        GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeHelpInLevel);
+	} else {
+        int zone = GameModle::sharedInstance()->currentBigLevelId();
+        int level = GameModle::sharedInstance()->currentLevelId();
+        hideMenu();
+        GameController::sharedInstance()->pushSence(GameController::K_SCENE_HELP_IN_LEVEL,
+                                                    CCInteger::create(level),
+                                                    CCInteger::create(zone));
+    }
 }
 
 void BattleControllerLayer::press_skill1(){
@@ -407,12 +402,6 @@ bool BattleControllerLayer::onAssignCCBMemberVariable(CCObject * pTarget, CCStri
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "cur_kill_node", CCNode *, this->_cur_kill_node);
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "cur_score_sprite", CCSprite *, this->_cur_scores_sprite);
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "cur_kill_sprite", CCSprite *, this->_cur_kill_sprite);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "menu_btn1", CCMenuItemImage *, this->_menu1Button);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "menu_btn2", CCMenuItemImage *, this->_menu2Button);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "menu_btn3", CCMenuItemImage *, this->_menu3Button);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "menu_btn4", CCMenuItemImage *, this->_menu4Button);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "menu_btn5", CCMenuItemImage *, this->_menu5Button);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "menu_btn6", CCMenuItemImage *, this->_menu6Button);
     
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "menu_borad", CCLayer *, this->_cur_menu_node);
 
@@ -426,7 +415,6 @@ bool BattleControllerLayer::onAssignCCBMemberVariable(CCObject * pTarget, CCStri
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "skill6_button", CCMenuItemImage *, this->_skill6Button);
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "ChallengeRoot", CCNode *, this->_ChallengeRoot);
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "ChallengeMenu", CCMenu *, this->_ChallengeMenu);
-    
     
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "skill1_text", CCNode *, this->_skill1text);
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "skill2_text", CCNode *, this->_skill2text);
@@ -464,8 +452,7 @@ void BattleControllerLayer::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCN
     _back_button->setVisible(false);
     _back_button->setEnabled(false);
 	if (GameModle::sharedInstance()->currentBigLevelId() >= kStoryZoneMaxId) {
-        _menu2Button->setVisible(false);
-        _menu2Button->setEnabled(false);
+
 	} else {
         _cur_kill_sprite->setPosition(_cur_scores_sprite->getPosition());
         _cur_kill_node->setPosition(_cur_scores_node->getPosition());
@@ -475,8 +462,6 @@ void BattleControllerLayer::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCN
 	}
 
     
-    
-	
     if (GameModle::sharedInstance()->getBattleMode() != K_HARD_PVE_BATTLE) {
         _ChallengeMenu->setVisible(false);
         _ChallengeRoot->setVisible(false);

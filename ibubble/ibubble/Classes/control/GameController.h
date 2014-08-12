@@ -60,6 +60,8 @@ public:
 public:
 	void pushSence(const ESceneId sceneId,CCObject * param,CCObject * param2);
 	bool popSence();
+    
+    void controllerPushSence(CCScene *pScene, bool pushSence=false);
 	
 	void switchSence(const ESceneId sceneId,CCObject * param = NULL,
 					 CCObject * param2 = NULL,

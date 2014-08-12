@@ -29,7 +29,7 @@ public:
 	CCB_STATIC_NEW_AUTORELEASE_OBJECT_WITH_INIT_METHOD(ChallengeGameOverScene, create);
     virtual ~ChallengeGameOverScene();
     ChallengeGameOverScene();
-    static cocos2d::CCScene* scene();
+    static cocos2d::CCScene* scene(bool first=true);
 	static ChallengeGameOverScene* createWithCCB();
 	void press_menu_page();
 	void press_replay();
@@ -45,10 +45,12 @@ public:
 #pragma mark-
 #pragma mark CCBNodeLoaderListener
 	virtual void onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader);
-    void show(int type);
+    
+    void setStep(bool first);
     
 private:
     void getSkill(const int type);
+    void show(int type);
     
 private:
     CCSprite * _passTitle;
@@ -74,6 +76,8 @@ private:
     CCMenuItemImage * _replayBtn;
     CCMenuItemImage * _normalNextBtn;
     CCMenuItemImage * _hardMenuBtn;
+    
+    bool _firstStep;
 };
 
 

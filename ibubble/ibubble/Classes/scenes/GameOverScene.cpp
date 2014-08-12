@@ -65,7 +65,9 @@ void GameOverScene::press_menu_page()
 
 void GameOverScene::press_replay()
 {
-	GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE,CCInteger::create(_currentLevelId));
+	GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE,
+                                                  CCInteger::create(_currentLevelId),
+                                                  CCInteger::create(GameModle::sharedInstance()->currentBigLevelId()));
 }
 
 void GameOverScene::press_play_next()

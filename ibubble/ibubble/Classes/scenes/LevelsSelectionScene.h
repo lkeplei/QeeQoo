@@ -103,6 +103,10 @@ public:
 	virtual bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent);
     void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
 	void ccTouchEnded(CCTouch *touch, CCEvent* event);
+    
+private:
+    CCRect getNewCellBox();
+    
 private:
 	CCNode   * _levelsTableViewRoot;
 	CCNode   * _gouNodeRoot;

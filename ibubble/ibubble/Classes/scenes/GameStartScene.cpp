@@ -116,65 +116,58 @@ void GameStartScene::afterLoaded(){
 		starStr << (GameModle::sharedInstance()->currentBigLevelId() + 1) ;
 		int index = _nextLevelId + 1;
 		if (index < 10) {
-			starStr << "-0" << index;
+			starStr << "/0" << index;
+		} else {
+			starStr << "/" << index;
 		}
-		else{
-			starStr << "-" << index;
-		}
-		
 		
 		CCSize labelSize =  _title_node->getContentSize();
-        CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(starStr.str());
+        CCLabelAtlas *label = UiTool::createLabelAtlasWithStarNumber(starStr.str());
         CCSize cellSize =  label->getContentSize();
         label->setAnchorPoint(CCPoint(0.5, 0.5));
         label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
         _title_node->addChild(label);
+	}
+
+    stringstream currentBigStr;
+    currentBigStr << GameModle::sharedInstance()->currentBigLevelId();
+    CCDictionary * dict = (CCDictionary *)GameConfig::sharedInstance()->getLevelsValue(currentBigStr.str());
+    CCArray * sublevels = (CCArray *)dict->objectForKey(KStrSubLevels);
+    CCDictionary * currentLevelDict = (CCDictionary *)sublevels->objectAtIndex(_nextLevelId);
+    CCArray * npcs = (CCArray *)currentLevelDict->objectForKey(KStrNPCs);//npcs
+    CCObject * npcitem = NULL;
+    int pass_count = ((CCString *)currentLevelDict->objectForKey(KStrPassCount))->intValue();
+    int star_count = ((CCString *)currentLevelDict->objectForKey(KStrStarCount))->intValue();
+    int count = 0;
+    CCARRAY_FOREACH(npcs, npcitem){
+        CCDictionary * dict = (CCDictionary *)npcitem;
+        count += ((CCString *)dict->objectForKey(KStrCount))->intValue();
+    }
+    
+    if (_pass_node) {
+        std::stringstream  starStr;
+        starStr << pass_count << "/" << count;
         
-	}
-
-	{
-		stringstream currentBigStr;
-		currentBigStr << GameModle::sharedInstance()->currentBigLevelId();
-		CCDictionary * dict = (CCDictionary *)GameConfig::sharedInstance()->getLevelsValue(currentBigStr.str());
-		CCArray * sublevels = (CCArray *)dict->objectForKey(KStrSubLevels);
-		CCDictionary * currentLevelDict = (CCDictionary *)sublevels->objectAtIndex(_nextLevelId);
-		CCArray * npcs = (CCArray *)currentLevelDict->objectForKey(KStrNPCs);//npcs
-		CCObject * npcitem = NULL;
-		int pass_count = ((CCString *)currentLevelDict->objectForKey(KStrPassCount))->intValue();
-		int star_count = ((CCString *)currentLevelDict->objectForKey(KStrStarCount))->intValue();
-		int count = 0;
-		CCARRAY_FOREACH(npcs, npcitem){
-			CCDictionary * dict = (CCDictionary *)npcitem;
-			count += ((CCString *)dict->objectForKey(KStrCount))->intValue();
-		}
-		
-		if (_pass_node) {
-			
-			std::stringstream  starStr;
-			starStr << pass_count << "/" << count;
-			
-			CCSize labelSize =  _title_node->getContentSize();
-            CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(starStr.str());
-            CCSize cellSize =  label->getContentSize();
-            label->setAnchorPoint(CCPoint(0.5, 0.5));
-            label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
-            _pass_node->addChild(label);
-
-		}
-		
-		if (_star_node) {
-			
-			std::stringstream  starStr;
-			starStr << star_count << "/" << count;
-			
-			CCSize labelSize =  _title_node->getContentSize();
-            CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(starStr.str());
-            CCSize cellSize =  label->getContentSize();
-            label->setAnchorPoint(CCPoint(0.5, 0.5));
-            label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
-            _star_node->addChild(label);
-		}
-	}
+        CCSize labelSize =  _title_node->getContentSize();
+        CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(starStr.str());
+        CCSize cellSize =  label->getContentSize();
+        label->setAnchorPoint(CCPoint(0.5, 0.5));
+        label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
+        _pass_node->addChild(label);
+        
+    }
+    
+    if (_star_node) {
+        std::stringstream  starStr;
+        starStr << star_count << "/" << count;
+        
+        CCSize labelSize =  _title_node->getContentSize();
+        CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(starStr.str());
+        CCSize cellSize =  label->getContentSize();
+        label->setAnchorPoint(CCPoint(0.5, 0.5));
+        label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
+        _star_node->addChild(label);
+    }
 }
 
 void GameStartScene::onEnter(){

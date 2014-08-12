@@ -233,7 +233,13 @@ void GameController::switchSence(const ESceneId sceneId,
 		default:
 			break;
 	}
+    
 	CCAssert(pScene != NULL, "GameController::switchSence sceneId is invalid..");
+    
+    controllerPushSence(pScene, pushSence);
+}
+
+void GameController::controllerPushSence(CCScene *pScene, bool pushSence){
 	if (pScene) {
 		if (_director->getRunningScene()) {
 			if (pushSence) {

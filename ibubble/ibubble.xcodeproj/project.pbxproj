@@ -11,6 +11,7 @@
 		0425E8DA198E1CE6001DA340 /* background3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0425E8D7198E1CE6001DA340 /* background3.png */; };
 		0425E8DB198E1CE6001DA340 /* background4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0425E8D8198E1CE6001DA340 /* background4.png */; };
 		042D4489198E80E200A1F26A /* scores_layer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 042D4488198E80E200A1F26A /* scores_layer.ccbi */; };
+		045FF5F2199A6834007BE8B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 045FF5F4199A6834007BE8B3 /* InfoPlist.strings */; };
 		046CD0EC197A069A00630062 /* BattleAIScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD097197A069A00630062 /* BattleAIScript.cpp */; };
 		046CD0ED197A069A00630062 /* GameAIScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD099197A069A00630062 /* GameAIScript.cpp */; };
 		046CD0EE197A069A00630062 /* GameAIScriptFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD09B197A069A00630062 /* GameAIScriptFactory.cpp */; };
@@ -784,6 +785,8 @@
 		0425E8D7198E1CE6001DA340 /* background3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background3.png; sourceTree = "<group>"; };
 		0425E8D8198E1CE6001DA340 /* background4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background4.png; sourceTree = "<group>"; };
 		042D4488198E80E200A1F26A /* scores_layer.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = scores_layer.ccbi; sourceTree = "<group>"; };
+		045FF5F3199A6834007BE8B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		045FF5F5199A6843007BE8B3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		046CD097197A069A00630062 /* BattleAIScript.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleAIScript.cpp; sourceTree = "<group>"; };
 		046CD098197A069A00630062 /* BattleAIScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleAIScript.h; sourceTree = "<group>"; };
 		046CD099197A069A00630062 /* GameAIScript.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameAIScript.cpp; sourceTree = "<group>"; };
@@ -2251,6 +2254,7 @@
 				183461C1164F70E700C4B4D6 /* Icon@2x.png */,
 				183461C5164F70E700C4B4D6 /* Info.plist */,
 				183464E4164F8F5D00C4B4D6 /* ipad */,
+				045FF5F4199A6834007BE8B3 /* InfoPlist.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -3977,6 +3981,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 1834618E164F70E700C4B4D6;
 			productRefGroup = 1834619A164F70E700C4B4D6 /* Products */;
@@ -3994,6 +3999,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				183461B4164F70E700C4B4D6 /* Default.png in Resources */,
+				045FF5F2199A6834007BE8B3 /* InfoPlist.strings in Resources */,
 				183461B8164F70E700C4B4D6 /* Icon-72.png in Resources */,
 				183461BA164F70E700C4B4D6 /* Icon-Small-50.png in Resources */,
 				183461BC164F70E700C4B4D6 /* Icon-Small.png in Resources */,
@@ -4766,6 +4772,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		045FF5F4199A6834007BE8B3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				045FF5F3199A6834007BE8B3 /* en */,
+				045FF5F5199A6843007BE8B3 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		183464D2164F70EC00C4B4D6 /* Debug */ = {

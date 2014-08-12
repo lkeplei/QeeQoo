@@ -508,6 +508,23 @@ unsigned int LevelsSelectionScene::numberOfCellsInTableView(CCTableView *table)
 	return count;
 }
 
+CCRect LevelsSelectionScene::getNewCellBox() {
+    CCRect bBox = _levelsTableViewRoot->boundingBox();
+    const CCSize & size = bBox.size;
+    const float scaleX = 0.6;
+    const float scaleY = 0.8;
+    
+    float offset_w = size.width * (1- scaleX) * 0.5;
+    float offset_h = size.height * (1- scaleY) * 0.5;
+    
+    bBox.origin.x = bBox.origin.x + offset_w;
+    bBox.origin.y = bBox.origin.y + offset_h;
+    
+    bBox.size.width = bBox.size.width * scaleX;
+    bBox.size.height = bBox.size.height * scaleY;
+    
+    return bBox;
+}
 
 //触摸事件
 bool LevelsSelectionScene::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent){
@@ -518,21 +535,8 @@ bool LevelsSelectionScene::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent){
         originalX = touchLocation.x;
         
 		touchLocation = _levelsTableViewRoot->getParent()->convertToNodeSpace(touchLocation);
-		CCRect bBox = _levelsTableViewRoot->boundingBox();
-		const CCSize & size = bBox.size;
-		const float scaleX = 0.6;
-		const float scaleY = 0.8;
-		
-		float offset_w = size.width * (1- scaleX) * 0.5;
-		float offset_h = size.height * (1- scaleY) * 0.5;
-		
-		bBox.origin.x = bBox.origin.x + offset_w;
-		bBox.origin.y = bBox.origin.y + offset_h;
 
-		bBox.size.width = bBox.size.width * scaleX;
-		bBox.size.height = bBox.size.height * scaleY;
-		
-		if (bBox.containsPoint(touchLocation)) {
+		if (getNewCellBox().containsPoint(touchLocation)) {
 			if (!_newCell->isSelected()) {
 				_newCell->Selected();
 			}
@@ -556,6 +560,16 @@ void LevelsSelectionScene::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent){
         _newCell->setPosition(CCPointMake(_newCell->getPosition().x + offX, _newCell->getPosition().y));
         
         movePreX = touchLocation.x;
+        
+		if (getNewCellBox().containsPoint(touchLocation)) {
+			if (!_newCell->isSelected()) {
+				_newCell->Selected();
+			}
+		} else {
+            if (_newCell->isSelected()) {
+				_newCell->Unselected();
+			}
+        }
 	}
 }
 

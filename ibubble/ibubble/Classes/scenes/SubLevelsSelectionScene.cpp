@@ -362,7 +362,6 @@ void SubLevelsSelectionScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::C
 					}
 						break;
 				}
-				
 			}
 			
 			item->setNormalSpriteFrame(normalSpriteFrame);
