@@ -29,7 +29,7 @@ public:
 	CCB_STATIC_NEW_AUTORELEASE_OBJECT_WITH_INIT_METHOD(GameOverScene, create);
     virtual ~GameOverScene();
     GameOverScene();
-    static cocos2d::CCScene* scene();
+    static cocos2d::CCScene* scene(bool gameOver=false);
 	static GameOverScene* createWithCCB();
 	void press_menu_page();
 	void press_replay();
@@ -48,14 +48,20 @@ public:
 #pragma mark-
 #pragma mark CCBNodeLoaderListener
 	virtual void onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader);
+    
+    void updateScene();
+    
 private:
 	CCNode * _result_scores;
 	CCSprite * _result_icon;
 	CCSprite * _achievement_icon;
 	CCMenuItem * _play_next;
+    CCMenuItem * _replay_menu;
+    CCMenuItem * _home_menu;
 	int32_t   _currentLevelId;
 	int32_t   _nextLevelId;
-	
+public:
+	bool _gameOver;
 };
 
 

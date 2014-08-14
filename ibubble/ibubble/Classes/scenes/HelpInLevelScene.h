@@ -29,7 +29,7 @@ public:
 	CCB_STATIC_NEW_AUTORELEASE_OBJECT_WITH_INIT_METHOD(HelpInLevelScene, create);
     virtual ~HelpInLevelScene();
     HelpInLevelScene();
-    static cocos2d::CCScene* scene(const int zoneid,const int levelid);
+    static cocos2d::CCScene* scene(const int zoneid,const int levelid, bool showHelp=false);
 	static HelpInLevelScene* createWithCCB();
 	void press_back();
 	void press_next();
@@ -47,6 +47,10 @@ public:
 #pragma mark-
 #pragma mark CCBNodeLoaderListener
 	virtual void onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader);
+    
+    
+    void setShowHelp();
+    
 private:
 	CCMenuItemImage * _nextButton;
 	CCNode * _helpSpriteRoot;
@@ -54,6 +58,8 @@ private:
 	std::vector<std::string> _list;
 	int  _levelid;
 	int  _zoneid;
+    
+    bool _showHelp;
 	
 };
 

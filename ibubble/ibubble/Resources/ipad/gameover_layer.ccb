@@ -424,9 +424,9 @@
 						<key>displayName</key>
 						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>home_menu_item</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>1</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -526,6 +526,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>baseClass</key>
@@ -537,9 +539,9 @@
 						<key>displayName</key>
 						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>replay_menu_item</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>1</integer>
 						<key>properties</key>
 						<array>
 							<dict>

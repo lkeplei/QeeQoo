@@ -240,6 +240,8 @@ void GameController::switchSence(const ESceneId sceneId,
 }
 
 void GameController::controllerPushSence(CCScene *pScene, bool pushSence){
+    _pushSence = pushSence;
+    
 	if (pScene) {
 		if (_director->getRunningScene()) {
 			if (pushSence) {

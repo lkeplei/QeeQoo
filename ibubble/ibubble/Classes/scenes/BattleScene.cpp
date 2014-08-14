@@ -14,6 +14,7 @@
 USING_NS_CC;
 
 #include "GameUtilities.h"
+#include "HelpInLevelScene.h"
 
 NS_KAI_BEGIN
 BattleBgLayer::BattleBgLayer():BattleBaseLayer(),_animationManager(NULL){
@@ -281,9 +282,11 @@ void BattleControllerLayer::press_help(){
         int zone = GameModle::sharedInstance()->currentBigLevelId();
         int level = GameModle::sharedInstance()->currentLevelId();
         hideMenu();
-        GameController::sharedInstance()->pushSence(GameController::K_SCENE_HELP_IN_LEVEL,
-                                                    CCInteger::create(level),
-                                                    CCInteger::create(zone));
+//        GameController::sharedInstance()->pushSence(GameController::K_SCENE_HELP_IN_LEVEL,
+//                                                    CCInteger::create(level),
+//                                                    CCInteger::create(zone));
+        CCScene *pScene = HelpInLevelScene::scene(zone, level, true);
+        GameController::sharedInstance()->controllerPushSence(pScene, true);
     }
 }
 
@@ -527,8 +530,6 @@ void BattleScene::load()
 	BattleBaseLayer * layer=NULL;
 	
 	//加载游戏背景的layer
-	
-	
 	CCNodeLoaderLibrary *ccNodeLoaderLibrary=CCNodeLoaderLibrary::newDefaultCCNodeLoaderLibrary();
 	ccNodeLoaderLibrary->registerCCNodeLoader("BattleBgLayer",BattleBgLayerLoader::loader());
 	CCBReader * ccBReader=new CCBReader(ccNodeLoaderLibrary);

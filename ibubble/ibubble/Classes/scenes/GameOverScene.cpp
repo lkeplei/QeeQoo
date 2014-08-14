@@ -17,7 +17,10 @@ GameOverScene::GameOverScene():CCLayer()
 ,_currentLevelId(0)
 ,_nextLevelId(-1)
 ,_play_next(NULL)
+,_replay_menu(NULL)
+,_home_menu(NULL)
 ,_result_scores(NULL)
+,_gameOver(false)
 {
 
 }
@@ -29,6 +32,8 @@ GameOverScene::~GameOverScene()
 	CC_SAFE_RELEASE_NULL(_result_icon);
 	CC_SAFE_RELEASE_NULL(_achievement_icon);
 	CC_SAFE_RELEASE_NULL(_play_next);
+    CC_SAFE_RELEASE_NULL(_replay_menu);
+    CC_SAFE_RELEASE_NULL(_home_menu);
 }
 
 GameOverScene* GameOverScene::createWithCCB()
@@ -48,12 +53,15 @@ GameOverScene* GameOverScene::createWithCCB()
 	return node;
 }
 
-CCScene* GameOverScene::scene()
+CCScene* GameOverScene::scene(bool gameOver)
 {
 	CCScene *scene=CCScene::create();
-	CCLayer * node =(CCLayer*)createWithCCB();
+	GameOverScene * node =(GameOverScene*)createWithCCB();
 	if(node!=NULL){
 		scene->addChild(node);
+        
+        node->_gameOver = gameOver;
+        node->updateScene();
 	}
 	return scene;
 }
@@ -83,6 +91,16 @@ void GameOverScene::press_play_next()
 
 }
 
+void GameOverScene::updateScene() {
+    if (_gameOver) {
+        _play_next->setVisible(false);
+        _play_next->setEnabled(false);
+        
+        _replay_menu->setPosition(_replay_menu->getPosition().x + 50, _replay_menu->getPosition().y);
+        _home_menu->setPosition(_home_menu->getPosition().x + 90, _home_menu->getPosition().y);
+    }
+}
+
 #pragma mark-
 #pragma mark CCBSelectorResolver
 SEL_MenuHandler GameOverScene::onResolveCCBCCMenuItemSelector(CCObject * pTarget, CCString * pSelectorName){
@@ -90,9 +108,7 @@ SEL_MenuHandler GameOverScene::onResolveCCBCCMenuItemSelector(CCObject * pTarget
 	CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(this, "replay",GameOverScene::press_replay);
 	CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(this, "play_next",GameOverScene::press_play_next);
 
-	
 	return NULL;
-	
 }
 
 cocos2d::extension::SEL_CCControlHandler GameOverScene::onResolveCCBCCControlSelector(CCObject * pTarget, CCString * pSelectorName){
@@ -105,7 +121,11 @@ cocos2d::extension::SEL_CCControlHandler GameOverScene::onResolveCCBCCControlSel
 bool GameOverScene::onAssignCCBMemberVariable(CCObject * pTarget, CCString * pMemberVariableName, CCNode * pNode){
 	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "result_icon", CCSprite *, _result_icon);
 	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "achievement_icon", CCSprite *,_achievement_icon);
+    
 	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "play_next_menu_item", CCMenuItem *,_play_next);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "replay_menu_item", CCMenuItem *, _replay_menu);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "home_menu_item", CCMenuItem *, _home_menu);
+
 	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "result_score_node",CCNode *, _result_scores);
 	return false;
 }
@@ -154,7 +174,6 @@ void GameOverScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoade
     label->setAnchorPoint(CCPoint(0.5, 0.5));
     label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
     _result_scores->addChild(label);
-	
 	
 	CCLOG("GameOverScene onNodeLoaded~") ;
 }

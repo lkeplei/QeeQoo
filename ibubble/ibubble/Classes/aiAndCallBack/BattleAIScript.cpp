@@ -14,6 +14,9 @@
 #include "GameData.h"
 #include "GameConstant.h"
 #include "GameCenter.h"
+
+#include "LevelMVScene.h"
+
 NS_KAI_BEGIN
 bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float dt) {
 	GameModle * gModleInstance = GameModle::sharedInstance();
@@ -58,9 +61,14 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
                 if (file->compare("0") == 0) {
                     controller->switchSence(GameController::K_SCENE_SUCCESS);
                 } else {
-                    controller->switchSence(GameController::K_SCENE_LEVEL_MV,
-                                            CCInteger::create(gModleInstance->currentBigLevelId()),
-                                            CCInteger::create(gModleInstance->currentLevelId()));
+                    CCScene *pScene = LevelMVScene::scene(gModleInstance->currentBigLevelId(),
+                                                          gModleInstance->currentLevelId(),
+                                                          KStrMovieEnd);
+                    controller->controllerPushSence(pScene);
+//                    
+//                    controller->switchSence(GameController::K_SCENE_LEVEL_MV,
+//                                            CCInteger::create(gModleInstance->currentBigLevelId()),
+//                                            CCInteger::create(gModleInstance->currentLevelId()));
                 }
 				
 				//剧情故事

@@ -62,11 +62,6 @@ void AchievementViewScene::press_back()
 	GameController::sharedInstance()->switchSence(GameController::K_SCENE_ACHIEVEMENT,CCInteger::create(0));
 }
 
-void AchievementViewScene::press_next()
-{
-
-}
-
 void AchievementViewScene::initWithParams(CCObject * params){
 	if(_displaySpriteRoot && params){
 		CCDictionary * dict = (CCDictionary *)params;
@@ -122,7 +117,6 @@ void AchievementViewScene::initWithParams(CCObject * params){
 #pragma mark CCBSelectorResolver
 SEL_MenuHandler AchievementViewScene::onResolveCCBCCMenuItemSelector(CCObject * pTarget, CCString * pSelectorName){
 	CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(this, "press_back",AchievementViewScene::press_back);
-	//CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(this, "enter_view",AchievementViewScene::press_next);
 	return NULL;
 	
 }

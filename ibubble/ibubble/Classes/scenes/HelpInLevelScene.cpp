@@ -15,6 +15,7 @@ HelpInLevelScene::HelpInLevelScene():CCLayer(),
 _helpSpriteRoot(NULL),
 _index(0),
 _nextButton(NULL)
+,_showHelp(false)
 {
 	_list.push_back("help_1.png");
 	_list.push_back("help_2.png");
@@ -48,7 +49,7 @@ HelpInLevelScene* HelpInLevelScene::createWithCCB()
 	return node;
 }
 
-CCScene* HelpInLevelScene::scene(const int zoneid,const int levelid)
+CCScene* HelpInLevelScene::scene(const int zoneid, const int levelid, bool showHelp)
 {
 	CCScene *scene = CCScene::create();
 	HelpInLevelScene * node = createWithCCB();
@@ -57,7 +58,11 @@ CCScene* HelpInLevelScene::scene(const int zoneid,const int levelid)
 		node->_zoneid = zoneid;
 		scene->addChild(node);
         
-        node->updateHelper();
+        if (showHelp) {
+            node->setShowHelp();
+        } else {
+            node->updateHelper();
+        }
 	}
 	return scene;
 }
@@ -69,17 +74,30 @@ void HelpInLevelScene::press_back()
 
 void HelpInLevelScene::press_next()
 {
-    if (!GameController::sharedInstance()->popSence()) {
-        GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_PRE,CCInteger::create(_levelid));
+    if (_showHelp && _index < 5) {
+        _index++;
+        updateHelper();
+    } else {
+        if (!GameController::sharedInstance()->popSence()) {
+            GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_PRE,CCInteger::create(_levelid));
+        } else {
+            GameController::sharedInstance()->resumeBattle();
+        }
     }
-    else{
-        GameController::sharedInstance()->resumeBattle();
-    }
+}
+
+void HelpInLevelScene::setShowHelp() {
+    _showHelp = true;
+    
+    _index = 0;
+    updateHelper();
 }
 
 bool HelpInLevelScene::updateHelper()
 {
-    _index = GameModle::sharedInstance()->getHelpIndex(_levelid, _zoneid);
+    if (!_showHelp) {
+        _index = GameModle::sharedInstance()->getHelpIndex(_levelid, _zoneid);
+    }
     
 	if (_helpSpriteRoot) {
 		_helpSpriteRoot->removeAllChildrenWithCleanup(true);

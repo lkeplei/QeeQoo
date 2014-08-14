@@ -115,25 +115,13 @@
 						<array>
 							<dict>
 								<key>name</key>
-								<string>position</string>
-								<key>type</key>
-								<string>Position</string>
-								<key>value</key>
-								<array>
-									<real>943</real>
-									<real>96</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
 								<string>anchorPoint</string>
 								<key>type</key>
 								<string>Point</string>
 								<key>value</key>
 								<array>
-									<real>0.5</real>
-									<real>0.5</real>
+									<real>0.0</real>
+									<real>0.0</real>
 								</array>
 							</dict>
 							<dict>
@@ -143,10 +131,10 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>1</real>
-									<real>1</real>
+									<real>46</real>
+									<real>42</real>
 									<false/>
-									<integer>0</integer>
+									<integer>1</integer>
 								</array>
 							</dict>
 							<dict>
@@ -183,8 +171,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>public_images.plist</string>
-									<string>next_button.png</string>
+									<string></string>
+									<string>empty.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -194,8 +182,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>public_images.plist</string>
-									<string>next_button_sel.png</string>
+									<string></string>
+									<string>empty.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -205,11 +193,13 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>public_images.plist</string>
-									<string>next_button.png</string>
+									<string></string>
+									<string>empty.png</string>
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -404,8 +394,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

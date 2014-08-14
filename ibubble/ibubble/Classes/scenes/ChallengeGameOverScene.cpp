@@ -240,12 +240,12 @@ CCSpriteFrame* setSkill(const int id){
             break;
         case 4:{
             info.skill_s_touch++;
-            spriteFrame = gShareCache->spriteFrameByName("skill_type_s_touch_btn.png");
+            spriteFrame = gShareCache->spriteFrameByName("skill_type_large_touch_btn.png");
         }
             break;
         case 5:{
             info.skill_large_touch++;
-            spriteFrame = gShareCache->spriteFrameByName("skill_type_large_touch_btn.png");
+            spriteFrame = gShareCache->spriteFrameByName("skill_type_s_touch_btn.png");
         }
             break;
         case 6:{

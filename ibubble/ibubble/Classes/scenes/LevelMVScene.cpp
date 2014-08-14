@@ -14,6 +14,8 @@
 #include "GameEffectManager.h"
 #include "GameConfig.h"
 
+#include "GameOverScene.h"
+
 NS_KAI_BEGIN
 LevelMVScene::LevelMVScene():CCLayer(),
 _helpSpriteRoot(NULL),
@@ -73,7 +75,8 @@ void LevelMVScene::press_next()
     
     if (GameModle::sharedInstance()->getHelpIndex(_levelid, _zoneid) == -1) {
         if (_zoneid == 2 && _levelid == 14) {
-            GameController::sharedInstance()->switchSence(GameController::K_SCENE_SUCCESS);
+            CCScene *pScene = GameOverScene::scene(true);
+            GameController::sharedInstance()->controllerPushSence(pScene);
         } else {
             GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_PRE,CCInteger::create(_levelid));   
         }
