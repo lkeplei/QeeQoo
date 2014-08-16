@@ -19,7 +19,6 @@ public:
 	int32_t _totalNpcCount;
 	int32_t _killNpcCount;
     int32_t _records;
-    int32_t _totalRecords;
 	float   _playingTime;
 	float   _idleTime;
 	float   _idleMaxTime;
@@ -49,7 +48,6 @@ public:
     ,_pass_star_count(0)
     ,_battleMode(0)
     ,_records(0)
-    ,_totalRecords(0)
     {
 
 	}
@@ -156,6 +154,7 @@ public:
 	std::pair<int, int> totalCount(int32_t levelid = -1,int32_t biglevelid = -1);
     std::pair<int, int> totalRecords(int32_t levelid = -1,int32_t biglevelid = -1);
 	void unlockStory(const std::pair<int, int> & counts);
+    void unlockAchievement();
 private:
 
 };

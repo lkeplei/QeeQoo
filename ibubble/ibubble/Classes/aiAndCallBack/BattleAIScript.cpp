@@ -16,8 +16,33 @@
 #include "GameCenter.h"
 
 #include "LevelMVScene.h"
+#include "GameUtilities.h"
 
 NS_KAI_BEGIN
+void countScore() {
+    if (GameModle::sharedInstance()->getBattleMode() == K_HARD_PVE_BATTLE) {
+        PlayerAchievement & achievement = GameModle::sharedInstance()->playerAchievement();
+        //计算得分
+        int percent = (int)((achievement._killNpcCount * 100) / achievement._totalNpcCount);
+        if (percent > 80) {
+            achievement._records += ((percent - 80) * 50000 + 30 * 20000 + 50 * 10000) / 100;
+        } else if (percent > 50) {
+            achievement._records += ((percent - 50) * 20000 + 50 * 10000) / 100;
+        } else {
+            achievement._records +=  percent * 10000 / 100;
+        }
+        
+        achievement._records = percent == 100 ? achievement._records * 2 : achievement._records;
+        
+        int totalRecord = GameUtilities::getRecord();
+        totalRecord += achievement._records;
+        GameUtilities::saveRecord(totalRecord);
+        
+        //上传得分
+        GameCenter::postScore(KLeaderBoardId, totalRecord);
+    }
+}
+
 bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float dt) {
 	GameModle * gModleInstance = GameModle::sharedInstance();
 	GameController * controller = GameController::sharedInstance();
@@ -31,11 +56,30 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
 			}
 		}
 		else{
+            countScore();
+            
 			if (achievement._killNpcCount >= achievement._pass_count) {
                 
                 if (gModleInstance->getBattleMode() == K_HARD_PVE_BATTLE) {
                     //挑战模式下过关，加关卡
                     achievement._currentHardLevelId++;
+                    
+                    //过关记录
+                    int pass = GameUtilities::getPass();
+                    pass++;
+                    GameUtilities::savePass(pass);
+                    if (achievement._killNpcCount >= achievement._pass_star_count) {
+                        int star = GameUtilities::getStar();
+                        star++;
+                        GameUtilities::saveStar(star);
+                    }
+                    
+                    //解锁奖励-挑战
+                    GameData::Instance().unlockAchievement();
+                } else {
+                    //剧情故事
+                    std::pair<int, int> counts = GameData::Instance().totalCount();
+                    GameData::Instance().unlockStory(counts);
                 }
                 
 				controller->pauseBattle();
@@ -44,16 +88,16 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
 				std::vector<PlayerAchievement> list = GameData::Instance().findData(PlayerAchievement::getLevelId(achievement));
 				if (list.size() == 0) {
 					GameData::Instance().saveData(achievement);
-                    GameCenter::postScore(KGameCenterScoreId, achievement._records);
-				}
-				else if(list.size() > 0){
+//                    GameCenter::postScore(KGameCenterScoreId, achievement._records);
+				} else if(list.size() > 0) {
 					const PlayerAchievement lastRecord = list[0];
 					if (lastRecord._records < achievement._records) {
 						GameData::Instance().saveData(achievement);
-                        GameCenter::postScore(KGameCenterScoreId, achievement._killNpcCount);
+//                        GameCenter::postScore(KGameCenterScoreId, achievement._killNpcCount);
 					}
 				}
-				
+                
+                //战斗结束跳转
                 stringstream bigLevel;
                 bigLevel << gModleInstance->currentBigLevelId();
                 CCDictionary * dict = (CCDictionary *)GameConfig::sharedInstance()->getLevelsValue(bigLevel.str());
@@ -65,15 +109,7 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
                                                           gModleInstance->currentLevelId(),
                                                           KStrMovieEnd);
                     controller->controllerPushSence(pScene);
-//                    
-//                    controller->switchSence(GameController::K_SCENE_LEVEL_MV,
-//                                            CCInteger::create(gModleInstance->currentBigLevelId()),
-//                                            CCInteger::create(gModleInstance->currentLevelId()));
                 }
-				
-				//剧情故事
-				std::pair<int, int> counts = GameData::Instance().totalCount();
-				GameData::Instance().unlockStory(counts);
 			}
 			else if(gModleInstance->getBattleTouchTimes() > 0 &&
 					gModleInstance->getBattleTouchTimes() >= gModleInstance->getBattleTouchMaxTimes() ){

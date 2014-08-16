@@ -12,6 +12,9 @@
 #include "GameObject.h"
 #include "UiTool.h"
 #include "GameCenter.h"
+
+#include "GameUtilities.h"
+
 NS_KAI_BEGIN
 ScoresViewScene::ScoresViewScene():CCLayer()
 , _displaySpriteRoot(NULL)
@@ -111,21 +114,84 @@ bool ScoresViewScene::onAssignCCBMemberVariable(CCObject * pTarget, CCString * p
 
 #pragma mark-
 #pragma mark CCBNodeLoaderListener
+int getStoryUnlock() {
+    int number = 0;
+    
+    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10001"))
+        number++;
+    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10003"))
+        number++;
+    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10004"))
+        number++;
+    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10009"))
+        number++;
+    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10010"))
+        number++;
+    
+    return number;
+}
+
+int getAchievementUnlock() {
+    int number = 0;
+    
+    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10002"))
+        number++;
+    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10005"))
+        number++;
+    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10006"))
+        number++;
+    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10007"))
+        number++;
+    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10008"))
+        number++;
+    
+    return number;
+}
+
 void ScoresViewScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader){
 	CCLOG("ScoresViewScene onNodeLoaded~") ;
     
     GameModle *gModleInstance = GameModle::sharedInstance();
 	PlayerAchievement &achievement = gModleInstance->playerAchievement();
     
-    _gouNode1->addChild(UiTool::createLabelAtlasWithBigNumber("12/45"));
-    _starNode1->addChild(UiTool::createLabelAtlasWithBigNumber("10/45"));
-    _rewardNode1->addChild(UiTool::createLabelAtlasWithBigNumber("1/5"));
-    _gouNode2->addChild(UiTool::createLabelAtlasWithBigNumber("34"));
-    _starNode2->addChild(UiTool::createLabelAtlasWithBigNumber("9"));
-    _rewardNode2->addChild(UiTool::createLabelAtlasWithBigNumber("2/5"));
+    std::vector<PlayerAchievement> list = GameData::Instance().findData();
+    //显示总的分数情况
+    int pass_size = 0;
+    int star_size = 0;
+    //160,80
+    for (std::vector<PlayerAchievement>::iterator iter = list.begin(); iter != list.end(); iter++) {
+        pass_size ++;
+        if ((*iter)._star_count > 0) {
+            star_size ++;
+        }
+    }
+    
+    std::stringstream gouStr;
+    gouStr << pass_size << "/" << 45;
+    _gouNode1->addChild(UiTool::createLabelAtlasWithBigNumber(gouStr.str()));
+    
+    std::stringstream starStr;
+    starStr << star_size << "/" << 45;
+    _starNode1->addChild(UiTool::createLabelAtlasWithBigNumber(starStr.str()));
+
+    std::stringstream rewardStr;
+    rewardStr << getStoryUnlock() << "/" << 5;
+    _rewardNode1->addChild(UiTool::createLabelAtlasWithBigNumber(rewardStr.str()));
+    
+    std::stringstream gouStr2;
+    gouStr2 << GameUtilities::getPass();
+    _gouNode2->addChild(UiTool::createLabelAtlasWithBigNumber(gouStr2.str()));
+    
+    std::stringstream starStr2;
+    starStr2 << GameUtilities::getStar();
+    _starNode2->addChild(UiTool::createLabelAtlasWithBigNumber(starStr2.str()));
+    
+    std::stringstream rewardStr2;
+    rewardStr2 << getAchievementUnlock() << "/" << 5;
+    _rewardNode2->addChild(UiTool::createLabelAtlasWithBigNumber(rewardStr2.str()));
     
     stringstream rewardGoodNode2;
-    rewardGoodNode2 << achievement._totalRecords;
+    rewardGoodNode2 << GameUtilities::getRecord();
     _rewardGoodNode2->addChild(UiTool::createLabelAtlasWithBigNumber(rewardGoodNode2.str()));
 }
 

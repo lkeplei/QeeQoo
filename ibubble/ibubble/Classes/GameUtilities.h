@@ -6,8 +6,8 @@
 //  Copyright (c) 2013年 __MyCompanyName__. All rights reserved.
 //
 
-#ifndef ibubble_GameUtilities_h
-#define ibubble_GameUtilities_h
+#ifndef ibubble_h
+#define ibubble_h
 #include "cocos2d.h"
 #include "cocos-ext.h"
 #include <string>
@@ -24,6 +24,15 @@ public:
     static void saveLevelId(int levelId, kai::game::PlayerData plaerData);
     static int getLevelId();
     static int getRand(uint32_t from, uint32_t to);
+    
+    static void resetAchievement();
+    static void saveRecord(int score);
+    static void savePass(int score);
+    static void saveStar(int score);
+    static int getRecord();
+    static int getPass();
+    static int getStar();
+    
 };
 
 #endif

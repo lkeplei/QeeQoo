@@ -313,20 +313,6 @@ void ChallengeGameOverScene::show(int type){
     getSkill(type);
     
     PlayerAchievement& playerAchieve = GameModle::sharedInstance()->playerAchievement();
-    int percent = (int)((playerAchieve._killNpcCount * 100) / playerAchieve._totalNpcCount);
-    if (percent > 80) {
-        playerAchieve._records += ((percent - 80) * 50000 + 30 * 20000 + 50 * 10000) / 100;
-    } else if (percent > 50) {
-        playerAchieve._records += ((percent - 50) * 20000 + 50 * 10000) / 100;
-    } else {
-        playerAchieve._records +=  percent * 10000 / 100;
-    }
-    
-    playerAchieve._records = percent == 100 ? playerAchieve._records * 2 : playerAchieve._records;
-    
-    playerAchieve._totalRecords += playerAchieve._records;
-    
-    GameCenter::postScore(KLeaderBoardId, playerAchieve._totalRecords);
     
     switch (type) {
         case 1:{//游戏结束界面1（过关）
@@ -445,15 +431,15 @@ void ChallengeGameOverScene::show(int type){
         //todo: 添加总分数 _normal_total_node
         //todo: 分数 _normal_records_node,_normal_stars_node
         stringstream totalRecord;
-        totalRecord << playerAchieve._totalRecords;
+        totalRecord << GameUtilities::getRecord();
         createNodeValText(_normal_total_node, totalRecord.str());
         
         stringstream record;
-        record << GameData::Instance().playerData._hardLevelStarCount;
+        record << GameUtilities::getPass();
         createNodeValText(_normal_records_node, record.str());
         
         stringstream star;
-        star << GameData::Instance().playerData._hardLevelKillCount;
+        star << GameUtilities::getStar();
         createNodeValText(_normal_stars_node, star.str());
     }
 }

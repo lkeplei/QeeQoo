@@ -19,6 +19,14 @@ extern int GameUtilities_getLevelInfo();
 extern int GameUtilities_getRandId(int32_t levelId, bool add);
 extern int GameUtilities_getRand(int32_t from, int32_t to);
 
+
+extern void GameUtilities_saveRecord(int score);
+extern void GameUtilities_savePass(int score);
+extern void GameUtilities_saveStar(int score);
+extern int GameUtilities_getRecord();
+extern int GameUtilities_getPass();
+extern int GameUtilities_getStar();
+
 void GameUtilities::writeDateToFile(const char * aBuffer,const int aBufferLength,const std::string & filepath){
 	GameUtilities_writeDateToFile(aBuffer,aBufferLength,filepath.c_str());
 }
@@ -52,4 +60,35 @@ int GameUtilities::getLevelId(){
 
 int GameUtilities::getRand(uint32_t from, uint32_t to){
     return GameUtilities_getRand(from, to);
+}
+
+#pragma mark - record star pass
+void GameUtilities::resetAchievement() {
+    GameUtilities_saveRecord(0);
+    GameUtilities_savePass(0);
+    GameUtilities_saveStar(0);
+}
+
+void GameUtilities::saveRecord(int score) {
+    GameUtilities_saveRecord(score);
+}
+
+void GameUtilities::savePass(int score) {
+    GameUtilities_savePass(score);
+}
+
+void GameUtilities::saveStar(int score) {
+    GameUtilities_saveStar(score);
+}
+
+int GameUtilities::getRecord() {
+    return GameUtilities_getRecord();
+}
+
+int GameUtilities::getPass() {
+    return GameUtilities_getPass();
+}
+
+int GameUtilities::getStar() {
+    return GameUtilities_getStar();
 }

@@ -94,8 +94,6 @@ void GameData::initCreateTables(){
 
 
 void GameData::resetData(){
-    return;
-
 	if(_sqlite.DirectStatement("delete from passrecord")){
 		
 		std::cout<<"drop table student"<<std::endl;
@@ -106,8 +104,6 @@ void GameData::resetData(){
 }
 
 void GameData::saveData(const PlayerAchievement & achievement){
-    return;
-    
 	int32_t levelId = PlayerAchievement::getLevelId(achievement);
 	SQLiteStatement* stmt = NULL;
 	if (findData(levelId).size() > 0) {
@@ -145,8 +141,6 @@ void GameData::saveData(const PlayerAchievement & achievement){
 }
 
 void GameData::updatePlayerData(){
-    return;
-    
 	SQLiteStatement* stmt = NULL;
 	std::stringstream selectsql;
     selectsql << "select _unlockedStoryLevel,_unlockedHardLevel,_hardLevelKillCount,_skill1Times,_skill2Times,_skill3Times,_skill4Times,_skill5Times,_skill6Times,uid from passrecord order by uid asc";
@@ -172,8 +166,6 @@ void GameData::updatePlayerData(){
 }
 
 void GameData::savePlayerData(){
-    return;
-    
 	SQLiteStatement* stmt = NULL;
 	if (playerData._uid >= 0) {
 		stmt = _sqlite.Statement("update playerData set _unlockedStoryLevel=?,_unlockedHardLevel=?,_hardLevelStarCount=?,_hardLevelKillCount=?,_skill1Times=?,_skill2Times=?,_skill3Times=?,_skill4Times=?,_skill5Times=? ,_skill6Times=? where uid = ?");
@@ -275,129 +267,52 @@ std::pair<int, int>  GameData::totalRecords(int32_t levelid ,int32_t biglevelid 
 	return count;
 }
 
+void saveUnlockId(int id) {
+    if (id > 0) {
+        std::stringstream key;
+        key << kUnlockidHeadString << id;
+        cocos2d::CCUserDefault::sharedUserDefault()->setBoolForKey(key.str().c_str(), true);
+    }
+}
+
+void GameData::unlockAchievement() {
+    //	unlockid = 10002;       //总分  >= 30000
+    //    unlockid = 10005;       //总分  >= 100000
+    //    unlockid = 10006;       //开启挑战模式
+    //    unlockid = 10007;       //过关10
+    //    unlockid = 10008;       //星过关10
+    
+    if (GameUtilities::getRecord() >= 3000) {
+        saveUnlockId(10002);
+    }
+    
+    if (GameUtilities::getRecord() >= 100000) {
+        saveUnlockId(10005);
+    }
+    
+    if (GameUtilities::getPass()>= 10) {
+        saveUnlockId(10007);
+    }
+    
+    if (GameUtilities::getStar() >= 10) {
+        saveUnlockId(10008);
+    }
+}
+
 void GameData::unlockStory(const std::pair<int, int> & counts){
 	int unlockid = 0;
 	if (counts.first >= 15 ) { //star >= 15
 		unlockid = 10001;
-	}
-	else if (counts.second >= 45 ) { //pass > 45
+	} else if (counts.second >= 45 ) { //pass > 45
 		unlockid = 10003;
-	}
-	else if (counts.first >= 45 ) { //pass > 45
+	} else if (counts.first >= 45 ) { //pass > 45
 		unlockid = 10004;
-	}
-	else if (counts.first >= 25 ) { //pass > 45
+	} else if (counts.first >= 25 ) { //pass > 45
 		unlockid = 10009;
-	}
-	else if (counts.first >= 35 ) { //pass > 45
+	} else if (counts.first >= 35 ) { //pass > 45
 		unlockid = 10010;
 	}
 	
-	if (unlockid > 0) {
-		std::stringstream key;
-		key << kUnlockidHeadString << unlockid;
-		cocos2d::CCUserDefault::sharedUserDefault()->setBoolForKey(key.str().c_str(), true);
-	}
+    saveUnlockId(unlockid);
 }
-
-/*
-bool GameData::init(){
-	
-	SQLiteWrapper sqlite;
-	std::string cpath =  "";//GameUtils::getFilePathInDocumentDir("SQLiteWrapper.db");
-	if (sqlite.Open(cpath.c_str())) {
-		std::cout<<"SQLiteWrapper.db created or opened"<<std::endl;
-	}
-	else {
-		std::cout<<"couldn't open SQLiteWrapper.db"<<std::endl;
-	 }
-	
-	if(sqlite.DirectStatement("drop table student")){
-		
-		std::cout<<"drop table student"<<std::endl;
-	}
-	else {
-		std::cout<<"drop table student failed"<<std::endl;
-	}
-	
-	if(sqlite.DirectStatement("create table student(id integer primary key autoincrement,name varchar(10), age smallint)")){
-		std::cout<<"table foo created"<<std::endl;
-	}
-	else{
-		std::cout<<"couldn't insert into foo"<<std::endl;
-	}
-	
-
-	if(sqlite.DirectStatement("insert into student (name,age)values(1,2)")){
-		
-		std::cout<<"insert into student"<<std::endl;
-	}
-	else {
-		std::cout<<"insert into student failed"<<std::endl;
-	}
-
-	
-	
-	SQLiteStatement* stmt=sqlite.Statement("insert into student (name,age)values(?,?)");
-	if (stmt) {
-		if(stmt->Bind(0,"kaisne")){
-			std::cout<<"value 3 successfully bound at pos 0"<<std::endl;
-		}
-		else{
-			std::cout<<"value 3 NOT successfully bound at pos 0: "<<sqlite.LastError()<<std::endl;
-		}
-		if(stmt->Bind(1, 25)){
-			std::cout<<"value 4 successfully bound at pos 1"<<std::endl;
-		}
-		else{
-			std::cout<<"value 4 NOT successfully bound at pos 1:"<<sqlite.LastError()<<std::endl;
-		}
-		
-		// 第一次执行Execute
-		if(stmt->Execute()){
-			std::cout<<"statement executed"<<std::endl;
-		}
-		else{
-			std::cout<<"error executing statement: "<<sqlite.LastError()<<std::endl;
-		}
-		
-		if(stmt->Bind(0, "liukun")){
-			std::cout<<"value 5 successfully bound at pos 0"<<std::endl;
-		}
-		else{
-			std::cout<<"value 5 NOT successfully bound at pos 0"<<std::endl;
-		}
-		
-		if(stmt->Bind(1, 26)){
-			std::cout<<"value 6 successfully bound at pos 1"<<std::endl;
-		}
-		else{
-			std::cout<<"value 6 NOT successfully bound at pos 1"<<std::endl;
-		}
-		
-		
-		// 第二次执行Execute
-		if(stmt->Execute()){
-			std::cout<<"statement executed"<<std::endl;
-		}
-		else {
-			std::cout<<"error executing statement: "<<sqlite.LastError()<<std::endl;
-		}
-		
-		
-		delete stmt;
-		stmt = NULL;	
-	}
-	
-	
-	stmt=sqlite.Statement("select * from student");
-	if (stmt) {
-		while(stmt->NextRow()){
-			std::cout<< stmt->DataType (0) <<" - "<< stmt->DataType (1) << " - " << stmt->DataType (2) << " | "<<
-			stmt->ValueString(0) << " - " << stmt->ValueString(1) << " - " << stmt->ValueString(2)<<std::endl;
-		}
-	}
-
-	return true;
-}*/
 NS_KAI_END

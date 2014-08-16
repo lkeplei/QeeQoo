@@ -11,6 +11,11 @@
 #include "GameModle.h"
 #include "GameData.h"
 
+
+#define kAchievementPass        @"achievement_pass"
+#define kAchievementStar        @"achievement_star"
+#define kAchievementRecord      @"achievement_record"
+
 bool GameUtilities_writeDateToFile(const char * aBuffer,const int aBufferLength,const char *pFileName){
 	
 	NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory
@@ -47,6 +52,39 @@ bool GameUtilities_fileExistsAtPath(const char *pFileName){
 }
 
 #pragma mark - data
+void GameUtilities_saveRecord(int score) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:score] forKey:kAchievementRecord];
+    [defaults synchronize];
+}
+
+void GameUtilities_savePass(int score) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:score] forKey:kAchievementPass];
+    [defaults synchronize];
+}
+
+void GameUtilities_saveStar(int score) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:score] forKey:kAchievementStar];
+    [defaults synchronize];
+}
+
+int GameUtilities_getRecord() {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    return [[defaults objectForKey:kAchievementRecord] intValue];
+}
+
+int GameUtilities_getPass() {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    return [[defaults objectForKey:kAchievementPass] intValue];
+}
+
+int GameUtilities_getStar() {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    return [[defaults objectForKey:kAchievementStar] intValue];
+}
+
 void GameUtilities_saveLevelInfo(int levelId, kai::game::PlayerData plaerData){
 	NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     
@@ -59,9 +97,6 @@ void GameUtilities_saveLevelInfo(int levelId, kai::game::PlayerData plaerData){
     [infoDic setObject:[NSNumber numberWithInt:plaerData.skillInfo.skill_weak] forKey:@"info_skill_weak"];
     [infoDic setObject:[NSNumber numberWithInt:plaerData.skillInfo.skill_s_touch] forKey:@"info_skill_s_touch"];
     [infoDic setObject:[NSNumber numberWithInt:plaerData.skillInfo.skill_large_touch] forKey:@"info_skill_large_touch"];
-    
-    [infoDic setObject:[NSNumber numberWithInt:kai::game::GameModle::sharedInstance()->playerAchievement()._totalRecords]
-                forKey:@"info_total_record"];
     
     [defaults setObject:infoDic forKey:@"default_levelInfo"];
     [defaults synchronize];
@@ -78,9 +113,7 @@ int GameUtilities_getLevelInfo(){
     plaerData.skillInfo.skill_weak = [[infoDic valueForKey:@"info_skill_weak"] intValue];
     plaerData.skillInfo.skill_s_touch = [[infoDic valueForKey:@"info_skill_s_touch"] intValue];
     plaerData.skillInfo.skill_large_touch = [[infoDic valueForKey:@"info_skill_large_touch"] intValue];
-    
-    kai::game::GameModle::sharedInstance()->playerAchievement()._totalRecords = [[infoDic objectForKey:@"info_skill_large_touch"] intValue];
-    
+
     return [[infoDic valueForKey:@"info_levelId"] intValue];
 }
 

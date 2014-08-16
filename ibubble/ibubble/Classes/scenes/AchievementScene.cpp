@@ -63,7 +63,9 @@ void AchievementScene::press_next(CCObject *pSender, CCControlEvent pCCControlEv
 		std::stringstream unlockKey;
 		unlockKey << kUnlockidHeadString << tag;
 		
-		//if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey(unlockKey.str().c_str()))
+#ifndef KOpenAllLevels
+		if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey(unlockKey.str().c_str()))
+#endif
 		{
 			std::stringstream key;
 			key << tag;

@@ -869,7 +869,7 @@ int32_t GameModle::currentBigLevelId()const{
 }
 
 int32_t GameModle::currendRecord()const{
-    return _playerAchievement._totalRecords;
+    return GameUtilities::getRecord();
 }
 
 PlayerAchievement & GameModle::playerAchievement(){
