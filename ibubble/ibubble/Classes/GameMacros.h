@@ -83,6 +83,7 @@
 #define KStrSelectedFrame  	"selected_frame"
 #define KStrDefaultAnim   	"default_anim"
 #define KStrFile      "file"
+#define KStrFileArray        "file_array"
 #define KStrType      "type"
 #define KStrNpc       "npc"
 #define KStrBullet       "bullet"

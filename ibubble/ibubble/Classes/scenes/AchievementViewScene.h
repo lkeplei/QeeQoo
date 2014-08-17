@@ -13,6 +13,7 @@
 #include <string>
 #include "GameMacros.h"
 #include "cocos-ext.h"
+#include "CCSWFNodeExt.h"
 USING_NS_CC;
 
 NS_KAI_BEGIN
@@ -44,13 +45,17 @@ public:
 	virtual void onNodeLoaded(CCNode * pNode,
 							  cocos2d::extension::CCNodeLoader * pNodeLoader);
     
-    
-    
-    
     void handleSwfFinished(cocos2d::CCObject * obj);
+    
 private:
+    void playSwf(CCString *filename);
+    
+private:
+    CCSWFNodeSequence *_swf;
 	CCNode * _displaySpriteRoot;
     CCSprite * _bgSpriteRoot;
+    CCArray *swfFileArray;
+    int swfIndex;
 };
 
 class AchievementViewSceneLayerLoader:public cocos2d::extension::CCLayerLoader {

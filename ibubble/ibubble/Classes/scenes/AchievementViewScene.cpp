@@ -11,13 +11,14 @@
 #include "GameConstant.h"
 #include "GameObject.h"
 #include "UiTool.h"
-#include "CCSWFNodeExt.h"
 #include "GameEffectManager.h"
 #include "KissView.h"
 NS_KAI_BEGIN
 AchievementViewScene::AchievementViewScene():CCLayer(),
 _displaySpriteRoot(NULL)
 ,_bgSpriteRoot(NULL)
+,_swf(NULL)
+,swfFileArray(NULL)
 {
 	
 }
@@ -58,8 +59,29 @@ CCScene* AchievementViewScene::scene(CCObject * params)
 
 void AchievementViewScene::press_back()
 {
-    handleSwfFinished(NULL);
-	GameController::sharedInstance()->switchSence(GameController::K_SCENE_ACHIEVEMENT,CCInteger::create(0));
+    if (swfFileArray && swfIndex < swfFileArray->count()) {
+        playSwf((CCString *)swfFileArray->objectAtIndex(swfIndex));
+        swfIndex++;
+    } else {
+        GameController::sharedInstance()->switchSence(GameController::K_SCENE_ACHIEVEMENT,CCInteger::create(0));
+    }
+}
+
+void AchievementViewScene::playSwf(CCString *filename) {
+    if (_swf) {
+        _swf->stopSWFSequence();
+    }
+    
+    _swf = CCSWFNodeSequence::create(filename->getCString());
+    
+    if (_swf) {
+        const CCSize size = _displaySpriteRoot->getContentSize();
+        _swf->setPosition(ccp(size.width * 0.5,size.height * 0.5));
+        _swf->setScale(1.0f);
+        _displaySpriteRoot->addChild(_swf,100);
+        _swf->addCompletedListener(this,menu_selector(AchievementViewScene::handleSwfFinished));
+        _swf->runSWFSequence();
+    }
 }
 
 void AchievementViewScene::initWithParams(CCObject * params){
@@ -71,17 +93,11 @@ void AchievementViewScene::initWithParams(CCObject * params){
             if (_bgSpriteRoot) {
                 _bgSpriteRoot->setVisible(false);
             }
-            CCString * filename =(CCString *)display->objectForKey(KStrFile);
-            CCSWFNodeSequence * _swf = CCSWFNodeSequence::create(filename->getCString());
-            if (_swf) {
-                const CCSize size = _displaySpriteRoot->getContentSize();
-                _swf->setPosition(ccp(size.width * 0.5,size.height * 0.5));
-                _swf->setScale(1.0f);
-                _displaySpriteRoot->addChild(_swf,100);
-                _swf->addCompletedListener(this,menu_selector(AchievementViewScene::handleSwfFinished));
-                _swf->runSWFSequence();
-            }
-            
+//            CCString * filename =(CCString *)display->objectForKey(KStrFile);
+            swfIndex = 0;
+            swfFileArray = (CCArray *)display->objectForKey(KStrFileArray);
+            playSwf((CCString *)swfFileArray->objectAtIndex(swfIndex));
+            swfIndex++;
         }
         else if (type->intValue() == GameObject::K_CCBI_FILE_WITH_CODE) {
             if (_bgSpriteRoot) {
@@ -140,8 +156,12 @@ void AchievementViewScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNo
 }
 
 void AchievementViewScene::handleSwfFinished(cocos2d::CCObject * obj){
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
-    GameModle::sharedInstance()->playBackground(K_BG_MUSIC_OUTSIDE_OF_BATTLE);
+    if (swfIndex == swfFileArray->count() || swfFileArray == NULL) {
+        CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
+        GameModle::sharedInstance()->playBackground(K_BG_MUSIC_OUTSIDE_OF_BATTLE);
+    }
+    
+    press_back();
 }
 
 NS_KAI_END

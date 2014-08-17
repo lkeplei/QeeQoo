@@ -56,6 +56,9 @@
 		046CD11D197A078400630062 /* SettingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD116197A078400630062 /* SettingScene.cpp */; };
 		046CD11E197A078400630062 /* StartupScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD118197A078400630062 /* StartupScene.cpp */; };
 		046CD11F197A078400630062 /* SubLevelsSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD11A197A078400630062 /* SubLevelsSelectionScene.cpp */; };
+		049886A219A0DACE00E0FCEC /* end_movie1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0498869F19A0DACE00E0FCEC /* end_movie1.plist */; };
+		049886A319A0DACE00E0FCEC /* end_movie2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 049886A019A0DACE00E0FCEC /* end_movie2.plist */; };
+		049886A419A0DACE00E0FCEC /* end_movie3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 049886A119A0DACE00E0FCEC /* end_movie3.plist */; };
 		04F38752198FBE2A00F7E781 /* 76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F3874B198FBE2A00F7E781 /* 76x76.png */; };
 		04F38754198FBE2A00F7E781 /* 144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F3874D198FBE2A00F7E781 /* 144x144.png */; };
 		04F38755198FBE2A00F7E781 /* 152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F3874E198FBE2A00F7E781 /* 152x152.png */; };
@@ -876,6 +879,9 @@
 		046CD119197A078400630062 /* StartupScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupScene.h; sourceTree = "<group>"; };
 		046CD11A197A078400630062 /* SubLevelsSelectionScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SubLevelsSelectionScene.cpp; sourceTree = "<group>"; };
 		046CD11B197A078400630062 /* SubLevelsSelectionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubLevelsSelectionScene.h; sourceTree = "<group>"; };
+		0498869F19A0DACE00E0FCEC /* end_movie1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = end_movie1.plist; sourceTree = "<group>"; };
+		049886A019A0DACE00E0FCEC /* end_movie2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = end_movie2.plist; sourceTree = "<group>"; };
+		049886A119A0DACE00E0FCEC /* end_movie3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = end_movie3.plist; sourceTree = "<group>"; };
 		04F3874B198FBE2A00F7E781 /* 76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 76x76.png; path = Resources/76x76.png; sourceTree = "<group>"; };
 		04F3874D198FBE2A00F7E781 /* 144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 144x144.png; path = Resources/144x144.png; sourceTree = "<group>"; };
 		04F3874E198FBE2A00F7E781 /* 152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 152x152.png; path = Resources/152x152.png; sourceTree = "<group>"; };
@@ -3859,6 +3865,9 @@
 		FB6E9C48183CE89B007493A7 /* end_movie */ = {
 			isa = PBXGroup;
 			children = (
+				0498869F19A0DACE00E0FCEC /* end_movie1.plist */,
+				049886A019A0DACE00E0FCEC /* end_movie2.plist */,
+				049886A119A0DACE00E0FCEC /* end_movie3.plist */,
 				FB6E9C49183CE89B007493A7 /* end_movie.plist */,
 				FB6E9C4A183CE89B007493A7 /* end_movie_1.swf */,
 				FB6E9C4B183CE89B007493A7 /* end_movie_1.swf.plist */,
@@ -4031,6 +4040,7 @@
 				1834699B164F8F5E00C4B4D6 /* spriter_images.png in Resources */,
 				183469C0164F8F5E00C4B4D6 /* weapon_images.plist in Resources */,
 				FB7E26391843A82300797C5B /* movie_4_1.swf in Resources */,
+				049886A219A0DACE00E0FCEC /* end_movie1.plist in Resources */,
 				183469C1164F8F5E00C4B4D6 /* weapon_images.png in Resources */,
 				1802285B16575F9200064166 /* battle_controller_layer.ccbi in Resources */,
 				1802285C16575F9200064166 /* startup_layer.ccbi in Resources */,
@@ -4205,6 +4215,7 @@
 				18DA3AF716D65B6C00F9A7C8 /* explode_water_1.png in Resources */,
 				18DA3AF816D65B6C00F9A7C8 /* explode_water_2.png in Resources */,
 				18DA3AF916D65B6C00F9A7C8 /* explode_water_3.png in Resources */,
+				049886A419A0DACE00E0FCEC /* end_movie3.plist in Resources */,
 				18DA3AFA16D65B6C00F9A7C8 /* explode_water_4.png in Resources */,
 				18DA3AFB16D65B6C00F9A7C8 /* explode_water_5.png in Resources */,
 				18DA3AFC16D65B6C00F9A7C8 /* explode_water_6.png in Resources */,
@@ -4289,6 +4300,7 @@
 				184E734B16D8BE860009C6A9 /* achievement_view_layer.ccbi in Resources */,
 				184E734C16D8BE860009C6A9 /* animation_layer_story1.ccbi in Resources */,
 				184E734E16D8BF230009C6A9 /* about_team.png in Resources */,
+				049886A319A0DACE00E0FCEC /* end_movie2.plist in Resources */,
 				FB6E9C8D183CFD7B007493A7 /* QeeGa-D.mp3 in Resources */,
 				189CAA1516D8F95F00F97C73 /* reward_arrow_rainy.ccbi in Resources */,
 				189CAA1616D8F95F00F97C73 /* reward_fire_rainy.ccbi in Resources */,
