@@ -29,9 +29,11 @@ public:
     static void saveRecord(int score);
     static void savePass(int score);
     static void saveStar(int score);
+    static void saveUnlockWithId(int achieveId);
     static int getRecord();
     static int getPass();
     static int getStar();
+    static bool getUnlockWithId(int achieveId);
     
 };
 

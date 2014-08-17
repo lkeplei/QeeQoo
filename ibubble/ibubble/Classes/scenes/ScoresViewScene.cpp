@@ -117,15 +117,15 @@ bool ScoresViewScene::onAssignCCBMemberVariable(CCObject * pTarget, CCString * p
 int getStoryUnlock() {
     int number = 0;
     
-    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10001"))
+    if (GameUtilities::getUnlockWithId(10001))
         number++;
-    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10003"))
+    if (GameUtilities::getUnlockWithId(10003))
         number++;
-    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10004"))
+    if (GameUtilities::getUnlockWithId(10004))
         number++;
-    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10009"))
+    if (GameUtilities::getUnlockWithId(10009))
         number++;
-    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10010"))
+    if (GameUtilities::getUnlockWithId(10010))
         number++;
     
     return number;
@@ -133,27 +133,22 @@ int getStoryUnlock() {
 
 int getAchievementUnlock() {
     int number = 0;
-    
-    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10002"))
+
+    if (GameUtilities::getUnlockWithId(10002))
         number++;
-    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10005"))
+    if (GameUtilities::getUnlockWithId(10005))
         number++;
-    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10006"))
+    if (GameUtilities::getUnlockWithId(10006))
         number++;
-    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10007"))
+    if (GameUtilities::getUnlockWithId(10007))
         number++;
-    if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey("unlockid_10008"))
+    if (GameUtilities::getUnlockWithId(10008))
         number++;
     
     return number;
 }
 
 void ScoresViewScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader){
-	CCLOG("ScoresViewScene onNodeLoaded~") ;
-    
-    GameModle *gModleInstance = GameModle::sharedInstance();
-	PlayerAchievement &achievement = gModleInstance->playerAchievement();
-    
     std::vector<PlayerAchievement> list = GameData::Instance().findData();
     //显示总的分数情况
     int pass_size = 0;

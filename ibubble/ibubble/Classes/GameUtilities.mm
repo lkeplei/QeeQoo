@@ -11,7 +11,7 @@
 #include "GameModle.h"
 #include "GameData.h"
 
-
+#define kUnlockidHeadString     @"unlockid_"
 #define kAchievementPass        @"achievement_pass"
 #define kAchievementStar        @"achievement_star"
 #define kAchievementRecord      @"achievement_record"
@@ -58,6 +58,12 @@ void GameUtilities_saveRecord(int score) {
     [defaults synchronize];
 }
 
+void GameUtilities_saveUnlockWithId(int achieveId) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithBool:YES] forKey:[kUnlockidHeadString stringByAppendingFormat:@"%d", achieveId]];
+    [defaults synchronize];
+}
+
 void GameUtilities_savePass(int score) {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:[NSNumber numberWithInt:score] forKey:kAchievementPass];
@@ -83,6 +89,11 @@ int GameUtilities_getPass() {
 int GameUtilities_getStar() {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     return [[defaults objectForKey:kAchievementStar] intValue];
+}
+
+BOOL GameUtilities_getUnlockWithId(int achieveId) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    return [[defaults objectForKey:[kUnlockidHeadString stringByAppendingFormat:@"%d", achieveId]] boolValue];
 }
 
 void GameUtilities_saveLevelInfo(int levelId, kai::game::PlayerData plaerData){

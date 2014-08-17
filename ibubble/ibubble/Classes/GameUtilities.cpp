@@ -23,9 +23,11 @@ extern int GameUtilities_getRand(int32_t from, int32_t to);
 extern void GameUtilities_saveRecord(int score);
 extern void GameUtilities_savePass(int score);
 extern void GameUtilities_saveStar(int score);
+extern void GameUtilities_saveUnlockWithId(int achieveId);
 extern int GameUtilities_getRecord();
 extern int GameUtilities_getPass();
 extern int GameUtilities_getStar();
+extern bool GameUtilities_getUnlockWithId(int achieveId);
 
 void GameUtilities::writeDateToFile(const char * aBuffer,const int aBufferLength,const std::string & filepath){
 	GameUtilities_writeDateToFile(aBuffer,aBufferLength,filepath.c_str());
@@ -81,6 +83,10 @@ void GameUtilities::saveStar(int score) {
     GameUtilities_saveStar(score);
 }
 
+void GameUtilities::saveUnlockWithId(int achieveId) {
+    GameUtilities_saveUnlockWithId(achieveId);
+}
+
 int GameUtilities::getRecord() {
     return GameUtilities_getRecord();
 }
@@ -91,4 +97,8 @@ int GameUtilities::getPass() {
 
 int GameUtilities::getStar() {
     return GameUtilities_getStar();
+}
+
+bool GameUtilities::getUnlockWithId(int achieveId) {
+    return GameUtilities_getUnlockWithId(achieveId);
 }

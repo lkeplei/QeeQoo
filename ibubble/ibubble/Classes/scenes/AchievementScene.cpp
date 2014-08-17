@@ -11,6 +11,8 @@
 #include "GameConstant.h"
 #include "GameConfig.h"
 #include "UiTool.h"
+
+#include "GameUtilities.h"
 NS_KAI_BEGIN
 AchievementScene::AchievementScene():CCLayer()
 {
@@ -60,11 +62,9 @@ void AchievementScene::press_next(CCObject *pSender, CCControlEvent pCCControlEv
 	CCDictionary * rewardsDict = (CCDictionary *)GameConfig::sharedInstance()->getValue(KStrRewards);
 	if (rewardsDict) {
 		int tag = ((CCNode *)pSender)->getTag();
-		std::stringstream unlockKey;
-		unlockKey << kUnlockidHeadString << tag;
 		
 #ifndef KOpenAllLevels
-		if (cocos2d::CCUserDefault::sharedUserDefault()->getBoolForKey(unlockKey.str().c_str()))
+		if (GameUtilities::getUnlockWithId(tag))
 #endif
 		{
 			std::stringstream key;

@@ -36,6 +36,5 @@ enum EGameStateType {
 	KGameStateSuccess     	 =4,
 };
 
-#define kUnlockidHeadString     "unlockid_"
 #define kStoryZoneMaxId  (3)
 #endif

@@ -269,9 +269,7 @@ std::pair<int, int>  GameData::totalRecords(int32_t levelid ,int32_t biglevelid 
 
 void saveUnlockId(int id) {
     if (id > 0) {
-        std::stringstream key;
-        key << kUnlockidHeadString << id;
-        cocos2d::CCUserDefault::sharedUserDefault()->setBoolForKey(key.str().c_str(), true);
+        GameUtilities::saveUnlockWithId(id);
     }
 }
 
