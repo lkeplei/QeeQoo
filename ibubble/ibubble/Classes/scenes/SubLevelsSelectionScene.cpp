@@ -160,7 +160,6 @@ void SubLevelsSelectionScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::C
 			_gouNodeRoot->addChild(label);
 		}
 
-		
 		if (_starNodeRoot) {
 			labelSize =  _starNodeRoot->getContentSize();
             CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(starStr.str());
@@ -169,10 +168,6 @@ void SubLevelsSelectionScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::C
 			_starNodeRoot->addChild(label);
 		}
 
-		
-		
-		
-		
 		CCSpriteFrameCache * _sharedSpriteFrameCache = CCSpriteFrameCache::sharedSpriteFrameCache();
 		for (int i = 0; i < children->count(); i++) {
 			CCMenuItemImage* item = (CCMenuItemImage*)children->objectAtIndex(i);
@@ -198,7 +193,7 @@ void SubLevelsSelectionScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::C
 						txtStr << achievement._killNpcCount << "/" << achievement._totalNpcCount;
 						
 						CCSize labelSize =  txtNodeRoot->getContentSize();
-                        CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(txtStr.str());
+                        CCLabelAtlas *label = UiTool::createLabelAtlasWithLittleNumber(txtStr.str());
 						CCSize txtSize =  label->getContentSize();
 						label->setAnchorPoint(CCPoint(0.5, 0.5));
 						label->setPosition(CCPoint(labelSize.width * 0.5,labelSize.height* 0.5));

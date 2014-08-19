@@ -20,7 +20,7 @@ cocos2d::CCLabelAtlas * UiTool::createLabelAtlasWithLittleNumber(const std::stri
 }
 
 cocos2d::CCLabelAtlas * UiTool::createLabelAtlasWithStarNumber(const std::string & text){
-	CCLabelAtlas * label = CCLabelAtlas::create(text.c_str(), "startlevel_number.png", 30, 30, '.');
+	CCLabelAtlas * label = CCLabelAtlas::create(text.c_str(), "startlevel_number.png", 30, 30, '-');
 	return label;
 }
 

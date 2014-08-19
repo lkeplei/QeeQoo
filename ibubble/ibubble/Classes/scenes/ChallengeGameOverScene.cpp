@@ -261,7 +261,7 @@ CCSpriteFrame* setSkill(const int id){
 }
 
 void ChallengeGameOverScene::getSkill(const int type){
-    if (!_firstStep) {
+    if (_firstStep) {
         CCSize size = _reward_node->getContentSize();
         switch (type) {
             case 1:{
@@ -289,6 +289,14 @@ void ChallengeGameOverScene::setStep(bool first){
     _firstStep = first;
     
     if (_firstStep) {
+        if (achievement._killNpcCount >= achievement._pass_star_count){
+            show(2);
+        } else if (achievement._killNpcCount >= achievement._pass_count){
+            show(1);
+        } else {
+            show(3);
+        }
+    } else {
         if (achievement._killNpcCount >= achievement._pass_count) {
             show(4);
         } else if (GameModle::sharedInstance()->getSkillInfo().skillLife <= 0) {
@@ -297,14 +305,6 @@ void ChallengeGameOverScene::setStep(bool first){
             show(7);
         } else {
             show(5);
-        }
-    } else {
-        if (achievement._killNpcCount >= achievement._pass_star_count){
-            show(2);
-        } else if (achievement._killNpcCount >= achievement._pass_count){
-            show(1);
-        } else {
-            show(3);
         }
     }
 }
@@ -345,7 +345,7 @@ void ChallengeGameOverScene::show(int type){
             _normal_stars_node->setVisible(true);
             _normalMenuBtn->setVisible(true);
             _normalNextBtn->setVisible(true);
-            _normalNextBtn->setEnabled(false);
+            _normalNextBtn->setEnabled(true);
         }
             break;
         case 4: {//游戏结束界面4（过关、得星）

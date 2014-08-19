@@ -260,11 +260,27 @@ void LevelsSelectionScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNo
 	}
 	
 	//显示总的分数情况
-	std::vector<PlayerAchievement> list = GameData::Instance().findData();
+	std::vector<PlayerAchievement> list = GameData::Instance().findData(-1, 0);
 	int pass_size = 0;
 	int star_size = 0;
 	//160,80
 	for (std::vector<PlayerAchievement>::iterator iter = list.begin(); iter != list.end(); iter++) {
+		pass_size ++;
+		if ((*iter)._star_count > 0) {
+			star_size ++;
+		}
+	}
+    std::vector<PlayerAchievement> list1 = GameData::Instance().findData(-1, 1);
+	//160,80
+	for (std::vector<PlayerAchievement>::iterator iter = list1.begin(); iter != list1.end(); iter++) {
+		pass_size ++;
+		if ((*iter)._star_count > 0) {
+			star_size ++;
+		}
+	}
+    std::vector<PlayerAchievement> list2 = GameData::Instance().findData(-1, 2);
+	//160,80
+	for (std::vector<PlayerAchievement>::iterator iter = list2.begin(); iter != list2.end(); iter++) {
 		pass_size ++;
 		if ((*iter)._star_count > 0) {
 			star_size ++;
@@ -277,6 +293,8 @@ void LevelsSelectionScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNo
 	starStr << star_size << "/" << 45;
 	
 	list.clear();
+    list1.clear();
+    list2.clear();
 	
 	CCSize labelSize =  _gouNodeRoot->getContentSize();
 	

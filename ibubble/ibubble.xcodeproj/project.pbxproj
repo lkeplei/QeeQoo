@@ -56,6 +56,7 @@
 		046CD11D197A078400630062 /* SettingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD116197A078400630062 /* SettingScene.cpp */; };
 		046CD11E197A078400630062 /* StartupScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD118197A078400630062 /* StartupScene.cpp */; };
 		046CD11F197A078400630062 /* SubLevelsSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD11A197A078400630062 /* SubLevelsSelectionScene.cpp */; };
+		046F080F19A3795700E6A29F /* achieve_lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 046F080E19A3795700E6A29F /* achieve_lock.png */; };
 		049886A219A0DACE00E0FCEC /* end_movie1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0498869F19A0DACE00E0FCEC /* end_movie1.plist */; };
 		049886A319A0DACE00E0FCEC /* end_movie2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 049886A019A0DACE00E0FCEC /* end_movie2.plist */; };
 		049886A419A0DACE00E0FCEC /* end_movie3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 049886A119A0DACE00E0FCEC /* end_movie3.plist */; };
@@ -879,6 +880,7 @@
 		046CD119197A078400630062 /* StartupScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupScene.h; sourceTree = "<group>"; };
 		046CD11A197A078400630062 /* SubLevelsSelectionScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SubLevelsSelectionScene.cpp; sourceTree = "<group>"; };
 		046CD11B197A078400630062 /* SubLevelsSelectionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubLevelsSelectionScene.h; sourceTree = "<group>"; };
+		046F080E19A3795700E6A29F /* achieve_lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = achieve_lock.png; sourceTree = "<group>"; };
 		0498869F19A0DACE00E0FCEC /* end_movie1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = end_movie1.plist; sourceTree = "<group>"; };
 		049886A019A0DACE00E0FCEC /* end_movie2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = end_movie2.plist; sourceTree = "<group>"; };
 		049886A119A0DACE00E0FCEC /* end_movie3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = end_movie3.plist; sourceTree = "<group>"; };
@@ -2109,14 +2111,6 @@
 		046CD0C2197A069A00630062 /* scenes */ = {
 			isa = PBXGroup;
 			children = (
-				046CD114197A078400630062 /* ScoresViewScene.cpp */,
-				046CD115197A078400630062 /* ScoresViewScene.h */,
-				046CD116197A078400630062 /* SettingScene.cpp */,
-				046CD117197A078400630062 /* SettingScene.h */,
-				046CD118197A078400630062 /* StartupScene.cpp */,
-				046CD119197A078400630062 /* StartupScene.h */,
-				046CD11A197A078400630062 /* SubLevelsSelectionScene.cpp */,
-				046CD11B197A078400630062 /* SubLevelsSelectionScene.h */,
 				046CD0C3197A069A00630062 /* AboutScene.cpp */,
 				046CD0C4197A069A00630062 /* AboutScene.h */,
 				046CD0C5197A069A00630062 /* AchievementScene.cpp */,
@@ -2149,6 +2143,14 @@
 				046CD0E0197A069A00630062 /* LevelMVScene.h */,
 				046CD0E1197A069A00630062 /* LevelsSelectionScene.cpp */,
 				046CD0E2197A069A00630062 /* LevelsSelectionScene.h */,
+				046CD114197A078400630062 /* ScoresViewScene.cpp */,
+				046CD115197A078400630062 /* ScoresViewScene.h */,
+				046CD116197A078400630062 /* SettingScene.cpp */,
+				046CD117197A078400630062 /* SettingScene.h */,
+				046CD118197A078400630062 /* StartupScene.cpp */,
+				046CD119197A078400630062 /* StartupScene.h */,
+				046CD11A197A078400630062 /* SubLevelsSelectionScene.cpp */,
+				046CD11B197A078400630062 /* SubLevelsSelectionScene.h */,
 			);
 			path = scenes;
 			sourceTree = "<group>";
@@ -3246,6 +3248,7 @@
 		183464E4164F8F5D00C4B4D6 /* ipad */ = {
 			isa = PBXGroup;
 			children = (
+				046F080E19A3795700E6A29F /* achieve_lock.png */,
 				042D4488198E80E200A1F26A /* scores_layer.ccbi */,
 				FB0115631854C156003843F4 /* Challenge.plist */,
 				FB0115641854C156003843F4 /* Challenge.png */,
@@ -4283,6 +4286,7 @@
 				18EE55FD16D8A2D3007E39CA /* reward_level_5_language.png in Resources */,
 				18EE55FE16D8A2D3007E39CA /* reward_level_5_locked.png in Resources */,
 				FB7E26311843A82300797C5B /* movie_1_2.swf in Resources */,
+				046F080F19A3795700E6A29F /* achieve_lock.png in Resources */,
 				18EE55FF16D8A2D3007E39CA /* reward_level_5_unlocked.png in Resources */,
 				18EE560016D8A2D3007E39CA /* reward_level_6_language.png in Resources */,
 				FB6E9C92183CFD7B007493A7 /* RooCi.mp3 in Resources */,

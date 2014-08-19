@@ -131,8 +131,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>46</real>
-									<real>42</real>
+									<real>1</real>
+									<real>1</real>
 									<false/>
 									<integer>1</integer>
 								</array>
@@ -172,7 +172,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>empty.png</string>
+									<string>explode_water_1.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -183,7 +183,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>empty.png</string>
+									<string>explode_water_1.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -194,7 +194,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>empty.png</string>
+									<string>explode_water_1.png</string>
 								</array>
 							</dict>
 						</array>

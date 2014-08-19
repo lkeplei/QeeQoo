@@ -95,10 +95,8 @@ void BattleGameObjectLayer::draw()
 BattleControllerLayer::BattleControllerLayer():BattleBaseLayer(){
 	setTouchEnabled( true );
     setAccelerometerEnabled( true );
-	_cur_scores_node = NULL;
     _cur_kill_node = NULL;
     _cur_kill_sprite = NULL;
-    _cur_scores_sprite = NULL;
 	_cur_menu_node = NULL;
 	_pause_button = NULL;
 	_back_button = NULL;
@@ -122,10 +120,8 @@ BattleControllerLayer::BattleControllerLayer():BattleBaseLayer(){
 }
 
 BattleControllerLayer::~BattleControllerLayer(){
-	CC_SAFE_RELEASE_NULL(_cur_scores_node);
     CC_SAFE_RELEASE_NULL(_cur_kill_node);
     CC_SAFE_RELEASE_NULL(_cur_kill_sprite);
-    CC_SAFE_RELEASE_NULL(_cur_scores_sprite);
 	CC_SAFE_RELEASE_NULL(_cur_menu_node);
 	CC_SAFE_RELEASE_NULL(_pause_button);
 	CC_SAFE_RELEASE_NULL(_back_button);
@@ -149,21 +145,6 @@ BattleControllerLayer::~BattleControllerLayer(){
 }
 
 void BattleControllerLayer::updateLayer(){
-	if (_cur_scores_node) {
-		PlayerAchievement & p = GameModle::sharedInstance()->playerAchievement();
-		stringstream liveNpcCount;
-		liveNpcCount << p._records;
-		
-		_cur_scores_node->removeAllChildrenWithCleanup(true);
-		
-		CCSize labelSize =  _cur_scores_node->getContentSize();
-        CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(liveNpcCount.str());
-        CCSize cellSize =  label->getContentSize();
-		label->setAnchorPoint(CCPoint(0.5, 0.5));
-		label->setPosition(CCPoint(labelSize.width* 0.5 , labelSize.height* 0.5));
-		_cur_scores_node->addChild(label);
-	}
-
     if (_cur_kill_node) {
 		PlayerAchievement & p = GameModle::sharedInstance()->playerAchievement();
 		stringstream liveNpcCount;
@@ -401,9 +382,7 @@ cocos2d::extension::SEL_CCControlHandler BattleControllerLayer::onResolveCCBCCCo
 #pragma mark-
 #pragma mark BattleControllerLayer CCBMemberVariableAssigner
 bool BattleControllerLayer::onAssignCCBMemberVariable(CCObject * pTarget, CCString * pMemberVariableName, CCNode * pNode){
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "cur_scores_node", CCNode *, this->_cur_scores_node);
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "cur_kill_node", CCNode *, this->_cur_kill_node);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "cur_score_sprite", CCSprite *, this->_cur_scores_sprite);
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "cur_kill_sprite", CCSprite *, this->_cur_kill_sprite);
     
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "menu_borad", CCLayer *, this->_cur_menu_node);
@@ -442,29 +421,16 @@ void BattleControllerLayer::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCN
     }
 	
 	this->hideMenu();
-	
-//	if (GameModle::sharedInstance()->currentBigLevelId() >= kStoryZoneMaxId) {
-//		_pause_button->setVisible(false);
-//		_pause_button->setEnabled(false);
-//	}
-//	else{
-//		_back_button->setVisible(false);
-//		_back_button->setEnabled(false);
-//	}
+    
     
     _back_button->setVisible(false);
     _back_button->setEnabled(false);
 	if (GameModle::sharedInstance()->currentBigLevelId() >= kStoryZoneMaxId) {
 
 	} else {
-        _cur_kill_sprite->setPosition(_cur_scores_sprite->getPosition());
-        _cur_kill_node->setPosition(_cur_scores_node->getPosition());
-        
-        _cur_scores_node->setVisible(false);
-        _cur_scores_sprite->setVisible(false);
+
 	}
 
-    
     if (GameModle::sharedInstance()->getBattleMode() != K_HARD_PVE_BATTLE) {
         _ChallengeMenu->setVisible(false);
         _ChallengeRoot->setVisible(false);

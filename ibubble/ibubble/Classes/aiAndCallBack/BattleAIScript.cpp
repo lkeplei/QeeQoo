@@ -56,8 +56,6 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
 			}
 		}
 		else{
-            countScore();
-            
 			if (achievement._killNpcCount >= achievement._pass_count) {
                 
                 if (gModleInstance->getBattleMode() == K_HARD_PVE_BATTLE) {
@@ -102,14 +100,16 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
                 bigLevel << gModleInstance->currentBigLevelId();
                 CCDictionary * dict = (CCDictionary *)GameConfig::sharedInstance()->getLevelsValue(bigLevel.str());
                 CCString* file = (CCString *)dict->objectForKey(KStrMovieEnd);
-                if (file->compare("0") == 0) {
-                    controller->switchSence(GameController::K_SCENE_SUCCESS);
-                } else {
+                if (file->compare("0") != 0 && gModleInstance->currentLevelId() == 14) {
                     CCScene *pScene = LevelMVScene::scene(gModleInstance->currentBigLevelId(),
                                                           gModleInstance->currentLevelId(),
                                                           KStrMovieEnd);
                     controller->controllerPushSence(pScene);
+                } else {
+                    controller->switchSence(GameController::K_SCENE_SUCCESS);
                 }
+                
+                countScore();
 			}
 			else if(gModleInstance->getBattleTouchTimes() > 0 &&
 					gModleInstance->getBattleTouchTimes() >= gModleInstance->getBattleTouchMaxTimes() ){
@@ -117,6 +117,8 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
 				controller->pauseBattle();
 				achievement._failed=true;
 				controller->switchSence(GameController::K_SCENE_FAILED);
+                
+                countScore();
 			}
 		}
 	}

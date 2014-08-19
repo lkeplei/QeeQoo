@@ -133,6 +133,7 @@ void AchievementViewScene::initWithParams(CCObject * params){
 #pragma mark CCBSelectorResolver
 SEL_MenuHandler AchievementViewScene::onResolveCCBCCMenuItemSelector(CCObject * pTarget, CCString * pSelectorName){
 	CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(this, "press_back",AchievementViewScene::press_back);
+    CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(this, "press_next",AchievementViewScene::press_back);
 	return NULL;
 	
 }

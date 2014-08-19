@@ -127,10 +127,8 @@ public:
 #pragma mark BattleControllerLayer CCBNodeLoaderListener
 	virtual void onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader);
 private:
-	CCNode * _cur_scores_node;
     CCNode * _cur_kill_node;
     CCSprite *_cur_kill_sprite;
-    CCSprite *_cur_scores_sprite;
 	CCLayer * _cur_menu_node;
 	CCPoint		_startPos;
 	CCMenuItemImage * _pause_button;

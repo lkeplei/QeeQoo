@@ -116,9 +116,9 @@ void GameStartScene::afterLoaded(){
 		starStr << (GameModle::sharedInstance()->currentBigLevelId() + 1) ;
 		int index = _nextLevelId + 1;
 		if (index < 10) {
-			starStr << "/0" << index;
+			starStr << "-0" << index;
 		} else {
-			starStr << "/" << index;
+			starStr << "-" << index;
 		}
 		
 		CCSize labelSize =  _title_node->getContentSize();

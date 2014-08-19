@@ -121,8 +121,15 @@ void ChallengeGameStartScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::C
     GameModle* model = GameModle::sharedInstance();
     
     stringstream levelStr;
-    levelStr << model->currentHardLevelId();
-    createValText(_titleNode, levelStr.str(), UiTool::kFontBig);
+    levelStr << model->currentHardLevelId() + 1;
+//    createValText(_titleNode, levelStr.str(), UiTool::kFontBig);
+    _titleNode->removeAllChildrenWithCleanup(true);
+    CCSize labelSize =  _titleNode->getContentSize();
+    CCLabelAtlas *label = UiTool::createLabelAtlasWithStarNumber(levelStr.str());
+    CCSize cellSize =  label->getContentSize();
+    label->setAnchorPoint(CCPoint(0.5, 0.5));
+    label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
+    _titleNode->addChild(label);
     
     stringstream passCount;
     passCount << pass_count << "/" << count;
