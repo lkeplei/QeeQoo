@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  ibubble
+
+  Created by 刘坤 on 14-8-21.
+
+*/
+"app_confirm" = "Yes";
+"app_cancel" = "No";
+
+"new_game_ask" = "Are you sure you want to start a new game？";

@@ -51,7 +51,7 @@ public:
 #pragma mark CCBNodeLoaderListener
 	virtual void onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader);
 private:
-	
+	CCMenuItemImage *_continue_menu;
 };
 
 #pragma mark-

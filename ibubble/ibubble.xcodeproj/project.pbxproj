@@ -11,6 +11,7 @@
 		0425E8DA198E1CE6001DA340 /* background3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0425E8D7198E1CE6001DA340 /* background3.png */; };
 		0425E8DB198E1CE6001DA340 /* background4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0425E8D8198E1CE6001DA340 /* background4.png */; };
 		042D4489198E80E200A1F26A /* scores_layer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 042D4488198E80E200A1F26A /* scores_layer.ccbi */; };
+		043D2E2A19A639A000A3B7CE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 043D2E2C19A639A000A3B7CE /* Localizable.strings */; };
 		045FF5F2199A6834007BE8B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 045FF5F4199A6834007BE8B3 /* InfoPlist.strings */; };
 		046169BB19A4DB7F00D1C791 /* kiss_default_sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 046169BA19A4DB7F00D1C791 /* kiss_default_sprite.png */; };
 		046CD0EC197A069A00630062 /* BattleAIScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD097197A069A00630062 /* BattleAIScript.cpp */; };
@@ -40,7 +41,7 @@
 		046CD104197A069A00630062 /* ChallengeGameOverScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD0CB197A069A00630062 /* ChallengeGameOverScene.cpp */; };
 		046CD105197A069A00630062 /* ChallengeGameStartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD0CD197A069A00630062 /* ChallengeGameStartScene.cpp */; };
 		046CD106197A069A00630062 /* ChallengeHelpInLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD0CF197A069A00630062 /* ChallengeHelpInLevelScene.cpp */; };
-		046CD107197A069A00630062 /* ChallengeStart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD0D1197A069A00630062 /* ChallengeStart.cpp */; };
+		046CD107197A069A00630062 /* ChallengeStart.mm in Sources */ = {isa = PBXBuildFile; fileRef = 046CD0D1197A069A00630062 /* ChallengeStart.mm */; };
 		046CD108197A069A00630062 /* GameDailog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD0D3197A069A00630062 /* GameDailog.cpp */; };
 		046CD109197A069A00630062 /* GameOverScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD0D5197A069A00630062 /* GameOverScene.cpp */; };
 		046CD10A197A069A00630062 /* GameStartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD0D7197A069A00630062 /* GameStartScene.cpp */; };
@@ -790,6 +791,8 @@
 		0425E8D7198E1CE6001DA340 /* background3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background3.png; sourceTree = "<group>"; };
 		0425E8D8198E1CE6001DA340 /* background4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background4.png; sourceTree = "<group>"; };
 		042D4488198E80E200A1F26A /* scores_layer.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = scores_layer.ccbi; sourceTree = "<group>"; };
+		043D2E2B19A639A000A3B7CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		043D2E2D19A639A400A3B7CE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		045FF5F3199A6834007BE8B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		045FF5F5199A6843007BE8B3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		046169BA19A4DB7F00D1C791 /* kiss_default_sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiss_default_sprite.png; sourceTree = "<group>"; };
@@ -848,7 +851,7 @@
 		046CD0CE197A069A00630062 /* ChallengeGameStartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeGameStartScene.h; sourceTree = "<group>"; };
 		046CD0CF197A069A00630062 /* ChallengeHelpInLevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChallengeHelpInLevelScene.cpp; sourceTree = "<group>"; };
 		046CD0D0197A069A00630062 /* ChallengeHelpInLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeHelpInLevelScene.h; sourceTree = "<group>"; };
-		046CD0D1197A069A00630062 /* ChallengeStart.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChallengeStart.cpp; sourceTree = "<group>"; };
+		046CD0D1197A069A00630062 /* ChallengeStart.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ChallengeStart.mm; sourceTree = "<group>"; };
 		046CD0D2197A069A00630062 /* ChallengeStart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeStart.h; sourceTree = "<group>"; };
 		046CD0D3197A069A00630062 /* GameDailog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameDailog.cpp; sourceTree = "<group>"; };
 		046CD0D4197A069A00630062 /* GameDailog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDailog.h; sourceTree = "<group>"; };
@@ -2127,7 +2130,7 @@
 				046CD0CE197A069A00630062 /* ChallengeGameStartScene.h */,
 				046CD0CF197A069A00630062 /* ChallengeHelpInLevelScene.cpp */,
 				046CD0D0197A069A00630062 /* ChallengeHelpInLevelScene.h */,
-				046CD0D1197A069A00630062 /* ChallengeStart.cpp */,
+				046CD0D1197A069A00630062 /* ChallengeStart.mm */,
 				046CD0D2197A069A00630062 /* ChallengeStart.h */,
 				046CD0D3197A069A00630062 /* GameDailog.cpp */,
 				046CD0D4197A069A00630062 /* GameDailog.h */,
@@ -2266,6 +2269,7 @@
 				183461C5164F70E700C4B4D6 /* Info.plist */,
 				183464E4164F8F5D00C4B4D6 /* ipad */,
 				045FF5F4199A6834007BE8B3 /* InfoPlist.strings */,
+				043D2E2C19A639A000A3B7CE /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -4314,6 +4318,7 @@
 				189CAA1616D8F95F00F97C73 /* reward_fire_rainy.ccbi in Resources */,
 				189CAA1716D8F95F00F97C73 /* reward_language1.ccbi in Resources */,
 				04F38755198FBE2A00F7E781 /* 152x152.png in Resources */,
+				043D2E2A19A639A000A3B7CE /* Localizable.strings in Resources */,
 				FB7E263C1843A82300797C5B /* movie_4_3.swf in Resources */,
 				189CAA1816D8F95F00F97C73 /* reward_language2.ccbi in Resources */,
 				FB01155F1854C13B003843F4 /* ChallengeGameOverScene.ccbi in Resources */,
@@ -4708,7 +4713,7 @@
 				18346493164F70EB00C4B4D6 /* b2ContactSolver.cpp in Sources */,
 				FB34F18A181FFE2000FD0897 /* jfdctfst.c in Sources */,
 				FB34F182181FFE2000FD0897 /* jdmaster.c in Sources */,
-				046CD107197A069A00630062 /* ChallengeStart.cpp in Sources */,
+				046CD107197A069A00630062 /* ChallengeStart.mm in Sources */,
 				18346496164F70EB00C4B4D6 /* b2EdgeAndCircleContact.cpp in Sources */,
 				FB34F16F181FFE2000FD0897 /* jcmarker.c in Sources */,
 				18346499164F70EB00C4B4D6 /* b2EdgeAndPolygonContact.cpp in Sources */,
@@ -4794,6 +4799,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		043D2E2C19A639A000A3B7CE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				043D2E2B19A639A000A3B7CE /* en */,
+				043D2E2D19A639A400A3B7CE /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		045FF5F4199A6834007BE8B3 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

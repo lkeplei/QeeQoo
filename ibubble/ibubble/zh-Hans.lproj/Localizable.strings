@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  ibubble
+
+  Created by 刘坤 on 14-8-21.
+
+*/
+"app_confirm" = "确定";
+"app_cancel" = "取消";
+
+"new_game_ask" = "您确定要开始新游戏吗？";

@@ -9,6 +9,10 @@
 #ifndef ibubble_GameMacros_h
 #define ibubble_GameMacros_h
 
+
+#define KenLocal(x, ...) NSLocalizedString(x, nil)       //定义国际化使用
+
+
 #define PTM_RATIO 32
 #define STD_DELTA 0.016
 #define KExplosionDelta 0.6

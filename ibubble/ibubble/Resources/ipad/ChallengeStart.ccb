@@ -179,9 +179,9 @@
 						<key>displayName</key>
 						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>continue_menu_node</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>1</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -281,6 +281,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>baseClass</key>
@@ -515,8 +517,6 @@
 								</array>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>

@@ -34,6 +34,8 @@ public:
     static int getPass();
     static int getStar();
     static bool getUnlockWithId(int achieveId);
+    static void saveGoonGame(bool goon=true);
+    static bool getGoonGame();
     
 };
 

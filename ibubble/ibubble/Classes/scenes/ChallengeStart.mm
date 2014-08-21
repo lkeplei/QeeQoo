@@ -5,22 +5,61 @@
 //  Created by Ryan Yuan on 12-11-24.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
+
 #include "ChallengeStart.h"
+
+#import <Foundation/Foundation.h>
+
+typedef void(^KAlertCallbackBlock)(int);
+
+@interface KenAlertView : NSObject<UIAlertViewDelegate>
+
+- (void)showAlert:(NSString *)title;
+
+@property (nonatomic, assign)kai::game::ChallengeStart *challengeStart;
+@property (nonatomic, assign)KAlertCallbackBlock callBackBlock;
+
+@end
+
+@implementation KenAlertView
+
+- (void)showAlert:(NSString *)title {
+    [[[UIAlertView alloc] initWithTitle:nil
+                                message:title
+                               delegate:self
+                      cancelButtonTitle:KenLocal(@"app_cancel")
+                      otherButtonTitles:KenLocal(@"app_confirm"), nil] show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (self.callBackBlock) {
+        self.callBackBlock(buttonIndex);
+    }
+}
+
+@end
+
+
+
+
 #include "GameController.h"
 #include "GameModle.h"
 #include "GameConstant.h"
 #include "UiTool.h"
 #include "GameConfig.h"
 
+#include "GameUtilities.h"
+
 NS_KAI_BEGIN
 ChallengeStart::ChallengeStart():CCLayer()
+, _continue_menu(NULL)
 {
 
 }
 
 ChallengeStart::~ChallengeStart()
 {
-
+    CC_SAFE_RELEASE_NULL(_continue_menu);
 }
 
 ChallengeStart* ChallengeStart::createWithCCB()
@@ -54,14 +93,31 @@ void ChallengeStart::press_continue(){
 }
 
 void ChallengeStart::press_new(){
-    GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeHelpInLevel);
+    GameUtilities::saveGoonGame();
+    
+    if (GameUtilities::getGoonGame()) {
+        KenAlertView *alert = [[KenAlertView alloc] init];
+        [alert showAlert:KenLocal(@"new_game_ask")];
+        alert.callBackBlock= ^(int index){
+            if (index == 0) {
+                
+            } else {
+                GameModle::sharedInstance()->resetSkillInfo();
+                GameModle::sharedInstance()->setCurrentHardLevelId(0);
+                GameUtilities::saveLevelId(GameModle::sharedInstance()->currentHardLevelId(), GameData::Instance().playerData);
+                
+                GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeHelpInLevel);
+            }
+        };
+    } else {
+        GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeHelpInLevel);
+    }
 }
 
 void ChallengeStart::press_back(){
     GameController::sharedInstance()->popSence();
     GameController::sharedInstance()->switchSence(GameController::K_SCENE_HOME,NULL);
 }
-
 
 #pragma mark-
 #pragma mark CCBSelectorResolver
@@ -79,12 +135,17 @@ cocos2d::extension::SEL_CCControlHandler ChallengeStart::onResolveCCBCCControlSe
 #pragma mark-
 #pragma mark CCBMemberVariableAssigner
 bool ChallengeStart::onAssignCCBMemberVariable(CCObject * pTarget, CCString * pMemberVariableName, CCNode * pNode){
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "continue_menu_node", CCMenuItemImage *, _continue_menu);
 	return false;
 }
 
 #pragma mark-
 #pragma mark CCBNodeLoaderListener
 void ChallengeStart::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoade){
+    if (!GameUtilities::getGoonGame()) {
+        _continue_menu->setEnabled(false);
+        _continue_menu->selected();
+    }
 }
 NS_KAI_END
 

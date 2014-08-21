@@ -15,6 +15,7 @@
 #define kAchievementPass        @"achievement_pass"
 #define kAchievementStar        @"achievement_star"
 #define kAchievementRecord      @"achievement_record"
+#define kAchievementGononGame   @"achievement_goon"
 
 bool GameUtilities_writeDateToFile(const char * aBuffer,const int aBufferLength,const char *pFileName){
 	
@@ -76,6 +77,12 @@ void GameUtilities_saveStar(int score) {
     [defaults synchronize];
 }
 
+void GameUtilities_saveGoonGame(bool goon) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithBool:goon] forKey:kAchievementGononGame];
+    [defaults synchronize];
+}
+
 int GameUtilities_getRecord() {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     return [[defaults objectForKey:kAchievementRecord] intValue];
@@ -93,7 +100,12 @@ int GameUtilities_getStar() {
 
 BOOL GameUtilities_getUnlockWithId(int achieveId) {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    return [[defaults objectForKey:[kUnlockidHeadString stringByAppendingFormat:@"%d", achieveId]] boolValue];
+    return [defaults boolForKey:[kUnlockidHeadString stringByAppendingFormat:@"%d", achieveId]];
+}
+
+BOOL GameUtilities_getGoonGame() {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults boolForKey:kAchievementGononGame];
 }
 
 void GameUtilities_saveLevelInfo(int levelId, kai::game::PlayerData plaerData){

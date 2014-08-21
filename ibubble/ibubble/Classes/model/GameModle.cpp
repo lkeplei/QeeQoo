@@ -889,7 +889,6 @@ SkillInfo & GameModle::getSkillInfo(){
 }
 void GameModle::saveSkillInfo(){
     GameData::Instance().savePlayerData();
-    GameUtilities::saveLevelId(_playerAchievement._currentHardLevelId, GameData::Instance().playerData);
 }
 
 const int  GameModle::getBattleMode(){

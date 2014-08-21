@@ -40,6 +40,9 @@ void countScore() {
         
         //上传得分
         GameCenter::postScore(KLeaderBoardId, totalRecord);
+        
+        //保存游戏状态
+        GameUtilities::saveLevelId(GameModle::sharedInstance()->currentHardLevelId(), GameData::Instance().playerData);
     }
 }
 
