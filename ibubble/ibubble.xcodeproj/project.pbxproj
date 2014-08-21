@@ -12,6 +12,7 @@
 		0425E8DB198E1CE6001DA340 /* background4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0425E8D8198E1CE6001DA340 /* background4.png */; };
 		042D4489198E80E200A1F26A /* scores_layer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 042D4488198E80E200A1F26A /* scores_layer.ccbi */; };
 		045FF5F2199A6834007BE8B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 045FF5F4199A6834007BE8B3 /* InfoPlist.strings */; };
+		046169BB19A4DB7F00D1C791 /* kiss_default_sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 046169BA19A4DB7F00D1C791 /* kiss_default_sprite.png */; };
 		046CD0EC197A069A00630062 /* BattleAIScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD097197A069A00630062 /* BattleAIScript.cpp */; };
 		046CD0ED197A069A00630062 /* GameAIScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD099197A069A00630062 /* GameAIScript.cpp */; };
 		046CD0EE197A069A00630062 /* GameAIScriptFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD09B197A069A00630062 /* GameAIScriptFactory.cpp */; };
@@ -791,6 +792,7 @@
 		042D4488198E80E200A1F26A /* scores_layer.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = scores_layer.ccbi; sourceTree = "<group>"; };
 		045FF5F3199A6834007BE8B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		045FF5F5199A6843007BE8B3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		046169BA19A4DB7F00D1C791 /* kiss_default_sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiss_default_sprite.png; sourceTree = "<group>"; };
 		046CD097197A069A00630062 /* BattleAIScript.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleAIScript.cpp; sourceTree = "<group>"; };
 		046CD098197A069A00630062 /* BattleAIScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleAIScript.h; sourceTree = "<group>"; };
 		046CD099197A069A00630062 /* GameAIScript.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameAIScript.cpp; sourceTree = "<group>"; };
@@ -2173,6 +2175,7 @@
 		1831D8B516B49C5F0052DA1B /* big_images */ = {
 			isa = PBXGroup;
 			children = (
+				046169BA19A4DB7F00D1C791 /* kiss_default_sprite.png */,
 				184E734D16D8BF230009C6A9 /* about_team.png */,
 				0425E8D6198E1CE6001DA340 /* background1.png */,
 				1831D8CD16B49C5F0052DA1B /* background2.png */,
@@ -4226,6 +4229,7 @@
 				18DA3AFE16D65B6C00F9A7C8 /* explode_water_8.png in Resources */,
 				18EE557F16D83A86007E39CA /* BaBa.png in Resources */,
 				18EE558016D83A86007E39CA /* BeeBoo.png in Resources */,
+				046169BB19A4DB7F00D1C791 /* kiss_default_sprite.png in Resources */,
 				18EE558116D83A86007E39CA /* BeeGa.png in Resources */,
 				18EE558216D83A86007E39CA /* BooBee.png in Resources */,
 				18EE558316D83A86007E39CA /* BooMoo.png in Resources */,
