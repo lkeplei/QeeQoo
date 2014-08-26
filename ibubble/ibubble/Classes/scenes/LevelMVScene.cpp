@@ -99,12 +99,19 @@ void LevelMVScene::updateHelper()
             const CCSize size = this->getContentSize();
             _swf->setPosition(ccp(size.width * 0.5,size.height * 0.5));
             _swf->setScale(1.0f);
-            this->addChild(_swf,100);
+            this->addChild(_swf, 100);
             _swf->addCompletedListener(this,menu_selector(LevelMVScene::handleSwfFinished));
             _swf->addFrameListener(this,menu_selector(LevelMVScene::handleSwfFrameChanged));
             _swf->runSWFSequence();
         }
     }
+
+    //菜单子项
+    CCMenuItemImage *item = CCMenuItemImage::create("achieve_lock.png", "achieve_lock.png", this, menu_selector(LevelMVScene::press_next));
+    item->setPosition(ccp(0, 0));
+    //创建菜单
+    CCMenu *menu = CCMenu::create(item, NULL);
+    this->addChild(menu, 1000);
 }
 
 void LevelMVScene::handleSwfFrameChanged(cocos2d::CCObject * obj){
@@ -121,7 +128,10 @@ void LevelMVScene::handleSwfFrameChanged(cocos2d::CCObject * obj){
 }
 
 void LevelMVScene::continueSwf(){
-    press_next();
+    if (_swf) {
+        _swf->resumeSWFSequence();
+    }
+//    press_next();
 }
 
 void LevelMVScene::handleSwfFinished(cocos2d::CCObject * obj){
