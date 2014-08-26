@@ -89,13 +89,14 @@ CCScene* ChallengeStart::scene(){
 }
 
 void ChallengeStart::press_continue(){
-	GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeGameStart,CCInteger::create(0));
+	GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeGameStart,
+                                                  CCInteger::create(GameUtilities::getAchieveLevelId()));
 }
 
 void ChallengeStart::press_new(){
     GameUtilities::saveGoonGame();
     
-    if (GameUtilities::getGoonGame()) {
+    if (GameUtilities::getGoonGame() && GameModle::sharedInstance()->getSkillInfo().skillLife > 0) {
         KenAlertView *alert = [[KenAlertView alloc] init];
         [alert showAlert:KenLocal(@"new_game_ask")];
         alert.callBackBlock= ^(int index){
@@ -104,6 +105,9 @@ void ChallengeStart::press_new(){
             } else {
                 GameModle::sharedInstance()->resetSkillInfo();
                 GameModle::sharedInstance()->setCurrentHardLevelId(0);
+                GameUtilities::savePass(0);
+                GameUtilities::saveRecord(0);
+                GameUtilities::saveStar(0);
                 GameUtilities::saveLevelId(GameModle::sharedInstance()->currentHardLevelId(), GameData::Instance().playerData);
                 
                 GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeHelpInLevel);
@@ -142,7 +146,7 @@ bool ChallengeStart::onAssignCCBMemberVariable(CCObject * pTarget, CCString * pM
 #pragma mark-
 #pragma mark CCBNodeLoaderListener
 void ChallengeStart::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoade){
-    if (!GameUtilities::getGoonGame()) {
+    if (!GameUtilities::getGoonGame() || GameModle::sharedInstance()->getSkillInfo().skillLife <= 0) {
         _continue_menu->setEnabled(false);
         _continue_menu->selected();
     }

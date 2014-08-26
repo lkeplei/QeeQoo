@@ -36,6 +36,8 @@ public:
     static bool getUnlockWithId(int achieveId);
     static void saveGoonGame(bool goon=true);
     static bool getGoonGame();
+    static void saveAchieveLevelId(int level);
+    static int getAchieveLevelId();
     
 };
 

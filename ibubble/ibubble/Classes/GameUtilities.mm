@@ -15,6 +15,7 @@
 #define kAchievementPass        @"achievement_pass"
 #define kAchievementStar        @"achievement_star"
 #define kAchievementRecord      @"achievement_record"
+#define kAchievementLevel       @"achievement_level"
 #define kAchievementGononGame   @"achievement_goon"
 
 bool GameUtilities_writeDateToFile(const char * aBuffer,const int aBufferLength,const char *pFileName){
@@ -106,6 +107,17 @@ BOOL GameUtilities_getUnlockWithId(int achieveId) {
 BOOL GameUtilities_getGoonGame() {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     return [defaults boolForKey:kAchievementGononGame];
+}
+
+void GameUtilities_saveAchieveLevelId(int level) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:level] forKey:kAchievementLevel];
+    [defaults synchronize];
+}
+
+int GameUtilities_getAchieveLevelId() {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults integerForKey:kAchievementLevel];
 }
 
 void GameUtilities_saveLevelInfo(int levelId, kai::game::PlayerData plaerData){

@@ -30,6 +30,8 @@ extern int GameUtilities_getPass();
 extern int GameUtilities_getStar();
 extern bool GameUtilities_getUnlockWithId(int achieveId);
 extern bool GameUtilities_getGoonGame();
+extern void GameUtilities_saveAchieveLevelId(int level);
+extern int GameUtilities_getAchieveLevelId();
 
 void GameUtilities::writeDateToFile(const char * aBuffer,const int aBufferLength,const std::string & filepath){
 	GameUtilities_writeDateToFile(aBuffer,aBufferLength,filepath.c_str());
@@ -111,4 +113,12 @@ void GameUtilities::saveGoonGame(bool goon) {
 
 bool GameUtilities::getGoonGame() {
     return GameUtilities_getGoonGame();
+}
+
+void GameUtilities::saveAchieveLevelId(int level) {
+    GameUtilities_saveAchieveLevelId(level);
+}
+
+int GameUtilities::getAchieveLevelId() {
+    return GameUtilities_getAchieveLevelId();
 }

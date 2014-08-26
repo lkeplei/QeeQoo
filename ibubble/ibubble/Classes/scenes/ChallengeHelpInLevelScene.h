@@ -29,7 +29,7 @@ public:
 	CCB_STATIC_NEW_AUTORELEASE_OBJECT_WITH_INIT_METHOD(ChallengeHelpInLevelScene, create);
     virtual ~ChallengeHelpInLevelScene();
     ChallengeHelpInLevelScene();
-    static cocos2d::CCScene* scene();
+    static cocos2d::CCScene* scene(bool onlyHelp=false);
 	static ChallengeHelpInLevelScene* createWithCCB();
 	void press_next();
 public:
@@ -43,6 +43,8 @@ public:
 #pragma mark-
 #pragma mark CCBNodeLoaderListener
 	virtual void onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader);
+    
+    bool isOnlyHelp;
 };
 
 

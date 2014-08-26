@@ -15,6 +15,7 @@ USING_NS_CC;
 
 #include "GameUtilities.h"
 #include "HelpInLevelScene.h"
+#include "ChallengeHelpInLevelScene.h"
 
 NS_KAI_BEGIN
 BattleBgLayer::BattleBgLayer():BattleBaseLayer(),_animationManager(NULL){
@@ -165,16 +166,13 @@ void BattleControllerLayer::load(const cocos2d::CCDictionary * dict){
 	
 }
 
-void BattleControllerLayer::press_back()
-{
+void BattleControllerLayer::press_back() {
 	GameController::sharedInstance()->pauseBattle();
 	if (GameModle::sharedInstance()->currentBigLevelId() == kStoryZoneMaxId){
 		GameController::sharedInstance()->switchSence(GameController::K_SCENE_ACHIEVEMENT);
-	}
-	else{
+	} else {
 		GameController::sharedInstance()->switchSence(GameController::K_SCENE_HOME);
 	}
-
 }
 
 void BattleControllerLayer::press_pause()
@@ -226,25 +224,27 @@ void BattleControllerLayer::press_play(){
 }
 
 void BattleControllerLayer::press_home(){
-	
 	GameController::sharedInstance()->pauseBattle();
 	GameController::sharedInstance()->switchSence(GameController::K_SCENE_HOME);
 }
 
 
 void BattleControllerLayer::press_condition(){
-	
 	GameController::sharedInstance()->pauseBattle();
 	int zone = GameModle::sharedInstance()->currentBigLevelId();
 	int level = GameModle::sharedInstance()->currentLevelId();
 	hideMenu();
-	GameController::sharedInstance()->pushSence(GameController::K_SCENE_BATTLE_PRE,
-												CCInteger::create(level),
-												CCInteger::create(zone));
+    
+    if (GameModle::sharedInstance()->currentBigLevelId() >= kStoryZoneMaxId){
+		GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeGameStart,CCInteger::create(0));
+	} else {
+        GameController::sharedInstance()->pushSence(GameController::K_SCENE_BATTLE_PRE,
+                                                    CCInteger::create(level),
+                                                    CCInteger::create(zone));
+	}
 }
 
 void BattleControllerLayer::press_setting(){
-	
 	GameController::sharedInstance()->pauseBattle();
 	int zone = GameModle::sharedInstance()->currentBigLevelId();
 	int level = GameModle::sharedInstance()->currentLevelId();
@@ -258,7 +258,8 @@ void BattleControllerLayer::press_help(){
     GameController::sharedInstance()->pauseBattle();
     
     if (GameModle::sharedInstance()->currentBigLevelId() >= kStoryZoneMaxId) {
-        GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeHelpInLevel);
+        CCScene *pScene = ChallengeHelpInLevelScene::scene(true);
+        GameController::sharedInstance()->controllerPushSence(pScene);
 	} else {
         int zone = GameModle::sharedInstance()->currentBigLevelId();
         int level = GameModle::sharedInstance()->currentLevelId();

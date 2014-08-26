@@ -54,8 +54,65 @@ CCScene* ChallengeGameStartScene::scene(const int type)
 	if(node != NULL){
         node->_type = type;
 		scene->addChild(node);
+        node->updateScene();
 	}
 	return scene;
+}
+
+void createValText(CCNode * container,const std::string & text ,UiTool::EFontSize size){
+    if (container) {
+        container->removeAllChildrenWithCleanup(true);
+        CCSize labelSize =  container->getContentSize();
+        CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(text);
+        CCSize cellSize =  label->getContentSize();
+        label->setAnchorPoint(CCPoint(0.5, 0.5));
+        label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
+        container->addChild(label);
+    }
+}
+
+void ChallengeGameStartScene::updateScene() {
+    if (_type == 0) {
+        currentLevel = GameUtilities::getRandLevel();
+    } else {
+        currentLevel = _type;
+    }
+    GameUtilities::saveAchieveLevelId(currentLevel);
+    
+    CCDictionary * dict = (CCDictionary *)GameConfig::sharedInstance()->getLevelsValue("4");
+    CCArray * sublevels = (CCArray *)dict->objectForKey(KStrSubLevels);
+    CCDictionary * currentLevelDict = (CCDictionary *)sublevels->objectAtIndex(currentLevel);
+    CCArray * npcs = (CCArray *)currentLevelDict->objectForKey(KStrNPCs);//npcs
+    
+    CCObject * npcitem = NULL;
+    int pass_count = ((CCString *)currentLevelDict->objectForKey(KStrPassCount))->intValue();
+    int star_count = ((CCString *)currentLevelDict->objectForKey(KStrStarCount))->intValue();
+    int count = 0;
+    CCARRAY_FOREACH(npcs, npcitem){
+        CCDictionary * dict = (CCDictionary *)npcitem;
+        count += ((CCString *)dict->objectForKey(KStrCount))->intValue();
+    }
+    
+    GameModle* model = GameModle::sharedInstance();
+    
+    stringstream levelStr;
+    levelStr << model->currentHardLevelId() + 1;
+    //    createValText(_titleNode, levelStr.str(), UiTool::kFontBig);
+    _titleNode->removeAllChildrenWithCleanup(true);
+    CCSize labelSize =  _titleNode->getContentSize();
+    CCLabelAtlas *label = UiTool::createLabelAtlasWithStarNumber(levelStr.str());
+    CCSize cellSize =  label->getContentSize();
+    label->setAnchorPoint(CCPoint(0.5, 0.5));
+    label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
+    _titleNode->addChild(label);
+    
+    stringstream passCount;
+    passCount << pass_count << "/" << count;
+    createValText(_passCount, passCount.str(), UiTool::kFontMidlle);
+    
+    stringstream starCount;
+    starCount << star_count << "/" << count;
+    createValText(_starCount, starCount.str(), UiTool::kFontMidlle);
 }
 
 void ChallengeGameStartScene::play_next(){
@@ -85,59 +142,10 @@ bool ChallengeGameStartScene::onAssignCCBMemberVariable(CCObject * pTarget, CCSt
 	return false;
 }
 
-void createValText(CCNode * container,const std::string & text ,UiTool::EFontSize size){
-    if (container) {
-        container->removeAllChildrenWithCleanup(true);
-        CCSize labelSize =  container->getContentSize();
-        CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(text);
-        CCSize cellSize =  label->getContentSize();
-        label->setAnchorPoint(CCPoint(0.5, 0.5));
-        label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
-        container->addChild(label);
-    }
-}
-
 #pragma mark-
 #pragma mark CCBNodeLoaderListener
 void ChallengeGameStartScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader){
-    currentLevel = GameUtilities::getRandLevel();
-    
-    
-    CCDictionary * dict = (CCDictionary *)GameConfig::sharedInstance()->getLevelsValue("4");
-    CCArray * sublevels = (CCArray *)dict->objectForKey(KStrSubLevels);
-    CCDictionary * currentLevelDict = (CCDictionary *)sublevels->objectAtIndex(currentLevel);
-    CCArray * npcs = (CCArray *)currentLevelDict->objectForKey(KStrNPCs);//npcs
-    
-    CCObject * npcitem = NULL;
-    int pass_count = ((CCString *)currentLevelDict->objectForKey(KStrPassCount))->intValue();
-    int star_count = ((CCString *)currentLevelDict->objectForKey(KStrStarCount))->intValue();
-    int count = 0;
-    CCARRAY_FOREACH(npcs, npcitem){
-        CCDictionary * dict = (CCDictionary *)npcitem;
-        count += ((CCString *)dict->objectForKey(KStrCount))->intValue();
-    }
-    
-    
-    GameModle* model = GameModle::sharedInstance();
-    
-    stringstream levelStr;
-    levelStr << model->currentHardLevelId() + 1;
-//    createValText(_titleNode, levelStr.str(), UiTool::kFontBig);
-    _titleNode->removeAllChildrenWithCleanup(true);
-    CCSize labelSize =  _titleNode->getContentSize();
-    CCLabelAtlas *label = UiTool::createLabelAtlasWithStarNumber(levelStr.str());
-    CCSize cellSize =  label->getContentSize();
-    label->setAnchorPoint(CCPoint(0.5, 0.5));
-    label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
-    _titleNode->addChild(label);
-    
-    stringstream passCount;
-    passCount << pass_count << "/" << count;
-    createValText(_passCount, passCount.str(), UiTool::kFontMidlle);
-    
-    stringstream starCount;
-    starCount << star_count << "/" << count;
-    createValText(_starCount, starCount.str(), UiTool::kFontMidlle);
+
 }
 NS_KAI_END
 

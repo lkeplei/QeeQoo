@@ -21,7 +21,7 @@
 NS_KAI_BEGIN
 void countScore() {
     if (GameModle::sharedInstance()->getBattleMode() == K_HARD_PVE_BATTLE) {
-        PlayerAchievement & achievement = GameModle::sharedInstance()->playerAchievement();
+        PlayerAchievement &achievement = GameModle::sharedInstance()->playerAchievement();
         //计算得分
         int percent = (int)((achievement._killNpcCount * 100) / achievement._totalNpcCount);
         if (percent > 80) {
@@ -98,6 +98,8 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
 					}
 				}
                 
+                countScore();
+                
                 //战斗结束跳转
                 stringstream bigLevel;
                 bigLevel << gModleInstance->currentBigLevelId();
@@ -111,18 +113,16 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
                 } else {
                     controller->switchSence(GameController::K_SCENE_SUCCESS);
                 }
-                
-                countScore();
 			}
 			else if(gModleInstance->getBattleTouchTimes() > 0 &&
 					gModleInstance->getBattleTouchTimes() >= gModleInstance->getBattleTouchMaxTimes() ){
 				
+                countScore();
+
 				controller->pauseBattle();
 				achievement._failed=true;
 				controller->switchSence(GameController::K_SCENE_FAILED);
-                
-                countScore();
-			}
+            }
 		}
 	}
 	

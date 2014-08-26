@@ -103,11 +103,10 @@ void ChallengeGameOverScene::press_menu_page()
 
 void ChallengeGameOverScene::press_replay()
 {
-    GameModle::sharedInstance()->getSkillInfo().skillLife--;
-    
-    int32_t currentLevelId = GameModle::sharedInstance()->currentLevelId();
+//    int32_t currentLevelId = GameModle::sharedInstance()->currentLevelId();
 	GameController::sharedInstance()->pauseBattle();
-	GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,CCInteger::create(currentLevelId));
+    GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeGameStart,CCInteger::create(0));
+//	GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,CCInteger::create(currentLevelId));
 }
 
 void ChallengeGameOverScene::press_play_next()
@@ -116,8 +115,9 @@ void ChallengeGameOverScene::press_play_next()
         CCScene *pScene = ChallengeGameOverScene::scene(false);
         GameController::sharedInstance()->controllerPushSence(pScene);
     } else {
-        GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,
-                                                      CCInteger::create(GameUtilities::getRandLevel()));
+        GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeGameStart,CCInteger::create(0));
+//        GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,
+//                                                      CCInteger::create(GameUtilities::getRandLevel()));
     }
 }
 

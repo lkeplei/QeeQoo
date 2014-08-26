@@ -14,7 +14,8 @@
 #include "GameUtilities.h"
 
 NS_KAI_BEGIN
-ChallengeHelpInLevelScene::ChallengeHelpInLevelScene():CCLayer()
+ChallengeHelpInLevelScene::ChallengeHelpInLevelScene()
+: CCLayer()
 {
 
 }
@@ -41,19 +42,25 @@ ChallengeHelpInLevelScene* ChallengeHelpInLevelScene::createWithCCB()
 	return node;
 }
 
-CCScene* ChallengeHelpInLevelScene::scene()
+CCScene* ChallengeHelpInLevelScene::scene(bool onlyHelp)
 {
 	CCScene *scene = CCScene::create();
 	ChallengeHelpInLevelScene * node = createWithCCB();
 	if(node!=NULL){
 		scene->addChild(node);
+        node->isOnlyHelp = onlyHelp;
 	}
 	return scene;
 }
 
 void ChallengeHelpInLevelScene::press_next(){
     //冲第一关卡开始
-    GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeGameStart,CCInteger::create(0));
+    if (isOnlyHelp) {
+        GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,
+                                                      CCInteger::create(GameUtilities::getAchieveLevelId()));
+    } else {
+        GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeGameStart,CCInteger::create(0));
+    }
 }
 
 #pragma mark-

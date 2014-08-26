@@ -42,6 +42,10 @@ public:
 #pragma mark-
 #pragma mark CCBNodeLoaderListener
 	virtual void onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader);
+    
+private:
+    void updateScene();
+    
 private:
     int currentLevel;
 	int _type;
