@@ -56,8 +56,10 @@ CCScene* ChallengeHelpInLevelScene::scene(bool onlyHelp)
 void ChallengeHelpInLevelScene::press_next(){
     //冲第一关卡开始
     if (isOnlyHelp) {
-        GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,
-                                                      CCInteger::create(GameUtilities::getAchieveLevelId()));
+        GameController::sharedInstance()->popSence();
+        GameController::sharedInstance()->resumeBattle();
+//        GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,
+//                                                      CCInteger::create(GameUtilities::getAchieveLevelId()));
     } else {
         GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeGameStart,CCInteger::create(0));
     }

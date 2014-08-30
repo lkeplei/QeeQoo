@@ -23,7 +23,7 @@ void countScore() {
     if (GameModle::sharedInstance()->getBattleMode() == K_HARD_PVE_BATTLE) {
         PlayerAchievement &achievement = GameModle::sharedInstance()->playerAchievement();
         //计算得分
-        int percent = (int)((achievement._killNpcCount * 100) / achievement._totalNpcCount);
+        float percent = (float)((float)(achievement._killNpcCount * 100) / (float)achievement._totalNpcCount);
         if (percent > 80) {
             achievement._records += ((percent - 80) * 50000 + 30 * 20000 + 50 * 10000) / 100;
         } else if (percent > 50) {
@@ -40,9 +40,6 @@ void countScore() {
         
         //上传得分
         GameCenter::postScore(KLeaderBoardId, totalRecord);
-        
-        //保存游戏状态
-        GameUtilities::saveLevelId(GameModle::sharedInstance()->currentHardLevelId(), GameData::Instance().playerData);
     }
 }
 

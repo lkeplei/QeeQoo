@@ -52,6 +52,12 @@ public:
 #pragma mark CCBNodeLoaderListener
 	virtual void onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader);
 
+    
+    //触摸事件
+	virtual bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent);
+    void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
+	void ccTouchEnded(CCTouch *touch, CCEvent* event);
+    
 private:
 	CCNode * _helpSpriteRoot;
 	int  _levelid;

@@ -20,7 +20,7 @@ _displaySpriteRoot(NULL)
 ,_swf(NULL)
 ,swfFileArray(NULL)
 {
-	
+    setTouchEnabled( true );	
 }
 
 AchievementViewScene::~AchievementViewScene()
@@ -85,15 +85,18 @@ void AchievementViewScene::playSwf(CCString *filename) {
 }
 
 void AchievementViewScene::initWithParams(CCObject * params){
+    canTouch = false;
 	if(_displaySpriteRoot && params){
 		CCDictionary * dict = (CCDictionary *)params;
         CCDictionary * display = (CCDictionary *)dict->objectForKey(KStrDisplay);
         CCString * type =(CCString *)display->objectForKey(KStrType);
         if (type->intValue() == GameObject::K_SWF_FILE) {
+            canTouch = true;
+            
             if (_bgSpriteRoot) {
                 _bgSpriteRoot->setVisible(false);
             }
-//            CCString * filename =(CCString *)display->objectForKey(KStrFile);
+
             swfIndex = 0;
             swfFileArray = (CCArray *)display->objectForKey(KStrFileArray);
             playSwf((CCString *)swfFileArray->objectAtIndex(swfIndex));
@@ -162,6 +165,26 @@ void AchievementViewScene::handleSwfFinished(cocos2d::CCObject * obj){
         GameModle::sharedInstance()->playBackground(K_BG_MUSIC_OUTSIDE_OF_BATTLE);
     }
     
+    press_back();
+}
+
+void AchievementViewScene::onEnter(){
+	CCLayer::onEnter();
+
+    CCDirector* pDirector = CCDirector::sharedDirector();
+    pDirector->getTouchDispatcher()->addTargetedDelegate(this, kCCMenuHandlerPriority, true);
+}
+
+#pragma mark - touch
+//触摸事件
+bool AchievementViewScene::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent){
+	return canTouch;
+}
+
+void AchievementViewScene::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent){
+}
+
+void AchievementViewScene::ccTouchEnded(CCTouch *pTouch, CCEvent* event){
     press_back();
 }
 

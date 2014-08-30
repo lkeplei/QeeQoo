@@ -47,6 +47,12 @@ public:
     
     void handleSwfFinished(cocos2d::CCObject * obj);
     
+    virtual void onEnter();
+    //触摸事件
+	virtual bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent);
+    void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
+	void ccTouchEnded(CCTouch *touch, CCEvent* event);
+    
 private:
     void playSwf(CCString *filename);
     
@@ -56,6 +62,7 @@ private:
     CCSprite * _bgSpriteRoot;
     CCArray *swfFileArray;
     int swfIndex;
+    bool canTouch;
 };
 
 class AchievementViewSceneLayerLoader:public cocos2d::extension::CCLayerLoader {

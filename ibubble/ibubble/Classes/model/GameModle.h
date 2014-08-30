@@ -136,12 +136,9 @@ private:
 	CCDictionary * _collideObjects;
     vector<int> levelList;
 private:
-	SkillInfo _skillInfo;
 	int		  _battleTouchTimes;
 	int		  _battleTouchMaxTimes;
 public:
-	SkillInfo & getSkillInfo();
-    void saveSkillInfo();
 	const int  getBattleMode();
 	void  setBattleMode(const int mode);
 	

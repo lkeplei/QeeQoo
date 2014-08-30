@@ -16,6 +16,7 @@ USING_NS_CC;
 #include "GameUtilities.h"
 #include "HelpInLevelScene.h"
 #include "ChallengeHelpInLevelScene.h"
+#include "ChallengeGameStartScene.h"
 
 NS_KAI_BEGIN
 BattleBgLayer::BattleBgLayer():BattleBaseLayer(),_animationManager(NULL){
@@ -236,7 +237,8 @@ void BattleControllerLayer::press_condition(){
 	hideMenu();
     
     if (GameModle::sharedInstance()->currentBigLevelId() >= kStoryZoneMaxId){
-		GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeGameStart,CCInteger::create(0));
+        CCScene *pScene = ChallengeGameStartScene::scene(GameUtilities::getAchieveLevelId(), true);
+        GameController::sharedInstance()->controllerPushSence(pScene, true);
 	} else {
         GameController::sharedInstance()->pushSence(GameController::K_SCENE_BATTLE_PRE,
                                                     CCInteger::create(level),
@@ -256,35 +258,27 @@ void BattleControllerLayer::press_setting(){
 
 void BattleControllerLayer::press_help(){
     GameController::sharedInstance()->pauseBattle();
+    int zone = GameModle::sharedInstance()->currentBigLevelId();
+    int level = GameModle::sharedInstance()->currentLevelId();
+    hideMenu();
     
     if (GameModle::sharedInstance()->currentBigLevelId() >= kStoryZoneMaxId) {
         CCScene *pScene = ChallengeHelpInLevelScene::scene(true);
-        GameController::sharedInstance()->controllerPushSence(pScene);
+        GameController::sharedInstance()->controllerPushSence(pScene, true);
 	} else {
-        int zone = GameModle::sharedInstance()->currentBigLevelId();
-        int level = GameModle::sharedInstance()->currentLevelId();
-        hideMenu();
-//        GameController::sharedInstance()->pushSence(GameController::K_SCENE_HELP_IN_LEVEL,
-//                                                    CCInteger::create(level),
-//                                                    CCInteger::create(zone));
         CCScene *pScene = HelpInLevelScene::scene(zone, level, true);
         GameController::sharedInstance()->controllerPushSence(pScene, true);
     }
 }
 
 void BattleControllerLayer::press_skill1(){
-//    SkillInfo & skillInfo = GameModle::sharedInstance()->getSkillInfo();
-//    skillInfo.skillLife-- ;
-//    GameModle::sharedInstance()->saveSkillInfo();
-//    skillUpdated(NULL);
+
 }
 
 void BattleControllerLayer::press_skill2(){
 	PlayerAchievement & achievement = GameModle::sharedInstance()->playerAchievement();
 	if (achievement._killNpcCount == 0) {
-        SkillInfo & skillInfo = GameModle::sharedInstance()->getSkillInfo();
-        skillInfo.skill_skip-- ;
-        GameModle::sharedInstance()->saveSkillInfo();
+        GameUtilities::saveSkillSkip(GameUtilities::getSkillSkip() - 1);
         skillUpdated(NULL);
         
 		int32_t currentLevelId = GameModle::sharedInstance()->currentLevelId();
@@ -301,9 +295,7 @@ void BattleControllerLayer::press_skill2(){
 void BattleControllerLayer::press_skill3(){
 	PlayerAchievement & achievement = GameModle::sharedInstance()->playerAchievement();
 	if (achievement._killNpcCount == 0) {
-        SkillInfo & skillInfo = GameModle::sharedInstance()->getSkillInfo();
-        skillInfo.skill_weak-- ;
-        GameModle::sharedInstance()->saveSkillInfo();
+        GameUtilities::saveSkillWeak(GameUtilities::getSkillWeak() - 1);
         skillUpdated(NULL);
         
 		GameController::sharedInstance()->pauseBattle();
@@ -315,9 +307,7 @@ void BattleControllerLayer::press_skill3(){
 void BattleControllerLayer::press_skill4(){
 	GameModle *model = GameModle::sharedInstance();
 	if (model->getBattleTouchTimes() < model->getBattleTouchMaxTimes()) {
-        SkillInfo & skillInfo = GameModle::sharedInstance()->getSkillInfo();
-        skillInfo.skill_s_touch-- ;
-        GameModle::sharedInstance()->saveSkillInfo();
+        GameUtilities::saveSkillSTouch(GameUtilities::getSkillSTouch() - 1);
         skillUpdated(NULL);
         
 		GameController::sharedInstance()->pauseBattle();
@@ -329,9 +319,7 @@ void BattleControllerLayer::press_skill4(){
 void BattleControllerLayer::press_skill5(){
     GameModle *model = GameModle::sharedInstance();
 	if (model->getBattleTouchTimes() < model->getBattleTouchMaxTimes()) {
-        SkillInfo & skillInfo = GameModle::sharedInstance()->getSkillInfo();
-        skillInfo.skill_large_touch-- ;
-        model->saveSkillInfo();
+        GameUtilities::saveSkillLargeTouch(GameUtilities::getSkillLargeTouch() - 1);
         skillUpdated(NULL);
         
 		GameController::sharedInstance()->pauseBattle();
@@ -342,9 +330,7 @@ void BattleControllerLayer::press_skill5(){
 
 void BattleControllerLayer::press_skill6() {
     if(GameModle::sharedInstance()->getBattleTouchMaxTimes() < 2) {
-        SkillInfo & skillInfo = GameModle::sharedInstance()->getSkillInfo();
-        skillInfo.skill_multi_touch-- ;
-        GameModle::sharedInstance()->saveSkillInfo();
+        GameUtilities::saveSkillMultiTouch(GameUtilities::getSkillMultiTouch() - 1);
         skillUpdated(NULL);
         
         GameController::sharedInstance()->pauseBattle();
@@ -455,21 +441,19 @@ void createSkillText(CCNode * container,int32_t val){
 }
 
 void BattleControllerLayer::skillUpdated(CCObject * params){
-    const SkillInfo & info = GameModle::sharedInstance()->getSkillInfo();
+    createSkillText(this->_skill1text, GameUtilities::getSkillLife());
+    createSkillText(this->_skill2text, GameUtilities::getSkillSkip());
+    createSkillText(this->_skill3text, GameUtilities::getSkillWeak());
+    createSkillText(this->_skill4text, GameUtilities::getSkillSTouch());
+    createSkillText(this->_skill5text, GameUtilities::getSkillLargeTouch());
+    createSkillText(this->_skill6text, GameUtilities::getSkillMultiTouch());
     
-    createSkillText(this->_skill1text, info.skillLife);
-    createSkillText(this->_skill2text, info.skill_skip);
-    createSkillText(this->_skill3text, info.skill_weak);
-    createSkillText(this->_skill4text, info.skill_s_touch);
-    createSkillText(this->_skill5text, info.skill_large_touch);
-    createSkillText(this->_skill6text, info.skill_multi_touch);
-    
-    _skill1Button->setEnabled(info.skillLife > 0);
-    _skill2Button->setEnabled(info.skill_skip > 0);
-    _skill3Button->setEnabled(info.skill_weak > 0);
-    _skill4Button->setEnabled(info.skill_s_touch > 0);
-    _skill5Button->setEnabled(info.skill_large_touch > 0);
-    _skill6Button->setEnabled(info.skill_multi_touch > 0);
+    _skill1Button->setEnabled(GameUtilities::getSkillLife() > 0);
+    _skill2Button->setEnabled(GameUtilities::getSkillSkip() > 0);
+    _skill3Button->setEnabled(GameUtilities::getSkillWeak() > 0);
+    _skill4Button->setEnabled(GameUtilities::getSkillSTouch() > 0);
+    _skill5Button->setEnabled(GameUtilities::getSkillLargeTouch() > 0);
+    _skill6Button->setEnabled(GameUtilities::getSkillMultiTouch() > 0);
 }
 
 BattleScene::BattleScene()

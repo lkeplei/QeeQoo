@@ -59,6 +59,7 @@
 		046CD11E197A078400630062 /* StartupScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD118197A078400630062 /* StartupScene.cpp */; };
 		046CD11F197A078400630062 /* SubLevelsSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD11A197A078400630062 /* SubLevelsSelectionScene.cpp */; };
 		046F080F19A3795700E6A29F /* achieve_lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 046F080E19A3795700E6A29F /* achieve_lock.png */; };
+		048C735C19B178B50009EAE3 /* end_movie4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 048C735B19B178B50009EAE3 /* end_movie4.plist */; };
 		049886A219A0DACE00E0FCEC /* end_movie1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0498869F19A0DACE00E0FCEC /* end_movie1.plist */; };
 		049886A319A0DACE00E0FCEC /* end_movie2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 049886A019A0DACE00E0FCEC /* end_movie2.plist */; };
 		049886A419A0DACE00E0FCEC /* end_movie3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 049886A119A0DACE00E0FCEC /* end_movie3.plist */; };
@@ -886,6 +887,7 @@
 		046CD11A197A078400630062 /* SubLevelsSelectionScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SubLevelsSelectionScene.cpp; sourceTree = "<group>"; };
 		046CD11B197A078400630062 /* SubLevelsSelectionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubLevelsSelectionScene.h; sourceTree = "<group>"; };
 		046F080E19A3795700E6A29F /* achieve_lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = achieve_lock.png; sourceTree = "<group>"; };
+		048C735B19B178B50009EAE3 /* end_movie4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = end_movie4.plist; sourceTree = "<group>"; };
 		0498869F19A0DACE00E0FCEC /* end_movie1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = end_movie1.plist; sourceTree = "<group>"; };
 		049886A019A0DACE00E0FCEC /* end_movie2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = end_movie2.plist; sourceTree = "<group>"; };
 		049886A119A0DACE00E0FCEC /* end_movie3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = end_movie3.plist; sourceTree = "<group>"; };
@@ -3875,6 +3877,7 @@
 		FB6E9C48183CE89B007493A7 /* end_movie */ = {
 			isa = PBXGroup;
 			children = (
+				048C735B19B178B50009EAE3 /* end_movie4.plist */,
 				0498869F19A0DACE00E0FCEC /* end_movie1.plist */,
 				049886A019A0DACE00E0FCEC /* end_movie2.plist */,
 				049886A119A0DACE00E0FCEC /* end_movie3.plist */,
@@ -4149,6 +4152,7 @@
 				FB6E9C9A183CFD7B007493A7 /* TooBoo-D.mp3 in Resources */,
 				1862F0F616A0896A0079D74D /* bubble_ss_7.ccbi in Resources */,
 				FB6E9C90183CFD7B007493A7 /* QeeQoo.mp3 in Resources */,
+				048C735C19B178B50009EAE3 /* end_movie4.plist in Resources */,
 				FB7E26411843AE1E00797C5B /* movie_1.plist in Resources */,
 				FB6E9C8B183CFD7B007493A7 /* QaQa.mp3 in Resources */,
 				FB6E9C84183CFD7B007493A7 /* BooBee-D.mp3 in Resources */,

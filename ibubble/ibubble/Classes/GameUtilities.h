@@ -12,8 +12,6 @@
 #include "cocos-ext.h"
 #include <string>
 
-#include "GameData.h"
-
 class GameUtilities {
 public:
 	static void writeDateToFile(const char * aBuffer,const int aBufferLength,const std::string &filepath);
@@ -21,7 +19,7 @@ public:
 	static bool fileExistsAtPath(const std::string &filepath);
     
     static int getRandLevel(bool add=true);
-    static void saveLevelId(int levelId, kai::game::PlayerData plaerData);
+    static void saveLevelId(int levelId);
     static int getLevelId();
     static int getRand(uint32_t from, uint32_t to);
     
@@ -38,6 +36,21 @@ public:
     static bool getGoonGame();
     static void saveAchieveLevelId(int level);
     static int getAchieveLevelId();
+
+    static void saveSkillLife(int value);
+    static void saveSkillMultiTouch(int value);
+    static void saveSkillSkip(int value);
+    static void saveSkillWeak(int value);
+    static void saveSkillSTouch(int value);
+    static void saveSkillLargeTouch(int value);
+    static int getSkillLife();
+    static int getSkillMultiTouch();
+    static int getSkillSkip();
+    static int getSkillWeak();
+    static int getSkillSTouch();
+    static int getSkillLargeTouch();
+    
+    static void removeSkillInfo();
     
 };
 

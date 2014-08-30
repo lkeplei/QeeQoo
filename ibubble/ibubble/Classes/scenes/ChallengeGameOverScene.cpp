@@ -101,12 +101,10 @@ void ChallengeGameOverScene::press_menu_page()
 	GameController::sharedInstance()->switchSence(GameController::K_SCENE_HOME,CCInteger::create(0));
 }
 
-void ChallengeGameOverScene::press_replay()
-{
-//    int32_t currentLevelId = GameModle::sharedInstance()->currentLevelId();
+void ChallengeGameOverScene::press_replay() {
 	GameController::sharedInstance()->pauseBattle();
-    GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeGameStart,CCInteger::create(0));
-//	GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,CCInteger::create(currentLevelId));
+    GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeGameStart,
+                                                  CCInteger::create(GameUtilities::getAchieveLevelId()));
 }
 
 void ChallengeGameOverScene::press_play_next()
@@ -116,8 +114,6 @@ void ChallengeGameOverScene::press_play_next()
         GameController::sharedInstance()->controllerPushSence(pScene);
     } else {
         GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeGameStart,CCInteger::create(0));
-//        GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,
-//                                                      CCInteger::create(GameUtilities::getRandLevel()));
     }
 }
 
@@ -217,39 +213,37 @@ void createNodeReward(CCNode * container, const CCPoint& pos, CCSpriteFrame* spr
 }
 
 CCSpriteFrame* setSkill(const int id){
-    SkillInfo& info = GameModle::sharedInstance()->getSkillInfo();
-
     CCSpriteFrameCache * gShareCache = CCSpriteFrameCache::sharedSpriteFrameCache();
     CCSpriteFrame* spriteFrame = NULL;
     
     switch (id) {
         case 1:{
-            info.skillLife++;
+            GameUtilities::saveSkillLife(GameUtilities::getSkillLife() + 1);
             spriteFrame = gShareCache->spriteFrameByName("skill_life_btn.png");
         }
             break;
         case 2:{
-            info.skill_skip++;
+            GameUtilities::saveSkillSkip(GameUtilities::getSkillSkip() + 1);
             spriteFrame = gShareCache->spriteFrameByName("skill_skip_btn.png");
         }
             break;
         case 3:{
-            info.skill_weak++;
+            GameUtilities::saveSkillWeak(GameUtilities::getSkillWeak() + 1);
             spriteFrame = gShareCache->spriteFrameByName("skill_weake_btn.png");
         }
             break;
         case 4:{
-            info.skill_s_touch++;
+            GameUtilities::saveSkillSTouch(GameUtilities::getSkillSTouch() + 1);
             spriteFrame = gShareCache->spriteFrameByName("skill_type_large_touch_btn.png");
         }
             break;
         case 5:{
-            info.skill_large_touch++;
+            GameUtilities::saveSkillLargeTouch(GameUtilities::getSkillLargeTouch() + 1);
             spriteFrame = gShareCache->spriteFrameByName("skill_type_s_touch_btn.png");
         }
             break;
         case 6:{
-            info.skill_multi_touch++;
+            GameUtilities::saveSkillMultiTouch(GameUtilities::getSkillLargeTouch() + 1);
             spriteFrame = gShareCache->spriteFrameByName("skill_multi_touch_btn.png");
         }
             break;
@@ -274,12 +268,15 @@ void ChallengeGameOverScene::getSkill(const int type){
             }
                 break;
             case 3:{
-                GameModle::sharedInstance()->getSkillInfo().skillLife--;
+                GameUtilities::saveSkillLife(GameUtilities::getSkillLife() - 1);
             }
                 break;
             default:
                 break;
         }
+        
+        //保存游戏状态
+        GameUtilities::saveLevelId(GameModle::sharedInstance()->currentHardLevelId());
     }
 }
 
@@ -299,7 +296,7 @@ void ChallengeGameOverScene::setStep(bool first){
     } else {
         if (achievement._killNpcCount >= achievement._pass_count) {
             show(4);
-        } else if (GameModle::sharedInstance()->getSkillInfo().skillLife <= 0) {
+        } else if (GameUtilities::getSkillLife() <= 0) {
             show(6);
         } else if (gModleInstance->currentHardLevelId() >= 29) {
             show(7);

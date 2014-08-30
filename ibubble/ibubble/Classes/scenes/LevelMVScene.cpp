@@ -23,6 +23,7 @@ _swf(NULL),
 _zoneid(0)
 {
     _movieKey = KStrMovieBegin;
+    setTouchEnabled( true );
 }
 
 LevelMVScene::~LevelMVScene()
@@ -105,13 +106,6 @@ void LevelMVScene::updateHelper()
             _swf->runSWFSequence();
         }
     }
-
-    //菜单子项
-    CCMenuItemImage *item = CCMenuItemImage::create("achieve_lock.png", "achieve_lock.png", this, menu_selector(LevelMVScene::press_next));
-    item->setPosition(ccp(0, 0));
-    //创建菜单
-    CCMenu *menu = CCMenu::create(item, NULL);
-    this->addChild(menu, 1000);
 }
 
 void LevelMVScene::handleSwfFrameChanged(cocos2d::CCObject * obj){
@@ -167,6 +161,22 @@ void LevelMVScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader
 void LevelMVScene::onEnter(){
 	CCLayer::onEnter();
     updateHelper();
+    
+    CCDirector* pDirector = CCDirector::sharedDirector();
+    pDirector->getTouchDispatcher()->addTargetedDelegate(this, kCCMenuHandlerPriority, true);
+}
+
+#pragma mark - touch
+//触摸事件
+bool LevelMVScene::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent){
+	return true;
+}
+
+void LevelMVScene::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent){
+}
+
+void LevelMVScene::ccTouchEnded(CCTouch *pTouch, CCEvent* event){
+    press_next();
 }
 
 NS_KAI_END

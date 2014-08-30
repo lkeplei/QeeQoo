@@ -85,7 +85,6 @@ void GameData::initCreateTables(){
 	if(_sqlite.DirectStatement(sql.c_str())){
 		std::cout<<"passrecord table foo created"<<std::endl;
         playerData._uid = 0;
-        savePlayerData();
 	}
 	else{
 		std::cout<<"passrecord couldn't be created"<<std::endl;
@@ -137,84 +136,6 @@ void GameData::saveData(const PlayerAchievement & achievement){
 		delete stmt;
 		stmt = NULL;	
 	}	
-	
-}
-
-void GameData::updatePlayerData(){
-	SQLiteStatement* stmt = NULL;
-	std::stringstream selectsql;
-    selectsql << "select _unlockedStoryLevel,_unlockedHardLevel,_hardLevelKillCount,_skill1Times,_skill2Times,_skill3Times,_skill4Times,_skill5Times,_skill6Times,uid from passrecord order by uid asc";
-	stmt = _sqlite.Statement(selectsql.str());
-	if (stmt) {
-		while(stmt->NextRow()){
-            playerData._unlockedStoryLevel  = stmt->ValueInt(0);
-			playerData._unlockedHardLevel   = stmt->ValueInt(1);
-			playerData._hardLevelStarCount  = stmt->ValueInt(2);
-            playerData._hardLevelKillCount  = stmt->ValueInt(3);
-            
-            playerData.skillInfo.skillLife          = stmt->ValueInt(4);
-			playerData.skillInfo.skill_multi_touch  = stmt->ValueInt(5);
-			playerData.skillInfo.skill_skip         = stmt->ValueInt(6);
-            playerData.skillInfo.skill_weak         = stmt->ValueInt(7);
-            playerData.skillInfo.skill_s_touch      = stmt->ValueInt(8);
-			playerData.skillInfo.skill_large_touch  = stmt->ValueInt(9);
-            
-			playerData._uid = stmt->ValueInt(10);
-            break;
-		}
-	}
-}
-
-void GameData::savePlayerData(){
-	SQLiteStatement* stmt = NULL;
-	if (playerData._uid >= 0) {
-		stmt = _sqlite.Statement("update playerData set _unlockedStoryLevel=?,_unlockedHardLevel=?,_hardLevelStarCount=?,_hardLevelKillCount=?,_skill1Times=?,_skill2Times=?,_skill3Times=?,_skill4Times=?,_skill5Times=? ,_skill6Times=? where uid = ?");
-		if (stmt) {
-			stmt->Bind(0,  playerData._unlockedStoryLevel);
-			stmt->Bind(1,  playerData._unlockedHardLevel);
-			stmt->Bind(2,  playerData._hardLevelStarCount);
-            stmt->Bind(3,  playerData._hardLevelKillCount);
-            
-            stmt->Bind(4,  playerData.skillInfo.skillLife);
-			stmt->Bind(5,  playerData.skillInfo.skill_multi_touch);
-			stmt->Bind(6,  playerData.skillInfo.skill_skip);
-            stmt->Bind(7,  playerData.skillInfo.skill_weak);
-            stmt->Bind(8,  playerData.skillInfo.skill_s_touch);
-			stmt->Bind(9,  playerData.skillInfo.skill_large_touch);
-			
-            stmt->Bind(10, playerData._uid);
-		}
-	}
-	else {
-		stmt = _sqlite.Statement("insert into playerData (_unlockedStoryLevel,_unlockedHardLevel,_hardLevelStarCount,_hardLevelKillCount,_skill1Times,_skill2Times,_skill3Times,_skill4Times,_skill5Times,_skill6Times,uid)values(?,?,?,?,?,?,?,?,?,?,?)");
-		if (stmt) {
-            playerData._uid = 0;
-			stmt->Bind(0,  playerData._unlockedStoryLevel);
-			stmt->Bind(1,  playerData._unlockedHardLevel);
-			stmt->Bind(2,  playerData._hardLevelStarCount);
-            stmt->Bind(3,  playerData._hardLevelKillCount);
-            
-            stmt->Bind(4,  playerData.skillInfo.skillLife);
-			stmt->Bind(5,  playerData.skillInfo.skill_multi_touch);
-			stmt->Bind(6,  playerData.skillInfo.skill_skip);
-            stmt->Bind(7,  playerData.skillInfo.skill_weak);
-            stmt->Bind(8,  playerData.skillInfo.skill_s_touch);
-			stmt->Bind(9,  playerData.skillInfo.skill_large_touch);
-            
-			stmt->Bind(10, playerData._uid);
-		}
-	}
-	
-	if (stmt) {
-		if(stmt->Execute()){
-			std::cout << "statement executed"<< std::endl;
-		}
-		else{
-			std::cout << "error executing statement: " << _sqlite.LastError() << std::endl;
-		}
-		delete stmt;
-		stmt = NULL;
-	}
 	
 }
 

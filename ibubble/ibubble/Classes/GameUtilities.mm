@@ -120,19 +120,11 @@ int GameUtilities_getAchieveLevelId() {
     return [defaults integerForKey:kAchievementLevel];
 }
 
-void GameUtilities_saveLevelInfo(int levelId, kai::game::PlayerData plaerData){
+void GameUtilities_saveLevelInfo(int levelId){
 	NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     
     NSMutableDictionary* infoDic = [[NSMutableDictionary alloc] init];
     [infoDic setObject:[NSNumber numberWithInt:levelId] forKey:@"info_levelId"];
-
-    [infoDic setObject:[NSNumber numberWithInt:plaerData.skillInfo.skillLife] forKey:@"info_skill_life"];
-    [infoDic setObject:[NSNumber numberWithInt:plaerData.skillInfo.skill_multi_touch] forKey:@"info_skill_multi_touch"];
-    [infoDic setObject:[NSNumber numberWithInt:plaerData.skillInfo.skill_skip] forKey:@"info_skill_skip"];
-    [infoDic setObject:[NSNumber numberWithInt:plaerData.skillInfo.skill_weak] forKey:@"info_skill_weak"];
-    [infoDic setObject:[NSNumber numberWithInt:plaerData.skillInfo.skill_s_touch] forKey:@"info_skill_s_touch"];
-    [infoDic setObject:[NSNumber numberWithInt:plaerData.skillInfo.skill_large_touch] forKey:@"info_skill_large_touch"];
-    
     [defaults setObject:infoDic forKey:@"default_levelInfo"];
     [defaults synchronize];
 }
@@ -140,16 +132,98 @@ void GameUtilities_saveLevelInfo(int levelId, kai::game::PlayerData plaerData){
 int GameUtilities_getLevelInfo(){
 	NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary* infoDic = [defaults objectForKey:@"default_levelInfo"];
-    
-    kai::game::PlayerData plaerData = kai::game::GameData::Instance().playerData;
-    plaerData.skillInfo.skillLife = [[infoDic valueForKey:@"info_skill_life"] intValue];
-    plaerData.skillInfo.skill_multi_touch = [[infoDic valueForKey:@"info_skill_multi_touch"] intValue];
-    plaerData.skillInfo.skill_skip = [[infoDic valueForKey:@"info_skill_skip"] intValue];
-    plaerData.skillInfo.skill_weak = [[infoDic valueForKey:@"info_skill_weak"] intValue];
-    plaerData.skillInfo.skill_s_touch = [[infoDic valueForKey:@"info_skill_s_touch"] intValue];
-    plaerData.skillInfo.skill_large_touch = [[infoDic valueForKey:@"info_skill_large_touch"] intValue];
-
     return [[infoDic valueForKey:@"info_levelId"] intValue];
+}
+
+#pragma mark - skill
+void GameUtilities_saveSkillLife(int value) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:value] forKey:@"info_skill_life"];
+    [defaults synchronize];
+}
+void GameUtilities_saveSkillMultiTouch(int value) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:value] forKey:@"info_skill_multi_touch"];
+    [defaults synchronize];
+}
+void GameUtilities_saveSkillSkip(int value) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:value] forKey:@"info_skill_skip"];
+    [defaults synchronize];
+}
+void GameUtilities_saveSkillWeak(int value) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:value] forKey:@"info_skill_weak"];
+    [defaults synchronize];
+}
+void GameUtilities_saveSkillSTouch(int value) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:value] forKey:@"info_skill_s_touch"];
+    [defaults synchronize];
+}
+void GameUtilities_saveSkillLargeTouch(int value) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:value] forKey:@"info_skill_large_touch"];
+    [defaults synchronize];
+}
+
+int GameUtilities_getSkillLife() {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults valueForKey:@"info_skill_life"]) {
+        return [defaults integerForKey:@"info_skill_life"];
+    } else {
+        return 3;
+    }
+}
+int GameUtilities_getSkillMultiTouch() {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults valueForKey:@"info_skill_multi_touch"]) {
+        return [defaults integerForKey:@"info_skill_multi_touch"];
+    } else {
+        return 1;
+    }
+}
+int GameUtilities_getSkillSkip() {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults valueForKey:@"info_skill_skip"]) {
+        return [defaults integerForKey:@"info_skill_skip"];
+    } else {
+        return 1;
+    }
+}
+int GameUtilities_getSkillWeak() {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults valueForKey:@"info_skill_weak"]) {
+        return [defaults integerForKey:@"info_skill_weak"];
+    } else {
+        return 1;
+    }
+}
+int GameUtilities_getSkillSTouch() {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults valueForKey:@"info_skill_s_touch"]) {
+        return [defaults integerForKey:@"info_skill_s_touch"];
+    } else {
+        return 1;
+    }
+}
+int GameUtilities_getSkillLargeTouch() {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults valueForKey:@"info_skill_large_touch"]) {
+        return [defaults integerForKey:@"info_skill_large_touch"];
+    } else {
+        return 1;
+    }
+}
+
+void GameUtilities_removeSkillInfo() {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:@"info_skill_life"];
+    [defaults removeObjectForKey:@"info_skill_multi_touch"];
+    [defaults removeObjectForKey:@"info_skill_skip"];
+    [defaults removeObjectForKey:@"info_skill_weak"];
+    [defaults removeObjectForKey:@"info_skill_s_touch"];
+    [defaults removeObjectForKey:@"info_skill_large_touch"];
 }
 
 int GameUtilities_getRand(int32_t from, int32_t to){

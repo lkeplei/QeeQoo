@@ -28,7 +28,7 @@ public:
 	CCB_STATIC_NEW_AUTORELEASE_OBJECT_WITH_INIT_METHOD(ChallengeGameStartScene, create);
     virtual ~ChallengeGameStartScene();
     ChallengeGameStartScene();
-    static cocos2d::CCScene* scene(const int type);
+    static cocos2d::CCScene* scene(const int type, bool push=false);
 	static ChallengeGameStartScene* createWithCCB();
     void play_next();
 public:
@@ -49,6 +49,7 @@ private:
 private:
     int currentLevel;
 	int _type;
+    bool isPush;
     CCNode * _passCount;
     CCNode * _starCount;
     CCNode * _titleNode;

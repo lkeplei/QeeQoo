@@ -14,7 +14,7 @@ extern void GameUtilities_writeDateToFile(const char * aBuffer,const int aBuffer
 extern const char * GameUtilities_getFilePathInDocumentDir(const char *pFileName);
 extern bool GameUtilities_fileExistsAtPath(const char *pFileName);
 
-extern void GameUtilities_saveLevelInfo(int levelId, kai::game::PlayerData plaerData);
+extern void GameUtilities_saveLevelInfo(int levelId);
 extern int GameUtilities_getLevelInfo();
 extern int GameUtilities_getRandId(int32_t levelId, bool add);
 extern int GameUtilities_getRand(int32_t from, int32_t to);
@@ -32,6 +32,21 @@ extern bool GameUtilities_getUnlockWithId(int achieveId);
 extern bool GameUtilities_getGoonGame();
 extern void GameUtilities_saveAchieveLevelId(int level);
 extern int GameUtilities_getAchieveLevelId();
+
+extern void GameUtilities_saveSkillLife(int value);
+extern void GameUtilities_saveSkillMultiTouch(int value);
+extern void GameUtilities_saveSkillSkip(int value);
+extern void GameUtilities_saveSkillWeak(int value);
+extern void GameUtilities_saveSkillSTouch(int value);
+extern void GameUtilities_saveSkillLargeTouch(int value);
+extern int GameUtilities_getSkillLife();
+extern int GameUtilities_getSkillMultiTouch();
+extern int GameUtilities_getSkillSkip();
+extern int GameUtilities_getSkillWeak();
+extern int GameUtilities_getSkillSTouch();
+extern int GameUtilities_getSkillLargeTouch();
+
+extern void GameUtilities_removeSkillInfo();
 
 void GameUtilities::writeDateToFile(const char * aBuffer,const int aBufferLength,const std::string & filepath){
 	GameUtilities_writeDateToFile(aBuffer,aBufferLength,filepath.c_str());
@@ -51,13 +66,13 @@ int GameUtilities::getRandLevel(bool add){
     kai::game::GameModle* instance = kai::game::GameModle::sharedInstance();
 	int level = instance->currentHardLevelId();
     
-    GameUtilities::saveLevelId(level, kai::game::GameData::Instance().playerData);
+    GameUtilities::saveLevelId(level);
     
     return GameUtilities_getRandId(level, add);
 }
 
-void GameUtilities::saveLevelId(int levelId, kai::game::PlayerData plaerData){
-    GameUtilities_saveLevelInfo(levelId, plaerData);
+void GameUtilities::saveLevelId(int levelId){
+    GameUtilities_saveLevelInfo(levelId);
 }
 
 int GameUtilities::getLevelId(){
@@ -121,4 +136,45 @@ void GameUtilities::saveAchieveLevelId(int level) {
 
 int GameUtilities::getAchieveLevelId() {
     return GameUtilities_getAchieveLevelId();
+}
+
+void GameUtilities::saveSkillLife(int value) {
+    GameUtilities_saveSkillLife(value);
+}
+void GameUtilities::saveSkillMultiTouch(int value) {
+    GameUtilities_saveSkillMultiTouch(value);
+}
+void GameUtilities::saveSkillSkip(int value) {
+    GameUtilities_saveSkillSkip(value);
+}
+void GameUtilities::saveSkillWeak(int value) {
+    GameUtilities_saveSkillWeak(value);
+}
+void GameUtilities::saveSkillSTouch(int value) {
+    GameUtilities_saveSkillSTouch(value);
+}
+void GameUtilities::saveSkillLargeTouch(int value) {
+    GameUtilities_saveSkillLargeTouch(value);
+}
+int GameUtilities::getSkillLife() {
+    return GameUtilities_getSkillLife();
+}
+int GameUtilities::getSkillMultiTouch() {
+    return GameUtilities_getSkillMultiTouch();
+}
+int GameUtilities::getSkillSkip() {
+    return GameUtilities_getSkillSkip();
+}
+int GameUtilities::getSkillWeak() {
+    return GameUtilities_getSkillWeak();
+}
+int GameUtilities::getSkillSTouch() {
+    return GameUtilities_getSkillSTouch();
+}
+int GameUtilities::getSkillLargeTouch() {
+    return GameUtilities_getSkillLargeTouch();
+}
+
+void GameUtilities::removeSkillInfo() {
+    GameUtilities_removeSkillInfo();
 }

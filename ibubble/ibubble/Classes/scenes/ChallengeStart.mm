@@ -93,29 +93,34 @@ void ChallengeStart::press_continue(){
                                                   CCInteger::create(GameUtilities::getAchieveLevelId()));
 }
 
-void ChallengeStart::press_new(){
-    GameUtilities::saveGoonGame();
+void newGame() {
+    GameModle::sharedInstance()->resetSkillInfo();
+    GameModle::sharedInstance()->setCurrentHardLevelId(0);
+    GameUtilities::savePass(0);
+    GameUtilities::saveRecord(0);
+    GameUtilities::saveStar(0);
+    GameUtilities::removeSkillInfo();
+    GameUtilities::saveLevelId(GameModle::sharedInstance()->currentHardLevelId());
     
-    if (GameUtilities::getGoonGame() && GameModle::sharedInstance()->getSkillInfo().skillLife > 0) {
+    GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeHelpInLevel);
+}
+
+void ChallengeStart::press_new(){
+    if (GameUtilities::getGoonGame() && GameUtilities::getSkillLife() > 0) {
         KenAlertView *alert = [[KenAlertView alloc] init];
         [alert showAlert:KenLocal(@"new_game_ask")];
         alert.callBackBlock= ^(int index){
             if (index == 0) {
                 
             } else {
-                GameModle::sharedInstance()->resetSkillInfo();
-                GameModle::sharedInstance()->setCurrentHardLevelId(0);
-                GameUtilities::savePass(0);
-                GameUtilities::saveRecord(0);
-                GameUtilities::saveStar(0);
-                GameUtilities::saveLevelId(GameModle::sharedInstance()->currentHardLevelId(), GameData::Instance().playerData);
-                
-                GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeHelpInLevel);
+                newGame();
             }
         };
     } else {
-        GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeHelpInLevel);
+        newGame();
     }
+    
+    GameUtilities::saveGoonGame();
 }
 
 void ChallengeStart::press_back(){
@@ -146,7 +151,7 @@ bool ChallengeStart::onAssignCCBMemberVariable(CCObject * pTarget, CCString * pM
 #pragma mark-
 #pragma mark CCBNodeLoaderListener
 void ChallengeStart::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoade){
-    if (!GameUtilities::getGoonGame() || GameModle::sharedInstance()->getSkillInfo().skillLife <= 0) {
+    if (!GameUtilities::getGoonGame() || GameUtilities::getSkillLife() <= 0) {
         _continue_menu->setEnabled(false);
         _continue_menu->selected();
     }

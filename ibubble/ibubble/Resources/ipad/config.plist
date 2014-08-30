@@ -36531,9 +36531,10 @@
 				<string>end_movie.plist</string>
 				<key>file_array</key>
 				<array>
-					<string>end_movie1.plist</string>
-					<string>end_movie2.plist</string>
-					<string>end_movie3.plist</string>
+					<string>movie_1.plist</string>
+					<string>movie_2.plist</string>
+					<string>movie_3.plist</string>
+					<string>movie_4.plist</string>
 				</array>
 				<key>type</key>
 				<string>3</string>

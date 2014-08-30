@@ -884,13 +884,6 @@ CCLayer * GameModle::battleGameObjectlayer(){
     return _battleGameObjectlayer;
 }
 
-SkillInfo & GameModle::getSkillInfo(){
-    return GameData::Instance().playerData.skillInfo;
-}
-void GameModle::saveSkillInfo(){
-    GameData::Instance().savePlayerData();
-}
-
 const int  GameModle::getBattleMode(){
     return _playerAchievement._battleMode;
 }

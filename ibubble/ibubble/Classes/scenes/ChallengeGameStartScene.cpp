@@ -47,12 +47,13 @@ ChallengeGameStartScene* ChallengeGameStartScene::createWithCCB()
 	return node;
 }
 
-CCScene* ChallengeGameStartScene::scene(const int type)
+CCScene* ChallengeGameStartScene::scene(const int type, bool push)
 {
 	CCScene *scene = CCScene::create();
 	ChallengeGameStartScene * node = createWithCCB();
 	if(node != NULL){
         node->_type = type;
+        node->isPush = push;
 		scene->addChild(node);
         node->updateScene();
 	}
@@ -117,9 +118,14 @@ void ChallengeGameStartScene::updateScene() {
 
 void ChallengeGameStartScene::play_next(){
     //冲第一关卡开始
-    GameModle::sharedInstance()->setCurrentHardLevelId(GameUtilities::getLevelId());
-    GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,
-                                                  CCInteger::create(currentLevel));
+    if (isPush) {
+        GameController::sharedInstance()->popSence();
+        GameController::sharedInstance()->resumeBattle();
+    } else {
+        GameModle::sharedInstance()->setCurrentHardLevelId(GameUtilities::getLevelId());
+        GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,
+                                                      CCInteger::create(currentLevel));
+    }
 }
 
 #pragma mark-

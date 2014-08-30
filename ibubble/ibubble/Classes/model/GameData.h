@@ -12,6 +12,7 @@
 #include <string>
 #include "GameMacros.h"
 #include "SQLiteWrapper.h"
+#include "GameUtilities.h"
 NS_KAI_BEGIN
 
 class PlayerAchievement {
@@ -89,23 +90,14 @@ public:
     }
 };
 
-struct SkillInfo{
-    int skillLife;
-    int skill_multi_touch;
-    int skill_skip;
-    int skill_weak;
-    int skill_s_touch;
-    int skill_large_touch;
-};
-
 class PlayerData {
 public:
 	int32_t _unlockedStoryLevel;
 	int32_t _unlockedHardLevel;
 	int32_t _hardLevelStarCount;
 	int32_t _hardLevelKillCount;
-    SkillInfo skillInfo;
     int32_t	_uid;
+    
 public:
 	PlayerData(){
         _unlockedStoryLevel = 0;
@@ -118,13 +110,6 @@ public:
         _hardLevelStarCount = 0;
         _hardLevelKillCount = 0;
         _uid = -1;
-        
-        skillInfo.skillLife = 3;
-        skillInfo.skill_multi_touch = 1;
-        skillInfo.skill_skip = 1;
-        skillInfo.skill_weak = 1;
-        skillInfo.skill_s_touch = 1;
-        skillInfo.skill_large_touch = 1;
     }
 };
 
@@ -145,9 +130,6 @@ public:
     PlayerData playerData;
 public:
 	//业务接口
-    void updatePlayerData();
-	void savePlayerData();
-
 	void resetData();
 	void saveData(const PlayerAchievement & achievement);
 	std::vector<PlayerAchievement> findData(int32_t levelid = -1,int32_t biglevelid = -1);
