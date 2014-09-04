@@ -220,8 +220,7 @@ void CCSWFNodeSequence::handleSWFFinished(cocos2d::CCObject * obj){
     ++m_index;
     if (m_index < m_Sequence->count()) {
         runSWF(m_index);
-    }
-    else if(m_endListener){
+    } else if(m_endListener) {
         CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
         (m_endListener->*m_pfnEndSelector)(this);
     }

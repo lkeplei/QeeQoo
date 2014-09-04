@@ -112,20 +112,17 @@ void LevelMVScene::handleSwfFrameChanged(cocos2d::CCObject * obj){
     if (_swf && _swf->getCurrentSequenceIndex() == _swf->getSequenceSize() - 1) {
         CCSWFNodeExt * swfNode = ( CCSWFNodeExt *)obj;
         if (swfNode && swfNode->getCurrentFrame() == (swfNode->getFrameCount() - 2)) {
-            _swf->stopSWFSequence();
-            CCCallFunc * call = CCCallFunc::create(this, callfunc_selector(LevelMVScene::continueSwf));
-            CCDelayTime * delay = CCDelayTime::create(3.0f);
-            CCSequence * seq = CCSequence::createWithTwoActions(delay, call);
-            this->runAction(seq);
+//            _swf->stopSWFSequence();
+//            CCCallFunc * call = CCCallFunc::create(this, callfunc_selector(LevelMVScene::continueSwf));
+//            CCDelayTime * delay = CCDelayTime::create(3.0f);
+//            CCSequence * seq = CCSequence::createWithTwoActions(delay, call);
+//            this->runAction(seq);
         }
     }
 }
 
 void LevelMVScene::continueSwf(){
-    if (_swf) {
-        _swf->resumeSWFSequence();
-    }
-//    press_next();
+    press_next();
 }
 
 void LevelMVScene::handleSwfFinished(cocos2d::CCObject * obj){

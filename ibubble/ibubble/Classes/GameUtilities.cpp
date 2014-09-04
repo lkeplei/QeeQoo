@@ -32,6 +32,8 @@ extern bool GameUtilities_getUnlockWithId(int achieveId);
 extern bool GameUtilities_getGoonGame();
 extern void GameUtilities_saveAchieveLevelId(int level);
 extern int GameUtilities_getAchieveLevelId();
+extern void GameUtilities_saveAchieveHardLevelId(int level);
+extern int GameUtilities_getAchieveHardLevelId();
 
 extern void GameUtilities_saveSkillLife(int value);
 extern void GameUtilities_saveSkillMultiTouch(int value);
@@ -136,6 +138,14 @@ void GameUtilities::saveAchieveLevelId(int level) {
 
 int GameUtilities::getAchieveLevelId() {
     return GameUtilities_getAchieveLevelId();
+}
+
+void GameUtilities::saveAchieveHardLevelId(int level) {
+    GameUtilities_saveAchieveHardLevelId(level);
+}
+
+int GameUtilities::getAchieveHardLevelId() {
+    return GameUtilities_getAchieveHardLevelId();
 }
 
 void GameUtilities::saveSkillLife(int value) {

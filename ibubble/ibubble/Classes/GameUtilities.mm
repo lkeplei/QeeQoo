@@ -135,6 +135,17 @@ int GameUtilities_getLevelInfo(){
     return [[infoDic valueForKey:@"info_levelId"] intValue];
 }
 
+void GameUtilities_saveAchieveHardLevelId(int level) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:level] forKey:@"achievement_hard_level"];
+    [defaults synchronize];
+}
+
+int GameUtilities_getAchieveHardLevelId() {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults integerForKey:@"achievement_hard_level"];
+}
+
 #pragma mark - skill
 void GameUtilities_saveSkillLife(int value) {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];

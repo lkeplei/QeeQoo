@@ -31,7 +31,6 @@ public:
 	int32_t    _battleMode;
 	int32_t	   _currentLevelId;
 	int32_t	   _currentBigLevelId;
-    int32_t    _currentHardLevelId;
 public:
 	PlayerAchievement()
     :_totalNpcCount(0)
@@ -45,7 +44,6 @@ public:
     ,_star_count(0)
     ,_currentLevelId(0)
     ,_currentBigLevelId(0)
-    ,_currentHardLevelId(0)
     ,_pass_star_count(0)
     ,_battleMode(0)
     ,_records(0)

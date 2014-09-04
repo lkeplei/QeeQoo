@@ -36,6 +36,8 @@ public:
     static bool getGoonGame();
     static void saveAchieveLevelId(int level);
     static int getAchieveLevelId();
+    static void saveAchieveHardLevelId(int level);
+    static int getAchieveHardLevelId();
 
     static void saveSkillLife(int value);
     static void saveSkillMultiTouch(int value);

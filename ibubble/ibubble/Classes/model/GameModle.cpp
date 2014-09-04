@@ -853,7 +853,7 @@ void  GameModle::setCurrentBigLevelId(const uint32_t value){
 }
 
 void GameModle::setCurrentHardLevelId(const uint32_t value){
-    _playerAchievement._currentHardLevelId = value;
+    GameUtilities::saveAchieveHardLevelId(value);
 }
 
 int32_t GameModle::currentLevelId()const{
@@ -861,7 +861,7 @@ int32_t GameModle::currentLevelId()const{
 }
 
 int32_t GameModle::currentHardLevelId()const{
-    return _playerAchievement._currentHardLevelId;
+    return GameUtilities::getAchieveHardLevelId();
 }
 
 int32_t GameModle::currentBigLevelId()const{
@@ -933,7 +933,7 @@ int GameModle::getHelpIndex(int level, int zone){
 }
 
 void GameModle::pushLevelId(int levelId){
-    levelList[_playerAchievement._currentHardLevelId % 5] = levelId;
+    levelList[GameUtilities::getAchieveHardLevelId() % 5] = levelId;
 }
 
 void  GameModle::resetBattleInfo(){

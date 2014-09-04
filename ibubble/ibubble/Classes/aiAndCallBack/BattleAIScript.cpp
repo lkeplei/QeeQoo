@@ -25,11 +25,11 @@ void countScore() {
         //计算得分
         float percent = (float)((float)(achievement._killNpcCount * 100) / (float)achievement._totalNpcCount);
         if (percent > 80) {
-            achievement._records += ((percent - 80) * 50000 + 30 * 20000 + 50 * 10000) / 100;
+            achievement._records += ((percent - 80) * 10000 + 30 * 5000 + 50 * 2000) / 100;
         } else if (percent > 50) {
-            achievement._records += ((percent - 50) * 20000 + 50 * 10000) / 100;
+            achievement._records += ((percent - 50) * 5000 + 50 * 2000) / 100;
         } else {
-            achievement._records +=  percent * 10000 / 100;
+            achievement._records +=  percent * 2000 / 100;
         }
         
         achievement._records = percent == 100 ? achievement._records * 2 : achievement._records;
@@ -60,7 +60,7 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
                 
                 if (gModleInstance->getBattleMode() == K_HARD_PVE_BATTLE) {
                     //挑战模式下过关，加关卡
-                    achievement._currentHardLevelId++;
+                    GameUtilities::saveAchieveHardLevelId(GameUtilities::getAchieveHardLevelId() + 1);
                     
                     //过关记录
                     int pass = GameUtilities::getPass();
