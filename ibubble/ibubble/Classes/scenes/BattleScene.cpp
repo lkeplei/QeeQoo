@@ -409,14 +409,19 @@ void BattleControllerLayer::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCN
 	
 	this->hideMenu();
     
-    
-    _back_button->setVisible(false);
-    _back_button->setEnabled(false);
 	if (GameModle::sharedInstance()->currentBigLevelId() >= kStoryZoneMaxId) {
 
 	} else {
 
 	}
+    
+    if (GameModle::sharedInstance()->currentBigLevelId() == 3) {
+        _pause_button->setVisible(false);
+        _pause_button->setEnabled(false);
+    } else {
+        _back_button->setVisible(false);
+        _back_button->setEnabled(false);
+    }
 
     if (GameModle::sharedInstance()->getBattleMode() != K_HARD_PVE_BATTLE) {
         _ChallengeMenu->setVisible(false);

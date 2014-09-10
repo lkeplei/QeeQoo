@@ -22,12 +22,12 @@ KissView::~KissView()
     CC_SAFE_RELEASE_NULL(_defaultBgImg);
 }
 
-KissView* KissView::createWithCCB()
+KissView* KissView::createWithCCB(const char *pCCBFileName)
 {
 	CCNodeLoaderLibrary *ccNodeLoaderLibrary=CCNodeLoaderLibrary::newDefaultCCNodeLoaderLibrary();
 	ccNodeLoaderLibrary->registerCCNodeLoader("KissView",KissViewLayerLoader::loader());
 	CCBReader * ccBReader = new CCBReader(ccNodeLoaderLibrary);
-	KissView * node =(KissView*)ccBReader->readNodeGraphFromFile("KissView.ccbi");
+	KissView * node =(KissView*)ccBReader->readNodeGraphFromFile(pCCBFileName);
 	if (node) {
 		//node->retain();
 		CC_SAFE_RELEASE_NULL(ccBReader);
@@ -42,7 +42,7 @@ KissView* KissView::createWithCCB()
 CCScene* KissView::scene()
 {
 	CCScene *scene=CCScene::create();
-	CCLayer * node =(CCLayer*)createWithCCB();
+	CCLayer * node =(CCLayer*)createWithCCB("KissView.ccbi");
 	if(node!=NULL){
 		scene->addChild(node);
 	}
@@ -51,7 +51,7 @@ CCScene* KissView::scene()
 
 void KissView::press_back()
 {
-	//GameController::sharedInstance()->switchSence(GameController::K_SCENE_ACHIEVEMENT,CCInteger::create(0));
+    GameController::sharedInstance()->switchSence(GameController::K_SCENE_ACHIEVEMENT,CCInteger::create(0));
 }
 
 void KissView::press_boy_kiss()

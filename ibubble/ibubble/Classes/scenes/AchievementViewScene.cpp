@@ -109,10 +109,17 @@ void AchievementViewScene::initWithParams(CCObject * params){
             
             CCString * filename = (CCString *)display->objectForKey(KStrFile);
             if (filename && (filename->m_sString.compare("KissView.ccbi") == 0)) {
-                KissView * node = KissView::createWithCCB();
+                KissView * node = KissView::createWithCCB("KissView.ccbi");
                 node->setPosition(CCPoint(0,0));
                 _displaySpriteRoot->addChild(node);
             }
+            
+        }else if (type->intValue() == GameObject::K_CCBI_FILE) {
+            CCString * filename = (CCString *)display->objectForKey(KStrFile);
+            KissView * node = KissView::createWithCCB(filename->m_sString.c_str());
+            node->setAnchorPoint(CCPoint(0,0));
+            node->setPosition(CCPoint(0,0));
+            _displaySpriteRoot->addChild(node);
             
         }else{
             GameDisplayNode * node = GameDisplayNode::create(display);

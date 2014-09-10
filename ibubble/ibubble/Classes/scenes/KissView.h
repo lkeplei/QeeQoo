@@ -30,7 +30,7 @@ public:
     virtual ~KissView();
     KissView();
     static cocos2d::CCScene* scene();
-	static KissView* createWithCCB();
+	static KissView* createWithCCB(const char *pCCBFileName);
 	void press_back();
     void press_boy_kiss();
     void press_girl_kiss();

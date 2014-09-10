@@ -217,7 +217,6 @@ text_Challenge.png
 text_RooDa.png
 text_ViCi.png
 text_WooWoo.png
-challenge_help.png
 ChallengeGameOverScene.ccbi
 ChallengeGameStartScene.ccbi
 ChallengeHelpInLevelScene.ccbi
@@ -227,6 +226,7 @@ dialog_base_layer.ccbi
 empty.png
 Challenge.plist
 Challenge.png
+challenge_help.png
 localizable_images.plist
 localizable_images.png
 scores_bg.png
@@ -875,6 +875,7 @@ weapon_images.plist
 weapon_images.png
 Challenge.plist
 Challenge.png
+challenge_help.png
 localizable_images.plist
 localizable_images.png
 scores_bg.png

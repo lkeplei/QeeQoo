@@ -569,7 +569,9 @@ void CCBAnimationManager::update(float dt){
 	mDuration+=dt;
 	if (mDelegate)
     {
-        mDelegate->runningAnimationSequenceNamed(mRunningSequence->getName(),mDuration,dt);
+        if (mRunningSequence) {
+            mDelegate->runningAnimationSequenceNamed(mRunningSequence->getName(),mDuration,dt);
+        }
     }
 }
 
