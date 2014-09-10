@@ -12,6 +12,7 @@
 		0425E8DB198E1CE6001DA340 /* background4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0425E8D8198E1CE6001DA340 /* background4.png */; };
 		042D4489198E80E200A1F26A /* scores_layer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 042D4488198E80E200A1F26A /* scores_layer.ccbi */; };
 		043D2E2A19A639A000A3B7CE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 043D2E2C19A639A000A3B7CE /* Localizable.strings */; };
+		043F55A419C0768C008DFE6E /* challenge_help.png in Resources */ = {isa = PBXBuildFile; fileRef = 043F55A619C0768C008DFE6E /* challenge_help.png */; };
 		045FF5F2199A6834007BE8B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 045FF5F4199A6834007BE8B3 /* InfoPlist.strings */; };
 		046169BB19A4DB7F00D1C791 /* kiss_default_sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 046169BA19A4DB7F00D1C791 /* kiss_default_sprite.png */; };
 		046CD0EC197A069A00630062 /* BattleAIScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD097197A069A00630062 /* BattleAIScript.cpp */; };
@@ -794,6 +795,8 @@
 		042D4488198E80E200A1F26A /* scores_layer.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = scores_layer.ccbi; sourceTree = "<group>"; };
 		043D2E2B19A639A000A3B7CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		043D2E2D19A639A400A3B7CE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		043F55A519C0768C008DFE6E /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/challenge_help.png; sourceTree = "<group>"; };
+		043F55A719C07692008DFE6E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zh-Hans"; path = "zh-Hans.lproj/challenge_help.png"; sourceTree = "<group>"; };
 		045FF5F3199A6834007BE8B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		045FF5F5199A6843007BE8B3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		046169BA19A4DB7F00D1C791 /* kiss_default_sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiss_default_sprite.png; sourceTree = "<group>"; };
@@ -3285,6 +3288,7 @@
 		183464E4164F8F5D00C4B4D6 /* ipad */ = {
 			isa = PBXGroup;
 			children = (
+				043F55A619C0768C008DFE6E /* challenge_help.png */,
 				047FB78119BF34AF00FC71EF /* localizable_images.plist */,
 				047FB77E19BF34AB00FC71EF /* localizable_images.png */,
 				046F080E19A3795700E6A29F /* achieve_lock.png */,
@@ -4048,6 +4052,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043F55A419C0768C008DFE6E /* challenge_help.png in Resources */,
 				183461B4164F70E700C4B4D6 /* Default.png in Resources */,
 				045FF5F2199A6834007BE8B3 /* InfoPlist.strings in Resources */,
 				183461B8164F70E700C4B4D6 /* Icon-72.png in Resources */,
@@ -4838,6 +4843,15 @@
 				043D2E2D19A639A400A3B7CE /* zh-Hans */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		043F55A619C0768C008DFE6E /* challenge_help.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				043F55A519C0768C008DFE6E /* en */,
+				043F55A719C07692008DFE6E /* zh-Hans */,
+			);
+			name = challenge_help.png;
 			sourceTree = "<group>";
 		};
 		045FF5F4199A6834007BE8B3 /* InfoPlist.strings */ = {
