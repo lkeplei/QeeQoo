@@ -63,6 +63,7 @@ void AchievementViewScene::press_back()
         playSwf((CCString *)swfFileArray->objectAtIndex(swfIndex));
         swfIndex++;
     } else {
+        GameModle::sharedInstance()->stopBackgroundMusic();
         GameController::sharedInstance()->switchSence(GameController::K_SCENE_ACHIEVEMENT,CCInteger::create(0));
     }
 }

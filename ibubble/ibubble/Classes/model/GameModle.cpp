@@ -399,26 +399,28 @@ void GameModle::update(float dt){
 	
 	CCSet * tmpSet=new CCSet;
 	//物理世界的计算
-    const int velocityIterations = _sharedGameConfigInstance->box2dVelocityIterations();
-    const int positionIterations = _sharedGameConfigInstance->box2dPositionIterations();
-    _box2dWorld->Step(dt, velocityIterations, positionIterations);
-    for (b2Body* b = _box2dWorld->GetBodyList(); b; b = b->GetNext())
-    {
-        if (b->GetUserData() != NULL) {
-			CCNode * node=(CCNode *)b->GetUserData();
-			if (node) {
-				node->setPosition( CCPointMake( b->GetPosition().x * PTM_RATIO, b->GetPosition().y * PTM_RATIO) );
-				node->setRotation( -1 * CC_RADIANS_TO_DEGREES(b->GetAngle()) );
-				
-				//假如是游戏对象再次进行其他处理
-				GameObject* myActor = dynamic_cast<GameObject*>(node);
-				if (myActor) {
-					if (!_box2dWorldRect.containsPoint(myActor->getPosition())) {
-						myActor->setIsActive(false);
-					}
-				}
-			}
-        }    
+    if (_box2dWorld) {
+        const int velocityIterations = _sharedGameConfigInstance->box2dVelocityIterations();
+        const int positionIterations = _sharedGameConfigInstance->box2dPositionIterations();
+        _box2dWorld->Step(dt, velocityIterations, positionIterations);
+        for (b2Body* b = _box2dWorld->GetBodyList(); b; b = b->GetNext())
+        {
+            if (b->GetUserData() != NULL) {
+                CCNode * node=(CCNode *)b->GetUserData();
+                if (node) {
+                    node->setPosition( CCPointMake( b->GetPosition().x * PTM_RATIO, b->GetPosition().y * PTM_RATIO) );
+                    node->setRotation( -1 * CC_RADIANS_TO_DEGREES(b->GetAngle()) );
+                    
+                    //假如是游戏对象再次进行其他处理
+                    GameObject* myActor = dynamic_cast<GameObject*>(node);
+                    if (myActor) {
+                        if (!_box2dWorldRect.containsPoint(myActor->getPosition())) {
+                            myActor->setIsActive(false);
+                        }
+                    }
+                }
+            }    
+        }
     }
 	
 	//运行所有游戏对象的AI
@@ -584,6 +586,10 @@ void GameModle::playBackground(const std::string & filename){
 
 GameEffectManager * GameModle::effectManager(){
 	return _sharedEffectManagerInstance;
+}
+
+void GameModle::stopBackgroundMusic() {
+    _sharedEffectManagerInstance->stopBackgroundMusic();
 }
 
 void GameModle::playBackground(const int Id){

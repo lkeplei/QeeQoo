@@ -19,6 +19,7 @@ HelpScene::HelpScene():CCLayer(),_helpSpriteRoot(NULL),_index(0)
 	_list.push_back("help_4.png");
 	_list.push_back("help_5.png");
 	_list.push_back("help_6.png");
+    _list.push_back("challenge_help.png");
 }
 
 HelpScene::~HelpScene()

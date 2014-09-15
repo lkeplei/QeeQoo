@@ -22,6 +22,7 @@ _helpSpriteRoot(NULL),
 _swf(NULL),
 _zoneid(0)
 {
+    mvCanTouch = true;
     _movieKey = KStrMovieBegin;
     setTouchEnabled( true );
 }
@@ -81,10 +82,14 @@ void LevelMVScene::press_next()
         } else {
             GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_PRE,CCInteger::create(_levelid));   
         }
+        
+        mvCanTouch = false;
     } else {
         GameController::sharedInstance()->switchSence(GameController::K_SCENE_HELP_IN_LEVEL
                                                       ,CCInteger::create(_zoneid)
                                                       ,CCInteger::create(_levelid));
+        
+        mvCanTouch = false;
     }
 }
 
@@ -166,7 +171,7 @@ void LevelMVScene::onEnter(){
 #pragma mark - touch
 //触摸事件
 bool LevelMVScene::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent){
-	return true;
+	return mvCanTouch;
 }
 
 void LevelMVScene::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent){

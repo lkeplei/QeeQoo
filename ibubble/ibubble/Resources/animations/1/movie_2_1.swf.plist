@@ -2,13 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>1</key>
-	<dict>
-		<key>id</key>
-		<string>1</string>
-		<key>music</key>
-		<string>battle_mv_backgroud_002.mp3</string>
-	</dict>
 	<key>218</key>
 	<dict>
 		<key>effect</key>

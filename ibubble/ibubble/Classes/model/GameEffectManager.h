@@ -41,6 +41,7 @@ public:
 
 	void loadAudioEffect(CCDictionary * audios);
 	void releaseAudioEffect(CCDictionary * audios);
+    void stopBackgroundMusic();
 	void playBackground(const std::string & name,const bool stop2play=false);
 	CCNode *  playEffect(const std::string & effectId,
                          CCNode *targetLayer,

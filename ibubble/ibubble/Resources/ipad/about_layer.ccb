@@ -116,7 +116,7 @@
 									<key>value</key>
 									<array>
 										<real>512</real>
-										<real>-2505</real>
+										<real>-2016</real>
 									</array>
 								</dict>
 								<dict>
@@ -134,7 +134,7 @@
 									<key>value</key>
 									<array>
 										<real>512</real>
-										<real>-2505</real>
+										<real>-2016</real>
 									</array>
 								</dict>
 								<dict>
@@ -560,8 +560,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
@@ -614,7 +612,7 @@
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
-			<real>128</real>
+			<real>64</real>
 			<key>sequenceId</key>
 			<integer>0</integer>
 		</dict>

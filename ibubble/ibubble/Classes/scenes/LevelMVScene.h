@@ -62,6 +62,7 @@ private:
 	CCNode * _helpSpriteRoot;
 	int  _levelid;
 	int  _zoneid;
+    bool mvCanTouch;
     CCSWFNodeSequence * _swf;
 	std::string _movieKey;
 };

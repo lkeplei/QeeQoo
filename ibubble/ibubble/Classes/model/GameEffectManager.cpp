@@ -99,6 +99,9 @@ void GameEffectManager::playBackground(const std::string & name,const bool stop2
 	}
 }
 
+void GameEffectManager::stopBackgroundMusic() {
+    _simpleAudioEngine->stopBackgroundMusic();
+}
 
 CCNode * GameEffectManager::playEffect(const std::string & effectId,CCNode *targetLayer,const CCPoint & position,CCAction * action){
 	CCNode * node=NULL;

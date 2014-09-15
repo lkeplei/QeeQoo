@@ -39,6 +39,7 @@ public:
 private:
     void playSWF(const std::string & file);
     void handleSwfFinished(cocos2d::CCObject * obj);
+    void handleSwfFrameChanged(cocos2d::CCObject * obj);
 public:
 #pragma mark-
 #pragma mark CCBSelectorResolver

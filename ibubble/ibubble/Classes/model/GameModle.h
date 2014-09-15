@@ -63,6 +63,7 @@ public: /**战斗场景内进行效果播放等*/
 	void playEffectById(const char * effectId,CCNode * effectParent,const CCPoint & pos,CCAction * action = NULL);
 	void playBackground(const std::string & filename);
 	void playBackground(const int Id);
+    void stopBackgroundMusic();
 	
 	void pointPressed(const CCPoint & point);
 	

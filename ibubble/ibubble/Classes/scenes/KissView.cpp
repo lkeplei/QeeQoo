@@ -75,7 +75,18 @@ void KissView::playSWF(const std::string & file)
         _swf->setScale(1.0f);
         this->addChild(_swf,100);
         _swf->addCompletedListener(this,menu_selector(KissView::handleSwfFinished));
+        _swf->addFrameListener(this,menu_selector(KissView::handleSwfFrameChanged));
         _swf->runSWFSequence();
+    }
+}
+
+void KissView::handleSwfFrameChanged(cocos2d::CCObject * obj){
+    if (_swf && _swf->getCurrentSequenceIndex() == _swf->getSequenceSize() - 1) {
+        CCSWFNodeExt * swfNode = ( CCSWFNodeExt *)obj;
+        if (swfNode && swfNode->getCurrentFrame() == (swfNode->getFrameCount() - 4)) {
+//            _swf->stopSWFSequence();
+//            swfNode->stopAction();
+        }
     }
 }
 
@@ -93,7 +104,6 @@ SEL_MenuHandler KissView::onResolveCCBCCMenuItemSelector(CCObject * pTarget, CCS
     CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(this, "press_boy_kiss",KissView::press_boy_kiss);
     CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(this, "press_girl_kiss",KissView::press_girl_kiss);
 	return NULL;
-	
 }
 
 cocos2d::extension::SEL_CCControlHandler KissView::onResolveCCBCCControlSelector(CCObject * pTarget, CCString * pSelectorName){
