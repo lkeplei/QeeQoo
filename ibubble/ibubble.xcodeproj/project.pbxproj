@@ -59,6 +59,8 @@
 		046CD11D197A078400630062 /* SettingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD116197A078400630062 /* SettingScene.cpp */; };
 		046CD11E197A078400630062 /* StartupScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD118197A078400630062 /* StartupScene.cpp */; };
 		046CD11F197A078400630062 /* SubLevelsSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD11A197A078400630062 /* SubLevelsSelectionScene.cpp */; };
+		046E082319C8694A00940ADC /* kiss_default_boy_girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 046E082119C8694A00940ADC /* kiss_default_boy_girl.png */; };
+		046E082419C8694A00940ADC /* kiss_default_girl_boy.png in Resources */ = {isa = PBXBuildFile; fileRef = 046E082219C8694A00940ADC /* kiss_default_girl_boy.png */; };
 		046F080F19A3795700E6A29F /* achieve_lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 046F080E19A3795700E6A29F /* achieve_lock.png */; };
 		047FB6F119BF2DB300FC71EF /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 047FB6F019BF2DB300FC71EF /* config.plist */; };
 		047FB72019BF30AF00FC71EF /* reward_level_1_locked.png in Resources */ = {isa = PBXBuildFile; fileRef = 047FB72219BF30AF00FC71EF /* reward_level_1_locked.png */; };
@@ -889,6 +891,8 @@
 		046CD119197A078400630062 /* StartupScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupScene.h; sourceTree = "<group>"; };
 		046CD11A197A078400630062 /* SubLevelsSelectionScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SubLevelsSelectionScene.cpp; sourceTree = "<group>"; };
 		046CD11B197A078400630062 /* SubLevelsSelectionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubLevelsSelectionScene.h; sourceTree = "<group>"; };
+		046E082119C8694A00940ADC /* kiss_default_boy_girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiss_default_boy_girl.png; sourceTree = "<group>"; };
+		046E082219C8694A00940ADC /* kiss_default_girl_boy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiss_default_girl_boy.png; sourceTree = "<group>"; };
 		046F080E19A3795700E6A29F /* achieve_lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = achieve_lock.png; sourceTree = "<group>"; };
 		047FB6F019BF2DB300FC71EF /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config.plist; path = Resources/ipad/config.plist; sourceTree = "<group>"; };
 		047FB72119BF30AF00FC71EF /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/reward_level_1_locked.png; sourceTree = "<group>"; };
@@ -2211,6 +2215,8 @@
 		1831D8B516B49C5F0052DA1B /* big_images */ = {
 			isa = PBXGroup;
 			children = (
+				046E082119C8694A00940ADC /* kiss_default_boy_girl.png */,
+				046E082219C8694A00940ADC /* kiss_default_girl_boy.png */,
 				046169BA19A4DB7F00D1C791 /* kiss_default_sprite.png */,
 				184E734D16D8BF230009C6A9 /* about_team.png */,
 				0425E8D6198E1CE6001DA340 /* background1.png */,
@@ -4079,6 +4085,7 @@
 				047FB6F119BF2DB300FC71EF /* config.plist in Resources */,
 				1834675B164F8F5E00C4B4D6 /* s_6.wav in Resources */,
 				1834675C164F8F5E00C4B4D6 /* s_7.wav in Resources */,
+				046E082319C8694A00940ADC /* kiss_default_boy_girl.png in Resources */,
 				183467D7164F8F5E00C4B4D6 /* bubble_spriter_images.plist in Resources */,
 				183467D8164F8F5E00C4B4D6 /* bubble_spriter_images.png in Resources */,
 				1834692B164F8F5E00C4B4D6 /* public_images.plist in Resources */,
@@ -4313,6 +4320,7 @@
 				18EE559216D83A86007E39CA /* SaTee.png in Resources */,
 				18EE559316D83A86007E39CA /* SaToo.png in Resources */,
 				18EE559416D83A86007E39CA /* TeeCi.png in Resources */,
+				046E082419C8694A00940ADC /* kiss_default_girl_boy.png in Resources */,
 				18EE559516D83A86007E39CA /* TeeMoo.png in Resources */,
 				18EE559616D83A86007E39CA /* TeeVi.png in Resources */,
 				18EE559816D83A86007E39CA /* TooBoo.png in Resources */,

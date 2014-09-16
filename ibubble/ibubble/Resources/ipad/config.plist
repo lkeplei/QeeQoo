@@ -36480,7 +36480,7 @@
 			<key>record</key>
 			<integer>100</integer>
 			<key>touchable</key>
-			<false/>
+			<true/>
 		</dict>
 	</dict>
 	<key>rewards</key>

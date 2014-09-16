@@ -31,6 +31,7 @@ public:
     KissView();
     static cocos2d::CCScene* scene();
 	static KissView* createWithCCB(const char *pCCBFileName);
+    void press_default();
 	void press_back();
     void press_boy_kiss();
     void press_girl_kiss();
@@ -52,7 +53,11 @@ public:
 #pragma mark CCBNodeLoaderListener
 	virtual void onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader);
 private:
-    CCSprite * _defaultBgImg;
+    CCSprite *_defaultBgImg;
+    CCSprite *_defaultSprite;
+    CCSprite *_defaultBoyKissGirl;
+    CCSprite *_defaultGirlKissBoy;
+    bool defaultStatus;
     CCSWFNodeSequence * _swf;
 };
 
