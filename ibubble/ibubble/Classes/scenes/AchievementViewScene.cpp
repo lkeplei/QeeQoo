@@ -17,6 +17,7 @@ NS_KAI_BEGIN
 AchievementViewScene::AchievementViewScene():CCLayer(),
 _displaySpriteRoot(NULL)
 ,_bgSpriteRoot(NULL)
+, _backMenuItem(NULL)
 ,_swf(NULL)
 ,swfFileArray(NULL)
 {
@@ -27,6 +28,7 @@ AchievementViewScene::~AchievementViewScene()
 {
 	CC_SAFE_RELEASE_NULL(_displaySpriteRoot);
     CC_SAFE_RELEASE_NULL(_bgSpriteRoot);
+    CC_SAFE_RELEASE_NULL(_backMenuItem);
 }
 
 AchievementViewScene* AchievementViewScene::createWithCCB()
@@ -65,6 +67,7 @@ void AchievementViewScene::press_back()
     } else {
         GameModle::sharedInstance()->stopBackgroundMusic();
         GameController::sharedInstance()->switchSence(GameController::K_SCENE_ACHIEVEMENT,CCInteger::create(0));
+        GameModle::sharedInstance()->playBackground(K_BG_MUSIC_OUTSIDE_OF_BATTLE);
     }
 }
 
@@ -88,6 +91,9 @@ void AchievementViewScene::playSwf(CCString *filename) {
 void AchievementViewScene::initWithParams(CCObject * params){
     canTouch = false;
 	if(_displaySpriteRoot && params){
+        //进入奖励子界面时停止后台音乐
+        GameModle::sharedInstance()->stopBackgroundMusic();
+        
 		CCDictionary * dict = (CCDictionary *)params;
         CCDictionary * display = (CCDictionary *)dict->objectForKey(KStrDisplay);
         CCString * type =(CCString *)display->objectForKey(KStrType);
@@ -96,6 +102,10 @@ void AchievementViewScene::initWithParams(CCObject * params){
             
             if (_bgSpriteRoot) {
                 _bgSpriteRoot->setVisible(false);
+            }
+            
+            if (_backMenuItem) {
+                _backMenuItem->setVisible(false);
             }
 
             swfIndex = 0;
@@ -151,6 +161,7 @@ cocos2d::extension::SEL_CCControlHandler AchievementViewScene::onResolveCCBCCCon
 bool AchievementViewScene::onAssignCCBMemberVariable(CCObject * pTarget, CCString * pMemberVariableName, CCNode * pNode){
 	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "display_node", CCNode *,_displaySpriteRoot);
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "bg_node", CCSprite *,_bgSpriteRoot);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "backMenuItem", CCMenuItemImage *,_backMenuItem);
 	return false;
 }
 

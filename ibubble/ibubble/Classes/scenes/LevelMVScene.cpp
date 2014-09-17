@@ -96,6 +96,9 @@ void LevelMVScene::press_next()
 void LevelMVScene::updateHelper()
 {
     if (!_swf) {
+        //放动画前停止之前的后台音乐
+        GameModle::sharedInstance()->stopBackgroundMusic();
+        
         stringstream currentBigStr;
         currentBigStr << _zoneid;
         CCDictionary * dict = (CCDictionary *)GameConfig::sharedInstance()->getLevelsValue(currentBigStr.str());

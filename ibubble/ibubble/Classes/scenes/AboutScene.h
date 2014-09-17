@@ -32,7 +32,7 @@ public:
     static cocos2d::CCScene* scene();
 	static AboutScene* createWithCCB();
 	void press_back();
-	void press_next();
+	void press_show();
 	virtual void onEnter();
     virtual void onExit();
 public:
@@ -47,6 +47,9 @@ public:
 #pragma mark CCBNodeLoaderListener
 	virtual void onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader);
 	
+private:
+    CCSprite *showMenu;
+    bool showDanDan;
 };
 
 

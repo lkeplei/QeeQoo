@@ -179,8 +179,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>68</real>
-									<real>52</real>
+									<real>67</real>
+									<real>66</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -300,8 +300,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>914</real>
-									<real>706</real>
+									<real>958</real>
+									<real>702</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -328,14 +328,6 @@
 									<false/>
 									<integer>0</integer>
 								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>rotation</string>
-								<key>type</key>
-								<string>Degrees</string>
-								<key>value</key>
-								<real>180</real>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -383,7 +375,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>gamecenter.png</string>
+									<string>gamecenter_sel.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -398,6 +390,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -1006,8 +1000,6 @@
 						<false/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

@@ -137,9 +137,6 @@ private:
 	CCMenuItemImage * _skill1Button;
 	CCMenuItemImage * _skill2Button;
 	CCMenuItemImage * _skill3Button;
-	CCMenuItemImage * _skill4Button;
-	CCMenuItemImage * _skill5Button;
-	CCMenuItemImage * _skill6Button;
 	
     CCNode * _ChallengeRoot;
     CCMenu * _ChallengeMenu;
@@ -150,6 +147,11 @@ private:
 	CCNode * _skill4text;
 	CCNode * _skill5text;
 	CCNode * _skill6text;
+    
+public:
+    CCMenuItemImage * _skill4Button;
+	CCMenuItemImage * _skill5Button;
+	CCMenuItemImage * _skill6Button;
 };
 
 

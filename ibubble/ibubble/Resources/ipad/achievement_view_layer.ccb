@@ -152,8 +152,6 @@
 						<false/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>baseClass</key>
@@ -170,9 +168,9 @@
 						<key>displayName</key>
 						<string>CCMenuItemImage</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>backMenuItem</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>1</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -182,8 +180,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>68</real>
-									<real>52</real>
+									<real>67</real>
+									<real>66</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -280,6 +278,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>

@@ -60,6 +60,7 @@ private:
     CCSWFNodeSequence *_swf;
 	CCNode * _displaySpriteRoot;
     CCSprite * _bgSpriteRoot;
+    CCMenuItemImage *_backMenuItem;
     CCArray *swfFileArray;
     int swfIndex;
     bool canTouch;

@@ -313,6 +313,8 @@ void BattleControllerLayer::press_skill4(){
 		GameController::sharedInstance()->pauseBattle();
 		GameModle::sharedInstance()->setTouchEnableTypes(KNPCTypeStrengthId);
 		GameController::sharedInstance()->resumeBattle();
+        
+        _skill4Button->selected();
 	}
 }
 
@@ -325,6 +327,8 @@ void BattleControllerLayer::press_skill5(){
 		GameController::sharedInstance()->pauseBattle();
 		model->setTouchEnableTypes(KNPCTypeSuperId);
 		GameController::sharedInstance()->resumeBattle();
+        
+        _skill5Button->selected();
 	}
 }
 
@@ -336,6 +340,8 @@ void BattleControllerLayer::press_skill6() {
         GameController::sharedInstance()->pauseBattle();
         GameModle::sharedInstance()->setBattleTouchMaxTimes(2);
         GameController::sharedInstance()->resumeBattle();
+        
+        _skill6Button->selected();
     }
 }
 
@@ -527,8 +533,6 @@ void BattleScene::load()
 		this->addChild(layer, zOrder++);
 	}
 	CC_SAFE_RELEASE_NULL(ccBReader);
-
-
 }
 
 CCScene* BattleScene::scene()
@@ -570,7 +574,13 @@ void BattleScene::onExit(){
 void BattleScene::ccTouchesEnded(CCSet* touches, CCEvent* event)
 {
 	CCLayer::ccTouchesEnded(touches,event);
-	GameController::sharedInstance()->onTouchesEnded(touches,event);
+	GameObject * object = GameController::sharedInstance()->onTouchesEnded(touches,event);
+    if (object) {
+        BattleControllerLayer *battleController = (BattleControllerLayer *)this->getChildByTag(KBattleNodeTagControllerLayer);
+        battleController->_skill4Button->unselected();
+        battleController->_skill5Button->unselected();
+        battleController->_skill6Button->unselected();
+    }
 }
 
 

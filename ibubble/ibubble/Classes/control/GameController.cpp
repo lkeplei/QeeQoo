@@ -267,8 +267,7 @@ void GameController::onEnterScene(const ESceneId sceneId,CCLayer * layer){
 		_sharedGameModleInstance->playBackground(K_BG_MUSIC_BATTLE);
 		_sharedGameModleInstance->gameStart();
 		startBattle();
-	}
-	
+	}	
 }
 
 void GameController::onExitScene(const ESceneId sceneId,CCLayer * layer){
@@ -298,7 +297,9 @@ void GameController::resumeBattle(void){
 	_updateStoped=false;
 }
 
-void GameController::onTouchesEnded(CCSet* touches, CCEvent* event){
+GameObject * GameController::onTouchesEnded(CCSet* touches, CCEvent* event){
+    GameObject *pressedObject = NULL;
+    
     CCSetIterator it;
     CCTouch* touch;
     for( it = touches->begin(); it != touches->end(); it++) 
@@ -310,8 +311,10 @@ void GameController::onTouchesEnded(CCSet* touches, CCEvent* event){
 		
         CCPoint location = touch->getLocationInView();
         location = _director->convertToGL(location);
-		_sharedGameModleInstance->pointPressed(location);
+		pressedObject = _sharedGameModleInstance->pointPressed(location);
     }
+    
+    return pressedObject;
 }
 
 NS_KAI_END

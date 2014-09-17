@@ -12,13 +12,15 @@
 #include "UiTool.h"
 NS_KAI_BEGIN
 AboutScene::AboutScene():CCLayer()
+, showMenu(NULL)
+, showDanDan(false)
 {
 	
 }
 
 AboutScene::~AboutScene()
 {
-
+    CC_SAFE_RELEASE_NULL(showMenu);
 }
 
 AboutScene* AboutScene::createWithCCB()
@@ -53,17 +55,24 @@ void AboutScene::press_back()
 	GameController::sharedInstance()->switchSence(GameController::K_SCENE_SETTING,CCInteger::create(0));
 }
 
-void AboutScene::press_next()
-{
-
+void AboutScene::press_show() {
+    showMenu->setVisible(true);
+    
+    if (showDanDan) {
+        showMenu->runAction(CCFadeOut::create(1));
+    } else {
+        showMenu->runAction(CCFadeIn::create(1));
+    }
+    
+    showDanDan = !showDanDan;
 }
 
 #pragma mark-
 #pragma mark CCBSelectorResolver
 SEL_MenuHandler AboutScene::onResolveCCBCCMenuItemSelector(CCObject * pTarget, CCString * pSelectorName){
 	CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(this, "press_back",AboutScene::press_back);
+    CCB_SELECTORRESOLVER_CCMENUITEM_GLUE(this, "press_show",AboutScene::press_show);
 	return NULL;
-	
 }
 
 cocos2d::extension::SEL_CCControlHandler AboutScene::onResolveCCBCCControlSelector(CCObject * pTarget, CCString * pSelectorName){
@@ -74,6 +83,7 @@ cocos2d::extension::SEL_CCControlHandler AboutScene::onResolveCCBCCControlSelect
 #pragma mark-
 #pragma mark CCBMemberVariableAssigner
 bool AboutScene::onAssignCCBMemberVariable(CCObject * pTarget, CCString * pMemberVariableName, CCNode * pNode){
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "showMenu", CCSprite *, showMenu);
 	return false;
 }
 

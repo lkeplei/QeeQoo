@@ -19,7 +19,7 @@ NS_KAI_BEGIN
 
 
 class GameModle;
-
+class GameObject;
 
 class  GameController : public CCObject
 {
@@ -71,7 +71,7 @@ public:
     void resumeBattle(void);
 	void onEnterScene(const ESceneId sceneId,CCLayer * layer);
 	void onExitScene(const ESceneId sceneId,CCLayer* layer );
-	void onTouchesEnded(CCSet* touches, CCEvent* event);
+	GameObject * onTouchesEnded(CCSet* touches, CCEvent* event);
 	bool isPushSenceFromBattle(){return _pushSenceFromBattle;}
 	bool isPushSence(){return _pushSence;}
 	void setIsPushSenceFromBattle(bool value ){ _pushSenceFromBattle = value;}

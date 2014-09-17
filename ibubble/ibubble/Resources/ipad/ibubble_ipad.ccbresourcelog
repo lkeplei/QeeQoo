@@ -501,6 +501,7 @@ explode_water_6.png
 explode_water_7.png
 explode_water_8.png
 gamecenter.png
+gamecenter_sel.png
 gameover_layer.ccbi
 gamestart_layer.ccbi
 help_in_level_layer.ccbi
@@ -739,6 +740,8 @@ scene_littlenumber.png
 scores_layer.ccbi
 setting_in_level_layer.ccbi
 setting_layer.ccbi
+setting_show_button.png
+setting_show_title.png
 skill_life_btn.png
 skill_life_btn_sel.png
 skill_multi_touch_btn.png

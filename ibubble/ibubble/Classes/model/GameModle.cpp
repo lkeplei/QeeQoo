@@ -469,7 +469,8 @@ void GameModle::update(float dt){
 
 #pragma mark-
 #pragma mark GameModle::pointPressed
-void GameModle::pointPressed(const CCPoint & point){
+GameObject * GameModle::pointPressed(const CCPoint & point){
+    GameObject *pressedObject = NULL;
 	
 	//筛选一个技能没有被使用的，并且使用技能
 	for (std::list<GameObject *>::iterator iter = _activefallList.begin(); iter != _activefallList.end(); iter++) {
@@ -496,6 +497,8 @@ void GameModle::pointPressed(const CCPoint & point){
 					if (onGameObjectPressed(myActor)) {
 						setBattleTouchTimes(getBattleTouchTimes() + 1);
 						handleActor = myActor;
+                        
+                        pressedObject = myActor;
 						break;
 					}
 				}
@@ -503,6 +506,8 @@ void GameModle::pointPressed(const CCPoint & point){
 		}
 	}
 	_tmpbox2dFixtures.clear();
+    
+    return pressedObject;
 }
 
 void GameModle::QueryAABB(const CCPoint & point,const float size_pixel){
