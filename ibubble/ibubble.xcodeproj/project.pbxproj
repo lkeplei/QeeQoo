@@ -20,7 +20,7 @@
 		046CD0EE197A069A00630062 /* GameAIScriptFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD09B197A069A00630062 /* GameAIScriptFactory.cpp */; };
 		046CD0EF197A069A00630062 /* GameCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD09D197A069A00630062 /* GameCallback.cpp */; };
 		046CD0F0197A069A00630062 /* GameCallbackFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD09F197A069A00630062 /* GameCallbackFactory.cpp */; };
-		046CD0F1197A069A00630062 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD0A1197A069A00630062 /* AppDelegate.cpp */; };
+		046CD0F1197A069A00630062 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 046CD0A1197A069A00630062 /* AppDelegate.mm */; };
 		046CD0F2197A069A00630062 /* CCHBBezier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD0A3197A069A00630062 /* CCHBBezier.cpp */; };
 		046CD0F3197A069A00630062 /* CCPixelSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD0A5197A069A00630062 /* CCPixelSprite.cpp */; };
 		046CD0F4197A069A00630062 /* CCShake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD0A7197A069A00630062 /* CCShake.cpp */; };
@@ -62,6 +62,7 @@
 		046E082319C8694A00940ADC /* kiss_default_boy_girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 046E082119C8694A00940ADC /* kiss_default_boy_girl.png */; };
 		046E082419C8694A00940ADC /* kiss_default_girl_boy.png in Resources */ = {isa = PBXBuildFile; fileRef = 046E082219C8694A00940ADC /* kiss_default_girl_boy.png */; };
 		046F080F19A3795700E6A29F /* achieve_lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 046F080E19A3795700E6A29F /* achieve_lock.png */; };
+		047A34CB19CD21F200B200BA /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 047A34C819CD21F200B200BA /* libMobClickLibrary.a */; };
 		047FB6F119BF2DB300FC71EF /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 047FB6F019BF2DB300FC71EF /* config.plist */; };
 		047FB72019BF30AF00FC71EF /* reward_level_1_locked.png in Resources */ = {isa = PBXBuildFile; fileRef = 047FB72219BF30AF00FC71EF /* reward_level_1_locked.png */; };
 		047FB72319BF30B600FC71EF /* reward_level_1_unlocked.png in Resources */ = {isa = PBXBuildFile; fileRef = 047FB72519BF30B600FC71EF /* reward_level_1_unlocked.png */; };
@@ -815,7 +816,7 @@
 		046CD09E197A069A00630062 /* GameCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCallback.h; sourceTree = "<group>"; };
 		046CD09F197A069A00630062 /* GameCallbackFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameCallbackFactory.cpp; sourceTree = "<group>"; };
 		046CD0A0197A069A00630062 /* GameCallbackFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCallbackFactory.h; sourceTree = "<group>"; };
-		046CD0A1197A069A00630062 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
+		046CD0A1197A069A00630062 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		046CD0A2197A069A00630062 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		046CD0A3197A069A00630062 /* CCHBBezier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCHBBezier.cpp; sourceTree = "<group>"; };
 		046CD0A4197A069A00630062 /* CCHBBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHBBezier.h; sourceTree = "<group>"; };
@@ -897,6 +898,9 @@
 		046E082119C8694A00940ADC /* kiss_default_boy_girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiss_default_boy_girl.png; sourceTree = "<group>"; };
 		046E082219C8694A00940ADC /* kiss_default_girl_boy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiss_default_girl_boy.png; sourceTree = "<group>"; };
 		046F080E19A3795700E6A29F /* achieve_lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = achieve_lock.png; sourceTree = "<group>"; };
+		047A34C819CD21F200B200BA /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		047A34C919CD21F200B200BA /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		047A34CA19CD21F200B200BA /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		047FB6F019BF2DB300FC71EF /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config.plist; path = Resources/ipad/config.plist; sourceTree = "<group>"; };
 		047FB72119BF30AF00FC71EF /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/reward_level_1_locked.png; sourceTree = "<group>"; };
 		047FB72419BF30B600FC71EF /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/reward_level_1_unlocked.png; sourceTree = "<group>"; };
@@ -2068,6 +2072,7 @@
 				FBCD1018181CC4F200E55F4E /* GameKit.framework in Frameworks */,
 				18F3A19216ABD95200754C66 /* libsqlite3.dylib in Frameworks */,
 				1834619E164F70E700C4B4D6 /* QuartzCore.framework in Frameworks */,
+				047A34CB19CD21F200B200BA /* libMobClickLibrary.a in Frameworks */,
 				183461A0164F70E700C4B4D6 /* OpenGLES.framework in Frameworks */,
 				183461A2164F70E700C4B4D6 /* OpenAL.framework in Frameworks */,
 				183461A4164F70E700C4B4D6 /* AudioToolbox.framework in Frameworks */,
@@ -2086,7 +2091,7 @@
 			isa = PBXGroup;
 			children = (
 				046CD096197A069A00630062 /* aiAndCallBack */,
-				046CD0A1197A069A00630062 /* AppDelegate.cpp */,
+				046CD0A1197A069A00630062 /* AppDelegate.mm */,
 				046CD0A2197A069A00630062 /* AppDelegate.h */,
 				046CD0A3197A069A00630062 /* CCHBBezier.cpp */,
 				046CD0A4197A069A00630062 /* CCHBBezier.h */,
@@ -2218,6 +2223,17 @@
 			path = tools;
 			sourceTree = "<group>";
 		};
+		047A34C719CD21F200B200BA /* UM */ = {
+			isa = PBXGroup;
+			children = (
+				047A34C819CD21F200B200BA /* libMobClickLibrary.a */,
+				047A34C919CD21F200B200BA /* MobClick.h */,
+				047A34CA19CD21F200B200BA /* MobClickSocialAnalytics.h */,
+			);
+			name = UM;
+			path = libs/UM;
+			sourceTree = "<group>";
+		};
 		1831D8B516B49C5F0052DA1B /* big_images */ = {
 			isa = PBXGroup;
 			children = (
@@ -2334,6 +2350,7 @@
 		183461CF164F70E700C4B4D6 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				047A34C719CD21F200B200BA /* UM */,
 				FB34EFDB181FFE1F00FD0897 /* CCGameSWF */,
 				183461D0164F70E700C4B4D6 /* cocos2dx */,
 				1834638E164F70EA00C4B4D6 /* CocosDenshion */,
@@ -4734,7 +4751,7 @@
 				FB34F160181FFE2000FD0897 /* gameswf_text.cpp in Sources */,
 				FB34F191181FFE2000FD0897 /* jmemmgr.c in Sources */,
 				18346454164F70EB00C4B4D6 /* b2CircleShape.cpp in Sources */,
-				046CD0F1197A069A00630062 /* AppDelegate.cpp in Sources */,
+				046CD0F1197A069A00630062 /* AppDelegate.mm in Sources */,
 				18346457164F70EB00C4B4D6 /* b2EdgeShape.cpp in Sources */,
 				FB34F19A181FFE2000FD0897 /* rdswitch.c in Sources */,
 				1834645A164F70EB00C4B4D6 /* b2PolygonShape.cpp in Sources */,
@@ -5206,6 +5223,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: liu kun (H775962835)";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/ibubble/libs/cocos2dx/platform/third_party/ios/libraries\"",
+					"$(PROJECT_DIR)/ibubble/libs/UM",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ibubble/Prefix.pch;
@@ -5215,6 +5236,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/ibubble/libs/cocos2dx/platform/third_party/ios/libraries\"",
+					"$(PROJECT_DIR)/ibubble/libs/UM",
 				);
 				OTHER_LDFLAGS = (
 					"-lxml2",
@@ -5236,6 +5258,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: liu kun (H775962835)";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/ibubble/libs/cocos2dx/platform/third_party/ios/libraries\"",
+					"$(PROJECT_DIR)/ibubble/libs/UM",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ibubble/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv7]" = "";
@@ -5244,6 +5270,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/ibubble/libs/cocos2dx/platform/third_party/ios/libraries\"",
+					"$(PROJECT_DIR)/ibubble/libs/UM",
 				);
 				OTHER_LDFLAGS = (
 					"-lxml2",
