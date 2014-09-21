@@ -2170,7 +2170,7 @@
 		<key>410002</key>
 		<dict>
 			<key>audio</key>
-			<string>e_rocket.wav</string>
+			<string>bubble.wav</string>
 			<key>desc</key>
 			<string>发射导弹</string>
 		</dict>
@@ -2180,6 +2180,13 @@
 			<string>e_laser.wav</string>
 			<key>desc</key>
 			<string>发射激光</string>
+		</dict>
+		<key>410004</key>
+		<dict>
+			<key>audio</key>
+			<string>e_rocket.wav</string>
+			<key>desc</key>
+			<string>导弹爆开声音</string>
 		</dict>
 		<key>420001</key>
 		<dict>
@@ -36480,7 +36487,7 @@
 			<key>record</key>
 			<integer>100</integer>
 			<key>touchable</key>
-			<true/>
+			<false/>
 		</dict>
 	</dict>
 	<key>rewards</key>

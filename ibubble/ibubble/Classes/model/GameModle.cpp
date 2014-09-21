@@ -479,7 +479,7 @@ GameObject * GameModle::pointPressed(const CCPoint & point){
 			CCDictionary * param = CCDictionary::create();
 			param->setObject(GameObject::point2Dict(point), KStrPosition);
 			bubbleOpenSkill(_currentBubble,param);
-			break;
+//			break;
 		}
 	}
 
@@ -851,6 +851,23 @@ void GameModle::setTouchEnableTypes(int type){
 		}
 	}
 }
+
+void GameModle::setTouchEnableAll(){
+	if (_gameObjectsDict) {
+		CCDictElement * pDictElement=NULL;
+		CCDICT_FOREACH(_gameObjectsDict, pDictElement){
+			const int classType = (pDictElement->getIntKey() / 1000);
+			if (classType != KNPCTypeNormalId) {
+				CCSet * set = (CCSet*)pDictElement->getObject();
+				for (CCSetIterator iter = set->begin(); iter != set->end(); ++iter) {
+					GameObject * tmp = (GameObject *)(*iter);
+					tmp->setIsTouchable(true);
+                }
+			}
+		}
+	}
+}
+
 b2World * GameModle::box2dWorld(){
     return _box2dWorld;
 }

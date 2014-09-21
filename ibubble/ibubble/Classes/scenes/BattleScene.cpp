@@ -325,7 +325,7 @@ void BattleControllerLayer::press_skill5(){
         skillUpdated(NULL);
         
 		GameController::sharedInstance()->pauseBattle();
-		model->setTouchEnableTypes(KNPCTypeSuperId);
+		model->setTouchEnableAll();
 		GameController::sharedInstance()->resumeBattle();
         
         _skill5Button->selected();
@@ -579,7 +579,13 @@ void BattleScene::ccTouchesEnded(CCSet* touches, CCEvent* event)
         BattleControllerLayer *battleController = (BattleControllerLayer *)this->getChildByTag(KBattleNodeTagControllerLayer);
         battleController->_skill4Button->unselected();
         battleController->_skill5Button->unselected();
-        battleController->_skill6Button->unselected();
+        
+        
+        int max = GameModle::sharedInstance()->getBattleTouchMaxTimes();
+        int touch = GameModle::sharedInstance()->getBattleTouchTimes();
+        if (touch >= max) {
+            battleController->_skill6Button->unselected();
+        }
     }
 }
 

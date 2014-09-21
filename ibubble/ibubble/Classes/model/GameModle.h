@@ -89,6 +89,7 @@ public:
 	/**挑战模式相关*/
 	void weakNPCs();
 	void setTouchEnableTypes(int type);
+    void setTouchEnableAll();
 public:
 	b2World * box2dWorld();
 	void  setCurrentLevelId(const uint32_t value);
