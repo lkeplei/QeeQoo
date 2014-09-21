@@ -2181,17 +2181,10 @@
 			<key>desc</key>
 			<string>发射激光</string>
 		</dict>
-		<key>410004</key>
-		<dict>
-			<key>audio</key>
-			<string>e_rocket.wav</string>
-			<key>desc</key>
-			<string>导弹爆开声音</string>
-		</dict>
 		<key>420001</key>
 		<dict>
 			<key>audio</key>
-			<string>bubble.wav</string>
+			<string>e_rocket.wav</string>
 			<key>desc</key>
 			<string>爆炸光效_导弹</string>
 			<key>plist</key>
@@ -2202,7 +2195,7 @@
 		<key>420002</key>
 		<dict>
 			<key>audio</key>
-			<string>bubble.wav</string>
+			<string>e_rocket.wav</string>
 			<key>desc</key>
 			<string>爆炸光效_导弹</string>
 			<key>plist</key>
@@ -2213,7 +2206,7 @@
 		<key>420003</key>
 		<dict>
 			<key>audio</key>
-			<string>bubble.wav</string>
+			<string>e_rocket.wav</string>
 			<key>desc</key>
 			<string>爆炸光效_导弹</string>
 			<key>plist</key>
@@ -2774,8 +2767,6 @@
 							</dict>
 						</dict>
 					</dict>
-					<key>next_level</key>
-					<string>900103</string>
 					<key>npcs</key>
 					<array>
 						<dict>
@@ -2802,6 +2793,8 @@
 							</array>
 						</dict>
 					</array>
+					<key>next_level</key>
+					<string>900103</string>
 					<key>pass_count</key>
 					<string>20</string>
 					<key>pass_time</key>
