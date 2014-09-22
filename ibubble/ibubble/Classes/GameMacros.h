@@ -168,7 +168,7 @@
 #define KGameCenterScoreId    "ibubble_save_sprite_score"
 #define KGameCenterHardModeScoreId    "ibubble_hard_mode_save_sprite_score"
 
-#define KLeaderBoardId          "com.teamqi.qeeqoo1"
+#define KLeaderBoardId          "com.teamqi.qeeqoofull"           //com.teamqi.qeeqoofull、com.teamqi.qeeqoo1
 #define KProductID              "teamqi.qeeqoo.achieve"
 
 

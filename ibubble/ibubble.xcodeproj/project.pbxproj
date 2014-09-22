@@ -5221,7 +5221,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: liu kun (H775962835)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SRCROOT)/ibubble/libs/cocos2dx/platform/third_party/ios/libraries\"",
@@ -5243,8 +5243,8 @@
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "228AECAA-76D3-44C3-8EF8-A67C9E680C50";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "228AECAA-76D3-44C3-8EF8-A67C9E680C50";
+				PROVISIONING_PROFILE = "1425f930-7b72-4e73-aaef-3d8f20586a18";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1425f930-7b72-4e73-aaef-3d8f20586a18";
 				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "\"ibubble/libs\"";
 				WRAPPER_EXTENSION = app;
@@ -5256,7 +5256,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: liu kun (H775962835)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SRCROOT)/ibubble/libs/cocos2dx/platform/third_party/ios/libraries\"",
@@ -5277,8 +5277,8 @@
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "228AECAA-76D3-44C3-8EF8-A67C9E680C50";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "228AECAA-76D3-44C3-8EF8-A67C9E680C50";
+				PROVISIONING_PROFILE = "1425f930-7b72-4e73-aaef-3d8f20586a18";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1425f930-7b72-4e73-aaef-3d8f20586a18";
 				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "\"ibubble/libs\"";
 				VALIDATE_PRODUCT = YES;
