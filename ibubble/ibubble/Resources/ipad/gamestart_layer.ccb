@@ -264,6 +264,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>baseClass</key>
@@ -288,7 +290,7 @@
 						<key>value</key>
 						<array>
 							<real>420</real>
-							<real>495</real>
+							<real>485</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -575,7 +577,7 @@
 						<key>value</key>
 						<array>
 							<real>604</real>
-							<real>495</real>
+							<real>485</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -647,7 +649,7 @@
 						<key>value</key>
 						<array>
 							<real>420</real>
-							<real>434</real>
+							<real>430</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -720,7 +722,7 @@
 						<key>value</key>
 						<array>
 							<real>604</real>
-							<real>434</real>
+							<real>430</real>
 							<integer>0</integer>
 						</array>
 					</dict>

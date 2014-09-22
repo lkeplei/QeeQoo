@@ -147,12 +147,15 @@ void GameStartScene::afterLoaded(){
     if (_pass_node) {
         std::stringstream  starStr;
         starStr << pass_count << "/" << count;
+        float off = 0;
+        off += count >= 100 ? -10 : 0;
+        off += pass_count >= 100 ? -10 : 0;
         
         CCSize labelSize =  _title_node->getContentSize();
         CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(starStr.str());
         CCSize cellSize =  label->getContentSize();
         label->setAnchorPoint(CCPoint(0.5, 0.5));
-        label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
+        label->setPosition(CCPoint(labelSize.width * 0.5 + off, labelSize.height * 0.5));
         _pass_node->addChild(label);
         
     }
@@ -160,12 +163,15 @@ void GameStartScene::afterLoaded(){
     if (_star_node) {
         std::stringstream  starStr;
         starStr << star_count << "/" << count;
+        float off = 0;
+        off += count >= 100 ? 10 : 0;
+        off += star_count >= 100 ? 10 : 0;
         
         CCSize labelSize =  _title_node->getContentSize();
         CCLabelAtlas *label = UiTool::createLabelAtlasWithBigNumber(starStr.str());
         CCSize cellSize =  label->getContentSize();
         label->setAnchorPoint(CCPoint(0.5, 0.5));
-        label->setPosition(CCPoint(labelSize.width * 0.5 , labelSize.height * 0.5));
+        label->setPosition(CCPoint(labelSize.width * 0.5 + off, labelSize.height * 0.5));
         _star_node->addChild(label);
     }
 }

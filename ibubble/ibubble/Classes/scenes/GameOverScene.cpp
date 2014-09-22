@@ -163,6 +163,7 @@ void GameOverScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoade
 	if (_nextLevelId == -1 || playerAchievement._failed) {
 		if (_play_next) {
 			_play_next->setEnabled(false);
+            _play_next->selected();
 		}
 	}
 	
