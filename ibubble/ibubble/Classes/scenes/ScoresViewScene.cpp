@@ -162,11 +162,11 @@ void ScoresViewScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoa
     }
     
     std::stringstream gouStr;
-    gouStr << pass_size << "/" << 45;
+    gouStr << pass_size - GameUtilities::getPass() << "/" << 45;
     _gouNode1->addChild(UiTool::createLabelAtlasWithBigNumber(gouStr.str()));
     
     std::stringstream starStr;
-    starStr << star_size << "/" << 45;
+    starStr << star_size - GameUtilities::getStar() << "/" << 45;
     _starNode1->addChild(UiTool::createLabelAtlasWithBigNumber(starStr.str()));
 
     std::stringstream rewardStr;

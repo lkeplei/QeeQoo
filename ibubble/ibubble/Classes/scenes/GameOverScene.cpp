@@ -78,17 +78,25 @@ void GameOverScene::press_replay()
                                                   CCInteger::create(GameModle::sharedInstance()->currentBigLevelId()));
 }
 
-void GameOverScene::press_play_next()
-{
-	if (_nextLevelId >=0) {
-		
-		const int bigLevelId = (int)((_nextLevelId%900000)/100);
-		GameModle * _sharedInstance=GameModle::sharedInstance();
-		_sharedInstance->setCurrentBigLevelId((bigLevelId - 1));
-		const int32_t sublevelId = (((_nextLevelId % 900000) - bigLevelId * 100) - 1);
-		GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_PRE,CCInteger::create(sublevelId));
+void GameOverScene::press_play_next() {
+	if (_nextLevelId >= 0) {
+        const int32_t bigLevelId = ((_nextLevelId % 900000) / 100) - 1;
+        const int32_t sublevelId = (((_nextLevelId % 900000) - (bigLevelId + 1) * 100) - 1);
+        if (GameModle::sharedInstance()->getHelpIndex(sublevelId, bigLevelId) == -1) {
+            GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_PRE,
+                                                          CCInteger::create(sublevelId));
+        } else {
+            GameController::sharedInstance()->switchSence(GameController::K_SCENE_HELP_IN_LEVEL
+                                                          ,CCInteger::create(bigLevelId)
+                                                          ,CCInteger::create(sublevelId));
+        }
+        
+//		const int bigLevelId = (int)((_nextLevelId % 900000) / 100);
+//		GameModle * _sharedInstance=GameModle::sharedInstance();
+//		_sharedInstance->setCurrentBigLevelId((bigLevelId - 1));
+//		const int32_t sublevelId = (((_nextLevelId % 900000) - bigLevelId * 100) - 1);
+//		GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_PRE,CCInteger::create(sublevelId));
 	}
-
 }
 
 void GameOverScene::updateScene() {

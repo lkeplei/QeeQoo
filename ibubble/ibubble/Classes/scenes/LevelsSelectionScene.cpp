@@ -389,13 +389,13 @@ void LevelsSelectionScene::switchCell(const int index,const bool animation,const
     CCLabelAtlas *gouLabel = UiTool::createLabelAtlasWithBigNumber(gouStr.str());
 	gouLabel->setAnchorPoint(CCPoint(0.5, 0.5));
 	gouLabel->setContentSize(labelSize);
-	gouLabel->setPosition(CCPoint(-labelSize.width * 0.3, - contentSize.height * 0.15));
+	gouLabel->setPosition(CCPoint(-labelSize.width * 0.4, - contentSize.height * 0.13));
 	cell->addChild(gouLabel);
 	
     CCLabelAtlas *starLabel = UiTool::createLabelAtlasWithBigNumber(starStr.str());
 	starLabel->setAnchorPoint(CCPoint(0.5, 0.5));
 	starLabel->setContentSize(labelSize);
-	starLabel->setPosition(CCPoint(labelSize.width * 1.05 , - contentSize.height * 0.15));
+	starLabel->setPosition(CCPoint(labelSize.width * 0.95 , - contentSize.height * 0.13));
 	cell->addChild(starLabel);
 	
 	if (animation) {

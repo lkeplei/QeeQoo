@@ -76,8 +76,13 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
                     GameData::Instance().unlockAchievement();
                 } else {
                     //剧情故事
-                    std::pair<int, int> counts = GameData::Instance().totalCount();
-                    GameData::Instance().unlockStory(counts);
+                    std::pair<int, int> counts0 = GameData::Instance().totalCount(-1, 0);
+                    std::pair<int, int> counts1 = GameData::Instance().totalCount(-1, 1);
+                    std::pair<int, int> counts2 = GameData::Instance().totalCount(-1, 2);
+                    std::pair<int, int> count(0, 0);
+                    count.first = counts0.first + counts1.first + counts2.first;
+                    count.second = counts0.second + counts1.second + counts2.second;
+                    GameData::Instance().unlockStory(count);
                 }
                 
 				controller->pauseBattle();
