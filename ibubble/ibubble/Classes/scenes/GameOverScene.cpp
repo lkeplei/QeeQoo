@@ -81,7 +81,24 @@ void GameOverScene::press_replay()
 void GameOverScene::press_play_next() {
 	if (_nextLevelId >= 0) {
         const int32_t bigLevelId = ((_nextLevelId % 900000) / 100) - 1;
+        GameModle::sharedInstance()->setCurrentBigLevelId(bigLevelId);
         const int32_t sublevelId = (((_nextLevelId % 900000) - (bigLevelId + 1) * 100) - 1);
+        
+        //下一关，有动画先走动画
+        if (sublevelId == 0) {
+            std::stringstream strid;
+            strid << "have_play_before_" << bigLevelId << std::endl;
+            if (!CCUserDefault::sharedUserDefault()->getBoolForKey(strid.str().c_str())) {
+                CCUserDefault::sharedUserDefault()->setBoolForKey(strid.str().c_str(), true);
+                GameController::sharedInstance()->switchSence(GameController::K_SCENE_LEVEL_MV
+                                                              ,CCInteger::create(bigLevelId)
+                                                              ,CCInteger::create(sublevelId));
+                
+                return;
+            }
+        }
+        
+        //没有直接有帮助先走帮助
         if (GameModle::sharedInstance()->getHelpIndex(sublevelId, bigLevelId) == -1) {
             GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_PRE,
                                                           CCInteger::create(sublevelId));
