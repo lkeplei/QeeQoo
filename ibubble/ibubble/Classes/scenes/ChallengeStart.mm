@@ -102,6 +102,9 @@ void newGame() {
     GameUtilities::removeSkillInfo();
     GameUtilities::saveLevelId(GameModle::sharedInstance()->currentHardLevelId());
     
+    //解锁奖励-挑战
+    GameData::Instance().unlockAchievement(true);
+    
     GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeHelpInLevel);
 }
 

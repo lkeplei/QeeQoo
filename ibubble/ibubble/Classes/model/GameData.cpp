@@ -194,26 +194,30 @@ void saveUnlockId(int id) {
     }
 }
 
-void GameData::unlockAchievement() {
+void GameData::unlockAchievement(bool openAchievement) {
     //	unlockid = 10002;       //总分  >= 30000
     //    unlockid = 10005;       //总分  >= 100000
     //    unlockid = 10006;       //开启挑战模式
     //    unlockid = 10007;       //过关10
     //    unlockid = 10008;       //星过关10
     
-    if (GameUtilities::getRecord() >= 3000) {
+    if (openAchievement) {
+        saveUnlockId(10006);
+    }
+    
+    if (GameUtilities::getMaxRecord() >= 30000) {
         saveUnlockId(10002);
     }
     
-    if (GameUtilities::getRecord() >= 100000) {
+    if (GameUtilities::getMaxRecord() >= 100000) {
         saveUnlockId(10005);
     }
     
-    if (GameUtilities::getPass()>= 10) {
+    if (GameUtilities::getMaxPass()>= 10) {
         saveUnlockId(10007);
     }
     
-    if (GameUtilities::getStar() >= 10) {
+    if (GameUtilities::getMaxStar() >= 10) {
         saveUnlockId(10008);
     }
 }

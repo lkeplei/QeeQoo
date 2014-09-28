@@ -48,6 +48,13 @@ extern int GameUtilities_getSkillWeak();
 extern int GameUtilities_getSkillSTouch();
 extern int GameUtilities_getSkillLargeTouch();
 
+extern int GameUtilities_getMaxRecord();
+extern void GameUtilities_saveMaxRecord(int value);
+extern int GameUtilities_getMaxPass();
+extern void GameUtilities_saveMaxPass(int value);
+extern int GameUtilities_getMaxStar();
+extern void GameUtilities_saveMaxStar(int value);
+
 extern void GameUtilities_removeSkillInfo();
 
 void GameUtilities::writeDateToFile(const char * aBuffer,const int aBufferLength,const std::string & filepath){
@@ -94,14 +101,26 @@ void GameUtilities::resetAchievement() {
 
 void GameUtilities::saveRecord(int score) {
     GameUtilities_saveRecord(score);
+    int higher = GameUtilities_getMaxRecord();
+    if (score > higher) {
+        GameUtilities_saveMaxRecord(score);
+    }
 }
 
 void GameUtilities::savePass(int score) {
     GameUtilities_savePass(score);
+    int higher = GameUtilities_getMaxPass();
+    if (score > higher) {
+        GameUtilities_saveMaxPass(score);
+    }
 }
 
 void GameUtilities::saveStar(int score) {
     GameUtilities_saveStar(score);
+    int higher = GameUtilities_getMaxStar();
+    if (score > higher) {
+        GameUtilities_saveMaxStar(score);
+    }
 }
 
 void GameUtilities::saveUnlockWithId(int achieveId) {
@@ -118,6 +137,18 @@ int GameUtilities::getPass() {
 
 int GameUtilities::getStar() {
     return GameUtilities_getStar();
+}
+
+int GameUtilities::getMaxRecord() {
+    return GameUtilities_getMaxRecord();
+}
+
+int GameUtilities::getMaxPass() {
+    return GameUtilities_getMaxPass();
+}
+
+int GameUtilities::getMaxStar() {
+    return GameUtilities_getMaxStar();
 }
 
 bool GameUtilities::getUnlockWithId(int achieveId) {

@@ -57,7 +57,23 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
 		}
 		else{
 			if (achievement._killNpcCount >= achievement._pass_count) {
+                //数据处理
+                controller->pauseBattle();
+                achievement._failed = false;
+                achievement._star_count = (achievement._killNpcCount >= achievement._pass_star_count) ? 1 : 0;
+                std::vector<PlayerAchievement> list = GameData::Instance().findData(PlayerAchievement::getLevelId(achievement));
+                if (list.size() == 0) {
+                    GameData::Instance().saveData(achievement);
+                    //                    GameCenter::postScore(KGameCenterScoreId, achievement._records);
+                } else if(list.size() > 0) {
+                    const PlayerAchievement lastRecord = list[0];
+                    if (lastRecord._records < achievement._records) {
+                        GameData::Instance().saveData(achievement);
+                        //                        GameCenter::postScore(KGameCenterScoreId, achievement._killNpcCount);
+                    }
+                }
                 
+                //过关记录
                 if (gModleInstance->getBattleMode() == K_HARD_PVE_BATTLE) {
                     //挑战模式下过关，加关卡
                     GameUtilities::saveAchieveHardLevelId(GameUtilities::getAchieveHardLevelId() + 1);
@@ -71,9 +87,6 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
                         star++;
                         GameUtilities::saveStar(star);
                     }
-                    
-                    //解锁奖励-挑战
-                    GameData::Instance().unlockAchievement();
                 } else {
                     //剧情故事
                     std::pair<int, int> counts0 = GameData::Instance().totalCount(-1, 0);
@@ -84,21 +97,6 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
                     count.second = counts0.second + counts1.second + counts2.second;
                     GameData::Instance().unlockStory(count);
                 }
-                
-				controller->pauseBattle();
-				achievement._failed = false;
-				achievement._star_count = (achievement._killNpcCount >= achievement._pass_star_count) ? 1 : 0;
-				std::vector<PlayerAchievement> list = GameData::Instance().findData(PlayerAchievement::getLevelId(achievement));
-				if (list.size() == 0) {
-					GameData::Instance().saveData(achievement);
-//                    GameCenter::postScore(KGameCenterScoreId, achievement._records);
-				} else if(list.size() > 0) {
-					const PlayerAchievement lastRecord = list[0];
-					if (lastRecord._records < achievement._records) {
-						GameData::Instance().saveData(achievement);
-//                        GameCenter::postScore(KGameCenterScoreId, achievement._killNpcCount);
-					}
-				}
                 
                 countScore();
                 
@@ -125,6 +123,9 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
 				achievement._failed=true;
 				controller->switchSence(GameController::K_SCENE_FAILED);
             }
+            
+            //解锁奖励-挑战
+            GameData::Instance().unlockAchievement();
 		}
 	}
 	

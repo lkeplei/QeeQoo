@@ -31,6 +31,9 @@ public:
     static int getRecord();
     static int getPass();
     static int getStar();
+    static int getMaxRecord();
+    static int getMaxPass();
+    static int getMaxStar();
     static bool getUnlockWithId(int achieveId);
     static void saveGoonGame(bool goon=true);
     static bool getGoonGame();

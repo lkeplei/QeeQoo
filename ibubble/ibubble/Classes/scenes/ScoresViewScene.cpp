@@ -149,24 +149,21 @@ int getAchievementUnlock() {
 }
 
 void ScoresViewScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader){
-    std::vector<PlayerAchievement> list = GameData::Instance().findData();
-    //显示总的分数情况
-    int pass_size = 0;
-    int star_size = 0;
-    //160,80
-    for (std::vector<PlayerAchievement>::iterator iter = list.begin(); iter != list.end(); iter++) {
-        pass_size ++;
-        if ((*iter)._star_count > 0) {
-            star_size ++;
-        }
-    }
+    std::pair<int, int> counts0 = GameData::Instance().totalCount(-1, 0);
+    std::pair<int, int> counts1 = GameData::Instance().totalCount(-1, 1);
+    std::pair<int, int> counts2 = GameData::Instance().totalCount(-1, 2);
+    std::pair<int, int> count(0, 0);
+    count.first = counts0.first + counts1.first + counts2.first;
+    count.second = counts0.second + counts1.second + counts2.second;
+    GameData::Instance().unlockStory(count);
+    
     
     std::stringstream gouStr;
-    gouStr << pass_size - GameUtilities::getPass() << "/" << 45;
+    gouStr << count.second << "/" << 45;
     _gouNode1->addChild(UiTool::createLabelAtlasWithBigNumber(gouStr.str()));
     
     std::stringstream starStr;
-    starStr << star_size - GameUtilities::getStar() << "/" << 45;
+    starStr << count.first << "/" << 45;
     _starNode1->addChild(UiTool::createLabelAtlasWithBigNumber(starStr.str()));
 
     std::stringstream rewardStr;
@@ -174,11 +171,11 @@ void ScoresViewScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoa
     _rewardNode1->addChild(UiTool::createLabelAtlasWithBigNumber(rewardStr.str()));
     
     std::stringstream gouStr2;
-    gouStr2 << GameUtilities::getPass();
+    gouStr2 << GameUtilities::getMaxPass();
     _gouNode2->addChild(UiTool::createLabelAtlasWithBigNumber(gouStr2.str()));
     
     std::stringstream starStr2;
-    starStr2 << GameUtilities::getStar();
+    starStr2 << GameUtilities::getMaxStar();
     _starNode2->addChild(UiTool::createLabelAtlasWithBigNumber(starStr2.str()));
     
     std::stringstream rewardStr2;
@@ -186,7 +183,7 @@ void ScoresViewScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoa
     _rewardNode2->addChild(UiTool::createLabelAtlasWithBigNumber(rewardStr2.str()));
     
     stringstream rewardGoodNode2;
-    rewardGoodNode2 << GameUtilities::getRecord();
+    rewardGoodNode2 << GameUtilities::getMaxRecord();
     _rewardGoodNode2->addChild(UiTool::createLabelAtlasWithBigNumber(rewardGoodNode2.str()));
 }
 

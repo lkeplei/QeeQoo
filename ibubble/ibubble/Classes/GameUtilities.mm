@@ -15,6 +15,9 @@
 #define kAchievementPass        @"achievement_pass"
 #define kAchievementStar        @"achievement_star"
 #define kAchievementRecord      @"achievement_record"
+#define kAchievementMaxPass     @"achievement_max_pass"
+#define kAchievementMaxStar     @"achievement_max_star"
+#define kAchievementMaxRecord   @"achievement_max_record"
 #define kAchievementLevel       @"achievement_level"
 #define kAchievementGononGame   @"achievement_goon"
 
@@ -144,6 +147,40 @@ void GameUtilities_saveAchieveHardLevelId(int level) {
 int GameUtilities_getAchieveHardLevelId() {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     return [defaults integerForKey:@"achievement_hard_level"];
+}
+
+//max achieve
+int GameUtilities_getMaxRecord() {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    return [[defaults objectForKey:kAchievementMaxRecord] intValue];
+}
+
+void GameUtilities_saveMaxRecord(int value) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:value] forKey:kAchievementMaxRecord];
+    [defaults synchronize];
+}
+
+int GameUtilities_getMaxPass() {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    return [[defaults objectForKey:kAchievementMaxPass] intValue];
+}
+
+void GameUtilities_saveMaxPass(int value) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:value] forKey:kAchievementMaxPass];
+    [defaults synchronize];
+}
+
+int GameUtilities_getMaxStar() {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    return [[defaults objectForKey:kAchievementMaxStar] intValue];
+}
+
+void GameUtilities_saveMaxStar(int value) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:value] forKey:kAchievementMaxStar];
+    [defaults synchronize];
 }
 
 #pragma mark - skill
