@@ -9,3 +9,4 @@
 "app_cancel" = "No";
 
 "new_game_ask" = "Are you sure you want to start a new game？";
+"lock_achieve" = "Please complete the story mode first.";

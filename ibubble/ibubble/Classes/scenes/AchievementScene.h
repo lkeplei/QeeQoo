@@ -47,7 +47,7 @@ public:
 #pragma mark CCBNodeLoaderListener
 	virtual void onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader);
 private:
-	
+    const char *getSpriteNameFromTag(int tag);
 };
 
 

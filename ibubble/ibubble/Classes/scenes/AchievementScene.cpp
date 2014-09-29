@@ -113,6 +113,67 @@ bool AchievementScene::onAssignCCBMemberVariable(CCObject * pTarget, CCString * 
 #pragma mark CCBNodeLoaderListener
 void AchievementScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader){
 	CCLOG("AchievementScene onNodeLoaded~") ;
+    for (int i = 10001; i < 10011; i++) {
+        CCMenu *menu = (CCMenu *)this->getChildByTag(10000);
+        if (menu) {
+            CCMenuItemImage *enterItem = (CCMenuItemImage *)menu->getChildByTag(i);
+            CCMenuItemImage *noneItem = (CCMenuItemImage *)menu->getChildByTag(i + 1000);
+            if (enterItem && noneItem) {
+                if (GameUtilities::getUnlockWithId(i)) {
+                    
+                } else {
+                    CCSprite* sprite = CCSprite::create("btn_reward_locked.png");
+                    sprite->setPosition(enterItem->getPosition());
+                    addChild(sprite);
+                    
+                    CCSprite* sprite1 = CCSprite::create(getSpriteNameFromTag(noneItem->getTag()));
+                    sprite1->setPosition(noneItem->getPosition());
+                    addChild(sprite1);
+                    
+                    enterItem->setVisible(false);
+                    noneItem->setVisible(false);
+                }
+            }
+        }
+    }
+}
+
+const char *AchievementScene::getSpriteNameFromTag(int tag) {
+    switch (tag) {
+        case 11001:
+            return "reward_level_2_locked.png";
+            break;
+        case 11002:
+            return "reward_level_9_locked.png";
+            break;
+        case 11003:
+            return "reward_level_1_locked.png";
+            break;
+        case 11004:
+            return "reward_level_5_locked.png";
+            break;
+        case 11005:
+            return "reward_level_10_locked.png";
+            break;
+        case 11006:
+            return "reward_level_6_locked.png";
+            break;
+        case 11007:
+            return "reward_level_7_locked.png";
+            break;
+        case 11008:
+            return "reward_level_8_locked.png";
+            break;
+        case 11009:
+            return "reward_level_3_locked.png";
+            break;
+        case 11010:
+            return "reward_level_4_locked.png";
+            break;
+        default:
+            return "reward_level_1_locked.png";
+            break;
+    }
 }
 
 void AchievementScene::onEnter(){

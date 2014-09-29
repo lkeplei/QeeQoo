@@ -57,7 +57,7 @@
 		046CD113197A069A00630062 /* UiTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD0EA197A069A00630062 /* UiTool.cpp */; };
 		046CD11C197A078400630062 /* ScoresViewScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD114197A078400630062 /* ScoresViewScene.cpp */; };
 		046CD11D197A078400630062 /* SettingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD116197A078400630062 /* SettingScene.cpp */; };
-		046CD11E197A078400630062 /* StartupScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD118197A078400630062 /* StartupScene.cpp */; };
+		046CD11E197A078400630062 /* StartupScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 046CD118197A078400630062 /* StartupScene.mm */; };
 		046CD11F197A078400630062 /* SubLevelsSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD11A197A078400630062 /* SubLevelsSelectionScene.cpp */; };
 		046E082319C8694A00940ADC /* kiss_default_boy_girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 046E082119C8694A00940ADC /* kiss_default_boy_girl.png */; };
 		046E082419C8694A00940ADC /* kiss_default_girl_boy.png in Resources */ = {isa = PBXBuildFile; fileRef = 046E082219C8694A00940ADC /* kiss_default_girl_boy.png */; };
@@ -891,7 +891,7 @@
 		046CD115197A078400630062 /* ScoresViewScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoresViewScene.h; sourceTree = "<group>"; };
 		046CD116197A078400630062 /* SettingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SettingScene.cpp; sourceTree = "<group>"; };
 		046CD117197A078400630062 /* SettingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingScene.h; sourceTree = "<group>"; };
-		046CD118197A078400630062 /* StartupScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartupScene.cpp; sourceTree = "<group>"; };
+		046CD118197A078400630062 /* StartupScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StartupScene.mm; sourceTree = "<group>"; };
 		046CD119197A078400630062 /* StartupScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupScene.h; sourceTree = "<group>"; };
 		046CD11A197A078400630062 /* SubLevelsSelectionScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SubLevelsSelectionScene.cpp; sourceTree = "<group>"; };
 		046CD11B197A078400630062 /* SubLevelsSelectionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubLevelsSelectionScene.h; sourceTree = "<group>"; };
@@ -2200,7 +2200,7 @@
 				046CD115197A078400630062 /* ScoresViewScene.h */,
 				046CD116197A078400630062 /* SettingScene.cpp */,
 				046CD117197A078400630062 /* SettingScene.h */,
-				046CD118197A078400630062 /* StartupScene.cpp */,
+				046CD118197A078400630062 /* StartupScene.mm */,
 				046CD119197A078400630062 /* StartupScene.h */,
 				046CD11A197A078400630062 /* SubLevelsSelectionScene.cpp */,
 				046CD11B197A078400630062 /* SubLevelsSelectionScene.h */,
@@ -4453,7 +4453,7 @@
 				FB34F104181FFE1F00FD0897 /* container.cpp in Sources */,
 				FB34F16B181FFE2000FD0897 /* jcdctmgr.c in Sources */,
 				FB34F15F181FFE2000FD0897 /* gameswf_tesselate.cpp in Sources */,
-				046CD11E197A078400630062 /* StartupScene.cpp in Sources */,
+				046CD11E197A078400630062 /* StartupScene.mm in Sources */,
 				183461DC164F70E700C4B4D6 /* CCActionEase.cpp in Sources */,
 				FB34F14B181FFE2000FD0897 /* gameswf_impl.cpp in Sources */,
 				183461DF164F70E700C4B4D6 /* CCActionGrid.cpp in Sources */,

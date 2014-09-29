@@ -13,9 +13,32 @@
 #include "UiTool.h"
 
 
+@interface KenConfirmAlert : NSObject<UIAlertViewDelegate>
+
+- (void)showAlert:(NSString *)title;
+
+@end
+
+@implementation KenConfirmAlert
+
+- (void)showAlert:(NSString *)title {
+    [[[UIAlertView alloc] initWithTitle:nil
+                                message:title
+                               delegate:self
+                      cancelButtonTitle:nil
+                      otherButtonTitles:KenLocal(@"app_confirm"), nil] show];
+}
+
+@end
+
+
+
+
+
 NS_KAI_BEGIN
 StartupScene::StartupScene():CCLayer()
 ,_logo(NULL)
+, _achieve_lock_sprite(NULL)
 ,_pressJuqinBTN(NULL)
 ,_pressJiangliBTN(NULL)
 ,_pressTiaozhanBTN(NULL)
@@ -35,6 +58,7 @@ StartupScene::StartupScene():CCLayer()
 StartupScene::~StartupScene()
 {
 	CC_SAFE_RELEASE_NULL(_logo);
+    CC_SAFE_RELEASE_NULL(_achieve_lock_sprite);
 	
 	CC_SAFE_RELEASE_NULL(_pressJuqinBTN);
 	CC_SAFE_RELEASE_NULL(_pressJiangliBTN);
@@ -93,7 +117,13 @@ void StartupScene::press_jiangli()
 void StartupScene::press_tiaozhan()
 {
 	CCLog("StartupScene::press_tiaozhan()");
-	GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeStart);
+    
+    if (GameUtilities::getUnlockWithId(10006)) {
+        GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeStart);
+    } else {
+        KenConfirmAlert *alert = [[KenConfirmAlert alloc] init];
+        [alert showAlert:KenLocal(@"lock_achieve")];
+    }
 }
 
 void StartupScene::press_setting()
@@ -187,6 +217,7 @@ cocos2d::extension::SEL_CCControlHandler StartupScene::onResolveCCBCCControlSele
 #pragma mark CCBMemberVariableAssigner
 bool StartupScene::onAssignCCBMemberVariable(CCObject * pTarget, CCString * pMemberVariableName, CCNode * pNode){
 	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "logo", CCSprite *, this->_logo);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "achieve_lock_sprite", CCSprite *, this->_achieve_lock_sprite);
 
 	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "button_juqin_1", CCMenuItemImage *, this->_pressJuqinBTN);
 	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "button_jiangli_1", CCMenuItemImage *, this->_pressJiangliBTN);
@@ -226,6 +257,13 @@ void StartupScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader
 	
 	_pressChengji->setSelectEventTarget(this, menu_selector(StartupScene::handleMenuItemSelected));
 	_pressChengji->setUnSelectEventTarget(this, menu_selector(StartupScene::handleMenuItemUnSelected));
+    
+    //挑战模式开启判断
+    if (GameUtilities::getUnlockWithId(10006)) {
+        _achieve_lock_sprite->setVisible(false);
+    } else {
+        _achieve_lock_sprite->setVisible(true);
+    }
 }
 
 void StartupScene::onEnter(){

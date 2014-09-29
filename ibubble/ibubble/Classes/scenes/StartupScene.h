@@ -55,6 +55,8 @@ public:
 	virtual void onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader);
 private:
 	CCSprite * _logo;
+    CCSprite *_achieve_lock_sprite;
+    
 	CCMenuItemImage * _pressJuqinBTN;
 	CCMenuItemImage * _pressJiangliBTN;
 	CCMenuItemImage * _pressTiaozhanBTN;

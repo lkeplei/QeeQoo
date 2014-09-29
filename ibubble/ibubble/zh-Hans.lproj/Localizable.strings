@@ -9,3 +9,4 @@
 "app_cancel" = "取消";
 
 "new_game_ask" = "您确定要开始新游戏吗？";
+"lock_achieve" = "剧情模式通关后开启。";

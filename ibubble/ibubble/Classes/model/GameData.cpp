@@ -228,6 +228,9 @@ void GameData::unlockStory(const std::pair<int, int> & counts){
 		unlockid = 10001;
 	} else if (counts.second >= 45 ) { //pass > 45
 		unlockid = 10003;
+#ifdef KVersionFull
+        unlockAchievement(true);
+#endif
 	} else if (counts.first >= 45 ) { //pass > 45
 		unlockid = 10004;
 	} else if (counts.first >= 25 ) { //pass > 45
