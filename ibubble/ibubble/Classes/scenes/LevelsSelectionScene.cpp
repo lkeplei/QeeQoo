@@ -192,19 +192,26 @@ void LevelsSelectionScene::press_right()
 	}
 }
 
+bool isLevelOpen(const int32_t id) {
+    bool res = true;
+    
+    if (id > 0) {
+        std::vector<PlayerAchievement> list = GameData::Instance().findData(-1, id - 1);
+        int list_size = list.size();
+        if (list_size < 14) {
+            res = false;
+        }
+        list.clear();
+    }
+    
+    return res;
+}
+
 void LevelsSelectionScene::press_enter_battle(const int32_t id){
 #ifndef KBattleTestModle
-	std::vector<PlayerAchievement> list = GameData::Instance().findData(-1,PlayerAchievement::bigLevelId(id));
-	int list_size = list.size();
-	if ((list_size == 0 && id == 0) ||
-		(list_size > 0 && (id <= list[list_size-1]._currentBigLevelId ||
-						   (id == list[list_size-1]._currentBigLevelId +1 && 14 <= list[list_size-1]._currentLevelId)))) {
+    if (isLevelOpen(id)) {
 		GameController::sharedInstance()->switchSence(GameController::K_SCENE_SUB_LEVELS_SELECTION,CCInteger::create(id));
-	}
-	else {
-		CCLOG("level-%d is limited",id);
-	}
-	list.clear();
+    }
 #else
 	GameController::sharedInstance()->switchSence(GameController::K_SCENE_SUB_LEVELS_SELECTION,CCInteger::create(id));
 #endif
@@ -361,6 +368,7 @@ void LevelsSelectionScene::switchCell(const int index,const bool animation,const
 	cell->setSelectedFrame(selectedFrameNode);
 	cell->setDefaultFrame(defaultFrameNode);
 	defaultFrameNode->setVisible(true);
+    
 	CCPoint p = CCPoint(contentSize.width * 0.5 , contentSize.height * 0.5);
 	_levelsTableViewRoot->addChild(cell);
 	_newCell = cell;
@@ -398,6 +406,15 @@ void LevelsSelectionScene::switchCell(const int index,const bool animation,const
 	starLabel->setPosition(CCPoint(labelSize.width * 0.95 , - contentSize.height * 0.13));
 	cell->addChild(starLabel);
 	
+    // add lock
+    CCString * idString = (CCString *)dict->objectForKey("id");
+    if (!isLevelOpen(idString->intValue())) {
+        CCSprite *lock = CCSprite::create("level_lock.png");
+        lock->setPositionX(lock->getPosition().x - 10);
+        lock->setPositionY(lock->getPosition().y - 20);
+        cell->addChild(lock);
+    }
+    
 	if (animation) {
 		
 		CCPoint fp  = p;
@@ -555,9 +572,11 @@ bool LevelsSelectionScene::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent){
 		touchLocation = _levelsTableViewRoot->getParent()->convertToNodeSpace(touchLocation);
 
 		if (getNewCellBox().containsPoint(touchLocation)) {
-			if (!_newCell->isSelected()) {
-				_newCell->Selected();
-			}
+            CCDictionary * dict=(CCDictionary *)_newCell->getCellData();
+            CCString * idString=(CCString *)dict->objectForKey("id");
+            if (!_newCell->isSelected() && isLevelOpen(idString->intValue())) {
+                _newCell->Selected();
+            }
 			return true;
 		}
 	}
@@ -580,7 +599,9 @@ void LevelsSelectionScene::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent){
         movePreX = touchLocation.x;
         
 		if (getNewCellBox().containsPoint(touchLocation)) {
-			if (!_newCell->isSelected()) {
+            CCDictionary * dict=(CCDictionary *)_newCell->getCellData();
+            CCString * idString=(CCString *)dict->objectForKey("id");
+			if (!_newCell->isSelected() && isLevelOpen(idString->intValue())) {
 				_newCell->Selected();
 			}
 		} else {

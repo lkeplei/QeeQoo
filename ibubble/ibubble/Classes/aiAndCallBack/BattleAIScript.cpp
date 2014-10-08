@@ -48,7 +48,7 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
 	GameController * controller = GameController::sharedInstance();
 	PlayerAchievement & achievement = gModleInstance->playerAchievement();
 	
-	if (achievement._idleTime >= achievement._idleMaxTime ) {
+	if (achievement._idleTime >= achievement._idleMaxTime) {
 		if (gModleInstance->currentBigLevelId() >= kStoryZoneMaxId && gModleInstance->getBattleMode() == K_NORMAL_PVE_BATTLE) {
 			if (achievement._killNpcCount > 0) {
 				controller->pauseBattle();
@@ -64,12 +64,10 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
                 std::vector<PlayerAchievement> list = GameData::Instance().findData(PlayerAchievement::getLevelId(achievement));
                 if (list.size() == 0) {
                     GameData::Instance().saveData(achievement);
-                    //                    GameCenter::postScore(KGameCenterScoreId, achievement._records);
                 } else if(list.size() > 0) {
                     const PlayerAchievement lastRecord = list[0];
                     if (lastRecord._records < achievement._records) {
                         GameData::Instance().saveData(achievement);
-                        //                        GameCenter::postScore(KGameCenterScoreId, achievement._killNpcCount);
                     }
                 }
                 

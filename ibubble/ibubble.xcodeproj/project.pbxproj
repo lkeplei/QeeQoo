@@ -13,6 +13,7 @@
 		042D4489198E80E200A1F26A /* scores_layer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 042D4488198E80E200A1F26A /* scores_layer.ccbi */; };
 		043D2E2A19A639A000A3B7CE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 043D2E2C19A639A000A3B7CE /* Localizable.strings */; };
 		043F55A419C0768C008DFE6E /* challenge_help.png in Resources */ = {isa = PBXBuildFile; fileRef = 043F55A619C0768C008DFE6E /* challenge_help.png */; };
+		045ABDAE19E5667A00C46EB5 /* level_lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 045ABDAD19E5667A00C46EB5 /* level_lock.png */; };
 		045FF5F2199A6834007BE8B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 045FF5F4199A6834007BE8B3 /* InfoPlist.strings */; };
 		046169BB19A4DB7F00D1C791 /* kiss_default_sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 046169BA19A4DB7F00D1C791 /* kiss_default_sprite.png */; };
 		046CD0EC197A069A00630062 /* BattleAIScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD097197A069A00630062 /* BattleAIScript.cpp */; };
@@ -803,6 +804,7 @@
 		043D2E2D19A639A400A3B7CE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		043F55A519C0768C008DFE6E /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/challenge_help.png; sourceTree = "<group>"; };
 		043F55A719C07692008DFE6E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zh-Hans"; path = "zh-Hans.lproj/challenge_help.png"; sourceTree = "<group>"; };
+		045ABDAD19E5667A00C46EB5 /* level_lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level_lock.png; sourceTree = "<group>"; };
 		045FF5F3199A6834007BE8B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		045FF5F5199A6843007BE8B3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		046169BA19A4DB7F00D1C791 /* kiss_default_sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiss_default_sprite.png; sourceTree = "<group>"; };
@@ -3317,6 +3319,7 @@
 		183464E4164F8F5D00C4B4D6 /* ipad */ = {
 			isa = PBXGroup;
 			children = (
+				045ABDAD19E5667A00C46EB5 /* level_lock.png */,
 				04B74C8319C9C0030031DA4E /* setting_show_button.png */,
 				04B74C8419C9C0030031DA4E /* setting_show_title.png */,
 				04B74C8119C9A5B60031DA4E /* gamecenter_sel.png */,
@@ -4315,6 +4318,7 @@
 				18DA3AF816D65B6C00F9A7C8 /* explode_water_2.png in Resources */,
 				18DA3AF916D65B6C00F9A7C8 /* explode_water_3.png in Resources */,
 				049886A419A0DACE00E0FCEC /* end_movie3.plist in Resources */,
+				045ABDAE19E5667A00C46EB5 /* level_lock.png in Resources */,
 				047FB72319BF30B600FC71EF /* reward_level_1_unlocked.png in Resources */,
 				18DA3AFA16D65B6C00F9A7C8 /* explode_water_4.png in Resources */,
 				18DA3AFB16D65B6C00F9A7C8 /* explode_water_5.png in Resources */,
