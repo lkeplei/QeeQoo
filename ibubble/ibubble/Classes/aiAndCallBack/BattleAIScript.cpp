@@ -54,8 +54,7 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
 				controller->pauseBattle();
 				controller->switchSence(GameController::K_SCENE_ACHIEVEMENT);
 			}
-		}
-		else{
+		} else {
 			if (achievement._killNpcCount >= achievement._pass_count) {
                 //数据处理
                 controller->pauseBattle();
@@ -111,8 +110,7 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
                 } else {
                     controller->switchSence(GameController::K_SCENE_SUCCESS);
                 }
-			}
-			else if(gModleInstance->getBattleTouchTimes() > 0 &&
+			} else if(gModleInstance->getBattleTouchTimes() > 0 &&
 					gModleInstance->getBattleTouchTimes() >= gModleInstance->getBattleTouchMaxTimes() ){
 				
                 countScore();

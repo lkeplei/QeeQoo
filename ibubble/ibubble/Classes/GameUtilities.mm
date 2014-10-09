@@ -228,7 +228,7 @@ int GameUtilities_getSkillMultiTouch() {
     if ([defaults valueForKey:@"info_skill_multi_touch"]) {
         return [defaults integerForKey:@"info_skill_multi_touch"];
     } else {
-        return 1;
+        return 4;
     }
 }
 int GameUtilities_getSkillSkip() {
@@ -236,7 +236,7 @@ int GameUtilities_getSkillSkip() {
     if ([defaults valueForKey:@"info_skill_skip"]) {
         return [defaults integerForKey:@"info_skill_skip"];
     } else {
-        return 1;
+        return 4;
     }
 }
 int GameUtilities_getSkillWeak() {
@@ -244,7 +244,7 @@ int GameUtilities_getSkillWeak() {
     if ([defaults valueForKey:@"info_skill_weak"]) {
         return [defaults integerForKey:@"info_skill_weak"];
     } else {
-        return 1;
+        return 4;
     }
 }
 int GameUtilities_getSkillSTouch() {
@@ -252,7 +252,7 @@ int GameUtilities_getSkillSTouch() {
     if ([defaults valueForKey:@"info_skill_s_touch"]) {
         return [defaults integerForKey:@"info_skill_s_touch"];
     } else {
-        return 1;
+        return 4;
     }
 }
 int GameUtilities_getSkillLargeTouch() {
@@ -260,7 +260,7 @@ int GameUtilities_getSkillLargeTouch() {
     if ([defaults valueForKey:@"info_skill_large_touch"]) {
         return [defaults integerForKey:@"info_skill_large_touch"];
     } else {
-        return 1;
+        return 4;
     }
 }
 

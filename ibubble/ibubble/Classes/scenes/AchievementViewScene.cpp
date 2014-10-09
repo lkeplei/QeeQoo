@@ -65,6 +65,8 @@ void AchievementViewScene::press_back()
         playSwf((CCString *)swfFileArray->objectAtIndex(swfIndex));
         swfIndex++;
     } else {
+        canTouch = false;
+        
         GameModle::sharedInstance()->stopBackgroundMusic();
         GameController::sharedInstance()->switchSence(GameController::K_SCENE_ACHIEVEMENT,CCInteger::create(0));
         GameModle::sharedInstance()->playBackground(K_BG_MUSIC_OUTSIDE_OF_BATTLE);

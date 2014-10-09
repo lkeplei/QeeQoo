@@ -119,6 +119,9 @@ BattleControllerLayer::BattleControllerLayer():BattleBaseLayer(){
 	_skill5text = NULL;
 	_skill6text = NULL;
 
+    skill4Selected = false;
+    skill5Selected = false;
+    skill6Selected = false;
 }
 
 BattleControllerLayer::~BattleControllerLayer(){
@@ -286,8 +289,10 @@ void BattleControllerLayer::press_skill2(){
         if (GameModle::sharedInstance()->getBattleMode() != K_HARD_PVE_BATTLE) {
             GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE,CCInteger::create(currentLevelId));
         }else{
+            int level = GameUtilities::getRandLevel(false);
+            GameUtilities::saveAchieveLevelId(level);
             GameController::sharedInstance()->switchSence(GameController::K_SCENE_BATTLE_CHALLENGE,
-                                                          CCInteger::create(GameUtilities::getRandLevel(false)));
+                                                          CCInteger::create(level));
         }
 	}
 }
@@ -307,42 +312,60 @@ void BattleControllerLayer::press_skill3(){
 void BattleControllerLayer::press_skill4(){
 	GameModle *model = GameModle::sharedInstance();
 	if (model->getBattleTouchTimes() < model->getBattleTouchMaxTimes()) {
-        GameUtilities::saveSkillSTouch(GameUtilities::getSkillSTouch() - 1);
-        skillUpdated(NULL);
-        
-		GameController::sharedInstance()->pauseBattle();
-		GameModle::sharedInstance()->setTouchEnableTypes(KNPCTypeStrengthId);
-		GameController::sharedInstance()->resumeBattle();
-        
-        _skill4Button->selected();
+        if (!skill4Selected) {
+            GameUtilities::saveSkillSTouch(GameUtilities::getSkillSTouch() - 1);
+            skillUpdated(NULL);
+            
+            GameController::sharedInstance()->pauseBattle();
+            GameModle::sharedInstance()->setTouchEnableTypes(KNPCTypeStrengthId);
+            GameController::sharedInstance()->resumeBattle();
+            
+            _skill4Button->selected();
+            skill4Selected = true;
+        }
 	}
+    
+    if (skill4Selected)
+        _skill4Button->selected();
 }
 
 void BattleControllerLayer::press_skill5(){
     GameModle *model = GameModle::sharedInstance();
 	if (model->getBattleTouchTimes() < model->getBattleTouchMaxTimes()) {
-        GameUtilities::saveSkillLargeTouch(GameUtilities::getSkillLargeTouch() - 1);
-        skillUpdated(NULL);
+        if (!skill5Selected) {
+            GameUtilities::saveSkillLargeTouch(GameUtilities::getSkillLargeTouch() - 1);
+            skillUpdated(NULL);
+            
+            GameController::sharedInstance()->pauseBattle();
+            model->setTouchEnableAll();
+            GameController::sharedInstance()->resumeBattle();
         
-		GameController::sharedInstance()->pauseBattle();
-		model->setTouchEnableAll();
-		GameController::sharedInstance()->resumeBattle();
-        
+            skill5Selected = true;
+        }
         _skill5Button->selected();
 	}
+    
+    if (skill5Selected)
+        _skill5Button->selected();
 }
 
 void BattleControllerLayer::press_skill6() {
     if(GameModle::sharedInstance()->getBattleTouchMaxTimes() < 2) {
-        GameUtilities::saveSkillMultiTouch(GameUtilities::getSkillMultiTouch() - 1);
-        skillUpdated(NULL);
-        
-        GameController::sharedInstance()->pauseBattle();
-        GameModle::sharedInstance()->setBattleTouchMaxTimes(2);
-        GameController::sharedInstance()->resumeBattle();
-        
-        _skill6Button->selected();
+        if (!skill6Selected) {
+            GameUtilities::saveSkillMultiTouch(GameUtilities::getSkillMultiTouch() - 1);
+            skillUpdated(NULL);
+            
+            GameController::sharedInstance()->pauseBattle();
+            GameModle::sharedInstance()->setBattleTouchMaxTimes(2);
+            GameController::sharedInstance()->resumeBattle();
+            
+            _skill6Button->selected();
+            skill6Selected = true;
+        }
     }
+    
+    if (skill6Selected)
+        _skill6Button->selected();
 }
 
 #pragma mark-
@@ -579,12 +602,14 @@ void BattleScene::ccTouchesEnded(CCSet* touches, CCEvent* event)
         BattleControllerLayer *battleController = (BattleControllerLayer *)this->getChildByTag(KBattleNodeTagControllerLayer);
         battleController->_skill4Button->unselected();
         battleController->_skill5Button->unselected();
-        
+        battleController->skill4Selected = false;
+        battleController->skill5Selected = false;
         
         int max = GameModle::sharedInstance()->getBattleTouchMaxTimes();
         int touch = GameModle::sharedInstance()->getBattleTouchTimes();
         if (touch >= max) {
             battleController->_skill6Button->unselected();
+            battleController->skill6Selected = false;
         }
     }
 }

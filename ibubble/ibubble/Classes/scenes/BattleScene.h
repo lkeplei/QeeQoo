@@ -152,6 +152,10 @@ public:
     CCMenuItemImage * _skill4Button;
 	CCMenuItemImage * _skill5Button;
 	CCMenuItemImage * _skill6Button;
+    
+    bool skill4Selected;
+    bool skill5Selected;
+    bool skill6Selected;
 };
 
 
