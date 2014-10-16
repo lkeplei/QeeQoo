@@ -15,7 +15,9 @@
 #include "GameModle.h"
 #include "GameConstant.h"
 #include "GameData.h"
+
 #include "GameCenter.h"
+#import "GameKitHelper.h"
 
 #import "MobClick.h"
 
@@ -91,7 +93,9 @@ bool AppDelegate::applicationDidFinishLaunching()
     
     pDirector->setProjection(kCCDirectorProjection2D);//指定cocos2d为2d模式
     
-    GameCenter::login();
+    //GameCenter登陆
+    [[GameKitHelper sharedGameKitHelper] authenticateLocalUser];
+//    GameCenter::login();
     
     
     

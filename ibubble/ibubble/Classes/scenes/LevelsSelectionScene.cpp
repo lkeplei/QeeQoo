@@ -198,8 +198,13 @@ bool isLevelOpen(const int32_t id) {
     if (id > 0) {
         std::vector<PlayerAchievement> list = GameData::Instance().findData(-1, id - 1);
         int list_size = list.size();
-        if (list_size < 14) {
+        if (list_size < 15) {
             res = false;
+        } else if (list_size >= 15) {
+            PlayerAchievement player = list[14];
+            if (player._killNpcCount < player._pass_count) {
+                res = false;
+            }
         }
         list.clear();
     }

@@ -12,6 +12,7 @@
 #include "GameObject.h"
 #include "UiTool.h"
 #include "GameCenter.h"
+#import "GameKitHelper.h"
 
 #include "GameUtilities.h"
 
@@ -75,7 +76,9 @@ void ScoresViewScene::press_back()
 
 void ScoresViewScene::press_rank_list()
 {
-    GameCenter::showScores();
+//    GameCenter::showScores();
+    //显示排行榜
+    [[GameKitHelper sharedGameKitHelper] showLeaderboard];
 }
 
 bool ScoresViewScene::init(){

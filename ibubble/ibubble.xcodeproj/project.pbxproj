@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04067F2D19F017C700AD45C0 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04067F2C19F017C700AD45C0 /* GameKitHelper.m */; };
 		0425E8D9198E1CE6001DA340 /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0425E8D6198E1CE6001DA340 /* background1.png */; };
 		0425E8DA198E1CE6001DA340 /* background3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0425E8D7198E1CE6001DA340 /* background3.png */; };
 		0425E8DB198E1CE6001DA340 /* background4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0425E8D8198E1CE6001DA340 /* background4.png */; };
@@ -17,7 +18,7 @@
 		045FF5F2199A6834007BE8B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 045FF5F4199A6834007BE8B3 /* InfoPlist.strings */; };
 		0460BA5619EDE62C000EBEC7 /* e_rocket.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0460BA5519EDE62C000EBEC7 /* e_rocket.mp3 */; };
 		046169BB19A4DB7F00D1C791 /* kiss_default_sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 046169BA19A4DB7F00D1C791 /* kiss_default_sprite.png */; };
-		046CD0EC197A069A00630062 /* BattleAIScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD097197A069A00630062 /* BattleAIScript.cpp */; };
+		046CD0EC197A069A00630062 /* BattleAIScript.mm in Sources */ = {isa = PBXBuildFile; fileRef = 046CD097197A069A00630062 /* BattleAIScript.mm */; };
 		046CD0ED197A069A00630062 /* GameAIScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD099197A069A00630062 /* GameAIScript.cpp */; };
 		046CD0EE197A069A00630062 /* GameAIScriptFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD09B197A069A00630062 /* GameAIScriptFactory.cpp */; };
 		046CD0EF197A069A00630062 /* GameCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD09D197A069A00630062 /* GameCallback.cpp */; };
@@ -57,7 +58,7 @@
 		046CD111197A069A00630062 /* GameCenterIos.m in Sources */ = {isa = PBXBuildFile; fileRef = 046CD0E7197A069A00630062 /* GameCenterIos.m */; };
 		046CD112197A069A00630062 /* SQLiteWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD0E8197A069A00630062 /* SQLiteWrapper.cpp */; };
 		046CD113197A069A00630062 /* UiTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD0EA197A069A00630062 /* UiTool.cpp */; };
-		046CD11C197A078400630062 /* ScoresViewScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD114197A078400630062 /* ScoresViewScene.cpp */; };
+		046CD11C197A078400630062 /* ScoresViewScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 046CD114197A078400630062 /* ScoresViewScene.mm */; };
 		046CD11D197A078400630062 /* SettingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD116197A078400630062 /* SettingScene.cpp */; };
 		046CD11E197A078400630062 /* StartupScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 046CD118197A078400630062 /* StartupScene.mm */; };
 		046CD11F197A078400630062 /* SubLevelsSelectionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046CD11A197A078400630062 /* SubLevelsSelectionScene.cpp */; };
@@ -796,6 +797,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04067F2B19F017C700AD45C0 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
+		04067F2C19F017C700AD45C0 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
 		0425E8D6198E1CE6001DA340 /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background1.png; sourceTree = "<group>"; };
 		0425E8D7198E1CE6001DA340 /* background3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background3.png; sourceTree = "<group>"; };
 		0425E8D8198E1CE6001DA340 /* background4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background4.png; sourceTree = "<group>"; };
@@ -809,7 +812,7 @@
 		045FF5F5199A6843007BE8B3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		0460BA5519EDE62C000EBEC7 /* e_rocket.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = e_rocket.mp3; sourceTree = "<group>"; };
 		046169BA19A4DB7F00D1C791 /* kiss_default_sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiss_default_sprite.png; sourceTree = "<group>"; };
-		046CD097197A069A00630062 /* BattleAIScript.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleAIScript.cpp; sourceTree = "<group>"; };
+		046CD097197A069A00630062 /* BattleAIScript.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BattleAIScript.mm; sourceTree = "<group>"; };
 		046CD098197A069A00630062 /* BattleAIScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleAIScript.h; sourceTree = "<group>"; };
 		046CD099197A069A00630062 /* GameAIScript.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameAIScript.cpp; sourceTree = "<group>"; };
 		046CD09A197A069A00630062 /* GameAIScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameAIScript.h; sourceTree = "<group>"; };
@@ -890,7 +893,7 @@
 		046CD0E9197A069A00630062 /* SQLiteWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteWrapper.h; sourceTree = "<group>"; };
 		046CD0EA197A069A00630062 /* UiTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UiTool.cpp; sourceTree = "<group>"; };
 		046CD0EB197A069A00630062 /* UiTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UiTool.h; sourceTree = "<group>"; };
-		046CD114197A078400630062 /* ScoresViewScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScoresViewScene.cpp; sourceTree = "<group>"; };
+		046CD114197A078400630062 /* ScoresViewScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScoresViewScene.mm; sourceTree = "<group>"; };
 		046CD115197A078400630062 /* ScoresViewScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoresViewScene.h; sourceTree = "<group>"; };
 		046CD116197A078400630062 /* SettingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SettingScene.cpp; sourceTree = "<group>"; };
 		046CD117197A078400630062 /* SettingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingScene.h; sourceTree = "<group>"; };
@@ -2119,7 +2122,7 @@
 		046CD096197A069A00630062 /* aiAndCallBack */ = {
 			isa = PBXGroup;
 			children = (
-				046CD097197A069A00630062 /* BattleAIScript.cpp */,
+				046CD097197A069A00630062 /* BattleAIScript.mm */,
 				046CD098197A069A00630062 /* BattleAIScript.h */,
 				046CD099197A069A00630062 /* GameAIScript.cpp */,
 				046CD09A197A069A00630062 /* GameAIScript.h */,
@@ -2198,7 +2201,7 @@
 				046CD0E0197A069A00630062 /* LevelMVScene.h */,
 				046CD0E1197A069A00630062 /* LevelsSelectionScene.cpp */,
 				046CD0E2197A069A00630062 /* LevelsSelectionScene.h */,
-				046CD114197A078400630062 /* ScoresViewScene.cpp */,
+				046CD114197A078400630062 /* ScoresViewScene.mm */,
 				046CD115197A078400630062 /* ScoresViewScene.h */,
 				046CD116197A078400630062 /* SettingScene.cpp */,
 				046CD117197A078400630062 /* SettingScene.h */,
@@ -2213,6 +2216,8 @@
 		046CD0E3197A069A00630062 /* tools */ = {
 			isa = PBXGroup;
 			children = (
+				04067F2B19F017C700AD45C0 /* GameKitHelper.h */,
+				04067F2C19F017C700AD45C0 /* GameKitHelper.m */,
 				046CD0E4197A069A00630062 /* GameCenter.h */,
 				046CD0E5197A069A00630062 /* GameCenter.mm */,
 				046CD0E6197A069A00630062 /* GameCenterIos.h */,
@@ -4571,7 +4576,7 @@
 				FB34F12C181FFE2000FD0897 /* as_math.cpp in Sources */,
 				FB34F12F181FFE2000FD0897 /* as_mouse.cpp in Sources */,
 				FB34F19C181FFE2000FD0897 /* transupp.c in Sources */,
-				046CD11C197A078400630062 /* ScoresViewScene.cpp in Sources */,
+				046CD11C197A078400630062 /* ScoresViewScene.mm in Sources */,
 				046CD0F9197A069A00630062 /* GameData.cpp in Sources */,
 				183462E3164F70E900C4B4D6 /* EAGLView.mm in Sources */,
 				183462E8164F70E900C4B4D6 /* AccelerometerSimulation.m in Sources */,
@@ -4842,7 +4847,7 @@
 				FB34F0FF181FFE1F00FD0897 /* CCGameSWF.cpp in Sources */,
 				FB34F10F181FFE1F00FD0897 /* membuf.cpp in Sources */,
 				FB34F133181FFE2000FD0897 /* as_number.cpp in Sources */,
-				046CD0EC197A069A00630062 /* BattleAIScript.cpp in Sources */,
+				046CD0EC197A069A00630062 /* BattleAIScript.mm in Sources */,
 				FB34F112181FFE1F00FD0897 /* tu_file.cpp in Sources */,
 				FB34F13E181FFE2000FD0897 /* gameswf_avm2.cpp in Sources */,
 				FB34F158181FFE2000FD0897 /* gameswf_shape.cpp in Sources */,
@@ -4865,6 +4870,7 @@
 				FB34F150181FFE2000FD0897 /* gameswf_morph2.cpp in Sources */,
 				FB34F125181FFE2000FD0897 /* as_date.cpp in Sources */,
 				FB34F166181FFE2000FD0897 /* cdjpeg.c in Sources */,
+				04067F2D19F017C700AD45C0 /* GameKitHelper.m in Sources */,
 				046CD108197A069A00630062 /* GameDailog.cpp in Sources */,
 				FB34F18D181FFE2000FD0897 /* jidctfst.c in Sources */,
 				FB34F144181FFE2000FD0897 /* gameswf_dlist.cpp in Sources */,

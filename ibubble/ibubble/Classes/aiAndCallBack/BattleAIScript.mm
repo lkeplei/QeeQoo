@@ -14,6 +14,7 @@
 #include "GameData.h"
 #include "GameConstant.h"
 #include "GameCenter.h"
+#import "GameKitHelper.h"
 
 #include "LevelMVScene.h"
 #include "GameUtilities.h"
@@ -39,7 +40,8 @@ void countScore() {
         GameUtilities::saveRecord(totalRecord);
         
         //上传得分
-        GameCenter::postScore(KLeaderBoardId, totalRecord);
+//        GameCenter::postScore(KLeaderBoardId, totalRecord);
+        [[GameKitHelper sharedGameKitHelper] reportScore:totalRecord];
     }
 }
 

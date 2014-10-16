@@ -233,19 +233,30 @@ void GameData::unlockStory(){
 	int unlockid = 0;
 	if (counts.first >= 15 ) { //star >= 15
 		unlockid = 10001;
-	} else if (counts.second >= 45 ) { //pass > 45
+        saveUnlockId(unlockid);
+	}
+    
+    if (counts.second >= 45 ) { //pass > 45
 		unlockid = 10003;
+        saveUnlockId(unlockid);
 #ifdef KVersionFull
         unlockAchievement(true);
 #endif
-	} else if (counts.first >= 45 ) { //pass > 45
-		unlockid = 10004;
-	} else if (counts.first >= 25 ) { //pass > 45
-		unlockid = 10009;
-	} else if (counts.first >= 35 ) { //pass > 45
-		unlockid = 10010;
 	}
-	
-    saveUnlockId(unlockid);
+    
+    if (counts.first >= 45 ) { //pass > 45
+		unlockid = 10004;
+        saveUnlockId(unlockid);
+	}
+    
+    if (counts.first >= 25 ) { //pass > 45
+		unlockid = 10009;
+        saveUnlockId(unlockid);
+	}
+    
+    if (counts.first >= 35 ) { //pass > 45
+		unlockid = 10010;
+        saveUnlockId(unlockid);
+	}
 }
 NS_KAI_END
