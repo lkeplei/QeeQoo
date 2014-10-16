@@ -204,7 +204,11 @@ bool isLevelOpen(const int32_t id) {
         list.clear();
     }
     
+#ifdef KOpenAllLevels
+    return true;
+#else
     return res;
+#endif
 }
 
 void LevelsSelectionScene::press_enter_battle(const int32_t id){

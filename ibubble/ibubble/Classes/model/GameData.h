@@ -133,7 +133,7 @@ public:
 	std::vector<PlayerAchievement> findData(int32_t levelid = -1,int32_t biglevelid = -1);
 	std::pair<int, int> totalCount(int32_t levelid = -1,int32_t biglevelid = -1);
     std::pair<int, int> totalRecords(int32_t levelid = -1,int32_t biglevelid = -1);
-	void unlockStory(const std::pair<int, int> & counts);
+	void unlockStory();
     void unlockAchievement(bool openAchievement=false);
 private:
 

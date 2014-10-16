@@ -239,6 +239,10 @@ bool StartupScene::onAssignCCBMemberVariable(CCObject * pTarget, CCString * pMem
 #pragma mark CCBNodeLoaderListener
 void StartupScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader){
 	CCLOG("StartupScene onNodeLoaded~") ;
+    //剧情故事
+    GameData::Instance().unlockStory();
+    //解锁奖励-挑战
+    GameData::Instance().unlockAchievement();
 	
 	_pressJuqin->setSelectEventTarget(this, menu_selector(StartupScene::handleMenuItemSelected));
 	_pressJuqin->setUnSelectEventTarget(this, menu_selector(StartupScene::handleMenuItemUnSelected));

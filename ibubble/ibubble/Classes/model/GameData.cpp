@@ -222,7 +222,14 @@ void GameData::unlockAchievement(bool openAchievement) {
     }
 }
 
-void GameData::unlockStory(const std::pair<int, int> & counts){
+void GameData::unlockStory(){
+    std::pair<int, int> counts0 = GameData::Instance().totalCount(-1, 0);
+    std::pair<int, int> counts1 = GameData::Instance().totalCount(-1, 1);
+    std::pair<int, int> counts2 = GameData::Instance().totalCount(-1, 2);
+    std::pair<int, int> counts(0, 0);
+    counts.first = counts0.first + counts1.first + counts2.first;
+    counts.second = counts0.second + counts1.second + counts2.second;
+    
 	int unlockid = 0;
 	if (counts.first >= 15 ) { //star >= 15
 		unlockid = 10001;

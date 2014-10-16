@@ -122,7 +122,7 @@ void GameOverScene::updateScene() {
         _play_next->setEnabled(false);
         
         _replay_menu->setPosition(_replay_menu->getPosition().x + 50, _replay_menu->getPosition().y);
-        _home_menu->setPosition(_home_menu->getPosition().x + 90, _home_menu->getPosition().y);
+        _home_menu->setPosition(_home_menu->getPosition().x + 80, _home_menu->getPosition().y);
     }
 }
 

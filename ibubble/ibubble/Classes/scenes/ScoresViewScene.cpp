@@ -149,14 +149,18 @@ int getAchievementUnlock() {
 }
 
 void ScoresViewScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader){
+    //剧情故事
+    GameData::Instance().unlockStory();
+    //解锁奖励-挑战
+    GameData::Instance().unlockAchievement();
+    
+    
     std::pair<int, int> counts0 = GameData::Instance().totalCount(-1, 0);
     std::pair<int, int> counts1 = GameData::Instance().totalCount(-1, 1);
     std::pair<int, int> counts2 = GameData::Instance().totalCount(-1, 2);
     std::pair<int, int> count(0, 0);
     count.first = counts0.first + counts1.first + counts2.first;
     count.second = counts0.second + counts1.second + counts2.second;
-    GameData::Instance().unlockStory(count);
-    
     
     std::stringstream gouStr;
     gouStr << count.second << "/" << 45;
