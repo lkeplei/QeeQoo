@@ -294,14 +294,22 @@ void ChallengeGameOverScene::setStep(bool first){
             show(3);
         }
     } else {
-        if (achievement._killNpcCount >= achievement._pass_count) {
-            show(4);
-        } else if (GameUtilities::getSkillLife() <= 0) {
+        if (GameUtilities::getSkillLife() <= 0) {
             show(6);
-        } else if (gModleInstance->currentHardLevelId() >= 29) {
-            show(7);
         } else {
-            show(5);
+            if (gModleInstance->currentHardLevelId() >= 29) {
+                if (achievement._killNpcCount >= achievement._pass_count) {
+                    show(7);
+                } else {
+                    show(5);
+                }
+            } else {
+                if (achievement._killNpcCount >= achievement._pass_count) {
+                    show(4);
+                } else {
+                    show(5);
+                }
+            }
         }
     }
 }

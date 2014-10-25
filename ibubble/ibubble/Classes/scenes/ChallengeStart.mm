@@ -151,7 +151,7 @@ bool ChallengeStart::onAssignCCBMemberVariable(CCObject * pTarget, CCString * pM
 #pragma mark-
 #pragma mark CCBNodeLoaderListener
 void ChallengeStart::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoade){
-    if (!GameUtilities::getGoonGame() || GameUtilities::getSkillLife() <= 0) {
+    if (!GameUtilities::getGoonGame() || GameUtilities::getSkillLife() <= 0 || GameModle::sharedInstance()->currentHardLevelId() >= 29) {
         _continue_menu->setEnabled(false);
         _continue_menu->selected();
     }

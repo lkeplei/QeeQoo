@@ -7315,13 +7315,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>56</string>
+					<string>58</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>63</string>
+					<string>64</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -7457,13 +7457,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>88</string>
+					<string>90</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>95</string>
+					<string>96</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -7644,13 +7644,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>32</string>
+					<string>34</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>36</string>
+					<string>37</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -7842,13 +7842,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>56</string>
+					<string>58</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>63</string>
+					<string>64</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -8051,13 +8051,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>68</string>
+					<string>70</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>75</string>
+					<string>76</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -8260,13 +8260,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>80</string>
+					<string>82</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>85</string>
+					<string>87</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -8436,13 +8436,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>85</string>
+					<string>90</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>95</string>
+					<string>96</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -8623,13 +8623,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>90</string>
+					<string>93</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>96</string>
+					<string>98</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -8810,13 +8810,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>90</string>
+					<string>95</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>98</string>
+					<string>99</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -9019,7 +9019,7 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>95</string>
+					<string>97</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
@@ -9565,13 +9565,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>16</string>
+					<string>18</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>18</string>
+					<string>21</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -9679,7 +9679,7 @@
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>45</string>
+					<string>48</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -9781,7 +9781,7 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>75</string>
+					<string>70</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
@@ -9912,13 +9912,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>16</string>
+					<string>17</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>18</string>
+					<string>20</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -10049,7 +10049,7 @@
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>45</string>
+					<string>48</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -10162,13 +10162,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>20</string>
+					<string>21</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>23</string>
+					<string>24</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -10281,13 +10281,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>20</string>
+					<string>21</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>23</string>
+					<string>25</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -10429,7 +10429,7 @@
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>50</string>
+					<string>52</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -10718,13 +10718,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>45</string>
+					<string>46</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>50</string>
+					<string>52</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -10872,7 +10872,7 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>70</string>
+					<string>68</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
@@ -11025,13 +11025,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>25</string>
+					<string>26</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>30</string>
+					<string>33</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -11229,7 +11229,7 @@
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>55</string>
+					<string>56</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -11438,7 +11438,7 @@
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>65</string>
+					<string>68</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -11625,7 +11625,7 @@
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>85</string>
+					<string>88</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -11727,13 +11727,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>10</string>
+					<string>11</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>12</string>
+					<string>13</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -11835,13 +11835,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>28</string>
+					<string>30</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>32</string>
+					<string>35</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -11943,13 +11943,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>55</string>
+					<string>50</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>65</string>
+					<string>60</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -12074,13 +12074,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>10</string>
+					<string>11</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>12</string>
+					<string>13</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -12324,13 +12324,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>45</string>
+					<string>48</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>50</string>
+					<string>53</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -12472,7 +12472,7 @@
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>60</string>
+					<string>62</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -12585,13 +12585,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>36</string>
+					<string>38</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>40</string>
+					<string>43</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -12715,13 +12715,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>20</string>
+					<string>22</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>23</string>
+					<string>25</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -12868,13 +12868,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>64</string>
+					<string>65</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>68</string>
+					<string>70</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -13022,13 +13022,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>42</string>
+					<string>45</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>46</string>
+					<string>50</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -13175,13 +13175,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>50</string>
+					<string>54</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>55</string>
+					<string>60</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -13317,13 +13317,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>80</string>
+					<string>85</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>85</string>
+					<string>92</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -13526,13 +13526,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>72</string>
+					<string>75</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>78</string>
+					<string>82</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -13713,13 +13713,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>82</string>
+					<string>86</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>88</string>
+					<string>93</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -13821,13 +13821,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>20</string>
+					<string>22</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>25</string>
+					<string>28</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -14168,13 +14168,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>28</string>
+					<string>32</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>35</string>
+					<string>38</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -14429,13 +14429,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>36</string>
+					<string>38</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>40</string>
+					<string>43</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -14571,13 +14571,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>80</string>
+					<string>84</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>85</string>
+					<string>90</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -14719,7 +14719,7 @@
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>64</string>
+					<string>68</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -14866,13 +14866,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>38</string>
+					<string>40</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>42</string>
+					<string>45</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -15019,13 +15019,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>85</string>
+					<string>88</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>90</string>
+					<string>94</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -15173,7 +15173,7 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>65</string>
+					<string>63</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
@@ -15479,13 +15479,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>28</string>
+					<string>30</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>32</string>
+					<string>35</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -15655,13 +15655,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>80</string>
+					<string>85</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>85</string>
+					<string>90</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -15842,13 +15842,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>85</string>
+					<string>90</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>90</string>
+					<string>96</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -15950,13 +15950,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>18</string>
+					<string>21</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>20</string>
+					<string>25</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -16058,13 +16058,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>45</string>
+					<string>47</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>50</string>
+					<string>52</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -16166,7 +16166,7 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>80</string>
+					<string>78</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
@@ -16297,13 +16297,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>18</string>
+					<string>21</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>20</string>
+					<string>24</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -16428,13 +16428,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>45</string>
+					<string>47</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>50</string>
+					<string>52</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -16547,13 +16547,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>22</string>
+					<string>23</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>25</string>
+					<string>27</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -16666,13 +16666,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>22</string>
+					<string>23</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>25</string>
+					<string>27</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -16808,13 +16808,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>50</string>
+					<string>52</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>54</string>
+					<string>56</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -17103,13 +17103,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>50</string>
+					<string>52</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>54</string>
+					<string>56</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -17410,13 +17410,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>30</string>
+					<string>32</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>35</string>
+					<string>36</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -17608,13 +17608,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>55</string>
+					<string>57</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>60</string>
+					<string>63</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -17817,13 +17817,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>65</string>
+					<string>68</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>70</string>
+					<string>72</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -18004,13 +18004,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>85</string>
+					<string>88</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>90</string>
+					<string>94</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -18112,13 +18112,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>12</string>
+					<string>13</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>14</string>
+					<string>16</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -18220,13 +18220,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>32</string>
+					<string>35</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>36</string>
+					<string>40</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -18328,13 +18328,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>65</string>
+					<string>60</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>70</string>
+					<string>68</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -18459,13 +18459,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>12</string>
+					<string>13</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>14</string>
+					<string>16</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -18709,13 +18709,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>50</string>
+					<string>52</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>54</string>
+					<string>56</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -18857,7 +18857,7 @@
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>66</string>
+					<string>68</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -18970,13 +18970,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>40</string>
+					<string>42</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>44</string>
+					<string>46</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -19100,13 +19100,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>22</string>
+					<string>24</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>25</string>
+					<string>27</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -19259,7 +19259,7 @@
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>72</string>
+					<string>74</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -19407,13 +19407,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>46</string>
+					<string>50</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>50</string>
+					<string>55</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -19560,13 +19560,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>55</string>
+					<string>58</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>60</string>
+					<string>64</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -19702,13 +19702,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>85</string>
+					<string>90</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>90</string>
+					<string>95</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -19911,13 +19911,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>76</string>
+					<string>82</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>81</string>
+					<string>86</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -20098,13 +20098,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>86</string>
+					<string>90</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>92</string>
+					<string>96</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -20206,13 +20206,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>23</string>
+					<string>28</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>28</string>
+					<string>32</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -20314,13 +20314,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>40</string>
+					<string>38</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>48</string>
+					<string>45</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -20422,13 +20422,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>55</string>
+					<string>48</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>63</string>
+					<string>55</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -20553,13 +20553,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>32</string>
+					<string>36</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>38</string>
+					<string>42</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -20814,13 +20814,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>40</string>
+					<string>42</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>44</string>
+					<string>46</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -20956,13 +20956,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>85</string>
+					<string>90</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>90</string>
+					<string>95</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -21098,13 +21098,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>64</string>
+					<string>66</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>68</string>
+					<string>72</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -21251,13 +21251,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>42</string>
+					<string>43</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>45</string>
+					<string>47</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -21404,13 +21404,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>90</string>
+					<string>92</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>95</string>
+					<string>96</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -21564,7 +21564,7 @@
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>75</string>
+					<string>76</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -21864,13 +21864,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>32</string>
+					<string>34</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>36</string>
+					<string>37</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -22040,13 +22040,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>85</string>
+					<string>90</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>90</string>
+					<string>95</string>
 				</dict>
 				<dict>
 					<key>audios</key>
@@ -22227,13 +22227,13 @@
 						</dict>
 					</array>
 					<key>pass_count</key>
-					<string>92</string>
+					<string>95</string>
 					<key>pass_time</key>
 					<string>60</string>
 					<key>speed_scale</key>
 					<string>1.2</string>
 					<key>star_count</key>
-					<string>98</string>
+					<string>99</string>
 				</dict>
 			</array>
 		</dict>
