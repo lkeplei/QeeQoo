@@ -39,12 +39,8 @@ static UIViewController* currentModalViewController = nil;
     if ((self = [super init])) {
         gameCenterAvailable = [self isGameCenterAvailable];
         if (gameCenterAvailable) {
-            NSNotificationCenter *nc =
-            [NSNotificationCenter defaultCenter];
-            [nc addObserver:self
-                   selector:@selector(authenticationChanged)
-                       name:GKPlayerAuthenticationDidChangeNotificationName
-                     object:nil];
+            NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+            [nc addObserver:self selector:@selector(authenticationChanged) name:GKPlayerAuthenticationDidChangeNotificationName object:nil];
         }
     }
     return self;
@@ -65,7 +61,48 @@ static UIViewController* currentModalViewController = nil;
     if (!gameCenterAvailable) return;
     NSLog(@"Authenticating local user...");
     if ([GKLocalPlayer localPlayer].authenticated == NO) {
-        [[GKLocalPlayer localPlayer] authenticateWithCompletionHandler:nil];
+//        [[GKLocalPlayer localPlayer] authenticateWithCompletionHandler:nil];
+        
+        
+        
+        [[GKLocalPlayer localPlayer] authenticateWithCompletionHandler:^(NSError *error){
+            if (error == nil) {
+                //成功处理
+                //切换用户时看是否要重新复制Plist文件
+                NSLog(@"成功");
+                NSLog(@"1--alias--.%@",[GKLocalPlayer localPlayer].alias);
+                //            NSLog(@"2--authenticated--.%d",[GKLocalPlayer localPlayer].authenticated);
+                //            NSLog(@"3--isFriend--.%d",[GKLocalPlayer localPlayer].isFriend);
+                NSLog(@"4--playerID--.%@",[GKLocalPlayer localPlayer].playerID);
+                NSLog(@"5--underage--.%d",[GKLocalPlayer localPlayer].underage);
+                //tempPalyID=[GKLocalPlayer localPlayer].playerID;
+            }else {
+                //错误处理
+                NSLog(@"失败  %@",error);
+            }  
+        }];
+        
+        return;
+        
+        [[GKLocalPlayer localPlayer] setAuthenticateHandler:(^(UIViewController* viewcontroller, NSError *error) {
+            if (viewcontroller != nil) {
+//                AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+//                RootViewController* root = (RootViewController*)delegate.viewController;
+//                [root presentViewController:viewcontroller animated:YES completion:nil];
+            }else if ([GKLocalPlayer localPlayer].authenticated)
+            {
+                //do some stuff
+                //成功处理
+                //切换用户时看是否要重新复制Plist文件
+                NSLog(@"成功");
+                NSLog(@"1--alias--.%@",[GKLocalPlayer localPlayer].alias);
+                //            NSLog(@"2--authenticated--.%d",[GKLocalPlayer localPlayer].authenticated);
+                //            NSLog(@"3--isFriend--.%d",[GKLocalPlayer localPlayer].isFriend);
+                NSLog(@"4--playerID--.%@",[GKLocalPlayer localPlayer].playerID);
+                NSLog(@"5--underage--.%d",[GKLocalPlayer localPlayer].underage);
+                //tempPalyID=[GKLocalPlayer localPlayer].playerID;
+            }  
+        })];
     } else {
         NSLog(@"Already authenticated!");
     }

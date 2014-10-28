@@ -38,6 +38,11 @@ AppDelegate::~AppDelegate()
 
 bool AppDelegate::applicationDidFinishLaunching()
 {
+    //GameCenter登陆
+    [[GameKitHelper sharedGameKitHelper] authenticateLocalUser];
+    //    GameCenter::login();
+    
+    
     // initialize director
     CCDirector *pDirector = CCDirector::sharedDirector();
     pDirector->setOpenGLView(CCEGLView::sharedOpenGLView());
@@ -70,7 +75,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 	}
 
     // turn on display FPS
-    pDirector->setDisplayStats(true);
+    pDirector->setDisplayStats(false);
 
     // set FPS. the default value is 1.0/60 if you don't call this
     pDirector->setAnimationInterval(1.0 / 60);
@@ -92,12 +97,6 @@ bool AppDelegate::applicationDidFinishLaunching()
 	GameModle::sharedInstance()->playBackground(K_BG_MUSIC_OUTSIDE_OF_BATTLE);
     
     pDirector->setProjection(kCCDirectorProjection2D);//指定cocos2d为2d模式
-    
-    //GameCenter登陆
-    [[GameKitHelper sharedGameKitHelper] authenticateLocalUser];
-//    GameCenter::login();
-    
-    
     
     //初始友盟统计
     //    [MobClick setCrashReportEnabled:NO]; // 如果不需要捕捉异常，注释掉此行
