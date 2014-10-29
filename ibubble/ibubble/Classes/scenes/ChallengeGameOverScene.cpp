@@ -243,7 +243,7 @@ CCSpriteFrame* setSkill(const int id){
         }
             break;
         case 6:{
-            GameUtilities::saveSkillMultiTouch(GameUtilities::getSkillLargeTouch() + 1);
+            GameUtilities::saveSkillMultiTouch(GameUtilities::getSkillMultiTouch() + 1);
             spriteFrame = gShareCache->spriteFrameByName("skill_multi_touch_btn.png");
         }
             break;
