@@ -4060,7 +4060,7 @@
 				LastUpgradeCheck = 0430;
 				TargetAttributes = {
 					18346198164F70E700C4B4D6 = {
-						DevelopmentTeam = 5BDYTYLTH3;
+						DevelopmentTeam = E3G4N27K8M;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -5230,8 +5230,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xu Ye (E3G4N27K8M)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xu Ye (E3G4N27K8M)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SRCROOT)/ibubble/libs/cocos2dx/platform/third_party/ios/libraries\"",
@@ -5253,8 +5253,8 @@
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1425f930-7b72-4e73-aaef-3d8f20586a18";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1425f930-7b72-4e73-aaef-3d8f20586a18";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "\"ibubble/libs\"";
 				WRAPPER_EXTENSION = app;
@@ -5265,8 +5265,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xu Ye (E3G4N27K8M)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xu Ye (E3G4N27K8M)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SRCROOT)/ibubble/libs/cocos2dx/platform/third_party/ios/libraries\"",
@@ -5287,8 +5287,8 @@
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1425f930-7b72-4e73-aaef-3d8f20586a18";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1425f930-7b72-4e73-aaef-3d8f20586a18";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "\"ibubble/libs\"";
 				VALIDATE_PRODUCT = YES;
