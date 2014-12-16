@@ -10,6 +10,13 @@
 #define ibubble_GameMacros_h
 
 
+#define IsPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)    //是否为pad判断
+
+#define KADIphoneId             @"98f383ea220943db98dfb1bb2fb35d6c"
+#define KADIpadId               @"d5794d2bd6994e63ac0beca13f45833f"
+
+
+
 #define KenLocal(x, ...) NSLocalizedString(x, nil)       //定义国际化使用
 
 
