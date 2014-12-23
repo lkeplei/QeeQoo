@@ -12,30 +12,6 @@
 
 @implementation RootViewController
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-}
-*/
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
- 
-*/
-// Override to allow orientations other than the default portrait orientation.
 // This method is deprecated on ios6
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return UIInterfaceOrientationIsLandscape( interfaceOrientation );
@@ -156,9 +132,9 @@
 }
 
 -(void)removeAd{
-    if (adView) {
-        [adView removeFromSuperview];
-        adView = nil;
+    if (_adView) {
+        [_adView removeFromSuperview];
+        _adView = nil;
     }
 }
 
@@ -183,19 +159,19 @@
     //    } AdViewType;
     
     if (IsPad) {
-        adView = [[AdMoGoView alloc] initWithAppKey:mogoId adType:AdViewTypeLargeBanner adMoGoViewDelegate:self];
+        _adView = [[AdMoGoView alloc] initWithAppKey:mogoId adType:AdViewTypeLargeBanner adMoGoViewDelegate:self];
     } else {
-        adView = [[AdMoGoView alloc] initWithAppKey:mogoId adType:AdViewTypeNormalBanner adMoGoViewDelegate:self];
-        adView.frame = CGRectMake(0.0, self.view.frame.size.height - 50, 320.0, 50.0);
+        _adView = [[AdMoGoView alloc] initWithAppKey:mogoId adType:AdViewTypeNormalBanner adMoGoViewDelegate:self];
+        _adView.frame = CGRectMake(0.0, self.view.frame.size.height - 50, 320.0, 50.0);
     }
-    adView.adWebBrowswerDelegate = self;
-    [self.view addSubview:adView];
+    _adView.adWebBrowswerDelegate = self;
+    [self.view addSubview:_adView];
     
     if ([[UIDevice currentDevice].systemVersion floatValue] >=7.0) {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     
-    [self.view bringSubviewToFront:adView];
+    [self.view bringSubviewToFront:_adView];
 }
 
 /*
@@ -217,9 +193,9 @@
 - (void)adMoGoDidReceiveAd:(AdMoGoView *)adMoGoView{
     NSLog(@"广告接收成功回调");
     if (IsPad) {
-        adView.frame = CGRectOffset(adView.frame,
-                                    ([UIScreen mainScreen].bounds.size.width - adView.frame.size.width) / 2,
-                                    [UIScreen mainScreen].bounds.size.height - adView.frame.size.height);
+        _adView.frame = CGRectOffset(_adView.frame,
+                                    ([UIScreen mainScreen].bounds.size.width - _adView.frame.size.width) / 2,
+                                    [UIScreen mainScreen].bounds.size.height - _adView.frame.size.height);
     }
 }
 /**

@@ -15,9 +15,8 @@
 
 #import "AdMoGoInterstitialDelegate.h"
 
-@interface RootViewController : UIViewController <GKAchievementViewControllerDelegate, AdMoGoDelegate, AdMoGoWebBrowserControllerUserDelegate,AdMoGoInterstitialDelegate>{
-    AdMoGoView* adView;
-}
+@interface RootViewController : UIViewController <GKAchievementViewControllerDelegate, AdMoGoDelegate, AdMoGoWebBrowserControllerUserDelegate,AdMoGoInterstitialDelegate>
+
 @property (nonatomic, strong) AdMoGoView* adView;
 
 -(void)resetAd;
