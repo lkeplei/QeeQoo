@@ -11,6 +11,9 @@
 #include "GameModle.h"
 #include "GameData.h"
 
+#import "AppController.h"
+#import "RootViewController.h"
+
 #define kUnlockidHeadString     @"unlockid_"
 #define kAchievementPass        @"achievement_pass"
 #define kAchievementStar        @"achievement_star"
@@ -321,4 +324,53 @@ int GameUtilities_getRandId(int32_t levelId, bool add){
     }
     
     return level;
+}
+
+void GameUtilities_saveTopScore(int score) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:score] forKey:@"achievement_top_score"];
+    [defaults synchronize];
+}
+
+int GameUtilities_getTopScore() {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    return [[defaults objectForKey:@"achievement_top_score"] intValue];
+}
+
+
+#pragma mark - about ad
+void GameUtilities_resetAd(bool remove) {
+    AppController* delegate = (AppController*)[UIApplication sharedApplication].delegate;
+    RootViewController* root = (RootViewController*)delegate.viewController;
+    [root resetAd:remove];
+}
+
+void GameUtilities_removeAd(bool remove) {
+    AppController* delegate = (AppController*)[UIApplication sharedApplication].delegate;
+    RootViewController* root = (RootViewController*)delegate.viewController;
+    [root removeAd:remove];
+}
+
+void GameUtilities_initFullMogo() {
+    AppController* delegate = (AppController*)[UIApplication sharedApplication].delegate;
+    RootViewController* root = (RootViewController*)delegate.viewController;
+    [root initFullMogo];
+}
+
+void GameUtilities_showFullAd() {
+    AppController* delegate = (AppController*)[UIApplication sharedApplication].delegate;
+    RootViewController* root = (RootViewController*)delegate.viewController;
+    [root showFullAd];
+}
+
+void GameUtilities_cancelFullAd() {
+    AppController* delegate = (AppController*)[UIApplication sharedApplication].delegate;
+    RootViewController* root = (RootViewController*)delegate.viewController;
+    [root cancelFullAd];
+}
+
+void GameUtilities_clearAllAd() {
+    AppController* delegate = (AppController*)[UIApplication sharedApplication].delegate;
+    RootViewController* root = (RootViewController*)delegate.viewController;
+    [root clearAllAd];
 }

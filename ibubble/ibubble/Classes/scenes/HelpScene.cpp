@@ -107,11 +107,16 @@ void HelpScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoader * 
 
 void HelpScene::onEnter(){
 	CCLayer::onEnter();
+    
+    //add ad
+    GameUtilities::resetAd();
 }
 
 void HelpScene::onExit(){
-	
 	CCLayer::onExit();
+    
+    //cancel ad
+    GameUtilities::removeAd();
 }
 
 NS_KAI_END

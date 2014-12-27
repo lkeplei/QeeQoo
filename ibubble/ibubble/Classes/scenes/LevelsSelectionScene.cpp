@@ -465,12 +465,18 @@ void LevelsSelectionScene::onEnter(){
 	}
     CCDirector* pDirector = CCDirector::sharedDirector();
     pDirector->getTouchDispatcher()->addTargetedDelegate(this, kCCMenuHandlerPriority, true);
+    
+    //add ad
+    GameUtilities::resetAd();
 }
 
 void LevelsSelectionScene::onExit(){
 	CCDirector* pDirector = CCDirector::sharedDirector();
     pDirector->getTouchDispatcher()->removeDelegate(this);
 	CCLayer::onExit();
+    
+    //hide ad
+    GameUtilities::removeAd();
 }
 
 #pragma mark-

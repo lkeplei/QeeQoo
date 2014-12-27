@@ -41,7 +41,12 @@ void countScore() {
         
         //上传得分
 //        GameCenter::postScore(KLeaderBoardId, totalRecord);
-        [[GameKitHelper sharedGameKitHelper] reportScore:totalRecord];
+        int topScore = GameUtilities::getTopScore();
+        if (topScore < totalRecord) {
+            topScore = totalRecord;
+            GameUtilities::saveTopScore(topScore);
+        }
+        [[GameKitHelper sharedGameKitHelper] reportScore:topScore];
     }
 }
 

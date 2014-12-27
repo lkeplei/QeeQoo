@@ -368,11 +368,16 @@ void SubLevelsSelectionScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::C
 
 void SubLevelsSelectionScene::onEnter(){
 	CCLayer::onEnter();
+    
+    //add ad
+    GameUtilities::resetAd();
 }
 
 void SubLevelsSelectionScene::onExit(){
-	
 	CCLayer::onExit();
+    
+    //hide ad
+    GameUtilities::removeAd();
 }
 
 NS_KAI_END

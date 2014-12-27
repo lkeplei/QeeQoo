@@ -57,6 +57,18 @@ public:
     
     static void removeSkillInfo();
     
+    //top score
+    static void saveTopScore(int score);
+    static int getTopScore();
+    
+    //about ad
+    static void resetAd(bool remove=false);
+    static void removeAd(bool remove=false);
+    
+    static void initFullMogo();
+    static void showFullAd();
+    static void cancelFullAd();
+    static void clearAllAd();
 };
 
 #endif

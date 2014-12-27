@@ -202,6 +202,13 @@ void GameOverScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoade
     _result_scores->addChild(label);
 	
 	CCLOG("GameOverScene onNodeLoaded~") ;
+    
+    //add ad
+    static int times = 0;
+    times++;
+    if (times % 3 == 1) {
+        GameUtilities::showFullAd();
+    }
 }
 
 void GameOverScene::onEnter(){

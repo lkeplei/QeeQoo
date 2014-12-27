@@ -196,11 +196,16 @@ void ScoresViewScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoa
 
 void ScoresViewScene::onEnter(){
 	CCLayer::onEnter();
+    
+    //add ad
+    GameUtilities::resetAd();
 }
 
 void ScoresViewScene::onExit(){
-	
 	CCLayer::onExit();
+    
+    //cancel ad
+    GameUtilities::removeAd();
 }
 
 NS_KAI_END

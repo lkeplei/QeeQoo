@@ -43,8 +43,12 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (void)viewDidLoad {
+    [self initFullMogo];
+}
 
 - (void)dealloc {
+    _initFullAd = NO;
     [super dealloc];
 }
 
@@ -66,9 +70,14 @@
     [AdMoGoInterstitialManager setRootViewController:self];
     
     [AdMoGoInterstitialManager setDefaultDelegate:self];
+    
+    _initFullAd = YES;
 }
 
 -(void)showFullAd{
+    if (!_initFullAd) {
+        [self initFullMogo];
+    }
     [[AdMoGoInterstitialManager shareInstance] interstitialShow:NO];
 }
 
@@ -127,51 +136,59 @@
 
 #pragma mark - AdMoGoDelegate delegate
 -(void)clearAllAd{
-    [self removeAd];
+    [self removeAd:YES];
     [[AdMoGoInterstitialManager shareInstance] interstitialCancel];
 }
 
--(void)removeAd{
+-(void)removeAd:(BOOL)remove{
     if (_adView) {
-        [_adView removeFromSuperview];
-        _adView = nil;
+        if (remove) {
+            [_adView removeFromSuperview];
+            _adView = nil;
+        } else {
+            [_adView setHidden:YES];
+        }
     }
 }
 
--(void)resetAd{
-    [self removeAd];
-    
-    NSString* mogoId = KADIphoneId;
-    if (IsPad) {
-        mogoId = KADIpadId;
-    }
-    
-    //    typedef enum {
-    //        AdViewTypeUnknown = 0,          //error
-    //        AdViewTypeNormalBanner = 1,     //e.g. 320 * 50 ; 320 * 48  iphone banner
-    //        AdViewTypeLargeBanner = 2,      //e.g. 728 * 90 ; 768 * 110 ipad only
-    //        AdViewTypeMediumBanner = 3,     //e.g. 468 * 60 ; 508 * 80  ipad only
-    //        AdViewTypeRectangle = 4,        //e.g. 300 * 250; 320 * 270 ipad only
-    //        AdViewTypeSky = 5,              //Don't support
-    //        AdViewTypeFullScreen = 6,       //iphone full screen ad
-    //        AdViewTypeVideo = 7,            //Don't support
-    //        AdViewTypeiPadNormalBanner = 8, //ipad use iphone banner
-    //    } AdViewType;
-    
-    if (IsPad) {
-        _adView = [[AdMoGoView alloc] initWithAppKey:mogoId adType:AdViewTypeLargeBanner adMoGoViewDelegate:self];
+-(void)resetAd:(BOOL)remove{
+    if (remove || _adView == nil) {
+        [self removeAd:YES];
+        
+        NSString* mogoId = KADIphoneId;
+        if (IsPad) {
+            mogoId = KADIpadId;
+        }
+        
+        //    typedef enum {
+        //        AdViewTypeUnknown = 0,          //error
+        //        AdViewTypeNormalBanner = 1,     //e.g. 320 * 50 ; 320 * 48  iphone banner
+        //        AdViewTypeLargeBanner = 2,      //e.g. 728 * 90 ; 768 * 110 ipad only
+        //        AdViewTypeMediumBanner = 3,     //e.g. 468 * 60 ; 508 * 80  ipad only
+        //        AdViewTypeRectangle = 4,        //e.g. 300 * 250; 320 * 270 ipad only
+        //        AdViewTypeSky = 5,              //Don't support
+        //        AdViewTypeFullScreen = 6,       //iphone full screen ad
+        //        AdViewTypeVideo = 7,            //Don't support
+        //        AdViewTypeiPadNormalBanner = 8, //ipad use iphone banner
+        //    } AdViewType;
+        
+        if (IsPad) {
+            _adView = [[AdMoGoView alloc] initWithAppKey:mogoId adType:AdViewTypeLargeBanner adMoGoViewDelegate:self];
+        } else {
+            _adView = [[AdMoGoView alloc] initWithAppKey:mogoId adType:AdViewTypeNormalBanner adMoGoViewDelegate:self];
+            _adView.frame = CGRectMake(0.0, self.view.frame.size.height - 50, 320.0, 50.0);
+        }
+        _adView.adWebBrowswerDelegate = self;
+        [self.view addSubview:_adView];
+        
+        if ([[UIDevice currentDevice].systemVersion floatValue] >=7.0) {
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        }
+        
+        [self.view bringSubviewToFront:_adView];
     } else {
-        _adView = [[AdMoGoView alloc] initWithAppKey:mogoId adType:AdViewTypeNormalBanner adMoGoViewDelegate:self];
-        _adView.frame = CGRectMake(0.0, self.view.frame.size.height - 50, 320.0, 50.0);
+       [_adView setHidden:NO];
     }
-    _adView.adWebBrowswerDelegate = self;
-    [self.view addSubview:_adView];
-    
-    if ([[UIDevice currentDevice].systemVersion floatValue] >=7.0) {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
-    
-    [self.view bringSubviewToFront:_adView];
 }
 
 /*

@@ -18,9 +18,10 @@
 @interface RootViewController : UIViewController <GKAchievementViewControllerDelegate, AdMoGoDelegate, AdMoGoWebBrowserControllerUserDelegate,AdMoGoInterstitialDelegate>
 
 @property (nonatomic, strong) AdMoGoView* adView;
+@property (assign) BOOL initFullAd;
 
--(void)resetAd;
--(void)removeAd;
+-(void)resetAd:(BOOL)remove;
+-(void)removeAd:(BOOL)remove;
 
 -(void)initFullMogo;
 -(void)showFullAd;

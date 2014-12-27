@@ -144,11 +144,16 @@ void SettingScene::slidervalueChanged(CCObject * sender, CCControlEvent controlE
 
 void SettingScene::onEnter(){
 	CCLayer::onEnter();
+    
+    //add ad
+    GameUtilities::resetAd();
 }
 
 void SettingScene::onExit(){
-	
 	CCLayer::onExit();
+    
+    //cancel ad
+    GameUtilities::removeAd();
 }
 
 

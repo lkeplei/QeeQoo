@@ -57,6 +57,17 @@ extern void GameUtilities_saveMaxStar(int value);
 
 extern void GameUtilities_removeSkillInfo();
 
+extern void GameUtilities_saveTopScore(int score);
+extern int GameUtilities_getTopScore();
+
+extern void GameUtilities_resetAd(bool remove);
+extern void GameUtilities_removeAd(bool remove);
+extern void GameUtilities_initFullMogo();
+extern void GameUtilities_showFullAd();
+extern void GameUtilities_cancelFullAd();
+extern void GameUtilities_clearAllAd();
+
+
 void GameUtilities::writeDateToFile(const char * aBuffer,const int aBufferLength,const std::string & filepath){
 	GameUtilities_writeDateToFile(aBuffer,aBufferLength,filepath.c_str());
 }
@@ -218,4 +229,37 @@ int GameUtilities::getSkillLargeTouch() {
 
 void GameUtilities::removeSkillInfo() {
     GameUtilities_removeSkillInfo();
+}
+
+void GameUtilities::saveTopScore(int score) {
+    GameUtilities_saveTopScore(score);
+}
+
+int GameUtilities::getTopScore() {
+    return GameUtilities_getTopScore();
+}
+
+//about ad
+void GameUtilities::resetAd(bool remove) {
+    GameUtilities_resetAd(remove);
+}
+
+void GameUtilities::removeAd(bool remove) {
+    GameUtilities_removeAd(remove);
+}
+
+void GameUtilities::initFullMogo() {
+    GameUtilities_initFullMogo();
+}
+
+void GameUtilities::showFullAd() {
+    GameUtilities_showFullAd();
+}
+
+void GameUtilities::cancelFullAd() {
+    GameUtilities_cancelFullAd();
+}
+
+void GameUtilities::clearAllAd() {
+    GameUtilities_clearAllAd();
 }
