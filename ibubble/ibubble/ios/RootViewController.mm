@@ -60,6 +60,10 @@
 #pragma mark - for ad
 #pragma mark - full admogo
 -(void)initFullMogo{
+#ifdef KVersionFull
+    return;
+#endif
+    
     NSString* mogoId = KADIphoneId;
     if (IsPad) {
         mogoId = KADIpadId;
@@ -75,6 +79,10 @@
 }
 
 -(void)showFullAd{
+#ifdef KVersionFull
+    return;
+#endif
+
     if (!_initFullAd) {
         [self initFullMogo];
     }
@@ -82,6 +90,10 @@
 }
 
 -(void)cancelFullAd{
+#ifdef KVersionFull
+    return;
+#endif
+
     [[AdMoGoInterstitialManager shareInstance] interstitialCancel];
 }
 
@@ -136,11 +148,19 @@
 
 #pragma mark - AdMoGoDelegate delegate
 -(void)clearAllAd{
+#ifdef KVersionFull
+    return;
+#endif
+
     [self removeAd:YES];
     [[AdMoGoInterstitialManager shareInstance] interstitialCancel];
 }
 
 -(void)removeAd:(BOOL)remove{
+#ifdef KVersionFull
+    return;
+#endif
+
     if (_adView) {
         if (remove) {
             [_adView removeFromSuperview];
@@ -152,6 +172,10 @@
 }
 
 -(void)resetAd:(BOOL)remove{
+#ifdef KVersionFull
+    return;
+#endif
+
     if (remove || _adView == nil) {
         [self removeAd:YES];
         

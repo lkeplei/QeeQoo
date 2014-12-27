@@ -28,7 +28,8 @@
 #define NS_KAI_END                       }}
 #define USING_NS_KAI                 using namespace kai::game
 
-#define KVersionFull                //付费版本
+//#define KVersionFull                //付费版本
+#define KVersionShop                //内购版本
 //#define KBattleTestModle
 //#define KOpenAllLevels              //开启所有关卡
 

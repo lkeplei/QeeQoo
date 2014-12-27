@@ -11,6 +11,7 @@
 #include "GameModle.h"
 #include "GameConstant.h"
 #include "UiTool.h"
+#import "GameMacros.h"
 
 
 @interface KenConfirmAlert : NSObject<UIAlertViewDelegate>
@@ -121,8 +122,13 @@ void StartupScene::press_tiaozhan()
     if (GameUtilities::getUnlockWithId(10006)) {
         GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeStart);
     } else {
+#ifdef KVersionFull
         KenConfirmAlert *alert = [[KenConfirmAlert alloc] init];
         [alert showAlert:KenLocal(@"lock_achieve")];
+#endif
+        
+#ifdef KVersionShop
+#endif
     }
 }
 
