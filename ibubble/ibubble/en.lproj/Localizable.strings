@@ -10,3 +10,13 @@
 
 "new_game_ask" = "Are you sure you want to start a new game？";
 "lock_achieve" = "Please complete the story mode first.";
+
+
+"purchase_title" = "Purchase";
+"purchase_failed" = "Purchase failed, please try again later.";
+"restore_incomplete" = "Restore purchase failed, please try again later.";
+"restore_failed" = "Restore purchase failed, please try again later.";
+"purchase_content" = "After purchasing the full version of the game will be opened and ads will be removed. Do you want to spend $0.99 on our game?";
+"purchase" = "Purchase";
+"restore" = "Restore";
+"cancel" = "Cancel";

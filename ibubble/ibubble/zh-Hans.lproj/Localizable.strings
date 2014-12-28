@@ -10,3 +10,13 @@
 
 "new_game_ask" = "您确定要开始新游戏吗？";
 "lock_achieve" = "剧情模式通关后开启。";
+
+
+"purchase_title" = "购买提示";
+"purchase_failed" = "购买失败，请稍后再试";
+"restore_incomplete" = "恢复购买失败，请稍后再试";
+"restore_failed" = "恢复购买失败，请稍后再试";
+"purchase_content" = "购买后开启完整版游戏，并去除广告。请问您是否愿意花费￥6.00购买我们的游戏？";
+"purchase" = "购买";
+"restore" = "恢复";
+"cancel" = "取消";

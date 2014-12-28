@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "AdMoGoInterstitialManager.h"
+#import "GameUtilities.h"
 
 
 @implementation RootViewController
@@ -63,6 +64,9 @@
 #ifdef KVersionFull
     return;
 #endif
+    if (GameUtilities::getUnlockWithId(10006)) {
+        return;
+    }
     
     NSString* mogoId = KADIphoneId;
     if (IsPad) {
@@ -82,6 +86,9 @@
 #ifdef KVersionFull
     return;
 #endif
+    if (GameUtilities::getUnlockWithId(10006)) {
+        return;
+    }
 
     if (!_initFullAd) {
         [self initFullMogo];
@@ -93,6 +100,9 @@
 #ifdef KVersionFull
     return;
 #endif
+    if (GameUtilities::getUnlockWithId(10006)) {
+        return;
+    }
 
     [[AdMoGoInterstitialManager shareInstance] interstitialCancel];
 }
@@ -151,6 +161,9 @@
 #ifdef KVersionFull
     return;
 #endif
+    if (GameUtilities::getUnlockWithId(10006)) {
+        return;
+    }
 
     [self removeAd:YES];
     [[AdMoGoInterstitialManager shareInstance] interstitialCancel];
@@ -160,6 +173,9 @@
 #ifdef KVersionFull
     return;
 #endif
+    if (GameUtilities::getUnlockWithId(10006)) {
+        return;
+    }
 
     if (_adView) {
         if (remove) {
@@ -175,6 +191,9 @@
 #ifdef KVersionFull
     return;
 #endif
+    if (GameUtilities::getUnlockWithId(10006)) {
+        return;
+    }
 
     if (remove || _adView == nil) {
         [self removeAd:YES];

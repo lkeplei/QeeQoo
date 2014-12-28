@@ -12,15 +12,34 @@
 #include "GameConstant.h"
 #include "UiTool.h"
 #import "GameMacros.h"
+#import "EBPurchase.h"
 
+#define SUB_PRODUCT_ID @"teamqi.qeeqoo.achieve"
 
-@interface KenConfirmAlert : NSObject<UIAlertViewDelegate>
+typedef void(^PurchCallBackBlock)(void);
+
+@interface KenConfirmAlert : NSObject<EBPurchaseDelegate, UIAlertViewDelegate>
+
+@property (nonatomic, strong) EBPurchase* purchase;
+@property (assign) BOOL isPurchased;
+@property (nonatomic,copy) PurchCallBackBlock purchCallback;
 
 - (void)showAlert:(NSString *)title;
+- (void)requestProduct;
 
 @end
 
 @implementation KenConfirmAlert
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _isPurchased = NO;
+        _purchase = [[EBPurchase alloc] init];
+        _purchase.delegate = self;
+    }
+    return self;
+}
 
 - (void)showAlert:(NSString *)title {
     [[[UIAlertView alloc] initWithTitle:nil
@@ -30,6 +49,64 @@
                       otherButtonTitles:KenLocal(@"app_confirm"), nil] show];
 }
 
+- (void)requestProduct {
+    [_purchase requestProduct:SUB_PRODUCT_ID];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (_purchase.validProduct != nil) {
+        if (buttonIndex == 1){
+            [_purchase purchaseProduct:_purchase.validProduct];
+        } else if (buttonIndex == 2){
+            [_purchase restorePurchase];
+        }
+    }
+}
+
+#pragma mark - SKPayment
+-(void) requestedProduct:(EBPurchase*)ebp identifier:(NSString*)productId name:(NSString*)productName price:(NSString*)productPrice description:(NSString*)productDescription {
+    if (productPrice != nil)    {
+        UIAlertView *unavailAlert = [[UIAlertView alloc] initWithTitle:KenLocal(@"purchase_title")
+                                                               message:[NSString stringWithFormat:KenLocal(@"purchase_content"),
+                                                                        [productPrice floatValue]]
+                                                              delegate:self cancelButtonTitle:KenLocal(@"cancel")
+                                                     otherButtonTitles:KenLocal(@"purchase"), KenLocal(@"restore"), nil];
+        [unavailAlert show];
+    } else {
+        UIAlertView *unavailAlert = [[UIAlertView alloc] initWithTitle:@"Not Available" message:@"This In-App Purchase item is not available in the App Store at this time. Please try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [unavailAlert show];
+    }
+}
+
+-(void)successfulPurchase:(EBPurchase*)ebp identifier:(NSString*)productId receipt:(NSData*)transactionReceipt{
+    if (!_isPurchased){
+        _isPurchased = YES;
+        if (self.purchCallback) {
+            self.purchCallback();
+        }
+    }
+}
+
+-(void)failedPurchase:(EBPurchase*)ebp error:(NSInteger)errorCode message:(NSString*)errorMessage{
+    //@"Either you cancelled the request or Apple reported a transaction error. Please try again later, or contact the app's customer support for assistance."
+    UIAlertView *failedAlert = [[UIAlertView alloc] initWithTitle:KenLocal(@"purchase_title") message:KenLocal(@"purchase_failed")
+                                                         delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [failedAlert show];
+}
+
+-(void)incompleteRestore:(EBPurchase*)ebp{
+    //@"A prior purchase transaction could not be found. To restore the purchased product, tap the Buy button. Paid customers will NOT be charged again, but the purchase will be restored."
+    UIAlertView *restoreAlert = [[UIAlertView alloc] initWithTitle:KenLocal(@"purchase_title") message:KenLocal(@"restore_incomplete")
+                                                          delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [restoreAlert show];
+}
+
+-(void)failedRestore:(EBPurchase*)ebp error:(NSInteger)errorCode message:(NSString*)errorMessage{
+    //@"Either you cancelled the request or your prior purchase could not be restored. Please try again later, or contact the app's customer support for assistance."
+    UIAlertView *failedAlert = [[UIAlertView alloc] initWithTitle:KenLocal(@"purchase_title") message:KenLocal(@"restore_failed")
+                                                         delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [failedAlert show];
+}
 @end
 
 
@@ -122,12 +199,19 @@ void StartupScene::press_tiaozhan()
     if (GameUtilities::getUnlockWithId(10006)) {
         GameController::sharedInstance()->switchSence(GameController::K_SCENE_ChallengeStart);
     } else {
-#ifdef KVersionFull
         KenConfirmAlert *alert = [[KenConfirmAlert alloc] init];
+#ifdef KVersionFull
         [alert showAlert:KenLocal(@"lock_achieve")];
 #endif
         
 #ifdef KVersionShop
+        [alert requestProduct];
+        
+        alert.purchCallback = ^(void){
+            GameUtilities::clearAllAd();
+            GameUtilities::saveUnlockWithId(10006);
+            _achieve_lock_sprite->setVisible(false);
+        };
 #endif
     }
 }

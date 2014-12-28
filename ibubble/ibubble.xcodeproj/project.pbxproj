@@ -79,6 +79,7 @@
 		047BB1B11A49B32000586E30 /* MediaToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047BB1B01A49B32000586E30 /* MediaToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		047BB1B31A49B33F00586E30 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047BB1B21A49B33F00586E30 /* Security.framework */; };
 		047BB1B51A49B3B900586E30 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047BB1B41A49B3B900586E30 /* MobileCoreServices.framework */; };
+		047BB1B81A4F9D8700586E30 /* EBPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BB1B71A4F9D8700586E30 /* EBPurchase.m */; };
 		047FB6F119BF2DB300FC71EF /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 047FB6F019BF2DB300FC71EF /* config.plist */; };
 		047FB72019BF30AF00FC71EF /* reward_level_1_locked.png in Resources */ = {isa = PBXBuildFile; fileRef = 047FB72219BF30AF00FC71EF /* reward_level_1_locked.png */; };
 		047FB72319BF30B600FC71EF /* reward_level_1_unlocked.png in Resources */ = {isa = PBXBuildFile; fileRef = 047FB72519BF30B600FC71EF /* reward_level_1_unlocked.png */; };
@@ -1122,6 +1123,8 @@
 		047BB1B01A49B32000586E30 /* MediaToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaToolbox.framework; path = System/Library/Frameworks/MediaToolbox.framework; sourceTree = SDKROOT; };
 		047BB1B21A49B33F00586E30 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		047BB1B41A49B3B900586E30 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		047BB1B61A4F9D8700586E30 /* EBPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPurchase.h; sourceTree = "<group>"; };
+		047BB1B71A4F9D8700586E30 /* EBPurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPurchase.m; sourceTree = "<group>"; };
 		047FB6F019BF2DB300FC71EF /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config.plist; path = Resources/ipad/config.plist; sourceTree = "<group>"; };
 		047FB72119BF30AF00FC71EF /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/reward_level_1_locked.png; sourceTree = "<group>"; };
 		047FB72419BF30B600FC71EF /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/reward_level_1_unlocked.png; sourceTree = "<group>"; };
@@ -2746,6 +2749,8 @@
 		046CD0E3197A069A00630062 /* tools */ = {
 			isa = PBXGroup;
 			children = (
+				047BB1B61A4F9D8700586E30 /* EBPurchase.h */,
+				047BB1B71A4F9D8700586E30 /* EBPurchase.m */,
 				04067F2B19F017C700AD45C0 /* GameKitHelper.h */,
 				04067F2C19F017C700AD45C0 /* GameKitHelper.m */,
 				046CD0E4197A069A00630062 /* GameCenter.h */,
@@ -5165,7 +5170,7 @@
 				LastUpgradeCheck = 0430;
 				TargetAttributes = {
 					18346198164F70E700C4B4D6 = {
-						DevelopmentTeam = E3G4N27K8M;
+						DevelopmentTeam = 5BDYTYLTH3;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -6050,6 +6055,7 @@
 				FB34F18C181FFE2000FD0897 /* jidctflt.c in Sources */,
 				18346487164F70EB00C4B4D6 /* b2ChainAndCircleContact.cpp in Sources */,
 				1834648A164F70EB00C4B4D6 /* b2ChainAndPolygonContact.cpp in Sources */,
+				047BB1B81A4F9D8700586E30 /* EBPurchase.m in Sources */,
 				FB34F175181FFE2000FD0897 /* jcsample.c in Sources */,
 				FB34F105181FFE1F00FD0897 /* dlmalloc.c in Sources */,
 				1834648D164F70EB00C4B4D6 /* b2CircleContact.cpp in Sources */,
@@ -6540,8 +6546,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "872eed55-5937-4da0-8ab6-84879f79b385";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "872eed55-5937-4da0-8ab6-84879f79b385";
 				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "\"ibubble/libs\"";
 				VALID_ARCHS = "armv7 armv7s";
@@ -6593,8 +6599,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "872eed55-5937-4da0-8ab6-84879f79b385";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "872eed55-5937-4da0-8ab6-84879f79b385";
 				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "\"ibubble/libs\"";
 				VALIDATE_PRODUCT = YES;
