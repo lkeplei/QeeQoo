@@ -198,7 +198,7 @@ void ScoresViewScene::onEnter(){
 	CCLayer::onEnter();
     
     //add ad
-    GameUtilities::resetAd();
+    GameUtilities::resetAd(true);
 }
 
 void ScoresViewScene::onExit(){

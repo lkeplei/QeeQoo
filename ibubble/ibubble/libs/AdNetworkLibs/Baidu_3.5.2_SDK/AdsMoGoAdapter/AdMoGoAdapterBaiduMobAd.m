@@ -69,7 +69,7 @@
     
     sBaiduAdview = [[BaiduMobAdView alloc] init] ;
     sBaiduAdview.hidden = YES;
-    //    sBaiduAdview.autoplayEnabled = NO;
+        sBaiduAdview.autoplayEnabled = NO;
     sBaiduAdview.frame = CGRectMake(0.0,0.0,size.width,size.height);
     MGLog(AdMoGoLogTemp, @"baidu version %@",sBaiduAdview.Version);
     
@@ -168,7 +168,7 @@
  *  广告将要被载入
  */
 -(void) willDisplayAd:(BaiduMobAdView*) adview {
-    MGLog(MGT,@"baidu adapter is %@",self);
+    MGLog(MGT,@"willDisplayAd baidu adapter is %@",self);
     [self stopTimer];
 //    adview.hidden = NO;
     [adMoGoCore adapter:self didGetAd:@"baidu"];
@@ -206,7 +206,7 @@
  *  广告载入失败
  */
 -(void) failedDisplayAd:(BaiduMobFailReason) reason {
-    MGLog(MGT,@"baidu adapter is %@",self);
+    MGLog(MGT,@"failedDisplayAd reason is %d",reason);
     if (isStop) {
         return;
     }

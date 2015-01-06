@@ -253,9 +253,7 @@
 - (void)adMoGoDidReceiveAd:(AdMoGoView *)adMoGoView{
     NSLog(@"广告接收成功回调");
     if (IsPad) {
-        _adView.frame = CGRectOffset(_adView.frame,
-                                    ([UIScreen mainScreen].bounds.size.width - _adView.frame.size.width) / 2,
-                                    [UIScreen mainScreen].bounds.size.height - _adView.frame.size.height);
+        [adMoGoView setViewPointType:AdMoGoViewPointTypeDown_middle];
     }
 }
 /**

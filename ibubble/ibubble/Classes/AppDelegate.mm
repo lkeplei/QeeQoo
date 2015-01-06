@@ -104,9 +104,9 @@ bool AppDelegate::applicationDidFinishLaunching()
     [MobClick setAppVersion:XcodeAppVersion]; //参数为NSString * 类型,自定义app版本信息，如果不设置，默认从CFBundleVersion里取
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        [MobClick startWithAppkey:@"5419176f56240bc9d10069fb"];
+        [MobClick startWithAppkey:@"54a0ae17fd98c55e35001726"];
     } else {
-        [MobClick startWithAppkey:@"53bcd00d56240b0c1b01f0c4"];
+        [MobClick startWithAppkey:@"54a0ae17fd98c55e35001726"];
     }
     
     return true;

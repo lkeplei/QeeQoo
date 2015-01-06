@@ -196,6 +196,9 @@ void BattleControllerLayer::showMenu(bool animation){
     else{
         _cur_menu_node->setPositionX(_startPos.x);
     }
+    
+    //show full ad
+    GameUtilities::showFullAd();
 }
 
 void BattleControllerLayer::hideMenu(bool animation){
@@ -209,6 +212,9 @@ void BattleControllerLayer::hideMenu(bool animation){
     else{
         _cur_menu_node->setPositionX(_startPos.x - _cur_menu_node->getContentSize().width);
     }
+    
+    //show full ad
+    GameUtilities::cancelFullAd();
 }
 
 void BattleControllerLayer::press_restart()

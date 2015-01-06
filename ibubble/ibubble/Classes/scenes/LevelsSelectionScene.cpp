@@ -467,7 +467,7 @@ void LevelsSelectionScene::onEnter(){
     pDirector->getTouchDispatcher()->addTargetedDelegate(this, kCCMenuHandlerPriority, true);
     
     //add ad
-    GameUtilities::resetAd();
+    GameUtilities::resetAd(true);
 }
 
 void LevelsSelectionScene::onExit(){

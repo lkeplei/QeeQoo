@@ -12,8 +12,8 @@
 
 #define IsPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)    //是否为pad判断
 
-#define KADIphoneId             @"98f383ea220943db98dfb1bb2fb35d6c"
-#define KADIpadId               @"d5794d2bd6994e63ac0beca13f45833f"
+#define KADIphoneId             @"66b8e29569764e8b99c331055c818ec4"
+#define KADIpadId               @"66b8e29569764e8b99c331055c818ec4"
 
 
 

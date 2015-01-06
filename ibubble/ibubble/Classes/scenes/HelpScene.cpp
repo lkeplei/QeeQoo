@@ -109,7 +109,7 @@ void HelpScene::onEnter(){
 	CCLayer::onEnter();
     
     //add ad
-    GameUtilities::resetAd();
+    GameUtilities::resetAd(true);
 }
 
 void HelpScene::onExit(){

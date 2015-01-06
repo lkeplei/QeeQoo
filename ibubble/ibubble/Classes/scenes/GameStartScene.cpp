@@ -180,14 +180,14 @@ void GameStartScene::onEnter(){
 	CCLayer::onEnter();
     
     //add ad
-    GameUtilities::resetAd();
+//    GameUtilities::resetAd(true);
 }
 
 void GameStartScene::onExit(){
 	CCLayer::onExit();
     
     //hide ad
-    GameUtilities::removeAd();
+//    GameUtilities::removeAd();
 }
 
 NS_KAI_END

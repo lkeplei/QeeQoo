@@ -146,7 +146,7 @@ void SettingScene::onEnter(){
 	CCLayer::onEnter();
     
     //add ad
-    GameUtilities::resetAd();
+    GameUtilities::resetAd(true);
 }
 
 void SettingScene::onExit(){
