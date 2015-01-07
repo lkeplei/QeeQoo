@@ -111,6 +111,9 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
                 } else {
                     controller->switchSence(GameController::K_SCENE_SUCCESS);
                 }
+                
+                //解锁奖励-挑战
+                GameData::Instance().unlockAchievement();
 			} else if(gModleInstance->getBattleTouchTimes() > 0 &&
 					gModleInstance->getBattleTouchTimes() >= gModleInstance->getBattleTouchMaxTimes() ){
 				
@@ -119,10 +122,10 @@ bool BattleAIScript::runScript(GameObject * aGameObject,CCDictionary * dic,float
 				controller->pauseBattle();
 				achievement._failed=true;
 				controller->switchSence(GameController::K_SCENE_FAILED);
+                
+                //解锁奖励-挑战
+                GameData::Instance().unlockAchievement();
             }
-            
-            //解锁奖励-挑战
-            GameData::Instance().unlockAchievement();
 		}
 	}
 	

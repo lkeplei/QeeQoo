@@ -297,7 +297,7 @@ void ChallengeGameOverScene::setStep(bool first){
         if (GameUtilities::getSkillLife() <= 0) {
             show(6);
         } else {
-            if (gModleInstance->currentHardLevelId() >= 29) {
+            if (gModleInstance->currentHardLevelId() > 29) {
                 if (achievement._killNpcCount >= achievement._pass_count) {
                     show(7);
                 } else {
