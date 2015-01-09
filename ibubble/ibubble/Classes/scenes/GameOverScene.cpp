@@ -206,7 +206,7 @@ void GameOverScene::onNodeLoaded(CCNode * pNode, cocos2d::extension::CCNodeLoade
     //add ad
     static int times = 0;
     times++;
-    if (times % 3 == 1) {
+    if (times % 5 == 1) {
         GameUtilities::showFullAd();
     }
 }

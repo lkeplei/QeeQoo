@@ -31,8 +31,8 @@ static AppDelegate s_sharedApplication;
     // Add the view controller's view to the window and display.
     window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
     EAGLView *__glView = [EAGLView viewWithFrame: [window bounds]
-                                     pixelFormat: kEAGLColorFormatRGBA8
-                                     depthFormat: GL_DEPTH_COMPONENT16
+                                     pixelFormat: kEAGLColorFormatRGB565
+                                     depthFormat: GL_DEPTH24_STENCIL8_OES
                               preserveBackbuffer: NO
                                       sharegroup: nil
                                    multiSampling: NO
@@ -42,7 +42,7 @@ static AppDelegate s_sharedApplication;
     viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
     viewController.wantsFullScreenLayout = YES;
     viewController.view = __glView;
-
+    
     // Set RootViewController to window
     if ( [[UIDevice currentDevice].systemVersion floatValue] < 6.0)
     {
@@ -57,7 +57,7 @@ static AppDelegate s_sharedApplication;
     
     [window makeKeyAndVisible];
 
-    [[UIApplication sharedApplication] setStatusBarHidden: YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:true];
 
     cocos2d::CCApplication::sharedApplication()->run();
     return YES;
